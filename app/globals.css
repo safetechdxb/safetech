@@ -1,26 +1,84 @@
 @import "tailwindcss";
+@font-face {
+  font-family: 'SuisseIntl';
+  src: url('../public/assets/fonts/SuisseIntl/03d5b20d124cd26dc873bd4a8e42313e.woff2') format('woff2'),
+       url('../public/assets/fonts/SuisseIntl/03d5b20d124cd26dc873bd4a8e42313e.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SuisseIntl';
+  src: url('../public/assets/fonts/SuisseIntl/88f10bf18a36407ef36bf30bc25a3618.woff2') format('woff2'),
+       url('../public/assets/fonts/SuisseIntl/88f10bf18a36407ef36bf30bc25a3618.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SuisseIntl';
+  src: url('../public/assets/fonts/SuisseIntl/c446362802681bacaacbad0f39bfc1a5.woff2') format('woff2'),
+       url('../public/assets/fonts/SuisseIntl/c446362802681bacaacbad0f39bfc1a5.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SuisseIntl';
+  src: url('../public/assets/fonts/SuisseIntl/653d9381828e9577fb1e417dc047f89d.woff2') format('woff2'),
+       url('../public/assets/fonts/SuisseIntl/653d9381828e9577fb1e417dc047f89d.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SuisseIntl';
+  src: url('../public/assets/fonts/SuisseIntl/d1a580023d40c546276decde1c711e60.woff2') format('woff2'),
+       url('../public/assets/fonts/SuisseIntl/d1a580023d40c546276decde1c711e60.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-suisse: 'SuisseIntl', "sans-serif"; 
+  --font-sans: var(--font-suisse);
+  --font-mono: var(--font-suisse);
 }
+
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-suisse: var(--font-suisse) ;
+
+  --text-2xl: clamp(2.5rem, 5vw, 3.75rem); /* 40px - 60px */
+  --text-xl: clamp(2rem, 4.5vw, 3.4375rem); /* 32px - 55px */
+  --text-lg: clamp(1.5rem, 3vw, 1.875rem); /* 24px - 30px */
+  --text-sm: clamp(1rem, 2vw, 1.125rem); /* 16px - 18px */
+  --text-xs: clamp(0.875rem, 1.8vw, 1.0625rem); /* 14px - 17px */
+  --text-25: clamp(1.2rem, 3vw, 1.563rem);
+  --text-40: clamp(1.8rem, 3vw, 2.5rem);
+
+  --breakpoint-2xl: 101.875rem;
+/*   --container-2xl: 95rem; */
+
+}
+.container {
+  @apply px-[15px] mx-auto;
+}
+.pb-150 {
+  @apply pb-[50px] lg:pb-[60px] xl:pb-[80px] 2xl:pb-[150px];
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #000;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-suisse);
+  font-weight: 300;
 }
