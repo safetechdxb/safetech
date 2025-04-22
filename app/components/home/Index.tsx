@@ -1,10 +1,27 @@
 import React from 'react'
 import HeroSlider from './Banner'
+import OurCompany from './OurCompany'
+import ProductSlider from './ProductSlider'
+import Sustainability from './Sustainability'
+import OurClients from './OurClients'
+import HomNumberSec from './HomNumber'
+import NewsBlockSec from './NewsBlockSec'
+import { newsEvents } from './data'
 
 const Index = () => {
+  const latestNews = (newsEvents || [])
+    .filter((item) => item.type === "news")
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3);
   return (
     <>
         <HeroSlider/>
+        <OurCompany/>
+        <ProductSlider/>
+        <Sustainability/>
+        <OurClients/>
+        <HomNumberSec/>
+        <NewsBlockSec latestNews={latestNews} />
     </>
   )
 }
