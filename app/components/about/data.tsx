@@ -1,3 +1,5 @@
+import { title } from "process"
+
 export const aboutMainDesc = {
   title: "Our Company",
   subTitle: "Safe Tech Precast ",
@@ -6,3 +8,18 @@ export const aboutMainDesc = {
   desc2: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ctetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.",
   mainImg: "/assets/img/about/about-main.jpg",
 }
+
+export const visionMission = [
+  {
+    id: 1,
+    icon: "/assets/img/icons/vision.svg",
+    title: "Our Vision",
+    desc: "To revolutionize the construction industry through advanced precast technology, setting new standards for efficiency, durability, and design excellence.",
+  },
+  {
+    id: 2,
+    icon: "/assets/img/icons/mission.svg",
+    title: "Our Mission",
+    desc: "To be a leader in the precast concrete industry, providing innovative and sustainable solutions that enhance the built environment while prioritizing safety, quality, and customer satisfaction.",
+  },
+]

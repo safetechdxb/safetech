@@ -68,6 +68,9 @@
   --secondary:#1e1e1e;
   --secondary-foreground: oklch(0.205 0 0);
   --light-gray: #e4e5e4;
+  --exlight-gray: #f4f4f4;
+  --off-white: oklch(0.9458 0.0017 142.85);
+
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
@@ -89,7 +92,6 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --off-white: oklch(0.9458 0.0017 142.85);
 }
 
 @theme inline {
@@ -135,6 +137,7 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-off-white: var(--off-white);
   --color-light-gray: var(--light-gray);
+  --color-exlight-gray: var(--exlight-gray);
   /* colors end */
 
 
