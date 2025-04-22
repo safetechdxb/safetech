@@ -32,7 +32,7 @@ const Footer = () => {
               <p className="text-white text-16 leading-[1.3] font-normal ">Safe Tech Precast <br />
                 Building Manufacturing LLC <br />
                 National Industries Park, <br />
-                PO Box 18337 <br />
+                PO Box 18337 <br /> 
                 Dubai, UAE</p>
             </div>
             <div className="group/box">
