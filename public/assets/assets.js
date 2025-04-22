@@ -1,5 +1,6 @@
 import logo from './img/logo.svg';
 import arrowTopRight from './img/icons/arrow-top-right.svg';
+import AchievementsBg from './img/about/achievements-bg.jpg';
 import Leaf from './img/icons/leaf-i.svg';
 import forestBg from './img/forest-bg.jpg';
 import banner01 from './img/banner/001.jpg'
@@ -28,5 +29,6 @@ export const assets = {
     instagram,
     linkedin,
     youtube,
-    aboutBnr
+    aboutBnr,
+    AchievementsBg,
 }
