@@ -24,8 +24,8 @@ const Footer = () => {
             <div>
               <h3 className="text-white text-18 font-bold uppercase mb-8">Connect</h3>
               <ul className="flex flex-col gap-4">
-                <li className="text-white flex gap-2 items-center"><span className="text-primary  "><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Call Us</Link></li>
-                <li className="text-white flex gap-2 items-center"><span className="text-primary  "><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Enquiry Form</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Call Us</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Enquiry Form</Link></li>
               </ul>
             </div>
             <div>
@@ -39,28 +39,28 @@ const Footer = () => {
             <div>
               <h3 className="text-white text-18 font-bold uppercase mb-8">Products</h3>
               <ul className="flex flex-col gap-4">
-                <li className="text-white flex gap-2 items-center"><span className="text-primary">
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
                   <ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Precast</Link></li>
-                <li className="text-white flex gap-2 items-center"><span className="text-primary">
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
                   <ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Prestress</Link></li>
-                <li className="text-white flex gap-2 items-center"><span className="text-primary">
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
                   <ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Hollow Core</Link></li>
-                <li className="text-white flex gap-2 items-center"><span className="text-primary">
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
                   <ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Troughs</Link></li>
-                <li className="text-white flex gap-2 items-center"><span className="text-primary">
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
                   <ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">GRC</Link></li>
-                <li className="text-white flex gap-2 items-center"><span className="text-primary">
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
                   <ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Steel Reinforcement</Link></li>
-                <li className="text-white flex gap-2 items-center"><span className="text-primary">
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
                   <ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Modular Prefeb</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="text-white text-18 font-bold uppercase mb-8">Legal</h3>
               <ul className="flex flex-col gap-4">
-                <li className="text-white flex gap-2 items-center"><span className="text-primary  "><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">About Us</Link></li>
-                <li className="text-white flex gap-2 items-center"><span className="text-primary  "><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">News</Link></li>
-                <li className="text-white flex gap-2 items-center"><span className="text-primary  "><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Careers</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">About Us</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">News</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Careers</Link></li>
               </ul>
             </div>
             <div>
