@@ -5,7 +5,7 @@ import { ChevronRight, MoveRight } from 'lucide-react';
 import { Facebook,Linkedin,Instegram,youtube } from 'lucide-solid';
 const Footer = () => {
   return (
-    <footer className="bg-secondary py-[140px] border-t-4 border-t-primary px-0">
+    <footer className="bg-secondary pt-[140px] border-t-4 border-t-primary px-0">
       <div className="container mx-auto py-4">
         <div className="flex gap-4">
           <div className="flex flex-col w-1/3">
@@ -81,13 +81,13 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="border-t border-white">
+      <div className="border-t border-white/10 mt-15 py-10">
         <div className="container">
-          <div className="flex justify-between">
-            <p>2024 Safetech. All Rights reserved</p>
+          <div className="flex justify-between items-center">
+            <p className="text-white">2024 Safetech. All Rights reserved</p>
             <ul className="flex gap-4">
-              <li><Link href="#" className="border-r border-white/10 last:border-none">Privacy policy</Link></li>
-              <li><Link href="#" className="border-r border-white/10 last:border-none">Terms of use</Link></li>
+              <li><Link href="#" className="border-r border-white/10 text-white last:border-none">Privacy policy</Link></li>
+              <li><Link href="#" className="border-r border-white/10 text-white last:border-none">Terms of use</Link></li>
             </ul>
           </div>
         </div>
