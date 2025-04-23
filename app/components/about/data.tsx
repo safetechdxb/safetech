@@ -1,4 +1,4 @@
-import { title } from "process"
+
 
 export const aboutMainDesc = {
   title: "Our Company",
