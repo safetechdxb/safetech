@@ -14,7 +14,9 @@ import facebook from './img/icons/facebook.svg';
 import instagram from './img/icons/instagram.svg';
 import linkedin from './img/icons/linkedin.svg';
 import youtube from './img/icons/youtube.svg';
+import sp from './img/structural-products/sp.jpg';
 export const assets = {
+    sp,
     logo,
     arrowTopRight,
     Leaf,
