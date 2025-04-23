@@ -35,6 +35,12 @@ const ImageText: React.FC<PlatformsSectionProps> = ({ data }) => {
                       className="w-full h-auto object-cover"
                     />
                   </figure>
+                  <div className="absolute bottom-[-15px] right-0 lg:right-[auto] lg:bottom-[-40px] lg:left-0">
+                <div className="w-10 h-20 bg-white relative z-20 group">
+                  <div className="w-10 h-10 bg-black absolute top-0 left-0 "></div>
+                  <div className="w-10 h-10 bg-primary absolute top-0 left-0 group-hover:top-[50%] transition-all duration-200"></div>
+                </div>
+              </div>
                 </div>
               ))}
             </div>
