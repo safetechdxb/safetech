@@ -5,6 +5,8 @@ import Leaf from './img/icons/leaf-i.svg';
 import forestBg from './img/forest-bg.jpg';
 import banner01 from './img/banner/001.jpg'
 import aboutBnr from './img/banner/about-bnr.jpg';
+import blogBnr from './img/banner/blog-bnr.jpg';
+import newsBnr from './img/banner/news-bnr.jpg';
 import OurCompany from './img/our-company.jpg';
 import Product1 from './img/products/precast.jpg';
 import Product2 from './img/products/prestress.jpg';
@@ -14,7 +16,13 @@ import facebook from './img/icons/facebook.svg';
 import instagram from './img/icons/instagram.svg';
 import linkedin from './img/icons/linkedin.svg';
 import youtube from './img/icons/youtube.svg';
+import facebookPrimary from './img/icons/facebook-primary.svg';
+import instagramPrimary from './img/icons/instagram-primary.svg';
+import linkedinPrimary from './img/icons/linkedin-primary.svg';
+import sharePrimary from './img/icons/share-primary.svg';
 import sp from './img/structural-products/sp.jpg';
+import technologyIcon from './img/icons/technology-icon.svg';
+import calenderPrimary from './img/icons/calender-primary.svg';
 export const assets = {
     sp,
     logo,
@@ -31,6 +39,14 @@ export const assets = {
     instagram,
     linkedin,
     youtube,
+    facebookPrimary,
+    instagramPrimary,
+    linkedinPrimary,
     aboutBnr,
+    blogBnr,
+    newsBnr,
     AchievementsBg,
+    technologyIcon,
+    calenderPrimary,
+    sharePrimary,
 }

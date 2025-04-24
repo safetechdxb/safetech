@@ -12,7 +12,7 @@ const OurCompany = () => {
               <SubTitle titleText="Our Company" color="text-secondary" />
             </div>
             <p className="font-20 font-medium text-secondary opacity-75">At Safe Tech, we recognize the importance of customized solutions for various project types. Whether it&apos;s commercial spaces, residential developments, industrial facilities, accommodations, or boundary walls, we are committed to meeting the specific requirements of each project. Our team takes pride in contributing to a diverse range of developments, ensuring that every construction is built to last and enhances the spaces where people live, work, and thrive. </p>
-            <ArrowBtn btnText="About Us" />
+            <ArrowBtn btnText="About Us" btnLInk="#" />
             <div>
               <div className="bg-secondary w-[20em] h-[40px] relative group">
                 <div className="absolute top-0 right-0 w-[80px] h-[40px] bg-white group ">
