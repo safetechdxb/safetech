@@ -1,4 +1,5 @@
 import { numberSvgs } from "./data";
+import Image from "next/image"
 const HomNumberSec = () => {
   return (
     <section className='pt-[140px] mb-5 bg-secondary'>
@@ -12,14 +13,14 @@ const HomNumberSec = () => {
         {numberSvgs.map((item, index) => (
           <div key={index} className="flex flex-col justify-between h-[40em] py-10 border-r border-white/10 last:border-r-0 overflow-hidden relative group transition-all duration-300">
             <div className="absolute inset-0 opacity-0 group-hover:opacity-20 z-[1]" >
-              <img src={item.bg} alt="" className="object-cover w-full h-full absolute top-0 left-0 " />
+              <Image src={item.bg} alt="" width={400} height={400} className="object-cover w-full h-full absolute top-0 left-0 " />
             </div>
             {/* <img src={item.svg} alt="" className="object-contain w-fit h-[80px] md:h-[100px]" /> */}
             <div className="relative w-fit flex justify-center items-center z-10">
-              <img src={item.svg} alt="" className="object-contain w-fit group-hover:opacity-0 transition-opacity duration-300" />
+              <Image src={item.svg} alt="" width={60} height={60} className="object-contain w-fit group-hover:opacity-0 transition-opacity duration-300" />
 
               {/* Filled SVG (only visible on hover) */}
-              <img src={item.svgfill} alt="" className="object-contain w-full h-full absolute top-0 left-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
+              <Image src={item.svgfill} alt="" width={60} height={60} className="object-contain w-full h-full absolute top-0 left-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
             </div>
             <div className="reltive z-10 px-4 lg:px-[32px]">
               <h3 className="text-white text-22 uppercase font-semibold absolute left-4 lg:left-[32px] bottom-10 group-hover:bottom-32 z-20 duration-300 transition-all">

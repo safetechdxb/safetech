@@ -70,6 +70,7 @@
   --light-gray: #e4e5e4;
   --exlight-gray: #f4f4f4;
   --off-white: oklch(0.9458 0.0017 142.85);
+  --tm-gray:#7f7f7f;
 
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -124,10 +125,12 @@
   /* ~24px */
   --text-32: clamp(1.8rem, 1.5rem + 0.5vw, 2rem);
   /* ~32px */
-  --text-48: clamp(2.1rem, 2rem + 1vw, 3rem);
+  --text-48: clamp(2rem, 1.5rem + 2vw, 48px);
   /* ~48px */
   --text-52: clamp(2.5rem, 2rem + 1vw, 3.25rem);
   /* ~52px */
+  --text-64: clamp(3rem, 2.5rem + 1.5vw, 4rem);
+  /* ~64px */
   --text-96: clamp(4rem, 3rem + 2vw, 6rem);
   /* ~96px */
 
@@ -140,6 +143,7 @@
   --color-off-white: var(--off-white);
   --color-light-gray: var(--light-gray);
   --color-exlight-gray: var(--exlight-gray);
+  --color-tm-gray: var(--tm-gray);
   /* colors end */
 
 

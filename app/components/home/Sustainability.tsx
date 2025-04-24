@@ -33,7 +33,7 @@ const Sustainability = () => {
             </li>
           </ul>
           <div className="brightness-0 invert">
-            <ArrowBtn btnText="More About Sustainability" />
+            <ArrowBtn btnText="More About Sustainability" btnLInk="#" />
           </div>
           </div>
         </div>
