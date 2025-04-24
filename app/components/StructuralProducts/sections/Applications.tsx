@@ -5,6 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import SubTitle from "../../common/SubTitle";
 import Image, { StaticImageData } from "next/image";
 import { assets } from "@/public/assets/assets";
+import { motion } from "framer-motion";
 
 interface PlatformsItem {
   id: number;
@@ -17,6 +18,19 @@ interface PlatformsItem {
 interface PlatformsSectionProps {
   data: PlatformsItem[];
 }
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.1, // delay between items
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -20 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
+};
 const categories = ["HIgh-rise buildings", "Residential villas", "commercial complexes", "industrial facilities"];
 
 const Applications: React.FC<PlatformsSectionProps> = ({ data }) => {
@@ -40,9 +54,18 @@ const Applications: React.FC<PlatformsSectionProps> = ({ data }) => {
           {!isMobile ? (
             // Tabs (desktop)
             <div className="  border-b border-[#1E1E1E66] mb-5 lg:mb-[80px]">
-            <div className="flex  items-center  ">
-              {categories.map((category) => (
-                <div className="flex gap-[16px] items-center "  key={category}>
+              <motion.div
+    className="flex items-center"
+    variants={containerVariants}
+    initial="hidden"
+    animate="show"
+  >
+                {categories.map((category) => (
+                <motion.div
+                        key={category}
+                        variants={itemVariants}
+                        className="flex gap-[16px] items-center"
+                      >
                   <p
 
                   className={` select-none text-14 font-[600] pb-[10px] border-b relative top-0.5 ${
@@ -53,9 +76,10 @@ const Applications: React.FC<PlatformsSectionProps> = ({ data }) => {
                   {category}
                 </p>
                 <p className="pb-[10px] mr-[16px] text-[#1E1E1E33]">|</p>
-                </div>
+
+            </motion.div>
               ))}
-            </div>
+            </motion.div>
             </div>
           ) : (
             // Accordions (mobile)

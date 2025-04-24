@@ -44,7 +44,7 @@ const MoreProducts = () => {
   const prevRef = useRef(null)
   const nextRef = useRef(null)
   return (
-    <section className="py-[140px] bg-off-white overflow-hidden">
+    <section className="py-[50px] md:py-[70px] xl:py-[140px] bg-off-white overflow-hidden">
       <div className="container overflow-visible">
         <div className="flex align-center justify-between gap-[3em] relative mb-[90px]">
           <SubTitle titleText="More PRODUCTS" color="text-secondary" />
