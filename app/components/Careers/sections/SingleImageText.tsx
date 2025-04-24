@@ -34,7 +34,7 @@ const SingleImageText: React.FC<PlatformsSectionProps> = ({
     exit: { opacity: 0, x: -30, transition: { duration: 0.4 } },
   };
   return (
-    <section className="pt-[50px] md:pt-[70px] xl:pt-[100px] pb-0 md:pb-[70px] xl:pb-[100px]   overflow-hidden relative ">
+    <section className="pt-[50px] md:pt-[70px] xl:pt-[100px] pb-[50px] md:pb-[70px] xl:pb-[100px]   overflow-hidden relative ">
       <div className="container">
         <div className="lg:flex lg:items-center xxl:items-start">
           <div className="w-full lg:w-[51%] pr-0 lg:pr-[35px] xl:pr-[142px]">
@@ -60,7 +60,13 @@ const SingleImageText: React.FC<PlatformsSectionProps> = ({
             <div className="relative tracking-[3px]  mb-4 lg:mb-[30px]">
           <SubTitle titleText={heading} color="text-black" />
             </div>
+            <motion.div
+              variants={slideInLeft}
+              initial="hidden"
+              animate="visible"
+              exit="exit" >
             <p className="font-normal text-20 leading-[1.4] text-secondary opacity-75 mb-5 lg:mb-[40px]">{description}</p>
+            </motion.div>
   {data.map((da, index) => (
     <motion.div
       key={index}

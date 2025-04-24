@@ -19,7 +19,7 @@ export default function Header() {
     <header className="bg-transparent absolute top-0 left-0 text-white z-10 w-full border-b-1 border-[#ffffff50]">
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
         {/* Logo */}
-        <Image src={assets.logo} alt=""/> 
+        <Image src={assets.logo} alt=""/>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex text-sm font-semibold items-center">
@@ -57,7 +57,7 @@ function NavLinks() {
       <Link href="/gallery" className="text-sm font-semibold font-roboto hover:text-red-500 transition border-r border-white/20 lg:px-6 last:border-none">GALLERY</Link>
       <Link href="/careers" className="text-sm font-semibold font-roboto hover:text-red-500 transition border-r border-white/20 lg:px-6 last:border-none">CAREERS</Link>
       <Link href="/news" className="text-sm font-semibold font-roboto hover:text-red-500 transition border-r border-white/20 lg:px-6 last:border-none">NEWS & MEDIA</Link>
-      <Link href="/contact" className="text-sm font-semibold font-roboto hover:text-red-500 transition border-r border-white/20 lg:px-6 last:border-none">CONTACT US</Link>
+      <Link href="/contact-us" className="text-sm font-semibold font-roboto hover:text-red-500 transition border-r border-white/20 lg:px-6 last:border-none">CONTACT US</Link>
       <Link href="/downloads" className="text-sm font-semibold font-roboto hover:text-red-500 transition border-r border-white/20 lg:pl-6 last:border-none">DOWNLOADS</Link>
     </>
   )

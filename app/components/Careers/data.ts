@@ -48,7 +48,8 @@ export const textimg = {
       image: assets.mncar
     }
   ]
-}; export const benifits = {
+};
+export const benifits = {
   title: "BENEFITS OF WORKING WITH Safe Tech",
   description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad mim.",
   data: [
@@ -84,6 +85,13 @@ export const textimg = {
 
 };
 
+export const join = {
+  title: "Want to join us",
+  description:"If you are interested in joining and growing with our company, please submit your resume or CV along with your application.",
+
+
+};
+
 
 
 export const doc = {
@@ -91,50 +99,33 @@ export const doc = {
   data: [
     {
       id: 1,
-      doctitle: "Document Name",
-      size:"5 mb",
-      category: "Safety",
+      jobtitle: "Design Engineer (02)",
+      size:"Loperi isum ",
+      category: "Full Time",
+      btn:"Apply Now"
     },
     {
       id: 2,
-      doctitle: "Document Namedd",
-      size:"15 mb",
-      category: "Product brochure",
+      jobtitle: "Site Supervisor (06)",
+      size:"On-site",
+      category: "Full Time",
+      btn:"Apply Now"
     },
     {
       id: 3,
-      doctitle: "Document Name",
-      size:"5 mb",
-      category: "Industry guides",
+      jobtitle: "Structural Engineer (01)",
+      size:"Loperi isum",
+      category: "Full Time",
+      btn:"Apply Now"
     },
     {
       id: 4,
-      doctitle: "Document Name",
-      size:"5 mb",
-      category: "Safety information",
+      jobtitle: "Executive Assistant (03)",
+      size:"Loperi isum",
+      category: "Full Time",
+      btn:"Apply Now"
     },
-    {
-      id: 5,
-      doctitle: "Document Name",
-      size:"5 mb",
-      category: "Industry guides",
-    },
-    {
-      id: 6,
-      doctitle: "Document Name",
-      size:"5 mb",
-      category: "Safety",
-    },{
-      id: 7,
-      doctitle: "Document Name",
-      size:"5 mb",
-      category: "Safety",
-    },{
-      id: 8,
-      doctitle: "Document Name",
-      size:"5 mb",
-      category: "Safety",
-    },
+
 
   ],
 };

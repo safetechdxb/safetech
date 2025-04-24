@@ -432,3 +432,9 @@ body {
 }
 
 /* news block style end */
+.overlbl::after{
+  background: linear-gradient(180.06deg, rgba(30, 30, 30, 0.1) 51.88%, #1E1E1E 99.94%);
+  content: '';
+  position: absolute;
+  inset: 0;
+  height: 100%;}

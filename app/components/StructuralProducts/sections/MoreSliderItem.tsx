@@ -21,7 +21,7 @@ const MoreSliderItem = ({prdImg,prdName,prdLink}:ProductSliderItemProps) => {
         </div>
       </div>
       <div className="pt-8">
-        <h3 className="text-24 font-semibold mb-8 uppercase">{prdName}</h3>
+        <h3 className="text-24 font-semibold  uppercase">{prdName}</h3>
       </div>
     </div>
    );
