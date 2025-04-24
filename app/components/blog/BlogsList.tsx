@@ -33,7 +33,7 @@ const BlogsList = () => {
                 {filteredItems.map((item,index) => (
                   <div key={item.id} className="">
                     <div className="">
-                      <Image src={item.img} alt={item.title} className={`w-full ${index % 2 === 0 ? 'h-[355px]' : 'h-[287px]'} object-cover`} />
+                      <Image src={item.img} alt={item.title} width={355} height={287} className={`w-full ${index % 2 === 0 ? 'h-[355px]' : 'h-[287px]'} object-cover`} />
                       <div className="flex justify-between items-center my-4">
                         <p className="text-12 font-normal leading-[1.7] text-tm-gray uppercase">{item.category}</p>
                         <p className="text-12 font-normal leading-[1.7] text-tm-gray uppercase"> {new Date(item.date).toLocaleDateString()}</p>
