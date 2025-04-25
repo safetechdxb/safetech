@@ -21,8 +21,8 @@ const NewsBlockSec = ({ latestNews }: NewsBlockSecProps) => {
     <section className='py-[140px]'>
       <div className="container">
         <div className="relative flex justify-between items-center mb-20">
-          <SubTitle titleText="Latest News" color="text-secondary" />
-          <ArrowBtn btnText="View All" btnLInk="#" />
+          <SubTitle titleText="Recent News" color="text-secondary" />
+          <ArrowBtn btnText="View All" btnLInk="#" border={true} />
         </div>
         <NewsBlock latestNews={latestNews} />
       </div>

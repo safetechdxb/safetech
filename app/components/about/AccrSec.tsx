@@ -11,7 +11,7 @@ const AccrSec = () => {
         <div className="flex gap-8 justify-between w-full">
           {accreditations.map((item)=>(
             <div key={item.id}>
-              <Image src={item.logo} alt={item.title} width={106} height={104} className=" object-contain" />
+              <Image src={item.logo} alt={item.title} width={106} height={104} className="w-[106px] h-[104px] object-contain" />
             </div>
           ))}
         </div>

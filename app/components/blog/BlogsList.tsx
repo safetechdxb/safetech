@@ -33,14 +33,20 @@ const BlogsList = () => {
                 {filteredItems.map((item,index) => (
                   <div key={item.id} className="">
                     <div className="">
-                      <Image src={item.img} alt={item.title} className={`w-full ${index % 2 === 0 ? 'h-[355px]' : 'h-[287px]'} object-cover`} />
+                      <Image src={item.img} alt={item.title} width={500} height={500} className={`w-full ${index % 2 === 0 ? 'h-[355px]' : 'h-[287px]'} object-cover`} />
                       <div className="flex justify-between items-center my-4">
                         <p className="text-12 font-normal leading-[1.7] text-tm-gray uppercase">{item.category}</p>
-                        <p className="text-12 font-normal leading-[1.7] text-tm-gray uppercase"> {new Date(item.date).toLocaleDateString()}</p>
+                        <p className="text-12 font-normal leading-[1.7] text-tm-gray uppercase"> 
+                          {new Date(item.date).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}
+                        </p>
                       </div>
                       <div className="text-20 font-semibold leading-[1.3] mb-8">{item.title}</div>
                       {/* <div className="text-sm text-muted-foreground mb-2">{item.desc}</div> */}
-                      <ArrowBtn btnText={"Read More"} btnLInk={item.link} />
+                      <ArrowBtn btnText={"Read More"} btnLInk={item.link} border={false} />
                     </div>
                   </div>
                 ))}

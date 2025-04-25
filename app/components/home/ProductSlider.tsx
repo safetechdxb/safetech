@@ -1,7 +1,5 @@
 "use client";
 import { useRef } from 'react'
-import { assets } from "@/public/assets/assets";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 // import Swiper core and required modules
 import { Navigation, A11y } from 'swiper/modules';
@@ -16,53 +14,16 @@ import 'swiper/css/scrollbar';
 import SubTitle from "../common/SubTitle";
 import ProductSliderItem from "./ProductSliderItem";
 import { NavigationOptions } from 'swiper/types';
+import { products } from './data';
 
-const slides = [
-  {
-    prdImg: assets.Product1,
-    prdName: "Product 1",
-    prdDec: "High-quality, durable concrete elements designed for quick installation and versatile construction solutions, for better efficiency. ",
-    prdLink: "#",
-  },
-  {
-    prdImg: assets.Product2,
-    prdName: "Product 2",
-    prdDec: "Load-bearing concrete products ideal for large spans and heavy-duty projects with enhanced design flexibility and durability. ",
-    prdLink: "#",
-  },
-  {
-    prdImg: assets.Product3,
-    prdName: "Product 3",
-    prdDec: "Lightweight, high-strength slabs offering cost-effective, fast installation for floors and roofs, ensuring high stability. ",
-    prdLink: "#",
-  },
-  {
-    prdImg: assets.Product4,
-    prdName: "Product 4",
-    prdDec: "Durable precast components designed to protect and organize utilities in various infrastructure projects with precision. ",
-    prdLink: "#",
-  },
-  {
-    prdImg: assets.Product1,
-    prdName: "Product 5",
-    prdDec: "High-quality, durable concrete elements designed for quick installation and versatile construction solutions, for better efficiency. ",
-    prdLink: "#",
-  },
-  {
-    prdImg: assets.Product2,
-    prdName: "Product 6",
-    prdDec: "Load-bearing concrete products ideal for large spans and heavy-duty projects with enhanced design flexibility and durability. ",
-    prdLink: "#",
-  },
-]
-  // Add more products as needed
+// Add more products as needed
 const ProductSlider = () => {
   const prevRef = useRef(null)
   const nextRef = useRef(null)
   return (
     <section className="py-[140px] bg-off-white overflow-hidden">
       <div className="container overflow-visible">
-        <div className="flex align-center justify-between gap-[3em] relative mb-[90px]">
+        <div className="flex align-center justify-between gap-[3em] relative mb-10 lg:mb-20">
           <SubTitle titleText="Our Products" color="text-secondary" />
           {/* Custom Nav Buttons */}
           <div className="flex ">
@@ -83,7 +44,7 @@ const ProductSlider = () => {
             // install Swiper modules
             modules={[Navigation, A11y]}
             spaceBetween={50}
-            slidesPerView={3}
+            slidesPerView={3.5}
             navigation={{
               prevEl: prevRef.current,
               nextEl: nextRef.current,
@@ -102,7 +63,7 @@ const ProductSlider = () => {
                   swiper.navigation.init()
                   swiper.navigation.update()
                 }
-              })
+              }, 100)
             }}
             breakpoints={{
               320: {
@@ -118,14 +79,14 @@ const ProductSlider = () => {
                 spaceBetween: 30,
               },
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 3.5,
                 spaceBetween: 40,
               },
             }}
           >
             {
-              slides.map((slide, index) => (
-                <SwiperSlide key={index}>
+              products.map((slide) => (
+                <SwiperSlide key={slide.id}>
                   <ProductSliderItem
                     prdImg={slide.prdImg}
                     prdName={slide.prdName}

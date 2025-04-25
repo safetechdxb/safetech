@@ -86,7 +86,7 @@ const MoreProducts = () => {
                   swiper.navigation.init()
                   swiper.navigation.update()
                 }
-              })
+              },100)
             }}
             breakpoints={{
               320: {
