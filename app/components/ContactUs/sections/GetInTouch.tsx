@@ -33,12 +33,12 @@ const GetInTouch: React.FC<PlatformsSectionProps> = ({
           </p>
         </div>
 
-         {/* Reusable animation wrapper for fields */}
+        {/* Reusable animation wrapper for fields */}
 
-      <motion.div
-        className="grid grid-cols-1 lg:grid-cols-2 gap-x-4 lg:gap-x-6 xxl:gap-x-10 mb-4 lg:mb-7 gap-y-4 lg:gap-y-[30px] "
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-x-4 lg:gap-x-6 xxl:gap-x-10 mb-4 lg:mb-7 gap-y-4 lg:gap-y-[30px] "
 
-      >
+        >
 
           <div className="relative w-full ">
             <input
@@ -70,42 +70,30 @@ const GetInTouch: React.FC<PlatformsSectionProps> = ({
             />
           </div>
 
-          </motion.div>
-
-
-
-      <motion.div
-        className="grid grid-cols-1  gap-x-4 lg:gap-x-6 xxl:gap-x-10   gap-y-4 lg:gap-y-[30px] " >
-
-     <div className="relative w-full ">
-     <textarea
-  placeholder="Cover Letter"
-  className="px-1 appearance-none bg-transparent border-0 border-b border-[#ieieie] focus:outline-none focus:ring-0 focus:border-primary text-secondary text-16 font-normal py-[16px] pr-6 w-full resize-none"
-/>
+        </motion.div>
+        <motion.div
+          className="grid grid-cols-1  gap-x-4 lg:gap-x-6 xxl:gap-x-10   gap-y-4 lg:gap-y-[30px] " >
+          <div className="relative w-full ">
+            <textarea
+              placeholder="Cover Letter"
+              className="px-1 appearance-none bg-transparent border-0 border-b border-[#ieieie] focus:outline-none focus:ring-0 focus:border-primary text-secondary text-16 font-normal py-[16px] pr-6 w-full resize-none"
+            />
           </div>
-    <motion.div
-      className="w-full "
-    >
+          <motion.div className="w-full ">
+            <motion.button className="mt-2 flex w-[215px] cursor-pointer overflow-hidden group transition duration-300 ml-auto">
+              <div className="bg-primary text-white text-[16px] font-[400] px-2 py-4 transition duration-300 min-w-[165px]"> Send message </div>
+              <div className="flex min-w-[100px] overflow-hidden">
+                <div className="bg-black w-[50px] text-white text-[16px] font-[400] px-4 py-4 flex items-center justify-center transition duration-300 transform group-hover:-translate-x-[50px]">
+                  <Image src={assets.arrowwhite} alt="arrow" width={16} height={16} />
+                </div>
+                <div className="bg-primary w-[50px] text-white text-[16px] font-[400] px-4 py-4 flex items-center justify-center transition duration-300  transform group-hover:-translate-x-[50px]">
+                  <Image src={assets.arrowwhite} alt="arrow" width={16} height={16} />
+                </div>
+              </div>
+            </motion.button>
 
-
-      <motion.button
-  className="mt-2 flex w-[215px] cursor-pointer overflow-hidden group transition duration-300 ml-auto"
->
-  <div className="bg-primary text-white text-[16px] font-[400] px-2 py-4 transition duration-300 min-w-[165px]  ">
-  Send message
-  </div>
-  <div className="flex min-w-[100px] overflow-hidden">
-    <div className="bg-black w-[50px] text-white text-[16px] font-[400] px-4 py-4 flex items-center justify-center transition duration-300 transform group-hover:-translate-x-[50px]">
-      <Image src={assets.arrowwhite} alt="arrow"  width={16} height={16} />
-    </div>
-    <div className="bg-primary w-[50px] text-white text-[16px] font-[400] px-4 py-4 flex items-center justify-center transition duration-300  transform group-hover:-translate-x-[50px]">
-      <Image src={assets.arrowwhite} alt="arrow" width={16} height={16} />
-    </div>
-  </div>
-</motion.button>
-
-    </motion.div>
-    </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

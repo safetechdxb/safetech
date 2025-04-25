@@ -196,3 +196,34 @@ export const newsEvents = [
     readMoreLink: "#",
   },
 ];
+
+export const products = [
+  {
+    id: 1,
+    prdImg: "/assets/img/products/precast.jpg",
+    prdName: "Precast",
+    prdDec: "High-quality, durable concrete elements designed for quick installation and versatile construction solutions, for better efficiency. ",
+    prdLink: "#",
+  },
+  {
+    id: 2,
+    prdImg: "/assets/img/products/prestress.jpg",
+    prdName: "Prestress",
+    prdDec: "Load-bearing concrete products ideal for large spans and heavy-duty projects with enhanced design flexibility and durability. ",
+    prdLink: "#",
+  },
+  {
+    id: 3,
+    prdImg: "/assets/img/products/hollow-core.jpg",
+    prdName: "Hollow Core",
+    prdDec: "Lightweight, high-strength slabs offering cost-effective, fast installation for floors and roofs, ensuring high stability. ",
+    prdLink: "#",
+  },
+  {
+    id: 4,
+    prdImg: "/assets/img/products/troughs.jpg",
+    prdName: "Troughs",
+    prdDec: "Durable precast components designed to protect and organize utilities in various infrastructure projects with precision. ",
+    prdLink: "#",
+  },
+];

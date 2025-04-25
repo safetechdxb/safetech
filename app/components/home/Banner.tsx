@@ -61,14 +61,12 @@ const HeroSlider = () => {
                 height={1000}
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/50" />
-              <div className="relative z-10 h-full container mx-auto px-6 flex flex-col justify-center text-white">
-                <h1 className="text-4xl md:text-5xl font-extrabold leading-tight" dangerouslySetInnerHTML={{ __html: slide.title }}>
+              <div className="absolute inset-0 bg-secondary/75" />
+              <div className="relative z-10 h-full container mx-auto px-6 flex flex-col justify-center gap-8 text-white">
+                <h1 className="text-96 md:text-5xl font-extrabold leading-tight lg:pt-20" dangerouslySetInnerHTML={{ __html: slide.title }}>
                   {/* {slide.title} */}
                 </h1>
-                <p className="mt-4 max-w-md text-sm md:text-22 text-gray-200 border-l-4 border-red-600 pl-4">
-                  {slide.description}
-                </p>
+                <p className="max-w-md text-sm md:text-22 text-gray-200 border-l-4 border-red-600 pl-4"> {slide.description} </p>
               </div>
             </div>
           </SwiperSlide>
@@ -76,13 +74,13 @@ const HeroSlider = () => {
       </Swiper>
 
       {/* Custom Pagination */}
-      <div className="absolute bottom-[20%] z-20 w-full">
+      <div className="absolute bottom-[10%] z-20 w-full">
         <div className="container">
           <div className=" flex gap-3 justify-end">
             {slides.map((_, index) => (
               <button
                 key={index}
-                className={`w-[50px] h-[1px] rounded-full transition-all duration-300 ${activeIndex === index ? "bg-white scale-125" : "bg-white/50"
+                className={`w-[50px] h-[2px] rounded-full transition-all duration-300 ${activeIndex === index ? "bg-white scale-125" : "bg-white/50"
                   }`}
                 onClick={() => swiperRef.current?.slideToLoop(index)}
               />

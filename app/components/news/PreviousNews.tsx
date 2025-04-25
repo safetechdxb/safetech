@@ -2,7 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import SubTitle from "../common/SubTitle";
 import { newsEvents } from "./data";
 import NewsBox from "../news/NewsBox";
-
+import { motion } from "framer-motion";
+// import Image from "next/image";
 interface PreviousNewsProps {
   previousNews: typeof newsEvents;
 }
@@ -54,7 +55,7 @@ const PreviousNews: React.FC<PreviousNewsProps> = ({ previousNews }) => {
           })}
         </div>
 
-        {hasMore && (
+        {/* {hasMore && (
           <div className="mt-10 text-center flex justify-center">
             <button
               onClick={handleToggle}
@@ -81,6 +82,54 @@ const PreviousNews: React.FC<PreviousNewsProps> = ({ previousNews }) => {
                 </svg>
               </span>
             </button>
+          </div>
+        )} */}
+        {hasMore && (
+          <div className="mt-10 text-center flex justify-center">
+            <motion.button
+              onClick={handleToggle}
+              className="flex bg-primary text-white hover:bg-opacity-80 transition h-[50px] overflow-hidden group" >
+              <span className="px-4 py-2 uppercase font-normal text-16 leading-normal border-r border-r-primary group-hover:border-white/20 flex items-center justify-center">
+                {showAll ? "Show Less" : "Show More"}
+              </span>
+              <div className="flex flex-col relative overflow-hidden">
+                <div className={`bg-black w-[50px] h-[50px] text-white text-[16px] font-[400] px-4 py-4 flex items-center justify-center transition-all duration-300 
+                  ${showAll?"group-hover:translate-y-[-50px]":"group-hover:translate-y-[50px]"}`}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={`lucide lucide-move-down transition-transform duration-300 ${showAll ? "rotate-180" : ""}`}
+                  >
+                    <path d="M8 18L12 22L16 18" />
+                    <path d="M12 2V22" />
+                  </svg>
+                </div> 
+                <div className={`bg-primary w-[50px] h-[50px] absolute  left-0 z-20 text-white text-[16px] font-[400] px-4 py-4 flex items-center justify-center transition-all duration-300 group-hover:top-0 ${showAll?"top-[50px]":"top-[-50px]"}`}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={`lucide lucide-move-down transition-transform duration-300 ${showAll ? "rotate-180" : ""}`}
+                  >
+                    <path d="M8 18L12 22L16 18" />
+                    <path d="M12 2V22" />
+                  </svg>
+                </div>
+              </div>
+            </motion.button>
           </div>
         )}
       </div>

@@ -7,10 +7,10 @@ import { assets } from "@/public/assets/assets";
 export default function Index() {
   return (
     <>
-
-      <InnerBanner pageTitle={"Resources"} bannerBg={assets.resourcebanner} />
-     <List data={doc.data} />
-
+      <InnerBanner pageTitle={"Downloads"} bannerBg={assets.resourcebanner} />
+      <List data={doc.data} />
     </>
   );
-}
+} 
+
+

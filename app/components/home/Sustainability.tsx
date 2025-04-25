@@ -9,7 +9,7 @@ const Sustainability = () => {
       backgroundSize: "cover",
       backgroundPosition: "center",
     }}>
-      <div className="absolute inset-0 bg-black opacity-50 w-full h-full"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/35 to-black/80 w-full h-full"></div>
       <div className="container relative z-3">
         <div className="relative">
           <SubTitle titleText="Sustainability" color="text-white" />
@@ -33,7 +33,7 @@ const Sustainability = () => {
             </li>
           </ul>
           <div className="brightness-0 invert">
-            <ArrowBtn btnText="More About Sustainability" btnLInk="#" />
+            <ArrowBtn btnText="More About Sustainability" btnLInk="#" border={true} />
           </div>
           </div>
         </div>

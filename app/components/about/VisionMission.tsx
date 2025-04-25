@@ -8,10 +8,10 @@ const VisionMission = () => {
 
           {
             visionMission.map((item) => (
-              <div key={item.id} className=" hover:bg-secondary group">
+              <div key={item.id} className="hover:bg-secondary group transition-all duration-500 ">
                 <div className="flex flex-col gap-6 lg:gap-10 my-25 border-r border-primary group-last:border-0 px-10 lg:px-15 ">
                   <div className="bg-primary rounded-full flex items-center justify-center w-[110px] h-[110px] p-3">
-                    <Image src={item.icon} alt="" className="w-full h-full" />
+                    <Image src={item.icon} alt="" width={400} height={400} className="w-full h-full" />
                   </div>
                   <div className="">
                     <h2 className="text-32 leading-[1] font-semibold text-black uppercase mb-5 group-hover:text-white">{item.title}</h2>

@@ -7,7 +7,7 @@ const productCategoriesList = () => {
     <section className="py-[140px]">
       <div className="container">
         <div className="relative mb-12">
-          <SubTitle titleText="Product Categories" color="text-secondary" />
+          <SubTitle titleText="Innovation Across industries" color="text-secondary" />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 gap-y-14">
          {

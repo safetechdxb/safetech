@@ -9,7 +9,7 @@ const Achievements = () => {
       <div className="bg-black/65 absolute inset-0 w-full h-full -z-10"></div>
       <div className="container">
         <div className="relative mb-10">
-          <SubTitle titleText={"Achievements"} color="text-white" />
+          <SubTitle titleText={"Our Achievements"} color="text-white" />
         </div>
           <p className="text-20 font-normal leading-[1.3] text-white max-w-6xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veni laboris nisi ut aliquip ex ea commodo consequat.</p>
