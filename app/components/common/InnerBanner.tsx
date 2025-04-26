@@ -21,10 +21,20 @@ const InnerBanner = ({pageTitle, bannerBg, isBlogDetails, category, date, isDeta
       <div className={`absolute top-0 left-0 w-full h-full ${bannerBg ?"bg-secondary/75":""} z-1`}></div>
       <div className="container relative z-2 h-full">
         <div className="flex flex-col justify-end h-full pb-[80px]">
-          <h1 className={`text-white uppercase ${isDetailPage ? "text-48 max-w-6xl font-semibold leading-[1.3] mb-7 " :"text-96 font-bold  leading-[1.2]"}`}>{pageTitle}</h1>
+          {
+            !isDetailPage && !isBlogDetails &&(
+
+              <h1 className={`text-white uppercase text-96 font-bold  leading-[1.2]`}>{pageTitle}</h1>
+            )
+          }
+          {
+            isDetailPage && (
+              <h1 className={`text-white uppercase text-48 max-w-6xl font-semibold leading-[1.3] mb-7 `}>{pageTitle}</h1>
+            )
+          }
           {
             isBlogDetails && (
-              <h1 className={`text-white "text-48 max-w-6xl font-semibold leading-[1.3] mb-7 `}>{pageTitle}</h1>
+              <h1 className={`text-white text-48 max-w-6xl font-semibold leading-[1.3] mb-7 `}>{pageTitle}</h1>
             )
           }
           {isBlogDetails && (
