@@ -11,7 +11,7 @@ interface ProductSliderItemProps {
 const ProductSliderItem = ({prdImg,prdName,prdDec,prdLink}:ProductSliderItemProps) => {
   return ( 
     <div>
-      <div className="relative w-full h-[388px] mb-4 group">
+      <div className="relative w-full h-[15em] lg:h-[388px] mb-4 group">
         <Image src={prdImg} width={150} height={150} alt={prdName} className="w-full h-full object-cover" />
         <div className="absolute bottom-0 left-0 bg-off-white w-[64px] h-[64px] group-hover:w-[128px] group-hover:bg-primary duration-200 transition-all">
           <Link className="w-[64px] h-[64px] flex justify-center items-center absolute top-0 left-0 group-hover:right-0 group-hover:left-[64px] duration-200 transition-all" href={prdLink}>
@@ -22,7 +22,7 @@ const ProductSliderItem = ({prdImg,prdName,prdDec,prdLink}:ProductSliderItemProp
         </div>
       </div>
       <div className="pt-8">
-        <h3 className="text-24 font-semibold mb-8 uppercase tracking-cmn">{prdName}</h3>
+        <h3 className="text-24 font-semibold lg:mb-8 uppercase tracking-cmn">{prdName}</h3>
         <p className="text-16 font-normal max-w-10/12">{prdDec}</p>
       </div>
     </div>

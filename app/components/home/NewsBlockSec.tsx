@@ -18,10 +18,12 @@ interface NewsBlockSecProps {
 
 const NewsBlockSec = ({ latestNews }: NewsBlockSecProps) => {
   return (
-    <section className='py-[140px]'>
+    <section className='py-140'>
       <div className="container">
-        <div className="relative flex justify-between items-center mb-20">
-          <SubTitle titleText="Recent News" color="text-secondary" />
+        <div className="flex flex-wrap justify-between items-center mb-10 lg:mb-20">
+          <div className="relative">
+            <SubTitle titleText="Recent News" color="text-secondary" />
+          </div>
           <ArrowBtn btnText="View All" btnLInk="#" border={true} />
         </div>
         <NewsBlock latestNews={latestNews} />

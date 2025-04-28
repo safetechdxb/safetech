@@ -4,7 +4,7 @@ import Image from "next/image";
 import { achievements } from "./data";
 const Achievements = () => {
   return ( 
-    <section className="py-[140px] relative ">
+    <section className="py-140 relative ">
       <Image src={assets.AchievementsBg} alt="Achievements" className="absolute inset-0 w-full h-full object-cover -z-10" />
       <div className="bg-black/65 absolute inset-0 w-full h-full -z-10"></div>
       <div className="container">

@@ -12,7 +12,7 @@ interface InnerBannerProps {
 
 const InnerBanner = ({pageTitle, bannerBg, isBlogDetails, category, date, isDetailPage}:InnerBannerProps) => {
   return (
-    <section className="relative w-full h-[540px] bg-secondary">
+    <section className="relative w-full h-[50dvh] lg:h-[540px] bg-secondary">
       {
         bannerBg && (
           <Image src={bannerBg} alt="About Us" width={1920} height={540} className="absolute top-0 left-0 w-full h-full object-cover object-center z-0" />
@@ -20,7 +20,7 @@ const InnerBanner = ({pageTitle, bannerBg, isBlogDetails, category, date, isDeta
       }
       <div className={`absolute top-0 left-0 w-full h-full ${bannerBg ?"bg-secondary/75":""} z-1`}></div>
       <div className="container relative z-2 h-full">
-        <div className="flex flex-col justify-end h-full pb-[80px]">
+        <div className="flex flex-col justify-end h-full pb-10 lg:pb-20">
           {
             !isDetailPage && !isBlogDetails &&(
 

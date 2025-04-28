@@ -4,7 +4,7 @@ import Image from "next/image";
 import ArrowBtn from "../common/ArrowBtn";
 const Sustainability = () => {
   return (
-    <section className="py-[140px] relative" style={{
+    <section className="py-140 relative" style={{
       backgroundImage: `url(${assets.forestBg.src})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
@@ -14,7 +14,7 @@ const Sustainability = () => {
         <div className="relative">
           <SubTitle titleText="Sustainability" color="text-white" />
         </div>
-        <div className="w-1/2 ml-auto pt-4 flex flex-col gap-20">
+        <div className="lg:w-1/2 ml-auto pt-4 flex flex-col gap-20">
           <div >
             <p className="text-white text-24 leading-[1.3]">At Safe Tech, sustainability is at the heart of everything we do. As a proud subsidiary of United Engineering Construction Company LLC (UNEC), we are dedicated to developing construction solutions that are both innovative and environmentally friendly. Our product range—including precast, prestressed, hollow core, GRC, and troughs—is designed with sustainability in mind, ensuring that each project we undertake helps pave the way for a greener future. </p>
           </div>

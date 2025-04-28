@@ -36,7 +36,7 @@ const NewsBlock = ({ latestNews }: latestNewsProps) => {
               // Large Featured News Card
               <>
                 <div className="news-crd__head relative overflow-hidden">
-                  <Image src={news.imageSrc} className="w-full h-full flex" alt="news" fill objectFit="cover" />
+                  <Image src={news.imageSrc} className="w-full h-full flex" alt="news" width={500} height={500} />
                   <div className="bg-secondary absolute top-0 left-2 p-2">
                       <h4 className="text-white text-14 leading-normal uppercase font-semibold mb-0"> {new Date(news.date).toLocaleDateString("en-US", {
                         year: "numeric",
@@ -71,7 +71,7 @@ const NewsBlock = ({ latestNews }: latestNewsProps) => {
               // Small News Cards
               <>
                 <div className="news-crd__head relative">
-                  <Image src={news.imageSrc} className="w-full h-full object-cover" alt="news" width={300} height={300} quality={100} priority unoptimized />
+                  <Image src={news.imageSrc} className="w-full h-full object-cover" alt="news" width={300} height={300} quality={100}  />
                   <div className="bg-secondary absolute top-0 left-2 p-2">
                       <h4 className="text-white text-14 leading-normal uppercase font-semibold mb-0"> {new Date(news.date).toLocaleDateString("en-US", {
                         year: "numeric",

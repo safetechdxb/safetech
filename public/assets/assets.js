@@ -8,7 +8,7 @@ import aboutBnr from './img/banner/about-bnr.jpg';
 import blogBnr from './img/banner/blog-bnr.jpg';
 import newsBnr from './img/banner/news-bnr.jpg';
 import OurCompany from './img/our-company.jpg';
-import Product1 from './img/products/precast.jpg';
+import Product1 from './img/products/architectural-products.jpg';
 import Product2 from './img/products/prestress.jpg';
 import Product3 from './img/products/hollow-core.jpg';
 import Product4 from './img/products/troughs.jpg';
@@ -20,10 +20,11 @@ import facebookPrimary from './img/icons/facebook-primary.svg';
 import instagramPrimary from './img/icons/instagram-primary.svg';
 import linkedinPrimary from './img/icons/linkedin-primary.svg';
 import sharePrimary from './img/icons/share-primary.svg';
+import cheveronUp from './img/icons/cheveron-up.svg';
 import sp from './img/structural-products/sp.jpg';
 import technologyIcon from './img/icons/technology-icon.svg';
 import calenderPrimary from './img/icons/calender-primary.svg';
-import slide1 from './img/structural-products/slide1.jpg';
+import slide1 from './img/products/architectural-products.jpg';
 import slide2 from './img/structural-products/slide2.jpg';
 import slide3 from './img/structural-products/slide3.jpg';
 import slide4 from './img/structural-products/slide4.jpg';
@@ -113,6 +114,7 @@ export const assets = {
     sp,
     logo,
     arrowTopRight,
+    cheveronUp,
     Leaf,
     banner01,
     OurCompany,

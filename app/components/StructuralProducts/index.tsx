@@ -6,6 +6,7 @@ import InnerBanner from "../common/InnerBanner";
 import ProductSlide from "./sections/ProductSlide";
 import Applications from "./sections/Applications";
 import MoreProducts from "./sections/MoreProducts";
+// import ProductSlider from "../home/ProductSlider";
 export default function Index() {
   return (
     <>
@@ -15,7 +16,7 @@ export default function Index() {
       <ProductSlide data={slide.data} />
       <Applications data={application.data} />
       <MoreProducts />
-
+      {/* <ProductSlider/> */}
     </>
   );
 }

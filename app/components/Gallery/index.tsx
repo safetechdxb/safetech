@@ -8,8 +8,8 @@ export default function Index() {
   return (
     <>
 
-      <InnerBanner pageTitle={"Gallery"} bannerBg={assets.gbanner}  />
-     <ImageList data={doc.data} />
+      <InnerBanner pageTitle={"Gallery"} bannerBg={assets.gbanner} />
+      <ImageList data={doc.data} />
 
     </>
   );

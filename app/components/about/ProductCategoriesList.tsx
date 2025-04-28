@@ -4,7 +4,7 @@ import { productCategories } from "./data";
 import Link from "next/link";
 const productCategoriesList = () => {
   return ( 
-    <section className="py-[140px]">
+    <section className="py-140">
       <div className="container">
         <div className="relative mb-12">
           <SubTitle titleText="Innovation Across industries" color="text-secondary" />
