@@ -1,4 +1,6 @@
-
+"use client"
+import {motion} from 'framer-motion';
+import { moveUp, moveLeft } from '../motionVarients';
 import Image from "next/image";
 // import tagIcon from "@/public/assets/images/News/pin.svg";
 
@@ -31,7 +33,7 @@ const NewsBlock = ({ latestNews }: latestNewsProps) => {
     <>
       <div className="news-crd__wrapper">
         {latestNews.map((news, index) => (
-          <div key={news.id} className={`news-crd overflow-hidden ${index === 0 ? "news-crd__big relative" : "news-crd__small"}`}>
+          <motion.div variants={moveUp(news.id * 0.3)} initial="hidden" whileInView="show" viewport={{once:true, amount:0.2}} key={news.id} className={`news-crd overflow-hidden ${index === 0 ? "news-crd__big relative" : "news-crd__small"}`}>
             {index === 0 ? (
               // Large Featured News Card
               <>
@@ -102,7 +104,7 @@ const NewsBlock = ({ latestNews }: latestNewsProps) => {
                 </div>
               </>
             )}
-          </div>
+          </motion.div>
         ))}
       </div>
     </>

@@ -27,7 +27,8 @@ export default function Header() {
     <header className="bg-transparent absolute top-0 left-0 text-white z-10 w-full border-b-1 border-[#ffffff50]">
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
         {/* Logo */}
-        <Image src={assets.logo} alt=""/> 
+        <Link href={"/"}>
+        <Image src={assets.logo} alt=""/> </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex text-sm font-semibold items-center">

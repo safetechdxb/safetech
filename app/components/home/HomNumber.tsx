@@ -1,4 +1,6 @@
 "use client"
+import {motion} from 'framer-motion';
+import { fadeIn } from '../motionVarients';
 import { numberSvgs } from "./data";
 import Image from "next/image"
 const HomNumberSec = () => {
@@ -13,7 +15,7 @@ const HomNumberSec = () => {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 border-t border-b border-white/10">
         {numberSvgs.map((item, index) => (
-          <div key={index} className="flex flex-col justify-between h-[20em] lg:h-[40em] py-10 border-b lg:border-b-0 border-r border-white/10 last:border-r-0 overflow-hidden 
+          <motion.div variants={fadeIn(index * 0.5)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} key={index} className="flex flex-col justify-between h-[20em] lg:h-[40em] py-10 border-b lg:border-b-0 border-r border-white/10 last:border-r-0 overflow-hidden 
           relative group transition-all duration-300" >
             <div className="absolute inset-0 opacity-0 group-hover:opacity-20 z-[1] group-[data-touched]:opacity-20" >
               <Image src={item.bg} alt="" width={400} height={400} className="object-cover w-full h-full absolute top-0 left-0 " />
@@ -29,7 +31,7 @@ const HomNumberSec = () => {
               <h3 className="text-white text-22 uppercase font-semibold absolute left-4 lg:left-[32px] bottom-10 group-hover:bottom-32 z-20 duration-300 transition-all">{item.title}</h3>
               <p className="text-white text-16 font-normal opacity-0 group-hover:opacity-100 line-clamp-3">{item.desc}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
 
       </div>

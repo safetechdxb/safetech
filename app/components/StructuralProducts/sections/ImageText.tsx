@@ -44,8 +44,7 @@ const ImageText: React.FC<PlatformsSectionProps> = ({ data }) => {
               <div className="relative w-full  mx-auto">
                 {data.map((item) => (
                   <div key={item.id} className="flex flex-col gap-4 mb-6 lg:mb-0">
-                    <motion.figure variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}
-                    >
+                    <motion.figure variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} >
                       <Image src={item.image} alt="" className="w-full h-auto object-cover" />
                     </motion.figure>
                     <motion.div className="absolute bottom-[-15px] right-0 lg:right-[auto] lg:bottom-[-40px] lg:left-0"
