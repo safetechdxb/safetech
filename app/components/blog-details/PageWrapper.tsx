@@ -4,9 +4,9 @@ import { blogData } from "./data";
 const PageWrapper = () => {
   return ( 
     <main>
-      <section className="py-[140px]">
+      <section className="py-140">
         <div className="container">
-          <div className="grid grid-cols-[3fr_1fr] gap-3 lg:gap-21">
+          <div className="lg:grid grid-cols-[3fr_1fr] gap-3 lg:gap-21">
               <ContentWrapper mainImg={blogData.mainImg} mainDesc={blogData.mainDesc} galleryImgs={blogData.galleryImgs} subDesc1={blogData.subDesc1} subDesc2={blogData.subDesc2} /><SidebarWrapper/>
           </div>
         </div>

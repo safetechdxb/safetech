@@ -40,7 +40,7 @@ const HeroSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative w-full h-[100vh] overflow-hidden">
+    <section className="relative w-full h-[70dvh] lg:h-[100vh] overflow-hidden">
       <Swiper
         modules={[Autoplay]}
         autoplay={{ delay: 5000 }}
@@ -54,16 +54,10 @@ const HeroSlider = () => {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="relative w-full h-full">
-              <Image
-                src={slide.image}
-                alt={slide.title}
-                width={1500}
-                height={1000}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+              <Image src={slide.image} alt={slide.title} width={1500} height={1000} className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-secondary/75" />
               <div className="relative z-10 h-full container mx-auto px-6 flex flex-col justify-center gap-8 text-white">
-                <h1 className="text-96 md:text-5xl font-extrabold leading-tight lg:pt-20" dangerouslySetInnerHTML={{ __html: slide.title }}>
+                <h1 className="text-[2.5rem] lg:text-96 font-extrabold leading-tight lg:pt-20" dangerouslySetInnerHTML={{ __html: slide.title }}>
                   {/* {slide.title} */}
                 </h1>
                 <p className="max-w-md text-sm md:text-22 text-gray-200 border-l-4 border-red-600 pl-4"> {slide.description} </p>

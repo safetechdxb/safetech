@@ -28,12 +28,12 @@ const PreviousNews: React.FC<PreviousNewsProps> = ({ previousNews }) => {
   };
 
   return (
-    <section className="py-[140px] bg-light-gray">
+    <section className="py-140 bg-light-gray">
       <div className="container">
         <div className="relative mb-10">
           <SubTitle titleText="Previous News" color="text-secondary" />
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
           {previousNews.map((news, index) => {
             const isVisible = showAll || index < initialCount;
             return (
