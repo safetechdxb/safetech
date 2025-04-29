@@ -1,6 +1,6 @@
 "use client"
 import {motion} from 'framer-motion';
-import { moveUp, moveLeft } from '../motionVarients';
+import { moveUp } from '../motionVarients';
 import Image from "next/image";
 // import tagIcon from "@/public/assets/images/News/pin.svg";
 
