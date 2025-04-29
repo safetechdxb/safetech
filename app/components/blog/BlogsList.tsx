@@ -1,4 +1,6 @@
 "use client"
+import {motion} from "framer-motion";
+import { moveUp} from "../motionVarients";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import Image from "next/image";
 import { useState } from "react"
@@ -20,7 +22,7 @@ const BlogsList = () => {
             <TabsList className="relative flex flex-wrap gap-4 lg:gap-0 gap-y-5 lg:flex-row rounded-none mb-10 lg:mb-20 bg-transparent justify-start p-0 h-auto">
               {categories.map(cat => (
                 <TabsTrigger key={cat} value={cat}
-                  className="relative group text-secondary capitalize w-fit text-left lg:w-auto lg:text-center px-0 lg:px-8 py-0 lg:border-r lg:border-b-0 last:border-b-0 lg:last:border-r-0 rounded-none data-[state=active]:shadow-none data-[state=active]:text-primary first:pl-0 leading-[1]" >
+                  className="relative group cursor-pointer text-secondary capitalize w-fit text-left lg:w-auto lg:text-center px-0 lg:px-8 py-0 lg:border-r lg:border-b-0 last:border-b-0 lg:last:border-r-0 rounded-none data-[state=active]:shadow-none data-[state=active]:text-primary first:pl-0 leading-[1]" >
                   {cat}
                   <div className="hidden lg:flex absolute w-full h-[2px] group-data-[state=active]:bg-primary bottom-[-18px] left-0 z-20"></div>
                 </TabsTrigger>
@@ -31,7 +33,7 @@ const BlogsList = () => {
             <TabsContent value={activeTab} forceMount>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-15">
                 {filteredItems.map((item,index) => (
-                  <div key={item.id} className="">
+                  <motion.div variants={moveUp(item.id * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={item.id} className="">
                     <div className="">
                       <Image src={item.img} alt={item.title} width={500} height={500} className={`w-full ${index % 2 === 0 ? 'h-[355px]' : 'h-[287px]'} object-cover`} />
                       <div className="flex justify-between items-center my-4">
@@ -48,7 +50,7 @@ const BlogsList = () => {
                       {/* <div className="text-sm text-muted-foreground mb-2">{item.desc}</div> */}
                       <ArrowBtn btnText={"Read More"} btnLInk={item.link} border={false} />
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </TabsContent>

@@ -1,16 +1,20 @@
+"use client"
+import {motion} from 'framer-motion'
+import { moveUp } from '../motionVarients';
 import Image from "next/image";
 import { StaticImageData } from "next/image";
 import ArrowBtn from "../common/ArrowBtn";
 interface NewsBoxProps {
+  newsId:number;
   newsImage: string | StaticImageData;
   newsTitle: string;
   newsCategory: string[];
   newsDate: string;
   pageLink: string;
 }
-const NewsBox = ({newsImage,newsTitle,newsCategory,newsDate,pageLink}:NewsBoxProps) => {
+const NewsBox = ({newsId,newsImage,newsTitle,newsCategory,newsDate,pageLink}:NewsBoxProps) => {
   return ( 
-    <div className="flex-col  overflow-hidden">
+    <motion.div variants={moveUp(newsId * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="flex-col overflow-hidden">
       <div className="news-crd__head relative mb-4">
         <Image src={newsImage} className="w-full h-[260px] object-cover" alt="news" width={300} height={300} />
         <div className="bg-secondary absolute top-0 left-2 p-2">
@@ -41,7 +45,7 @@ const NewsBox = ({newsImage,newsTitle,newsCategory,newsDate,pageLink}:NewsBoxPro
           <ArrowBtn btnText="Read More" btnLInk={pageLink} />
         </div>
       </div>
-    </div>
+    </motion.div>
    );
 }
  

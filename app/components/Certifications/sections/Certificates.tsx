@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { moveUp } from "../../motionVarients";
 import Image, { StaticImageData } from "next/image";
 
 interface PlatformsItem {
@@ -20,7 +21,7 @@ const Certificates: React.FC<PlatformsSectionProps> = ({ data }) => {
       <div className="container">
         <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-25" >
           {data.map((item, index) => (
-            <motion.div key={index} >
+            <motion.div key={index} variants={moveUp(item.id * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
               <div className="relative group overlbl h-full">
                 <figure className="overlayclr">
                   <Image src={item.image} alt="" className="w-full object-cover" />

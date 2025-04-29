@@ -1,3 +1,6 @@
+"use client"
+import {motion} from "framer-motion";
+import { moveLeft } from "../motionVarients";
 import { assets } from "@/public/assets/assets";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +21,7 @@ const SidebarWrapper = () => {
           <h3 className="text-20 font-semibold leading-[1.3] text-[#333333] mb-5">Trending Blogs</h3>
           <div>
             {blogs.filter(blog => blog.trending).map((blog) => (
-              <div key={blog.id} className="flex flex-col mb-5">
+              <motion.div variants={moveLeft(blog.id * 0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={blog.id} className="flex flex-col mb-5">
                 <Link href={blog.link}>
                   <Image src={blog.img} alt={blog.title} width={390} height={240} className="w-full h-[240px] object-cover mb-4" />
                 </Link>
@@ -29,7 +32,7 @@ const SidebarWrapper = () => {
                 <div>
                   <h4 className="text-20 font-semibold leading-[1.3]">{blog.title}</h4>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

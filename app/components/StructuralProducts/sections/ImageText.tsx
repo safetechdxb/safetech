@@ -4,8 +4,6 @@ import Image, { StaticImageData } from "next/image";
 import SubTitle from "../../common/SubTitle";
 import { motion } from "framer-motion";
 
-
-
 interface PlatformsItem {
   id: number;
   title: string;

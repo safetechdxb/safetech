@@ -2,6 +2,7 @@
 import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion"
+import { moveUp, paragraphItem } from "../../motionVarients";
 import SubTitle from "../../common/SubTitle";
 import { assets } from "@/public/assets/assets";
 interface PlatformsItem {
@@ -37,7 +38,7 @@ const SingleImageText: React.FC<PlatformsSectionProps> = ({
     <section className="pt-[50px] md:pt-[70px] xl:pt-[100px] pb-[50px] md:pb-[70px] xl:pb-[100px]   overflow-hidden relative ">
       <div className="container">
         <div className="lg:flex lg:items-center xxl:items-start">
-          <div className="w-full lg:w-[51%] pr-0 lg:pr-[35px] xl:pr-[142px]">
+          <motion.div variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="w-full lg:w-[51%] pr-0 lg:pr-[35px] xl:pr-[142px]">
             {data.map((item) => (
               <motion.div className="hidden first:block" key={item.id} variants={slideInLeft} initial="hidden" animate="visible" exit="exit">
                 <figure className="image-wrapper h-full ">
@@ -45,9 +46,9 @@ const SingleImageText: React.FC<PlatformsSectionProps> = ({
                 </figure>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="w-full lg:w-[49%] pl-0   mt-6 lg:mt-0">
+          <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="w-full lg:w-[49%] pl-0   mt-6 lg:mt-0">
             <div className="relative tracking-[3px]  mb-4 lg:mb-[30px]">
               <SubTitle titleText={heading} color="text-black" />
             </div>
@@ -65,9 +66,7 @@ const SingleImageText: React.FC<PlatformsSectionProps> = ({
               >
 
                 <div className="flex justify-between">
-                  <h3 className={`text-20 leading-[1] transition-all duration-300 cursor-pointer group-hover:text-primary group-hover:font-[600]
-            ${activeIndex === index ? 'text-primary font-[600]' : 'text-secondary font-[400] '} `}
-                  > {da.title}
+                  <h3 className={`text-20 leading-[1] transition-all duration-300 cursor-pointer group-hover:text-primary group-hover:font-[600] ${activeIndex === index ? 'text-primary font-[600]' : 'text-secondary font-[400] '} `}> {da.title}
                   </h3>
                   <div className="group-hover:-rotate-180">
                     <Image src={assets.cheveronUp} alt={da.title} width={27.43} height={14.29} className="rotate-180" />
@@ -77,21 +76,15 @@ const SingleImageText: React.FC<PlatformsSectionProps> = ({
                 <AnimatePresence mode="wait">
                   {activeIndex === index && (
                     <>
-                      <motion.div
-                        key="content"
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto", marginTop: "20px" }}
-                        exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                        transition={{ duration: 0.4 }}
-                        className="text-territory text-[16px] font-[400] leading-[1.7] text-secondary "
-                      >
-                        <p className="opacity-75">{da.paragraphs}</p>
-                      </motion.div></>
+                      <motion.div key="content" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto", marginTop: "20px" }} exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                       transition={{ duration: 0.4 }} className="text-territory text-[16px] font-[400] leading-[1.7] text-secondary"> <p className="opacity-75">{da.paragraphs}</p>
+                      </motion.div>
+                    </>
                   )}
                 </AnimatePresence>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

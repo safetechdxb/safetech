@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { moveUp } from "../../motionVarients";
 import SubTitle from "../../common/SubTitle";
 
 interface DetailedItem {
@@ -53,11 +54,11 @@ const Contact: React.FC<PlatformsSectionProps> = ({ data, title }) => {
               {data.map((item, index) => (
                 <div key={index} className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 justify-center items-center">
                   {item.details.map((detail, detailIndex) => (
-                    <div key={detailIndex} className="py-[25px] text-center lg:border-r border-secondary/40 h-full last:border-r-0 flex flex-col justify-center items-center">
+                    <motion.div variants={moveUp(detailIndex * 0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={detailIndex} className="py-[25px] text-center lg:border-r border-secondary/40 h-full last:border-r-0 flex flex-col justify-center items-center">
                       <Image src={detail.icon} alt="phone" className="mx-auto mb-5" />
                       <h3 className="text-18 font-bold text-secondary mb-2">{detail.title}</h3>
                       <p className="text-20 font-normal text-secondary opacity-75 leading-[1.6] max-w-[25ch]  ">{detail.content}</p>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               ))}

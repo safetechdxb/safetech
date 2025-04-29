@@ -100,6 +100,18 @@ function NavLinks() {
           <DropdownMenuItem asChild>
             <Link href="/structural-products" className="w-full px-2 py-1">Utility Products</Link>
           </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link href="/structural-products" className="w-full px-2 py-1">Transportation Products</Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link href="/structural-products" className="w-full px-2 py-1">Enviornmental Products</Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link href="/structural-products" className="w-full px-2 py-1">Custom Products</Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link href="/structural-products" className="w-full px-2 py-1">LandScaping Products</Link>
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
 

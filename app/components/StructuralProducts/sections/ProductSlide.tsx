@@ -72,7 +72,7 @@ const ProductSlide: React.FC<PlatformsSectionProps> = ({ data }) => {
                 className={`swiper-slide h-full hrcd relative bg-center bg-cover !transition-all duration-700 ${hoveredIndex === index ? "hovered-slide" : ""
                   } ${hoveredIndex !== null && hoveredIndex !== index ? "sibling-slide" : ""}`} >
                 <motion.div variants={slideVariants} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} className="h-full lg:h-[461px]" >
-                    <Image src={slide.image} alt="" width={463} height={461} className="w-full h-full object-cover" />
+                  <Image src={slide.image} alt="" width={463} height={461} className="w-full h-full object-cover" />
                   <div className="p-5 transition-all duration-500 ease-in-out w-full absolute bottom-0 z-10">
                     <h3 className="text-20 font-semibold leading-[1.2] uppercase max-w-[15ch] text-white transition-all duration-500 w-full delay-200 ">
                       {slide.title}
@@ -99,7 +99,6 @@ const ProductSlide: React.FC<PlatformsSectionProps> = ({ data }) => {
                   </div>
                 </motion.div>
               </SwiperSlide>
-
             ))}
           </Swiper>
         </div>

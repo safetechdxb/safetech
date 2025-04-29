@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { listUpMove } from "../../motionVarients";
 import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
@@ -14,31 +15,6 @@ interface PlatformsItem {
 interface PlatformsSectionProps {
   data: PlatformsItem[];
 }
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.1, // delay between items
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, x: -20 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
-};
-
-const listContainer = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2, // Controls the stagger effect (delay for each item)
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
 
 const listItem = {
   hidden: { opacity: 0, y: 50 },  // Start with opacity 0 and slide up
@@ -72,20 +48,18 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
             // Tabs (desktop)
 
             <div className="border-b border-[#1E1E1E66] mb-5 lg:mb-[80px]">
-              <motion.div className="flex items-center" variants={containerVariants} initial="hidden" animate="show" >
-                {categories.map((category) => (
-                  <motion.div key={category} variants={itemVariants} className="flex gap-[16px] items-center" >
-                    <p
-                      className={`select-none text-14 font-[600] pb-[10px] border-b relative top-0.5 ${activeCategory === category
+              <motion.div className="flex items-center" variants={listUpMove} initial="hidden" animate="show" >
+                {categories.map((category,index) => (
+                  <div className="flex gap-[16px] items-center" key={index}>
+                    <p className={`select-none text-14 font-[600] pb-[10px] border-b relative top-0.5 ${activeCategory === category
                           ? "border-[#E11F27] text-[#E11F27]"
                           : "border-transparent text-secondary"
                         } uppercase cursor-pointer transition-all duration-300 hover:text-[#E11F27] hover:border-[#E11F27]`}
-                      onClick={() => setActiveCategory(category)}
-                    >
+                      onClick={() => setActiveCategory(category)} >
                       {category}
                     </p>
                     <p className="pb-[10px] mr-[16px] text-[#1E1E1E33]">|</p>
-                  </motion.div>
+                  </div>
                 ))}
               </motion.div>
             </div>
@@ -96,8 +70,7 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
                 <div key={category} className="border border-[#1E1E1E66] rounded-lg">
                   <button
                     className="w-full text-left px-4 py-3 flex justify-between items-center text-14 font-semibold uppercase text-secondary hover:text-[#E11F27] transition-all duration-300"
-                    onClick={() => handleAccordionToggle(category)}
-                  >
+                    onClick={() => handleAccordionToggle(category)} >
                     {category}
                     <span>{openAccordion === category ? "−" : "+"}</span>
                   </button>
@@ -118,7 +91,7 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
                                 <path
                                   className="stroke-[#1E1E1E] group-hover:stroke-[#E11F27] transition duration-300 "
                                   d="M1 14.5V16.5C1 17.0304 1.21071 17.5391 1.58579 17.9142C1.96086 18.2893 2.46957 18.5 3 18.5H15C15.5304 18.5 16.0391 18.2893 16.4142 17.9142C16.7893 17.5391 17 17.0304 17 16.5V14.5M4 8.5L9 13.5M9 13.5L14 8.5M9 13.5V1.5 "
-                                  strokeWidth="2" strokeLinecap="round" stroke-linejoin="round"
+                                  strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                                 />
                               </svg>
                             </div>
@@ -133,11 +106,7 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
 
           {/* Tab content (only shown on desktop) */}
           {!isMobile && (
-            <motion.div
-              variants={listContainer}
-              initial="hidden"
-              animate="show"
-            >
+            <motion.div variants={listUpMove} initial="hidden" animate="show" >
               {filteredData.map((item) => (
                 <motion.div
                   key={item.id}
@@ -167,7 +136,7 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
                         <path
                           className="stroke-[#1E1E1E] group-hover:stroke-[#E11F27] transition duration-300 "
                           d="M1 14.5V16.5C1 17.0304 1.21071 17.5391 1.58579 17.9142C1.96086 18.2893 2.46957 18.5 3 18.5H15C15.5304 18.5 16.0391 18.2893 16.4142 17.9142C16.7893 17.5391 17 17.0304 17 16.5V14.5M4 8.5L9 13.5M9 13.5L14 8.5M9 13.5V1.5 "
-                          strokeWidth="2" strokeLinecap="round" stroke-linejoin="round"
+                          strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                         />
                       </svg>
                     </div>

@@ -1,15 +1,18 @@
 "use client";
+import {motion} from "framer-motion"
+import { moveUp } from "../../motionVarients";
 import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 
 interface ProductSliderItemProps {
+  prdId:number;
   prdImg: string | StaticImageData;
   prdName: string;
   prdLink: string;
 }
-const MoreSliderItem = ({prdImg,prdName,prdLink}:ProductSliderItemProps) => {
+const MoreSliderItem = ({prdId, prdImg,prdName,prdLink}:ProductSliderItemProps) => {
   return (
-    <div>
+    <motion.div variants={moveUp(prdId * 0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
       <div className="relative w-full h-[388px] group">
         <Image src={prdImg} width={423} height={388} alt="Product Image" className="w-full h-full object-cover" />
         <div className="absolute bottom-0 left-0 bg-off-white w-[64px] h-[64px] group-hover:w-[128px] group-hover:bg-primary duration-200 transition-all">
@@ -23,7 +26,7 @@ const MoreSliderItem = ({prdImg,prdName,prdLink}:ProductSliderItemProps) => {
       <div className="pt-8">
         <h3 className="text-24 font-semibold  uppercase">{prdName}</h3>
       </div>
-    </div>
+    </motion.div>
    );
 }
 

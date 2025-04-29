@@ -1,6 +1,6 @@
 "use client"
 import {motion} from 'framer-motion';
-import { moveUp, moveLeft } from '../motionVarients';
+import { moveUp } from '../motionVarients';
 import Image from "next/image";
 // import tagIcon from "@/public/assets/images/News/pin.svg";
 
@@ -40,11 +40,7 @@ const NewsBlock = ({ latestNews }: latestNewsProps) => {
                 <div className="news-crd__head relative overflow-hidden">
                   <Image src={news.imageSrc} className="w-full h-full flex" alt="news" width={500} height={500} />
                   <div className="bg-secondary absolute top-0 left-2 p-2">
-                      <h4 className="text-white text-14 leading-normal uppercase font-semibold mb-0"> {new Date(news.date).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}</h4>
+                      <h4 className="text-white text-14 leading-normal uppercase font-semibold mb-0"> {new Date(news.date).toLocaleDateString("en-US", {year: "numeric",month: "long",day: "numeric",})}</h4>
                   </div>
                 </div>
                 {/* <Image src={news.imageSrc} className="w-full h-full absolute top-0 left-0 -z-10 object-cover" alt="news" fill objectFit="cover" /> */}
