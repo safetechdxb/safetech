@@ -100,28 +100,28 @@ export const doc = {
     {
       id: 1,
       jobtitle: "Design Engineer (02)",
-      size:"Loperi isum ",
+      type:"Loperi isum ",
       category: "Full Time",
       btn:"Apply Now"
     },
     {
       id: 2,
       jobtitle: "Site Supervisor (06)",
-      size:"On-site",
+      type:"On-site",
       category: "Full Time",
       btn:"Apply Now"
     },
     {
       id: 3,
       jobtitle: "Structural Engineer (01)",
-      size:"Loperi isum",
+      type:"Loperi isum",
       category: "Full Time",
       btn:"Apply Now"
     },
     {
       id: 4,
       jobtitle: "Executive Assistant (03)",
-      size:"Loperi isum",
+      type:"Loperi isum",
       category: "Full Time",
       btn:"Apply Now"
     },

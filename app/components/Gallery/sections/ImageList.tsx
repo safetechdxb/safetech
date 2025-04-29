@@ -1,14 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image ,{ StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
 interface PlatformsItem {
   id: number;
-  image:  StaticImageData;
+  image: StaticImageData;
   category: string;
+  name:string;
   isWide: boolean;
 }
 
@@ -23,8 +24,8 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
 
   const filteredData = activeCategory === 'All'
-  ? data
-  : data.filter((item) => item.category === activeCategory);
+    ? data
+    : data.filter((item) => item.category === activeCategory);
 
   const handleAccordionToggle = (category: string) => {
     setOpenAccordion(openAccordion === category ? null : category);
@@ -48,33 +49,19 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
         <div>
           {!isMobile ? (
             // Tabs (desktop)
-            <div className="  border-b border-[#1E1E1E66] mb-5 lg:mb-[80px]">
-              <motion.div
-    className="flex items-center"
-    variants={containerVariants}
-    initial="hidden"
-    animate="show"
-  >
+            <div className="border-b border-[#1E1E1E66] mb-5 lg:mb-15">
+              <motion.div className="flex items-center" variants={containerVariants} initial="hidden" animate="show" >
                 {categories.map((category) => (
-                <motion.div
-                        key={category}
-                        variants={itemVariants}
-                        className="flex gap-[16px] items-center"
-                      >
-                  <p
-
-                  className={` select-none text-14 font-[600] pb-[10px] border-b relative top-0.5 ${
-                    activeCategory === category ? "border-[#E11F27] text-[#E11F27]" : "border-transparent text-secondary"
-                  } uppercase cursor-pointer transition-all duration-300 hover:text-[#E11F27] hover:border-[#E11F27]`}
-                  onClick={() => setActiveCategory(category)}
-                >
-                  {category}
-                </p>
-                <p className="pb-[10px] mr-[16px] text-[#1E1E1E33]">|</p>
-
-            </motion.div>
-              ))}
-            </motion.div>
+                  <motion.div key={category} variants={itemVariants} className="flex gap-[16px] items-center" >
+                    <p className={` select-none text-14 font-semibold pb-[9px] border-b-2 relative top-0.5 ${activeCategory === category ? "border-[#E11F27] text-[#E11F27]" : "border-transparent text-secondary"
+                        } uppercase cursor-pointer transition-all duration-300 hover:text-primary hover:border-[#E11F27]`}
+                      onClick={() => setActiveCategory(category)} >
+                      {category}
+                    </p>
+                    <p className="pb-[10px] mr-[16px] text-[#1E1E1E33]">|</p>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
           ) : (
             // Accordions (mobile)
@@ -90,24 +77,23 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
                   </button>
                   {openAccordion === category && (
                     <div className="p-4">
-                    <div className="  ">
+                      <div className="  ">
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-[60px]">
-                        {data
-                    .filter((item) => category === "All" || item.category === category)
-                    .map((item, index) => (
+                          {data
+                            .filter((item) => category === "All" || item.category === category)
+                            .map((item, index) => (
                               <Image
                                 key={index}
                                 src={item.image}
                                 alt={`Image ${index}`}
-                                className={`w-full  h-[150px]  md:h-[200px] xl:h-[355px] object-cover ${
-                                  item.isWide ? 'col-span-2' : 'col-span-1'
-                                }`}
+                                className={`w-full  h-[150px]  md:h-[200px] xl:h-[355px] object-cover ${item.isWide ? 'col-span-2' : 'col-span-1'
+                                  }`}
                               />
 
-                        ))}
+                            ))}
                         </div>
 
-</div>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -117,23 +103,19 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
 
           {/* Tab content (only shown on desktop) */}
           {!isMobile && (
-            <div className="  ">
+            <div>
               <div className="grid grid-cols-4 gap-4 lg:gap-[60px]">
-                {filteredData.map((img, index) => (
-                  <Image
-                    key={index}
-                    src={img.image}
-                    alt={`Image ${index}`}
-                    className={`w-full  h-[250px]  md:h-[200px] xl:h-[355px] object-cover ${
-                      img.isWide ? 'col-span-2' : 'col-span-1'
-                    }`}
-                  />
+                {filteredData.map((item, index) => (
+                  <div key={index} className={`relative h-[250px]  md:h-[200px] xl:h-[355px] group ${item.isWide ? 'col-span-2' : 'col-span-1'}`}>
+                    <Image key={index} src={item.image} alt={`Image ${index}`} className={`w-full h-full object-cover `} />
+                    <div className="absolute left-0 bottom-10 w-0 overflow-hidden transition-all duration-200 bg-primary group-hover:w-[75%]">
+                      <h3 className="text-white font-semibold text-18 min-w-max leading-[1] uppercase p-8 mb-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200">{item.name}</h3>
+                    </div>
+                  </div>
                 ))}
               </div>
-
             </div>
           )}
-
 
         </div>
       </div>

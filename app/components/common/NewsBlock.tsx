@@ -1,4 +1,6 @@
-
+"use client"
+import {motion} from 'framer-motion';
+import { moveUp, moveLeft } from '../motionVarients';
 import Image from "next/image";
 // import tagIcon from "@/public/assets/images/News/pin.svg";
 
@@ -32,14 +34,18 @@ const NewsBlock = ({ latestNews }: latestNewsProps) => {
     <>
       <div className="news-crd__wrapper">
         {latestNews.map((news, index) => (
-          <div key={news.id} className={`news-crd overflow-hidden ${index === 0 ? "news-crd__big relative" : "news-crd__small"}`}>
+          <motion.div variants={moveUp(news.id * 0.3)} initial="hidden" whileInView="show" viewport={{once:true, amount:0.2}} key={news.id} className={`news-crd overflow-hidden ${index === 0 ? "news-crd__big relative" : "news-crd__small"}`}>
             {index === 0 ? (
               // Large Featured News Card
               <>
                 <div className="news-crd__head relative overflow-hidden">
-                  <Image src={news.imageSrc} className="w-full h-full flex" alt="news" fill objectFit="cover" />
+                  <Image src={news.imageSrc} className="w-full h-full flex" alt="news" width={500} height={500} />
                   <div className="bg-secondary absolute top-0 left-2 p-2">
-                    <h4 className="text-white text-14 leading-normal uppercase font-semibold mb-0">{news.date}</h4>
+                      <h4 className="text-white text-14 leading-normal uppercase font-semibold mb-0"> {new Date(news.date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}</h4>
                   </div>
                 </div>
                 {/* <Image  src={news.imageSrc} className="w-full h-full absolute top-0 left-0 -z-10 object-cover" alt="news" fill objectFit="cover" /> */}
@@ -61,16 +67,20 @@ const NewsBlock = ({ latestNews }: latestNewsProps) => {
                   <h3 className="text-20 text-black font-semibold leading-[1.3] mb-2 overflow-hidden text-ellipsis helvetica display-webkit-box line-clamp-2 webkit-box-orient-vertical">{news.title}</h3>
                   <p className="text-16 leading-normal text-black/75 max-w-[75%] font-normal mb-5 overflow-hidden text-ellipsis display-webkit-box line-clamp-4 webkit-box-orient-vertical">{news.desc}</p>
                   {/* <PrimaryArrowBtn btntitle="Read more" btnLink={`article`} /> */}
-                  <ArrowBtn btnText="Read More" />
+                  <ArrowBtn btnText="Read More" btnLInk="#" border={false} />
                 </div>
               </>
             ) : (
               // Small News Cards
               <>
                 <div className="news-crd__head relative">
-                  <Image src={news.imageSrc} className="w-full h-full object-cover" alt="news" width={300} height={300} quality={100} priority unoptimized />
+                  <Image src={news.imageSrc} className="w-full h-full object-cover" alt="news" width={300} height={300} quality={100}  />
                   <div className="bg-secondary absolute top-0 left-2 p-2">
-                    <h4 className="text-white text-14 leading-normal uppercase font-semibold mb-0">{news.date}</h4>
+                      <h4 className="text-white text-14 leading-normal uppercase font-semibold mb-0"> {new Date(news.date).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}</h4>
                   </div>
                 </div>
                 <div className="news-crd__body pt-2 flex flex-col">
@@ -90,12 +100,12 @@ const NewsBlock = ({ latestNews }: latestNewsProps) => {
                   overflow-hidden text-ellipsis display-webkit-box line-clamp-3 webkit-box-orient-vertical max-w-[80%]"> {news.title}</h3>
                   {/* <PrimaryArrowBtn btntitle="Read more" btnLink={`article`} /> */}
                   <div className="mt-auto pb-5">
-                    <ArrowBtn btnText="Read More" />
+                    <ArrowBtn btnText="Read More" btnLInk="#" border={false} />
                   </div>
                 </div>
               </>
             )}
-          </div>
+          </motion.div>
         ))}
       </div>
     </>

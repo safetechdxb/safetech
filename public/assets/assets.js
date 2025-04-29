@@ -5,8 +5,10 @@ import Leaf from './img/icons/leaf-i.svg';
 import forestBg from './img/forest-bg.jpg';
 import banner01 from './img/banner/001.jpg'
 import aboutBnr from './img/banner/about-bnr.jpg';
+import blogBnr from './img/banner/blog-bnr.jpg';
+import newsBnr from './img/banner/news-bnr.jpg';
 import OurCompany from './img/our-company.jpg';
-import Product1 from './img/products/precast.jpg';
+import Product1 from './img/products/architectural-products.jpg';
 import Product2 from './img/products/prestress.jpg';
 import Product3 from './img/products/hollow-core.jpg';
 import Product4 from './img/products/troughs.jpg';
@@ -14,8 +16,15 @@ import facebook from './img/icons/facebook.svg';
 import instagram from './img/icons/instagram.svg';
 import linkedin from './img/icons/linkedin.svg';
 import youtube from './img/icons/youtube.svg';
+import facebookPrimary from './img/icons/facebook-primary.svg';
+import instagramPrimary from './img/icons/instagram-primary.svg';
+import linkedinPrimary from './img/icons/linkedin-primary.svg';
+import sharePrimary from './img/icons/share-primary.svg';
+import cheveronUp from './img/icons/cheveron-up.svg';
 import sp from './img/structural-products/sp.jpg';
-import slide1 from './img/structural-products/slide1.jpg';
+import technologyIcon from './img/icons/technology-icon.svg';
+import calenderPrimary from './img/icons/calender-primary.svg';
+import slide1 from './img/products/architectural-products.jpg';
 import slide2 from './img/structural-products/slide2.jpg';
 import slide3 from './img/structural-products/slide3.jpg';
 import slide4 from './img/structural-products/slide4.jpg';
@@ -57,10 +66,6 @@ import conbanner from './img/banner/contactbanner.jpg';
 import location from './img/icons/location.png';
 import phone from './img/icons/phone.svg';
 import email from './img/icons/email.svg';
-
-
-
-
 
 
 export const assets = {
@@ -109,6 +114,7 @@ export const assets = {
     sp,
     logo,
     arrowTopRight,
+    cheveronUp,
     Leaf,
     banner01,
     OurCompany,
@@ -121,6 +127,14 @@ export const assets = {
     instagram,
     linkedin,
     youtube,
+    facebookPrimary,
+    instagramPrimary,
+    linkedinPrimary,
     aboutBnr,
+    blogBnr,
+    newsBnr,
     AchievementsBg,
+    technologyIcon,
+    calenderPrimary,
+    sharePrimary,
 }

@@ -1,11 +1,11 @@
 import Index from "@/app/components/Gallery/index";
 import React from "react";
 
-const Contact = () => {
+const Gallery= () => {
   return (
     <>
       <Index />
     </>
   );
 };
-export default Contact;
+export default Gallery;
