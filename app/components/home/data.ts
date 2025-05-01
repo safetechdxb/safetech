@@ -1,73 +1,73 @@
 export const clients = [
   {
-    id:1,
-    logo:"/assets/img/clients/logo.svg"
+    id: 1,
+    logo: "/assets/img/clients/logo-0.svg",
   },
   {
-    id:2,
-    logo:"/assets/img/clients/logo-1.svg"
+    id: 2,
+    logo: "/assets/img/clients/logo-01.svg",
   },
   {
-    id:3,
-    logo:"/assets/img/clients/logo-2.svg"
+    id: 3,
+    logo: "/assets/img/clients/logo-02.svg",
   },
   {
-    id:4,
-    logo:"/assets/img/clients/logo-3.svg"
+    id: 4,
+    logo: "/assets/img/clients/logo-03.svg",
   },
   {
-    id:5,
-    logo:"/assets/img/clients/logo-4.svg"
+    id: 5,
+    logo: "/assets/img/clients/logo-04.svg",
   },
   {
-    id:6,
-    logo:"/assets/img/clients/logo-5.svg"
+    id: 6,
+    logo: "/assets/img/clients/logo-05.svg",
   },
   {
-    id:7,
-    logo:"/assets/img/clients/logo-3.svg"
+    id: 7,
+    logo: "/assets/img/clients/logo-03.svg",
   },
   {
-    id:8,
-    logo:"/assets/img/clients/logo.svg"
+    id: 8,
+    logo: "/assets/img/clients/logo-0.svg",
   },
   {
-    id:9,
-    logo:"/assets/img/clients/logo-5.svg"
+    id: 9,
+    logo: "/assets/img/clients/logo-05.svg",
   },
   {
-    id:10,
-    logo:"/assets/img/clients/logo-1.svg"
+    id: 10,
+    logo: "/assets/img/clients/logo-01.svg",
   },
   {
-    id:11,
-    logo:"/assets/img/clients/logo-2.svg"
+    id: 11,
+    logo: "/assets/img/clients/logo-02.svg",
   },
   {
-    id:12,
-    logo:"/assets/img/clients/logo.svg"
+    id: 12,
+    logo: "/assets/img/clients/logo-0.svg",
   },
   {
-    id:13,
-    logo:"/assets/img/clients/logo-1.svg"
+    id: 13,
+    logo: "/assets/img/clients/logo-1.svg",
   },
   {
-    id:14,
-    logo:"/assets/img/clients/logo-2.svg"
+    id: 14,
+    logo: "/assets/img/clients/logo-02.svg",
   },
   {
-    id:15,
-    logo:"/assets/img/clients/logo-3.svg"
+    id: 15,
+    logo: "/assets/img/clients/logo-03.svg",
   },
   {
-    id:16,
-    logo:"/assets/img/clients/logo-4.svg"
+    id: 16,
+    logo: "/assets/img/clients/logo-04.svg",
   },
   {
-    id:17,
-    logo:"/assets/img/clients/logo-5.svg"
-  }
-]
+    id: 17,
+    logo: "/assets/img/clients/logo-05.svg",
+  },
+];
 
 export const numberSvgs = [
   {
@@ -121,7 +121,7 @@ export const newsEvents = [
     imageSrc: "/assets/img/news/news2.jpg",
     date: "November 30, 2024",
     title: "How prefabrication is gaining traction over masonry in K12 construction",
-    desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", 
+    desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     categories: ["Design"],
     readMoreLink: "#",
   },
