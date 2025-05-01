@@ -90,7 +90,7 @@ const Footer = () => {
       <div className="border-t border-white/10 mt-15 py-10">
         <div className="container">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-white/50">2024 Safetech. All Rights reserved</p>
+            <p className="text-white/50">2025 Safetech. All Rights reserved</p>
             <ul className="flex gap-4">
               <li><Link href="#" className="border-r border-white/10 text-white/50 last:border-none">Privacy policy</Link></li>
               <li><Link href="#" className="border-r border-white/10 text-white/50 last:border-none">Terms of use</Link></li>

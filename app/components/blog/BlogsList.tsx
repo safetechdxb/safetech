@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState } from "react"
 import { blogs } from "./data";
 import ArrowBtn from "../common/ArrowBtn";
+import Link from "next/link";
 const categories = ["all", ...Array.from(new Set(blogs.map(blog => blog.category.toLowerCase())))]
 
 const BlogsList = () => {
@@ -35,7 +36,9 @@ const BlogsList = () => {
                 {filteredItems.map((item,index) => (
                   <motion.div variants={moveUp(item.id * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={item.id} className="">
                     <div className="">
+                      <Link href={item.link}>
                       <Image src={item.img} alt={item.title} width={500} height={500} className={`w-full ${index % 2 === 0 ? 'h-[355px]' : 'h-[287px]'} object-cover`} />
+                      </Link>
                       <div className="flex justify-between items-center my-4">
                         <p className="text-12 font-normal leading-[1.7] text-tm-gray uppercase">{item.category}</p>
                         <p className="text-12 font-normal leading-[1.7] text-tm-gray uppercase"> 
@@ -46,7 +49,9 @@ const BlogsList = () => {
                           })}
                         </p>
                       </div>
-                      <div className="text-20 font-semibold leading-[1.3] mb-8">{item.title}</div>
+                      <Link href={item.link}>
+                      <h3 className="text-20 font-semibold leading-[1.3] mb-8">{item.title}</h3>
+                      </Link>
                       {/* <div className="text-sm text-muted-foreground mb-2">{item.desc}</div> */}
                       <ArrowBtn btnText={"Read More"} btnLInk={item.link} border={false} />
                     </div>

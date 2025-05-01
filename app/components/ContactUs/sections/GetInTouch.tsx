@@ -38,25 +38,25 @@ const GetInTouch: React.FC<PlatformsSectionProps> = ({
         <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-x-4 lg:gap-x-[140px] mb-4 lg:mb-7 gap-y-4 lg:gap-y-[30px] " >
           <div className="relative w-full ">
             <input type="text" placeholder="Name"
-              className="px-1 appearance-none bg-transparent border-0 border-b border-secondary/80 font-normal focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 text-16 font-normal py-[16px] pr-6 w-full"/>
+              className="px-1 appearance-none bg-transparent border-0 border-b border-secondary/80 focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 text-16 font-normal py-[16px] pr-6 w-full"/>
           </div>
           <div className="relative w-full ">
             <input type="number" placeholder="Phone"
-              className="px-1 appearance-none bg-transparent border-0 border-b border-secondary/80 font-normal focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 text-16 font-normal py-[16px] pr-6 w-full"/>
+              className="px-1 appearance-none bg-transparent border-0 border-b border-secondary/80 focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 text-16 font-normal py-[16px] pr-6 w-full"/>
           </div>
           <div className="relative w-full ">
             <input type="email" placeholder="Email"
-              className="px-1 appearance-none bg-transparent border-0 border-b border-secondary/80 font-normal focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 text-16 font-normal py-[16px] pr-6 w-full"/>
+              className="px-1 appearance-none bg-transparent border-0 border-b border-secondary/80 focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 text-16 font-normal py-[16px] pr-6 w-full"/>
           </div>
           <div className="relative w-full ">
             <input type="text" placeholder="Subject"
-              className="px-1 appearance-none bg-transparent border-0 border-b border-secondary/80 font-normal focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 text-16 font-normal py-[16px] pr-6 w-full"/>
+              className="px-1 appearance-none bg-transparent border-0 border-b border-secondary/80 focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 text-16 font-normal py-[16px] pr-6 w-full"/>
           </div>
         </motion.div>
         <motion.div
           className="grid grid-cols-1 gap-x-4 lg:gap-x-6 xxl:gap-x-10 gap-y-4 lg:gap-y-[30px] " >
           <div className="relative w-full ">
-            <textarea placeholder="Cover Letter" className="px-1 appearance-none bg-transparent
+            <textarea placeholder="Message" className="px-1 appearance-none bg-transparent
              border-0 border-b border-secondary focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 font-normal text-16 font-normal py-[16px] pr-6 w-full resize-none"/>
           </div>
           <motion.div className="w-full ">

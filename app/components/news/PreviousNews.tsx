@@ -62,12 +62,12 @@ const PreviousNews: React.FC<PreviousNewsProps> = ({ previousNews }) => {
               </span>
               <div className="flex flex-col relative overflow-hidden">
                 <div className={`bg-black w-[50px] h-[50px] text-white text-[16px] font-[400] px-4 py-4 flex items-center justify-center transition-all duration-300 
-                  ${showAll?"group-hover:translate-y-[-50px]":"group-hover:translate-y-[50px]"}`}>
+                  ${showAll ? "group-hover:translate-y-[-50px]" : "group-hover:translate-y-[50px]"}`}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`lucide lucide-move-down transition-transform duration-300 ${showAll ? "rotate-180" : ""}`} >
                     <path d="M8 18L12 22L16 18" /> <path d="M12 2V22" />
                   </svg>
-                </div> 
-                <div className={`bg-primary w-[50px] h-[50px] absolute  left-0 z-20 text-white text-[16px] font-[400] px-4 py-4 flex items-center justify-center transition-all duration-300 group-hover:top-0 ${showAll?"top-[50px]":"top-[-50px]"}`}>
+                </div>
+                <div className={`bg-primary w-[50px] h-[50px] absolute  left-0 z-20 text-white text-[16px] font-[400] px-4 py-4 flex items-center justify-center transition-all duration-300 group-hover:top-0 ${showAll ? "top-[50px]" : "top-[-50px]"}`}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`lucide lucide-move-down transition-transform duration-300 ${showAll ? "rotate-180" : ""}`} >
                     <path d="M8 18L12 22L16 18" /> <path d="M12 2V22" />
                   </svg>

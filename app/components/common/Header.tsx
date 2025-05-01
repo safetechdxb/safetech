@@ -2,7 +2,6 @@
 import Image from 'next/image'
 import React from 'react'
 import {assets} from '@/public/assets/assets'
-
 import { ChevronDown } from 'lucide-react'
 import Link from "next/link"
 import {
@@ -23,6 +22,7 @@ import {
 } from "@/components/ui/sheet"
 
 export default function Header() {
+
   return ( 
     <header className="bg-transparent absolute top-0 left-0 text-white z-10 w-full border-b-1 border-[#ffffff50]">
       <div className="container mx-auto flex items-center justify-between px-4 py-4">
@@ -81,6 +81,7 @@ function NavLinks() {
       </DropdownMenu>
  
       {/* PRODUCTS DROPDOWN */}
+      
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <button className="text-14 font-semibold font-roboto hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:outline-none cursor-pointer">
