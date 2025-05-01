@@ -30,7 +30,9 @@ const SidebarWrapper = () => {
                     <p className="text-12 font-normal leading-[1.7] text-tm-gray uppercase">{blog.date}</p>
                   </div>
                 <div>
+                  <Link href={blog.link}>
                   <h4 className="text-20 font-semibold leading-[1.3]">{blog.title}</h4>
+                  </Link>
                 </div>
               </motion.div>
             ))}
