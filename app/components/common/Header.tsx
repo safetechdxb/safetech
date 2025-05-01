@@ -66,20 +66,20 @@ function NavLinks() {
       {/* About us */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button className="text-14 font-semibold hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:border-none focus-visible:outline-none uppercase cursor-pointer">
+          <button className="text-14 font-semibold hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:outline-none uppercase cursor-pointer">
             About Us <ChevronDown className="w-4 h-4" />
           </button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="bg-white text-secondary/75 hover:text-secondary/75 border-white/10 mt-2 px-2 py-2 shadow-2xl min-w-52">
+        <DropdownMenuContent className="bg-white text-secondary opacity-100 hover:text-secondary/75 border-white/10 mt-2 px-2 py-2 shadow-2xl min-w-52">
           <DropdownMenuItem asChild  className="w-full px-4 py-2 uppercase text-12 font-semibold inline-block hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
-            <Link href="/about" >About Us</Link>
+            <Link href="/about" className='transition-all duration-200 cursor-pointer'>About Us</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild className="w-full px-4 py-2 uppercase text-12 font-semibold inline-block hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
-            <Link href="/certifications" >Certifications</Link>
+            <Link href="/certifications" className='transition-all duration-200 cursor-pointer'>Certifications</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-
+ 
       {/* PRODUCTS DROPDOWN */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -87,30 +87,30 @@ function NavLinks() {
             PRODUCTS <ChevronDown className="w-4 h-4" />
           </button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="bg-white text-secondary/75 border-white/10 mt-2">
+        <DropdownMenuContent className="bg-white text-secondary border-white/10 mt-2">
           <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
-            <Link href="/structural-products">Structural Products</Link>
+            <Link href="/structural-products" className='transition-all duration-200 cursor-pointer'>Structural Products</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
-            <Link href="/structural-products">Architectural Products</Link>
+            <Link href="/structural-products" className='transition-all duration-200 cursor-pointer'>Architectural Products</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
-            <Link href="/structural-products">Infrastructureal Products</Link>
+            <Link href="/structural-products" className='transition-all duration-200 cursor-pointer'>Infrastructureal Products</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
-            <Link href="/structural-products">Utility Products</Link>
+            <Link href="/structural-products" className='transition-all duration-200 cursor-pointer'>Utility Products</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
-            <Link href="/structural-products">Transportation Products</Link>
+            <Link href="/structural-products" className='transition-all duration-200 cursor-pointer'>Transportation Products</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
-            <Link href="/structural-products">Enviornmental Products</Link>
+            <Link href="/structural-products" className='transition-all duration-200 cursor-pointer'>Enviornmental Products</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
-            <Link href="/structural-products">Custom Products</Link>
+            <Link href="/structural-products" className='transition-all duration-200 cursor-pointer'>Custom Products</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
-            <Link href="/structural-products">LandScaping Products</Link>
+            <Link href="/structural-products" className='transition-all duration-200 cursor-pointer'>LandScaping Products</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -121,16 +121,16 @@ function NavLinks() {
       {/* NEWS & MEDIA DROPDOWN */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button className="text-14 font-semibold hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:border-none focus-visible:outline-none cursor-pointer">
+          <button className="text-14 font-semibold hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:outline-none cursor-pointer">
             NEWS & MEDIA <ChevronDown className="w-4 h-4" />
           </button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="bg-white text-secondary/75 border-white/10 mt-2">
+        <DropdownMenuContent className="bg-white text-secondary border-white/10 mt-2">
           <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
-            <Link href="/news">News & Events</Link>
+            <Link href="/news" className='transition-all duration-200 cursor-pointer'>News & Events</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
-            <Link href="/blog">Blog</Link>
+            <Link href="/blog" className='transition-all duration-200 cursor-pointer'>Blog</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
