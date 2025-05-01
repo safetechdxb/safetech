@@ -25,7 +25,7 @@ const ProductSliderItem = ({prdId, prdImg,prdName,prdDec,prdLink}:ProductSliderI
         </div>
       </div>
       <div className="pt-8">
-        <h3 className="text-24 font-semibold lg:mb-8 uppercase tracking-cmn">{prdName}</h3>
+        <h3 className="text-24 font-semibold lg:mb-8 uppercase tracking-cmn leading-[1]">{prdName}</h3>
         <p className="text-16 font-normal max-w-10/12">{prdDec}</p>
       </div>
     </motion.div>

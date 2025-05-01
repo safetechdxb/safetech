@@ -28,11 +28,11 @@ const Sustainability = () => {
             </li>
             <li className="flex gap-3 items-center mb-4 last:mb-0">
               <Image src={assets.Leaf} alt="Sustainability Image 1" className="" />
-              <p className="text-white text-24 leading-[1.3]">Reduce carbon footprint through precast technologies.</p>
+              <p className="text-white text-24 leading-[1.3]">Optimize resources with eco-efficient designs.</p>
             </li>
             <li className="flex gap-3 items-center mb-4 last:mb-0">
               <Image src={assets.Leaf} alt="Sustainability Image 1" className="" />
-              <p className="text-white text-24 leading-[1.3]">Reduce carbon footprint through precast technologies.</p>
+              <p className="text-white text-24 leading-[1.3]">Innovate for long-lasting sustainability.</p>
             </li>
           </motion.ul>
           <motion.div className="brightness-0 invert" variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} >
