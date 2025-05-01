@@ -70,12 +70,12 @@ function NavLinks() {
             About Us <ChevronDown className="w-4 h-4" />
           </button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="bg-[#12181F] text-white border-white/10 mt-2">
-          <DropdownMenuItem asChild>
-            <Link href="/about" className="w-full px-2 py-1 uppercase">About Us</Link>
+        <DropdownMenuContent className="bg-white text-secondary/75 hover:text-secondary/75 border-white/10 mt-2 px-2 py-2 shadow-2xl min-w-52">
+          <DropdownMenuItem asChild  className="w-full px-4 py-2 uppercase text-12 font-semibold inline-block hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
+            <Link href="/about" >About Us</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/certifications" className="w-full px-2 py-1 uppercase">Certifications</Link>
+          <DropdownMenuItem asChild className="w-full px-4 py-2 uppercase text-12 font-semibold inline-block hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
+            <Link href="/certifications" >Certifications</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -87,30 +87,30 @@ function NavLinks() {
             PRODUCTS <ChevronDown className="w-4 h-4" />
           </button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="bg-[#12181F] text-white border-white/10 mt-2">
-          <DropdownMenuItem asChild>
-            <Link href="/structural-products" className="w-full px-2 py-1">Structural Products</Link>
+        <DropdownMenuContent className="bg-white text-secondary/75 border-white/10 mt-2">
+          <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
+            <Link href="/structural-products">Structural Products</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/structural-products" className="w-full px-2 py-1">Architectural Products</Link>
+          <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
+            <Link href="/structural-products">Architectural Products</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/structural-products" className="w-full px-2 py-1">Infrastructureal Products</Link>
+          <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
+            <Link href="/structural-products">Infrastructureal Products</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/structural-products" className="w-full px-2 py-1">Utility Products</Link>
+          <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
+            <Link href="/structural-products">Utility Products</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/structural-products" className="w-full px-2 py-1">Transportation Products</Link>
+          <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
+            <Link href="/structural-products">Transportation Products</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/structural-products" className="w-full px-2 py-1">Enviornmental Products</Link>
+          <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
+            <Link href="/structural-products">Enviornmental Products</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/structural-products" className="w-full px-2 py-1">Custom Products</Link>
+          <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
+            <Link href="/structural-products">Custom Products</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/structural-products" className="w-full px-2 py-1">LandScaping Products</Link>
+          <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
+            <Link href="/structural-products">LandScaping Products</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -125,12 +125,12 @@ function NavLinks() {
             NEWS & MEDIA <ChevronDown className="w-4 h-4" />
           </button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="bg-[#12181F] text-white border-white/10 mt-2">
-          <DropdownMenuItem asChild>
-            <Link href="/news" className="w-full px-2 py-1">News & Events</Link>
+        <DropdownMenuContent className="bg-white text-secondary/75 border-white/10 mt-2">
+          <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
+            <Link href="/news">News & Events</Link>
           </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link href="/blog" className="w-full px-2 py-1">Blog</Link>
+          <DropdownMenuItem asChild className="px-4 py-2 uppercase text-12 font-semibold hover:scale-105 hover:bg-light-gray opacity-100 transition-all duration-200">
+            <Link href="/blog">Blog</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -139,4 +139,4 @@ function NavLinks() {
       <Link href="/downloads" className="text-14 font-semibold font-roboto hover:text-white/75 transition border-r border-white/20 lg:pl-6 last:border-none">DOWNLOADS</Link>
     </>
   )
-}
+} 
