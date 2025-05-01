@@ -49,7 +49,7 @@ export const clients = [
   },
   {
     id: 13,
-    logo: "/assets/img/clients/logo-1.svg",
+    logo: "/assets/img/clients/logo-01.svg",
   },
   {
     id: 14,
