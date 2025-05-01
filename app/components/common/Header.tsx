@@ -60,22 +60,22 @@ export default function Header() {
 function NavLinks() {
   return (
     <>
-      <Link href="/" className="text-sm font-semibold font-roboto hover:text-white/75 transition border-r border-white/20 lg:pr-10 last:border-none">HOME</Link>
+      <Link href="/" className="text-14 font-semibold font-roboto hover:text-white/75 transition border-r border-white/20 lg:pr-10 last:border-none">HOME</Link>
       {/* <Link href="/about" className="text-sm font-semibold font-roboto hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none">ABOUT US</Link> */}
 
       {/* About us */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button className="text-sm font-semibold hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:border-none focus-visible:outline-none">
+          <button className="text-14 font-semibold hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:border-none focus-visible:outline-none uppercase">
             About Us <ChevronDown className="w-4 h-4" />
           </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="bg-[#12181F] text-white border-white/10 mt-2">
           <DropdownMenuItem asChild>
-            <Link href="/about" className="w-full px-2 py-1">About Us</Link>
+            <Link href="/about" className="w-full px-2 py-1 uppercase">About Us</Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link href="/certifications" className="w-full px-2 py-1">Certifications</Link>
+            <Link href="/certifications" className="w-full px-2 py-1 uppercase">Certifications</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -83,7 +83,7 @@ function NavLinks() {
       {/* PRODUCTS DROPDOWN */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button className="text-sm font-semibold font-roboto hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:outline-none">
+          <button className="text-14 font-semibold font-roboto hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:outline-none">
             PRODUCTS <ChevronDown className="w-4 h-4" />
           </button>
         </DropdownMenuTrigger>
@@ -121,7 +121,7 @@ function NavLinks() {
       {/* NEWS & MEDIA DROPDOWN */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button className="text-sm font-semibold hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:border-none focus-visible:outline-none">
+          <button className="text-14 font-semibold hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:border-none focus-visible:outline-none">
             NEWS & MEDIA <ChevronDown className="w-4 h-4" />
           </button>
         </DropdownMenuTrigger>
@@ -135,8 +135,8 @@ function NavLinks() {
         </DropdownMenuContent>
       </DropdownMenu>
 
-      <Link href="/contact-us" className="text-sm font-semibold font-roboto hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none">CONTACT US</Link>
-      <Link href="/downloads" className="text-sm font-semibold font-roboto hover:text-white/75 transition border-r border-white/20 lg:pl-6 last:border-none">DOWNLOADS</Link>
+      <Link href="/contact-us" className="text-14 font-semibold font-roboto hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none">CONTACT US</Link>
+      <Link href="/downloads" className="text-14 font-semibold font-roboto hover:text-white/75 transition border-r border-white/20 lg:pl-6 last:border-none">DOWNLOADS</Link>
     </>
   )
 }
