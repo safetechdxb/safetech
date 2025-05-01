@@ -20,6 +20,7 @@ interface latestNews {
 }
 
 interface latestNewsProps {
+
   latestNews: latestNews[];
 }
 
@@ -43,7 +44,7 @@ const NewsBlock = ({ latestNews }: latestNewsProps) => {
                       <h4 className="text-white text-14 leading-normal uppercase font-semibold mb-0"> {new Date(news.date).toLocaleDateString("en-US", {year: "numeric",month: "long",day: "numeric",})}</h4>
                   </div>
                 </div>
-                {/* <Image src={news.imageSrc} className="w-full h-full absolute top-0 left-0 -z-10 object-cover" alt="news" fill objectFit="cover" /> */}
+                {/* <Image  src={news.imageSrc} className="w-full h-full absolute top-0 left-0 -z-10 object-cover" alt="news" fill objectFit="cover" /> */}
                 <div className="news-crd__content font-helvetica pt-4">
                   {/* <h4 className="text-black text-font14 opacity-75 leading-normal mb-3 uppercase font-bold">{news.date}</h4> */}
                   {/* <h3 className="text-font20 xl:text-font28 text-Darkgreen font-bold leading-[1.3] mb-2 lg:mb-5 overflow-hidden text-ellipsis display-webkit-box line-clamp-2 webkit-box-orient-vertical" dangerouslySetInnerHTML={{ __html: news.title }}></h3> */}
@@ -91,7 +92,7 @@ const NewsBlock = ({ latestNews }: latestNewsProps) => {
                       ))}
                     </ul>
                   </div>
-                  <h3 className="text-20 text-black font-semibold leading-[1.3] mb-2 lg:mb-3 
+                  <h3 className="text-20 text-black font-semibold leading-[1.3] mb-2 lg:mb-3
                   overflow-hidden text-ellipsis display-webkit-box line-clamp-3 webkit-box-orient-vertical max-w-[80%]"> {news.title}</h3>
                   {/* <PrimaryArrowBtn btntitle="Read more" btnLink={`article`} /> */}
                   <div className="mt-auto pb-5">
