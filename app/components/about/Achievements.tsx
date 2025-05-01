@@ -1,3 +1,6 @@
+"use client"
+import {motion} from "framer-motion";
+import { moveUp } from "../motionVarients";
 import SubTitle from "../common/SubTitle";
 import {assets} from "@/public/assets/assets";
 import Image from "next/image";
@@ -16,13 +19,13 @@ const Achievements = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] mt-[60px]">
            {
             achievements.map((item)=>(
-              <div key={item.id} className="bg-primary p-8 flex flex-col gap-[86px]">
+              <motion.div variants={moveUp(item.id * 0.3)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} key={item.id} className="bg-primary p-8 flex flex-col gap-[86px]">
                 <div className="flex justify-between items-center">
                   <h3 className="text-64 font-bold leading-[1] text-white">{item.desc}</h3>
                   <Image src={item.icon} alt={item.title} width={50} height={50} className="w-auto h-[50px] object-contain" />
                 </div>
                 <h4 className="text-20 font-semibold text-white">{item.title}</h4>
-              </div>
+              </motion.div>
             ))
            }
           </div>

@@ -1,3 +1,6 @@
+"use client"
+import {motion} from "framer-motion";
+import { moveUp } from "../motionVarients";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
 import {assets} from "@/public/assets/assets";
@@ -23,18 +26,17 @@ const InnerBanner = ({pageTitle, bannerBg, isBlogDetails, category, date, isDeta
         <div className="flex flex-col justify-end h-full pb-10 lg:pb-20">
           {
             !isDetailPage && !isBlogDetails &&(
-
-              <h1 className={`text-white uppercase text-96 font-bold  leading-[1.2]`}>{pageTitle}</h1>
+              <motion.h1 variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className={`text-white uppercase text-96 font-bold  leading-[1.2]`}>{pageTitle}</motion.h1>
             )
           }
           {
             isDetailPage && (
-              <h1 className={`text-white uppercase text-48 max-w-6xl font-semibold leading-[1.3] mb-7 `}>{pageTitle}</h1>
+              <motion.h1 variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className={`text-white uppercase text-48 max-w-6xl font-semibold leading-[1.3] mb-7 `}>{pageTitle}</motion.h1>
             )
           }
           {
             isBlogDetails && (
-              <h1 className={`text-white text-48 max-w-6xl font-semibold leading-[1.3] mb-7 `}>{pageTitle}</h1>
+              <motion.h1 variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className={`text-white text-48 max-w-6xl font-semibold leading-[1.3] mb-7 `}>{pageTitle}</motion.h1>
             )
           }
           {isBlogDetails && (

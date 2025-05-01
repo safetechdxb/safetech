@@ -6,7 +6,7 @@ import SubTitle from "../../common/SubTitle";
 import Image, { StaticImageData } from "next/image";
 import { assets } from "@/public/assets/assets";
 import { motion } from "framer-motion";
-
+import { moveUp, listUpMove } from "../../motionVarients";
 interface PlatformsItem {
   id: number;
   title: string;
@@ -129,39 +129,34 @@ const Applications: React.FC<PlatformsSectionProps> = ({ data }) => {
           {!isMobile && (
             <div>
               {filteredData.map((item) => (
-                <div
-                  key={item.id} className="lg:flex items-center">
-                  <div className="w-full lg:w-1/2 pr-0 lg:pr-[34px] xl:pr-[80px]">
+                <div key={item.id} className="lg:flex items-center">
+                  <motion.div variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="w-full lg:w-1/2 pr-0 lg:pr-[34px] xl:pr-[80px]">
                     <div className="flex gap-5 items-center"  >
                       <div className="relative w-full  mx-auto">
                         <div className="flex flex-col gap-4 mb-6 lg:mb-0">
                           <figure >
-                            <Image
-                              src={item.Image}
-                              alt=""
-                              className="w-full h-auto object-cover"
-                            />
+                            <Image src={item.Image} alt="" className="w-full h-auto object-cover" />
                           </figure>
 
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="w-full lg:w-1/2 pr-0 lg:pr-[44px] mt-6 lg:mt-0 ">
+                  </motion.div>
+                  <motion.div variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="w-full lg:w-1/2 pr-0 lg:pr-[44px] mt-6 lg:mt-0 ">
                     <div>
                       <p className="text-32 font-semibold leading-[1] mb-6 lg:mb-10 text-secondary/75 capitalize">  {item.title}</p>
                       <p className="text-20 leading-[1.3] text-secondary font-normal mb-6 lg:mb-10 ">  {item.desc}</p>
                       <ul>
                         {item.list.map((list, index) => (
-                          <li key={index} className="flex items-start gap-3 text-20 text-secondary/75 font-normal last:mb-0  mb-5 leading-[1.3]">
+                          <motion.li variants={listUpMove} initial="hidden" animate="show"  key={index} className="flex items-start gap-3 text-20 text-secondary/75 font-normal last:mb-0  mb-5 leading-[1.3]">
                             <Image src={assets.tick} alt="" width={20} height={20} />
                             <span className="text-20 leading-[1.3] text-secondary/75 font-normal  ">{list}</span>
-                          </li>
+                          </motion.li>
                         ))}
                       </ul>
                     </div>
 
-                  </div>
+                  </motion.div>
                 </div>
               ))}
             </div>

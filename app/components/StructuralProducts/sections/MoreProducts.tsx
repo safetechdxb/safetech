@@ -19,21 +19,25 @@ import { NavigationOptions } from 'swiper/types';
 
 const slides = [
   {
+    id:1,
     prdImg: assets.Product1,
     prdName: "Architectural Products  ",
     prdLink: "#",
   },
   {
+    id:2,
     prdImg: assets.Product2,
     prdName: "infrastructure Products ",
     prdLink: "#",
   },
   {
+    id:3,
     prdImg: assets.Product3,
     prdName: "Utility Products",
     prdLink: "#",
   },
   {
+    id:4,
     prdImg: assets.Product4,
     prdName: "Transportation Products",
     prdLink: "#",
@@ -113,6 +117,7 @@ const MoreProducts = () => {
               slides.map((slide, index) => (
                 <SwiperSlide key={index}>
                   <MoreSliderItem
+                    prdId={slide.id}
                     prdImg={slide.prdImg}
                     prdName={slide.prdName}
                     prdLink={slide.prdLink}

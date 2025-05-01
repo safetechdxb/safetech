@@ -79,7 +79,7 @@ const Openings: React.FC<PlatformsSectionProps> = ({ data, title }) => {
                     {item.category}
                   </p>
                 </div>
-                <div className="lg:w-1/7 flex items-center gap-2 justify-end cursor-pointer font-normal">
+                <div className="lg:w-1/9 flex items-center gap-2 justify-end cursor-pointer font-normal">
                   <div>
                     <button className="uppercase font-[700] text-[14px] text-primary min-w-max">
                       {item.btn}

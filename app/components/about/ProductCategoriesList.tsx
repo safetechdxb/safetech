@@ -1,3 +1,6 @@
+"use client"
+import {motion} from "framer-motion"
+import { moveUp } from "../motionVarients";
 import Image from "next/image";
 import SubTitle from "@/app/components/common/SubTitle";
 import { productCategories } from "./data";
@@ -12,7 +15,7 @@ const productCategoriesList = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 gap-y-14">
          {
           productCategories.map((item)=>(
-            <div key={item.id} className="relative group h-[350px] flex flex-col  items-center cursor-pointer">
+            <motion.div variants={moveUp(item.id * 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} key={item.id} className="relative group h-[350px] flex flex-col  items-center cursor-pointer">
               <Link href={item.link} className="absolute inset-0 z-20 h-full w-full"></Link>
               <div className="h-[285px] relative top-0 left-0 w-full overflow-hidden z-0">
                 <Image src={item.bg} alt="Product Categories" className="w-full h-full object-cover" width={200} height={200} unoptimized />
@@ -22,7 +25,7 @@ const productCategoriesList = () => {
                 <h3 className="text-primary group-hover:text-white font-semibold uppercase text-14">{item.title}</h3>
               </div>
             
-            </div>
+            </motion.div>
           ))
          }
         </div>
