@@ -14,7 +14,7 @@ interface latestNews {
   date: string;
   title: string;
   desc: string;
-  categories: string[];
+  categories: string[]; 
   readMoreLink: string;
 
 }
