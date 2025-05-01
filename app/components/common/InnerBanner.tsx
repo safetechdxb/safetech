@@ -43,11 +43,11 @@ const InnerBanner = ({pageTitle, bannerBg, isBlogDetails, category, date, isDeta
             <div className="flex items-center gap-8 text-white text-16 font-medium">
               <div className="flex items-center gap-2">
                 <Image src={assets.technologyIcon} alt=""></Image>
-                <p className="text-20 font-semibold text-white/75">{category}</p>
+                <p className="text-20 font-semibold text-white/75 uppercase">{category}</p>
                 </div>
               <div className="flex items-center gap-2">
                 <Image src={assets.calenderPrimary} alt=""></Image>
-                <p className="text-20 font-semibold text-white/75">{date}</p>
+                <p className="text-20 font-semibold text-white/75 uppercase">{date}</p>
               </div>
             </div>
           )}
