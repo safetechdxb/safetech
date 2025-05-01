@@ -31,22 +31,22 @@ const OurCompany = () => {
                 <div className="flex flex-wrap justify-between gap-4 sm:grid grid-cols-2 sm:grid-cols-3 py-[40px] xs:gap-y-2.5">
                   <div className="relative group flex sm:items-center flex-col first:block">
                     <div>
-                      <small className="text-white opacity-50 uppercase">Establishment year</small>
-                      <h3 className="text-white text-52 font-semibold">2024</h3>
+                      <small className="text-10 text-white opacity-50 uppercase cursor-context-menu tracking-cmn">Establishment year</small>
+                      <h3 className="text-white text-52 font-semibold cursor-context-menu">2024</h3>
                     </div>
                     <div className="absolute right-0 top-0 sm:h-full sm:w-[1px] bg-primary group-last:hidden"></div>
                   </div>
                   <div className="relative group flex sm:items-center flex-col first:block">
                     <div>
-                      <small className="text-white opacity-50 uppercase">Work force</small>
-                    <h3 className="text-white text-52 font-semibold">11000</h3>
+                      <small className="text-10 text-white opacity-50 uppercase cursor-context-menu tracking-cmn">Work force</small>
+                    <h3 className="text-white text-52 font-semibold cursor-context-menu">11000</h3>
                     </div>
                     <div className="absolute right-0 top-0 sm:h-full sm:w-[1px] bg-primary group-last:hidden"></div>
                   </div>
                   <div className="relative group flex sm:items-center flex-col first:block">
                     <div>
-                      <small className="text-white opacity-50 uppercase">On-going projects</small>
-                    <h3 className="text-white text-52 font-semibold">21</h3>
+                      <small className="text-10 text-white opacity-50 uppercase cursor-context-menu tracking-cmn">On-going projects</small>
+                    <h3 className="text-white text-52 font-semibold cursor-context-menu">21</h3>
                     </div>
                     <div className="absolute right-0 top-0 sm:h-full sm:w-[1px] bg-primary group-last:hidden"></div>
                   </div>

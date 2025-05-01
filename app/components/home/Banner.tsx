@@ -13,13 +13,13 @@ const slides = [
     image: assets.banner01,
     title: "BUILT FOR <br>THE FUTURE",
     description:
-      "Safe Tech, a subsidiary of UNEC, delivers innovative construction solutions with advanced precast, prestress, and GRC products, tailored to meet diverse project needs.",
+      "Safe Tech, a subsidiary of UNEC, delivers innovative construction solutions with advanced precast, prestress, and GRC products, tailored to meet diverse project needs",
   },
   {
     image: assets.banner01,
     title: "ENGINEERED <br> FOR EXCELLENCE",
     description:
-      "We bring expertise and precision in every piece of construction technology we create.",
+      "Safe Tech, a subsidiary of UNEC, delivers innovative construction solutions with advanced precast, prestress, and GRC products, tailored to meet diverse project needs",
   },
   {
     image: assets.banner01,
@@ -31,7 +31,7 @@ const slides = [
     image: assets.banner01,
     title: "ENGINEERED <br> FOR EXCELLENCE",
     description:
-      "We bring expertise and precision in every piece of construction technology we create.",
+      "Safe Tech, a subsidiary of UNEC, delivers innovative construction solutions with advanced precast, prestress, and GRC products, tailored to meet diverse project needs",
   },
 ];
 
@@ -40,7 +40,7 @@ const HeroSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative w-full h-[70dvh] lg:h-[100vh] overflow-hidden">
+    <section className="relative w-full h-[100dvh] lg:h-[100vh] overflow-hidden">
       <Swiper
         modules={[Autoplay]}
         autoplay={{ delay: 5000 }}
@@ -55,7 +55,7 @@ const HeroSlider = () => {
           <SwiperSlide key={index}>
             <div className="relative w-full h-full">
               <Image src={slide.image} alt={slide.title} width={1500} height={1000} className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-secondary/75" />
+              <div className="absolute inset-0 bg-secondary/75"/>
               <div className="relative z-10 h-full container mx-auto px-6 flex flex-col justify-center gap-8 text-white">
                 <h1 className="text-[2.5rem] lg:text-96 font-extrabold leading-tight lg:pt-20" dangerouslySetInnerHTML={{ __html: slide.title }}>
                   {/* {slide.title} */}
@@ -70,7 +70,7 @@ const HeroSlider = () => {
       {/* Custom Pagination */}
       <div className="absolute bottom-[10%] z-20 w-full">
         <div className="container">
-          <div className=" flex gap-3 justify-end">
+          <div className="flex gap-3 justify-end">
             {slides.map((_, index) => (
               <button
                 key={index}

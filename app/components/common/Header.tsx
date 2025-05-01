@@ -66,7 +66,7 @@ function NavLinks() {
       {/* About us */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button className="text-14 font-semibold hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:border-none focus-visible:outline-none uppercase">
+          <button className="text-14 font-semibold hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:border-none focus-visible:outline-none uppercase cursor-pointer">
             About Us <ChevronDown className="w-4 h-4" />
           </button>
         </DropdownMenuTrigger>
@@ -83,7 +83,7 @@ function NavLinks() {
       {/* PRODUCTS DROPDOWN */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button className="text-14 font-semibold font-roboto hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:outline-none">
+          <button className="text-14 font-semibold font-roboto hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:outline-none cursor-pointer">
             PRODUCTS <ChevronDown className="w-4 h-4" />
           </button>
         </DropdownMenuTrigger>
@@ -121,7 +121,7 @@ function NavLinks() {
       {/* NEWS & MEDIA DROPDOWN */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button className="text-14 font-semibold hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:border-none focus-visible:outline-none">
+          <button className="text-14 font-semibold hover:text-white/75 transition border-r border-white/20 lg:px-6 last:border-none flex items-center gap-1 focus-visible:border-none focus-visible:outline-none cursor-pointer">
             NEWS & MEDIA <ChevronDown className="w-4 h-4" />
           </button>
         </DropdownMenuTrigger>
