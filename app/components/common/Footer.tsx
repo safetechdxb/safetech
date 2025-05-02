@@ -15,16 +15,16 @@ const Footer = () => {
             <div className="group/box">
               <h3 className="text-white text-18 font-bold uppercase mb-8 group-hover/box:text-primary">Quick links</h3>
               <ul className="flex flex-col gap-2 lg:gap-4">
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight className="" /></span><Link href="#" className="text-16 leading-[1.3] font-normal">About Us</Link></li>
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">News</Link></li>
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Careers</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight className="" /></span><Link href="about0us" className="text-16 leading-[1.3] font-normal">About Us</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="news" className="text-16 leading-[1.3] font-normal">News</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="careers" className="text-16 leading-[1.3] font-normal">Careers</Link></li>
               </ul>
             </div>
             <div className="group/box">
               <h3 className="text-white text-18 font-bold uppercase mb-8 group-hover/box:text-primary">Connect</h3>
               <ul className="flex flex-col gap-2 lg:gap-4">
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Call Us</Link></li>
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Enquiry Form</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="contact-us" className="text-16 leading-[1.3] font-normal">Call Us</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="contact-us/#enq-form" className="text-16 leading-[1.3] font-normal">Enquiry Form</Link></li>
               </ul>
             </div>
 
