@@ -27,6 +27,14 @@ interface latestNewsProps {
 
 
 const NewsBlock = ({ latestNews }: latestNewsProps) => {
+  const slugify = (text: string) => {
+    return text
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, '')      // Remove special characters
+      .replace(/\s+/g, '-')              // Replace spaces with -
+      .replace(/-+/g, '-');              // Remove multiple dashes
+  };
   if (!latestNews || latestNews.length === 0) {
     return <p>No news available at the moment.</p>;
   }
@@ -39,7 +47,7 @@ const NewsBlock = ({ latestNews }: latestNewsProps) => {
               // Large Featured News Card
               <>
                 <div className="news-crd__head relative overflow-hidden">
-                  <Link href={"news-details"}>
+                  <Link href={`news/${slugify(news.title)}`}>
                     <Image src={news.imageSrc} className="w-full h-full object-cover flex" alt="news" width={1500} height={1500} />
                   </Link>
                   <div className="bg-secondary absolute top-0 left-2 p-2">
@@ -62,19 +70,19 @@ const NewsBlock = ({ latestNews }: latestNewsProps) => {
                       ))}
                     </ul>
                   </div>
-                  <Link href={"news-details"}>
+                  <Link href={`news/${slugify(news.title)}`}>
                   <h3 className="text-20 text-black font-semibold leading-[1.3] mb-2 overflow-hidden text-ellipsis helvetica display-webkit-box line-clamp-2 webkit-box-orient-vertical">{news.title}</h3>
                   </Link>
                   <p className="text-16 leading-normal text-black/75 max-w-[75%] font-normal mb-5 overflow-hidden text-ellipsis display-webkit-box line-clamp-4 webkit-box-orient-vertical">{news.desc}</p>
                   {/* <PrimaryArrowBtn btntitle="Read more" btnLink={`article`} /> */}
-                  <ArrowBtn btnText="Read More" btnLInk="news-details" border={false} />
+                  <ArrowBtn btnText="Read More" btnLInk={`news/${slugify(news.title)}`} border={false} />
                 </div>
               </>
             ) : (
               // Small News Cards
               <>
                 <div className="news-crd__head relative">
-                  <Link href={"news-details"}>
+                  <Link href={`news/${slugify(news.title)}`}>
                     <Image src={news.imageSrc} className="w-full h-full object-cover" alt="news" width={300} height={300} quality={100} />
                   </Link>
                   <div className="bg-secondary absolute top-0 left-2 p-2">
@@ -98,13 +106,13 @@ const NewsBlock = ({ latestNews }: latestNewsProps) => {
                       ))}
                     </ul>
                   </div>
-                    <Link href={"news-details"}>
+                    <Link href={`news/${slugify(news.title)}`}>
                   <h3 className="text-20 text-black font-semibold leading-[1.3] mb-2 lg:mb-3
                   overflow-hidden text-ellipsis display-webkit-box line-clamp-3 webkit-box-orient-vertical max-w-[80%]"> {news.title}</h3>
                   </Link>
                   {/* <PrimaryArrowBtn btntitle="Read more" btnLink={`article`} /> */}
                   <div className="mt-auto pb-5">
-                    <ArrowBtn btnText="Read More" btnLInk="news-details" border={false} />
+                      <ArrowBtn btnText="Read More" btnLInk={`news/${slugify(news.title)}`} border={false} />
                   </div>
                 </div>
               </>

@@ -6,6 +6,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { newsEvents } from "../news/data";
 const SidebarWrapper = () => {
+  const slugify = (text: string) => {
+    return text
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, '')      // Remove special characters
+      .replace(/\s+/g, '-')              // Replace spaces with -
+      .replace(/-+/g, '-');              // Remove multiple dashes
+  };
   return (
     <aside>
       <h3 className="text-[#333333] text-16 font-normal mb-[10px]">Share</h3>
@@ -21,8 +29,8 @@ const SidebarWrapper = () => {
           <h3 className="text-20 font-semibold leading-[1.3] text-[#333333] mb-5">Breaking News</h3>
           <div>
             {newsEvents.filter(news => news.breaking).map((news) => (
-              <motion.div variants={moveLeft(news.id * 0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={news.id} className="flex flex-col mb-5">
-                <Link href={news.readMoreLink}>
+              <motion.div variants={moveLeft(news.id * 0.3)} initial="hidden" animate="show" viewport={{ once: true, amount: 0.2 }} key={news.id} className="flex flex-col mb-5">
+                <Link href={`${slugify(news.title)}`}>
                   <Image src={news.imageSrc} alt={news.title} width={390} height={240} className="w-full h-[240px] object-cover mb-4" />
                 </Link>
                 <div className="flex justify-between items-center mb-4">
@@ -30,7 +38,7 @@ const SidebarWrapper = () => {
                   <p className="text-12 font-normal leading-[1.7] text-tm-gray uppercase">{news.date}</p>
                 </div>
                 <div>
-                  <Link href={news.readMoreLink}>
+                  <Link href={`${slugify(news.title)}`}>
                     <h4 className="text-20 font-semibold leading-[1.3]">{news.title}</h4>
                   </Link>
                 </div>

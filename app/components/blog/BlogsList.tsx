@@ -12,6 +12,19 @@ const categories = ["all", ...Array.from(new Set(blogs.map(blog => blog.category
 const BlogsList = () => {
   const [activeTab, setActiveTab] = useState("all")
 
+  const slugify = (text: string) => {
+    return text
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, '')      // Remove special characters
+      .replace(/\s+/g, '-')              // Replace spaces with -
+      .replace(/-+/g, '-');              // Remove multiple dashes
+  };
+
+  const createSlug = (title: string, id: string | number) => {
+    return `${slugify(title)}-${id}`;
+  };
+
   const filteredItems = activeTab === "all"
     ? blogs
     : blogs.filter(i => i.category.toLowerCase() === activeTab)
@@ -37,7 +50,7 @@ const BlogsList = () => {
                 {filteredItems.map((item,index) => (
                   <motion.div variants={moveUp(item.id * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={item.id} className="">
                     <div className="">
-                      <Link href={item.link}>
+                      <Link href={`blog/${createSlug(item.title,item.id)}`}>
                       <Image src={item.img} alt={item.title} width={500} height={500} className={`w-full ${index % 2 === 0 ? 'h-[355px]' : 'h-[287px]'} object-cover`} />
                       </Link>
                       <div className="flex justify-between items-center my-4">
@@ -50,7 +63,7 @@ const BlogsList = () => {
                           })}
                         </p>
                       </div>
-                      <Link href={item.link}>
+                      <Link href={`blog/${createSlug(item.title,item.id)}`}>
                       <h3 className="text-20 font-semibold leading-[1.3] mb-8">{item.title}</h3>
                       </Link>
                       {/* <div className="text-sm text-muted-foreground mb-2">{item.desc}</div> */}
