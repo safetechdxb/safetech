@@ -91,7 +91,7 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
 
         <motion.div variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="grid grid-cols-1  w-full mb-4 lg:mb-[30px]" >
           <div className="relative w-full flex gap-4 items-center mt-2">
-            <p className="text-[16px] text-[#595959]">Gender</p>
+            <p className="text-[16px] text-secondary/50 font-normal">Gender</p>
             <div className="flex gap-4">
               {["Male", "Female", "Others"].map((gender, i) => (
                 <div key={i} className="inline-flex items-center cursor-pointer mr-3">
@@ -131,11 +131,11 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
           className="grid grid-cols-1 lg:grid-cols-2 gap-x-4 lg:gap-x-20 gap-y-4 lg:gap-y-[30px] " >
           <div className="relative w-full ">
             <textarea placeholder="Cover Letter"
-              className="px-1 appearance-none bg-transparent border-0 border-b border-[#ieieie] focus:outline-none focus:ring-0 focus:border-primary text-secondary text-16 font-normal py-[16px] pr-6 w-full resize-none"
+              className="px-1 appearance-none bg-transparent border-0 border-b border-[#ieieie] focus:outline-none focus:ring-0 focus:border-primary text-secondary text-16 font-normal py-[16px] pr-6 w-full resize-none lg:h-140"
             />
           </div>
-          <div className="w-full">
-            <label htmlFor="file-upload" > <span className="text-16 text-secondary/50 font-normal leading-[1.4] block mb-3">Upload Resume</span>
+          <div className="w-full lg:h-140 ">
+            <label htmlFor="file-upload" className="h-full flex flex-col justify-end"> <span className="text-16 text-secondary/50 font-normal leading-[1.4] block mb-3">Upload Resume</span>
             <div className="cursor-pointer bg-light-gray p-6 shadow-sm flex items-center  w-full">
               <div className="text-sm text-gray-700 flex items-center justify-left gap-4">
                 <Image src={assets.note} alt="note" />
@@ -150,7 +150,13 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
               <input id="file-upload" type="file" accept=".pdf,.doc,.docx" onChange={handleFileChange} className="hidden" />
             </div>
             </label>
-            <motion.button variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="mt-8 flex w-[150px] cursor-pointer overflow-hidden group transition duration-300 ml-auto" >
+          </div>
+
+         
+        </motion.div>
+            <div className="w-full flex justify-end">
+            <motion.button variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}
+              className="mt-8 flex w-[150px] cursor-pointer overflow-hidden group transition duration-300 ml-auto" >
               <div className="bg-primary text-white text-[16px] font-[400] px-5 py-4 transition duration-300  ">
                 SUBMIT
               </div>
@@ -163,9 +169,7 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
                 </div>
               </div>
             </motion.button>
-
-          </div>
-        </motion.div>
+            </div>
       </div>
     </section>
   );

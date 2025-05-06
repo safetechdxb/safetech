@@ -34,7 +34,7 @@ const ImageText: React.FC<PlatformsSectionProps> = ({ data }) => {
     },
   };
   return (
-    <section className="py-[50px] md:py-[70px] xl:py-[140px] bg-off-white overflow-hidden relative">
+    <section className="py-140 bg-off-white overflow-hidden relative">
       <div className="container">
         <div className="lg:flex items-center">
           <div className="w-full lg:w-1/2 pr-0 lg:pr-[34px] xl:pr-[134px]">
@@ -61,12 +61,12 @@ const ImageText: React.FC<PlatformsSectionProps> = ({ data }) => {
           <div className="w-full lg:w-1/2 pr-0 lg:pr-[44px] mt-6 lg:mt-0 ">
             {data.map((item) => (
               <div key={item.id}>
-                <div className="relative tracking-[3px] max-w-[55ch] mb-4 lg:mb-10">
+                <div className="relative tracking-[3px] max-w-lg mb-4 lg:mb-10">
                   <SubTitle titleText={item.title} color="text-black" />
                 </div>
                 <motion.div className="space-y-4" variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} >
                   {item.paragraphs.map((paragraph, index) => (
-                    <motion.p key={index} variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} className="text-20 text-secondary mb-4 last:mb-0 leading-[1.3]" >
+                    <motion.p key={index} variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} className="text-20 text-secondary/75 font-normal mb-4 last:mb-0 leading-[1.3]" >
                       {paragraph}
                     </motion.p>
                   ))}

@@ -78,7 +78,7 @@ const Certificates: React.FC<PlatformsSectionProps> = ({ data }) => {
               exit={{ scale: 0.8 }}
               onClick={(e) => e.stopPropagation()} // prevent modal from closing when clicking on image
             >
-              <Image src={selectedImage} alt="Modal Image" className="w-[60dvh] h-auto rounded-lg" />
+              <Image src={selectedImage} alt="Modal Image" className="w-full px-[6vw] h-auto rounded-lg" />
               <button
                 onClick={() => setSelectedImage(null)}
                 className="absolute top-[-15%] lg:top-2 right-2 text-white text-2xl cursor-pointer"

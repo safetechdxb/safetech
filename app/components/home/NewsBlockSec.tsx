@@ -24,7 +24,7 @@ const NewsBlockSec = ({ latestNews }: NewsBlockSecProps) => {
           <div className="relative">
             <SubTitle titleText="Recent News" color="text-secondary" />
           </div>
-          <ArrowBtn btnText="View All" btnLInk="#" border={true} />
+          <ArrowBtn btnText="More News" btnLInk="#" border={true} />
         </div>
         <NewsBlock latestNews={latestNews} />
       </div>

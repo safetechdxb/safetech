@@ -53,7 +53,7 @@ const PreviousNews: React.FC<PreviousNewsProps> = ({ previousNews }) => {
           })}
         </div>
         {hasMore && (
-          <div className="mt-10 text-center flex justify-center">
+          <div className="lg:mt-10 text-center flex justify-center">
             <motion.button
               onClick={handleToggle}
               className="flex bg-primary text-white hover:bg-opacity-80 transition h-[50px] overflow-hidden group" >

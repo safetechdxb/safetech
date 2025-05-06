@@ -47,7 +47,7 @@ const NewsBlock = ({ latestNews }: latestNewsProps) => {
                   </div>
                 </div>
                 {/* <Image  src={news.imageSrc} className="w-full h-full absolute top-0 left-0 -z-10 object-cover" alt="news" fill objectFit="cover" /> */}
-                <div className="news-crd__content font-helvetica pt-4">
+                <div className="news-crd__content font-helvetica ">
                   {/* <h4 className="text-black text-font14 opacity-75 leading-normal mb-3 uppercase font-bold">{news.date}</h4> */}
                   {/* <h3 className="text-font20 xl:text-font28 text-Darkgreen font-bold leading-[1.3] mb-2 lg:mb-5 overflow-hidden text-ellipsis display-webkit-box line-clamp-2 webkit-box-orient-vertical" dangerouslySetInnerHTML={{ __html: news.title }}></h3> */}
                   <div className="flex flex-wrap gap-2 mb-3">
@@ -55,7 +55,7 @@ const NewsBlock = ({ latestNews }: latestNewsProps) => {
                     <ul className="news__category list-none text-black/50 uppercase font-semibold text-14 leading-normal flex gap-3">
                       {news.categories.map((category, index) => (
                         <li key={index}>
-                          <Link href="#" className="min-w-max">
+                          <Link href="#" className="min-w-max tracking-cmn">
                             {category}
                           </Link>
                         </li>

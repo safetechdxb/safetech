@@ -5,49 +5,32 @@ export const textimg = {
   data: [
     {
       id: 1,
-      title: "Sustainability & Ethics",
-      paragraphs: [
-        "Assent Steel is dedicated to integrating environmental and social considerations into its operations. The company aligns its practices with the UN's Sustainable Development Goals."
-      ],
-      image: assets.mncar
+      title: "Commitment to Excellence",
+      paragraphs: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim."],
+      image: assets.mncar,
     },
 
     {
       id: 2,
-      title: "Strong Core Values",
-      paragraphs: [
-        "Assent Steel is dedicated to integrating environmental and social considerations into its operations. The company aligns its practices with the UN's Sustainable Development Goals."
-      ],
-      image: assets.mncar
+      title: "Diverse Opportunities",
+      paragraphs: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim."],
+      image: assets.mncar,
     },
 
     {
       id: 3,
-      title: "Focus on Employee Well-being",
-      paragraphs: [
-        "Assent Steel is dedicated to integrating environmental and social considerations into its operations. The company aligns its practices with the UN's Sustainable Development Goals."
-      ],
-      image: assets.mncar
+      title: "Innovation and Growth",
+      paragraphs: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim."],
+      image: assets.mncar,
     },
 
     {
       id: 4,
-      title: "Opportunities for Professional Development",
-      paragraphs: [
-        "Assent Steel is dedicated to integrating environmental and social considerations into its operations. The company aligns its practices with the UN's Sustainable Development Goals."
-      ],
-      image: assets.mncar
+      title: "Supportive Environment",
+      paragraphs: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim."],
+      image: assets.mncar,
     },
-
-    {
-      id: 5,
-      title: "Innovation & Growth-Driven Culture",
-      paragraphs: [
-        "Assent Steel is dedicated to integrating environmental and social considerations into its operations. The company aligns its practices with the UN's Sustainable Development Goals."
-      ],
-      image: assets.mncar
-    }
-  ]
+  ],
 };
 export const benifits = {
   title: "BENEFITS OF WORKING WITH Safe Tech",

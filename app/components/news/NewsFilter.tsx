@@ -51,11 +51,11 @@ const NewsFilter = () => {
       <Tabs defaultValue="all" onValueChange={setActiveTab} value={activeTab}>
         <section className="pt-140">
           <div className="container">
-            <TabsList className="relative flex flex-wrap gap-4 lg:gap-0 gap-y-5 lg:flex-row rounded-none mb-10 lg:mb-20 bg-transparent justify-start p-0 h-auto">
-              {categories.map(cat => (
+            <TabsList className="relative flex flex-wrap gap-4 lg:gap-0 gap-y-5 lg:flex-row rounded-none mb-10 lg:mb-20 bg-transparent justify-start p-0 h-auto group-tab">
+              {categories.map((cat,index) => (
                 <TabsTrigger key={cat} value={cat}
-                  className="relative group text-secondary capitalize text-left w-fit lg:w-auto lg:text-center px-0 lg:px-8 py-0 
-                  lg:border-r lg:border-b-0 last:border-b-0 lg:last:border-r-0 rounded-none data-[state=active]:shadow-none data-[state=active]:text-primary first:pl-0 leading-[1]">
+                  className={`relative group cursor-pointer text-secondary hover:text-primary capitalize text-left w-fit lg:w-auto lg:text-center px-0 lg:px-8 py-0 
+                   rounded-none data-[state=active]:shadow-none data-[state=active]:text-primary first:pl-0 leading-[1] ${index !== categories.length - 1 ? 'lg:border-r' : ''}`}>
                   {cat}
                   <div className="hidden lg:flex absolute w-full h-[2px] group-data-[state=active]:bg-primary bottom-[-18px] left-0 z-20"></div>
                 </TabsTrigger>
@@ -70,7 +70,6 @@ const NewsFilter = () => {
               <NewsBlock latestNews={filteredItems} />
             </div>
           </section>
-
           <PreviousNews previousNews={previousItems} />
         </TabsContent>
       </Tabs>

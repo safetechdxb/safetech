@@ -47,9 +47,9 @@ const Openings: React.FC<PlatformsSectionProps> = ({ data, title }) => {
     },
   };
   return (
-    <section className="py-[40px] md:py-[50px] xl:py-[110px] bg-off-white overflow-hidden relative">
+    <section className="py-140 bg-off-white overflow-hidden relative">
       <div className="container">
-        <div className="border-b border-[#1E1E1E66]  mb-5 lg:mb-[50px]">
+        <div className="border-b border-secondary  mb-5 lg:mb-[50px]">
           <div className="relative tracking-[3px]  mb-4 lg:mb-[30px] ">
             <SubTitle titleText={title} color="text-black" />
           </div>
