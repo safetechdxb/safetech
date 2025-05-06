@@ -14,7 +14,7 @@ const ContentWrapper = ({mainImg,mainDesc,galleryImgs,subDesc1,subDesc2}:Props) 
   return ( 
     <div className="flex flex-col gap-10">
       {mainImg && (
-        <motion.div variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
+        <motion.div variants={moveUp(0)} initial="hidden" animate="show" viewport={{ once: true, amount: 0.2 }}>
           <Image src={mainImg} alt="Blog Main Image" width={1920} height={1080} className="w-full h-auto object-cover" />
         </motion.div>
       )}

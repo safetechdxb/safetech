@@ -10,7 +10,7 @@ const categories = ["all", ...Array.from(new Set(newsEvents.flatMap(event => eve
 
 const NewsFilter = () => {
   const [activeTab, setActiveTab] = useState("all");
-
+  
   const sortedNews = [...newsEvents].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   const getFilteredItems = () => {
