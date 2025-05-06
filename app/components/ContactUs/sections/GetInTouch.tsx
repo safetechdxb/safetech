@@ -56,8 +56,9 @@ const GetInTouch: React.FC<PlatformsSectionProps> = ({
         <motion.div
           className="grid grid-cols-1 gap-x-4 lg:gap-x-6 xxl:gap-x-10 gap-y-4 lg:gap-y-[30px] " >
           <div className="relative w-full ">
-            <textarea placeholder="Message" className="px-1 appearance-none bg-transparent
-             border-0 border-b border-secondary focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 font-normal text-16 font-normal py-[16px] pr-6 w-full resize-none"/>
+            <textarea placeholder="Message" className="px-1 appearance-none bg-transparent lg:h-[178px]
+             border-0 border-b border-secondary focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 font-normal text-16 
+             py-[16px] pr-6 w-full resize-none"/>
           </div>
           <motion.div className="w-full ">
             <motion.button className="mt-2 flex w-[215px] cursor-pointer overflow-hidden group transition duration-300 ml-auto">

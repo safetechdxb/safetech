@@ -38,7 +38,7 @@ const Contact: React.FC<PlatformsSectionProps> = ({ data, title }) => {
           </div>
         </div>
 
-        <motion.div className="" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }} >
+        <motion.div className="" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }} >
           <div className="w-full h-[350px] lg:h-[610px]  overflow-hidden">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.421142856065!2d55.07073510000001!3d24.9177192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f0d00286daea9%3A0xfadbfb050a4e973d!2sSafeTech%20Precast%20Building%20Manufacturing%20LLC!5e0!3m2!1sen!2sin!4v1745479077278!5m2!1sen!2sin"

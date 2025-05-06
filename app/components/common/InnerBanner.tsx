@@ -26,17 +26,17 @@ const InnerBanner = ({pageTitle, bannerBg, isBlogDetails, category, date, isDeta
         <div className="flex flex-col justify-end h-full pb-10 lg:pb-20">
           {
             !isDetailPage && !isBlogDetails &&(
-              <motion.h1 variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className={`text-white uppercase text-96 font-bold  leading-[1.2]`}>{pageTitle}</motion.h1>
+              <motion.h1 variants={moveUp(0)} initial="hidden" animate="show" viewport={{ once: true, amount: 0.2 }} className={`text-white uppercase text-96 font-semibold leading-[1.3]`}>{pageTitle}</motion.h1>
             )
           }
           {
             isDetailPage && (
-              <motion.h1 variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className={`text-white uppercase text-48 max-w-6xl font-semibold leading-[1.3] mb-7 `}>{pageTitle}</motion.h1>
+              <motion.h1 variants={moveUp(0)} initial="hidden" animate="show" viewport={{ once: true, amount: 0.2 }} className={`text-white uppercase text-48 max-w-6xl font-semibold leading-[1.3] ws-sm`}>{pageTitle}</motion.h1>
             )
           }
           {
             isBlogDetails && (
-              <motion.h1 variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className={`text-white text-48 max-w-6xl font-semibold leading-[1.3] mb-7 `}>{pageTitle}</motion.h1>
+              <motion.h1 variants={moveUp(0)} initial="hidden" animate="show" viewport={{ once: true, amount: 0.2 }} className={`text-white text-48 max-w-6xl font-semibold leading-[1.3] mb-7 `}>{pageTitle}</motion.h1>
             )
           }
           {isBlogDetails && (

@@ -41,21 +41,21 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
   };
 
   return (
-    <section className="py-[50px] md:py-[70px] xl:py-[140px] overflow-hidden relative">
+    <section className="py-140 overflow-hidden relative">
       <div className="container">
         <div>
           {!isMobile ? (
             // Tabs (desktop)
-            <div className="border-b border-[#1E1E1E66] mb-5 lg:mb-15">
+            <div className="border-b border-secondary/40 mb-5 lg:mb-15">
               <motion.div className="flex items-center" variants={containerVariants} initial="hidden" animate="show" >
                 {categories.map((category,index) => (
-                  <div className="flex gap-[16px] items-center" key={index}>
-                    <p className={` select-none text-14 font-semibold pb-[9px] border-b-2 relative top-0.5 ${activeCategory === category ? "border-[#E11F27] text-[#E11F27]" : "border-transparent text-secondary"
+                  <div className="flex gap-8 items-center group" key={index}>
+                    <p className={`select-none text-14 font-semibold pb-[9px] border-b-2 relative top-0.5 ${activeCategory === category ? "border-primary text-primary" : "border-transparent text-secondary"
                         } uppercase cursor-pointer transition-all duration-300 hover:text-primary hover:border-[#E11F27]`}
                       onClick={() => setActiveCategory(category)} >
                       {category}
                     </p>
-                    <p className="pb-[10px] mr-[16px] text-[#1E1E1E33]">|</p>
+                    <p className="pb-[10px] mr-8 text-secondary/20 group-last:opacity-0">|</p>
                   </div>
                 ))}
               </motion.div>

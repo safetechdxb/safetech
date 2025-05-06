@@ -8,8 +8,8 @@ const AboutDesc = () => {
   return ( 
     <section className="py-140 bg-light-gray">
       <div className="container">
-        <div className="flex flex-wrap lg:flex-nowrap gap-y-20 lg:gap-15 items-center">
-          <motion.div variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{once:true, amount:0.2}} className="w-full lg:w-1/2 lg:pr-20">
+        <div className="flex flex-wrap lg:flex-nowrap gap-y-20 items-center">
+          <motion.div variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{once:true, amount:0.2}} className="w-full lg:w-1/2 pr-0 sm:pr-15 xl:pr-[134px]">
             <div className="relative">
               <Image src={aboutMainDesc.mainImg} alt="Our Company" width={400} height={400} className="w-full"></Image>
               <div className="absolute bottom-[-40px] left-0">

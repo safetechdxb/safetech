@@ -36,7 +36,7 @@ const Benifits: React.FC<PlatformsSectionProps> = ({
   };
 
   return (
-    <section className="py-[50px] md:py-[70px] xl:py-[140px] bg-black overflow-hidden relative">
+    <section className="py-140 bg-secondary overflow-hidden relative">
       <div className="container">
         <div className="relative tracking-[3px]   mb-3 lg:mb-[30px]">
           <SubTitle titleText={title} color="text-white" />

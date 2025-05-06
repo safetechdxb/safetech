@@ -93,7 +93,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --cmn-letter-spacing: 1px;
+  --cmn-letter-spacing: 0.5px;
 
   --section-gap: clamp(60px, 10vw + 1rem, 140px);
 }
@@ -302,8 +302,8 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 220px);
-  column-gap: 5em;
-  row-gap: 2.5em;
+  column-gap: 3.75em;
+  row-gap: 3.75em;
 }
 
 .news-crd.news-crd__big {
