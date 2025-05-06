@@ -67,7 +67,7 @@ const BlogsList = () => {
                       <h3 className="text-20 font-semibold leading-[1.3] mb-8">{item.title}</h3>
                       </Link>
                       {/* <div className="text-sm text-muted-foreground mb-2">{item.desc}</div> */}
-                      <ArrowBtn btnText={"Read More"} btnLInk={item.link} border={false} />
+                      <ArrowBtn btnText={"Read More"} btnLInk={`blog/${createSlug(item.title, item.id)}`} border={false} />
                     </div>
                   </motion.div>
                 ))}
