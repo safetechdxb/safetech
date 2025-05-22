@@ -227,3 +227,36 @@ export const products = [
     prdLink: "#",
   },
 ];
+
+export const facilitiesData = [
+  {
+    id: 1,
+    title: "Lorem ipsum mono1",
+    mainImg: "/assets/img/facilities/facility1.jpg",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam fuga ad, sequi tempore atque accusantium architecto numquam recusandae accusamus, ut quasi quas laborum ipsam. Maiores ipsa est officia deleniti quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam fuga ad, sequi tempore atque accusantium architecto numquam recusandae accusamus, ut quasi quas laborum ipsam. Maiores ipsa est officia deleniti quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam fuga ad, sequi tempore atque accusantium architecto numquam recusandae accusamus, ut quasi quas laborum ipsam. Maiores ipsa est officia deleniti quod.",
+  },
+  {
+    id: 2,
+    title: "Lorem ipsum mono2",
+    mainImg: "/assets/img/facilities/facility1.jpg",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam fuga ad, sequi tempore atque accusantium architecto numquam recusandae accusamus, ut quasi quas laborum ipsam. Maiores ipsa est officia deleniti quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam fuga ad, sequi tempore atque accusantium architecto numquam recusandae accusamus, ut quasi quas laborum ipsam. Maiores ipsa est officia deleniti quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam fuga ad, sequi tempore atque accusantium architecto numquam recusandae accusamus, ut quasi quas laborum ipsam. Maiores ipsa est officia deleniti quod.",
+  },
+  {
+    id: 3,
+    title: "Lorem ipsum mono3",
+    mainImg: "/assets/img/facilities/facility1.jpg",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam fuga ad, sequi tempore atque accusantium architecto numquam recusandae accusamus, ut quasi quas laborum ipsam. Maiores ipsa est officia deleniti quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam fuga ad, sequi tempore atque accusantium architecto numquam recusandae accusamus, ut quasi quas laborum ipsam. Maiores ipsa est officia deleniti quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam fuga ad, sequi tempore atque accusantium architecto numquam recusandae accusamus, ut quasi quas laborum ipsam. Maiores ipsa est officia deleniti quod.",
+  },
+  {
+    id: 4,
+    title: "Lorem ipsum mono4",
+    mainImg: "/assets/img/facilities/facility1.jpg",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam fuga ad, sequi tempore atque accusantium architecto numquam recusandae accusamus, ut quasi quas laborum ipsam. Maiores ipsa est officia deleniti quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam fuga ad, sequi tempore atque accusantium architecto numquam recusandae accusamus, ut quasi quas laborum ipsam. Maiores ipsa est officia deleniti quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam fuga ad, sequi tempore atque accusantium architecto numquam recusandae accusamus, ut quasi quas laborum ipsam. Maiores ipsa est officia deleniti quod.",
+  },
+  {
+    id: 5,
+    title: "Lorem ipsum mono5",
+    mainImg: "/assets/img/facilities/facility1.jpg",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam fuga ad, sequi tempore atque accusantium architecto numquam recusandae accusamus, ut quasi quas laborum ipsam. Maiores ipsa est officia deleniti quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam fuga ad, sequi tempore atque accusantium architecto numquam recusandae accusamus, ut quasi quas laborum ipsam. Maiores ipsa est officia deleniti quod.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam fuga ad, sequi tempore atque accusantium architecto numquam recusandae accusamus, ut quasi quas laborum ipsam. Maiores ipsa est officia deleniti quod.",
+  },
+];

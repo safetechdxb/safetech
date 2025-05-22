@@ -166,3 +166,27 @@ export const accreditations = [
     desc: "Conformity with European Standards",
   },
 ]
+
+export const facEq = [
+  {
+    id:1,
+    icon:"/assets/img/about/icons/machines.svg",
+    title:"Machines",
+    listData: ["A steel reinforcement factory.", "Fully automated circulating tables.", "3 Central batching plants for concrete distribution, equipped with the latest technology.",
+      "76 overhead cranes with different capacities."]
+  },
+  {
+    id:2,
+    icon:"/assets/img/about/icons/fleets.svg",
+    title:"Fleets",
+    listData: ["A steel reinforcement factory.", "Fully automated circulating tables.", "3 Central batching plants for concrete distribution, equipped with the latest technology.",
+      "76 overhead cranes with different capacities."]
+  },
+  {
+    id:3,
+    icon:"/assets/img/about/icons/facilities.svg",
+    title:"Facilities",
+    listData: ["A steel reinforcement factory.", "Fully automated circulating tables.", "3 Central batching plants for concrete distribution, equipped with the latest technology.",
+      "76 overhead cranes with different capacities."]
+  },
+]

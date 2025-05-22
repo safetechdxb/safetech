@@ -6,6 +6,7 @@ import ProductCategoriesList from "./ProductCategoriesList";
 import ParentalCompaniesSec from "./ParentCompaniesSec";
 import { assets } from "@/public/assets/assets";
 import AccrSec from "./AccrSec";
+import FacilitiesEquipmentSec from "./FacilitiesEquipmentSec";
 const Index = () => {
   return ( 
     <main>
@@ -13,6 +14,7 @@ const Index = () => {
       <AboutDesc/>
       <VisionMission/>
       <Achievements/>
+      <FacilitiesEquipmentSec/>
       <ProductCategoriesList/>
       <ParentalCompaniesSec/>
       <AccrSec/>
