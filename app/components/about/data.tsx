@@ -119,6 +119,20 @@ export const parentalCompanies = [
     img: "/assets/img/about/ayka.jpg",
     title: "AYKA Facility and Property Management",
     desc: "Facility and Property Management is a dynamic enterprise deeply committed to providing innovative solutions for our esteemed clients. Our comprehensive suite of services spans facility and property management, encompassing both technical (hard and soft) services, as well as security services.",
+  },
+  {
+    id: 3,
+    logo: "/assets/img/icons/unec.svg",
+    img: "/assets/img/about/unec.jpg",
+    title: "UNEC United Engineering Construction",
+    desc: "UNEC is a multi award winning international Construction Company with more than 46 Years of expertise in the region. Our vast experience, forward thinking Innovations and commitment to the highest standards in professionalism, safety and efficiency have made us a trusted partner to the developers of some of the area’s most iconic buildings and Landmarks.",
+  },
+  {
+    id: 4,
+    logo: "/assets/img/icons/ayka.svg",
+    img: "/assets/img/about/ayka.jpg",
+    title: "AYKA Facility and Property Management",
+    desc: "Facility and Property Management is a dynamic enterprise deeply committed to providing innovative solutions for our esteemed clients. Our comprehensive suite of services spans facility and property management, encompassing both technical (hard and soft) services, as well as security services.",
   }
 ]
 
