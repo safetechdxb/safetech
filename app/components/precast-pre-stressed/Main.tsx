@@ -20,7 +20,6 @@ const Main = () => {
             </div>
           </motion.div>
           <motion.div variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="w-full lg:w-1/2 ">
-            
             <h2 className="text-32 font-semibold text-primary leading-[1.5] ">{mainDesc.title}</h2>
             <h3 className="text-32 font-semibold mb-6 leading-[1.5] ">{mainDesc.subTitle}</h3>
             <p className="text-20 leading-[1.3] font-normal text-secondary/75 text-body-color mb-5">{mainDesc.desc}</p>
