@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation'
 import { useParams } from 'next/navigation';
 
-const page = () => {
+const IndiGallery = () => {
         const router = useRouter();
         const { id } = useParams();
 
@@ -99,4 +99,4 @@ const page = () => {
   )
 }
 
-export default page
+export default IndiGallery

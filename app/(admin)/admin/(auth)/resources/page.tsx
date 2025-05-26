@@ -21,7 +21,7 @@ import { FilesIcon } from 'lucide-react';
 
 
 
-const page = () => {
+const AdminResources = () => {
 
     const [category, setCategory] = useState<string>("")
 
@@ -241,4 +241,4 @@ const page = () => {
     )
 }
 
-export default page
+export default AdminResources

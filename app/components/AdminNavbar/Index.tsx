@@ -4,7 +4,6 @@ import ClientSideLink from '@/app/(admin)/admin/client-side-link';
 import React, { useState } from 'react'
 import {
     HomeIcon,
-    NewspaperIcon,
     UserGroupIcon,
     EnvelopeIcon,
     CheckBadgeIcon,

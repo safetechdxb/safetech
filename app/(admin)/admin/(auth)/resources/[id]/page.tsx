@@ -1,6 +1,5 @@
 "use client"
 
-import { ImageUploader } from '@/components/ui/image-uploader';
 import { Label } from '@radix-ui/react-label';
 import React, { useEffect } from 'react'
 import { useForm,useFieldArray, Controller } from "react-hook-form";
@@ -17,7 +16,7 @@ interface Certifications {
     }[];
 }
 
-const page = () => {
+const IndiResource = () => {
     const router = useRouter();
             const { id } = useParams();
 
@@ -109,4 +108,4 @@ const page = () => {
   )
 }
 
-export default page
+export default IndiResource

@@ -1,4 +1,4 @@
-import Index from "../components/news";
+import Index from "@/app/components/news";
 
 const News = () => {
   return ( 
