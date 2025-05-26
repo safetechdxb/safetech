@@ -39,11 +39,18 @@ export async function GET(req: NextRequest) {
         const searchParams = req.nextUrl.searchParams;
         const id = searchParams.get("id");
         const gallery = await Gallery.findOne({});
-        if(gallery){
+        if(id){
+            if(gallery){
             const category = gallery.categories.find((category:{_id:string, category:string})=>category._id == id);
             return NextResponse.json({ data: category }, { status: 200 });
-        }else{
-            return NextResponse.json({ message: "Error fetching gallery" }, { status: 500 });
+            }
+        }
+        else{
+            if(gallery){
+                return NextResponse.json({ data: gallery }, { status: 200 });
+            }else{
+                return NextResponse.json({ message: "Error fetching gallery" }, { status: 500 });
+            }
         }
     } catch (error) {
         console.log(error)
