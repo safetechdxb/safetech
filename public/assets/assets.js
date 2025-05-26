@@ -7,6 +7,7 @@ import banner01 from './img/banner/001.jpg'
 import aboutBnr from './img/banner/about-bnr.jpg';
 import blogBnr from './img/banner/blog-bnr.jpg';
 import newsBnr from './img/banner/news-bnr.jpg';
+import precastBnr from './img/banner/precast-bnr.jpg';
 import OurCompany from './img/our-company.jpg';
 import Product1 from './img/products/architectural-products.jpg';
 import Product2 from './img/products/prestress.jpg';
@@ -66,6 +67,8 @@ import conbanner from './img/banner/contactbanner.jpg';
 import location from './img/icons/location.png';
 import phone from './img/icons/phone.svg';
 import email from './img/icons/email.svg';
+import precastBenifitsImg from './img/precast-concrete/benifitsimg.jpg'
+import shortBnrBg from './img/precast-pre-stressed/short-bnr-bg.jpg';
 
 
 export const assets = {
@@ -133,8 +136,12 @@ export const assets = {
     aboutBnr,
     blogBnr,
     newsBnr,
+    precastBnr,
     AchievementsBg,
     technologyIcon,
     calenderPrimary,
     sharePrimary,
+    precastBenifitsImg,
+    shortBnrBg
+
 }

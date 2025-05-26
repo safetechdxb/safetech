@@ -1,7 +1,7 @@
 import React from 'react'
 import HeroSlider from './Banner'
 import OurCompany from './OurCompany'
-import ProductSlider from './ProductSlider'
+import ProductSlider from './ProductSliderSec'
 // import Sustainability from './Sustainability'
 import OurClients from './OurClients'
 // import HomNumberSec from './HomNumber'

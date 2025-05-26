@@ -35,7 +35,7 @@ const SingleImageText: React.FC<PlatformsSectionProps> = ({
     exit: { opacity: 0, x: -30, transition: { duration: 0.4 } },
   };
   return (
-    <section className="pt-[50px] md:pt-[70px] xl:pt-[100px] pb-[50px] md:pb-[70px] xl:pb-[100px]   overflow-hidden relative ">
+    <section className="pt-[50px] md:pt-[70px] xl:pt-[100px] pb-[50px] md:pb-[70px] xl:pb-[100px] overflow-hidden relative ">
       <div className="container">
         <div className="lg:flex lg:items-center xxl:items-start">
           <motion.div variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="relative w-full lg:w-[51%] pr-0 lg:pr-[35px] xl:pr-[142px]">
