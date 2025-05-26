@@ -86,7 +86,7 @@ export async function GET(req:NextRequest) {
             }
         }else{
             if(blog){
-                return NextResponse.json({message: "Blogs fetched successfully",data: blog.blogs},{status: 200});
+                return NextResponse.json({message: "Blogs fetched successfully",data: blog},{status: 200});
             }
             else{
                 return NextResponse.json({message: "Error in fetching blogs"},{status: 500});
