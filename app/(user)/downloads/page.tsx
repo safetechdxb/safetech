@@ -1,6 +1,6 @@
 
 import React from "react";
-import Index from "../components/downloads";
+import Index from "@/app/components/downloads";
 
 const Downloads = () => {
   return (

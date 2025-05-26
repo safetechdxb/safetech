@@ -1,4 +1,4 @@
-import Index from "../components/blog";
+import Index from "@/app/components/blog";
 
 const Blog = () => {
   return ( 

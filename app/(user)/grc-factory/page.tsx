@@ -1,10 +1,10 @@
 import React from 'react'
-import Index from '../components/precast-pre-stressed'
+import Index from '@/app/components/grc-factory'
 
 export default function page() {
   return (
-    <div>
+    <>
       <Index/>
-    </div>
+    </>
   )
 }
