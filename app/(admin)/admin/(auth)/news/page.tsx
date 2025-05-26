@@ -38,7 +38,7 @@ export default function News() {
       const response = await fetch("/api/admin/news");
       if(response.ok) {
         const data = await response.json();
-        setNewsList(data.data);
+        setNewsList(data.data.news);
       }else{
         const data = await response.json();
         alert(data.message);

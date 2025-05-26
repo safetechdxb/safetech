@@ -38,7 +38,8 @@ export default function Blogs() {
       const response = await fetch("/api/admin/blog");
       if(response.ok) {
         const data = await response.json();
-        setBlogList(data.data);
+        console.log(data)
+        setBlogList(data.data.blogs);
       }else{
         const data = await response.json();
         alert(data.message);
