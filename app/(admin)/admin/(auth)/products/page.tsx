@@ -59,7 +59,7 @@ const [selectedProduct, setSelectedProduct] = useState<string>("")
     <div className='flex flex-col gap-5  h-full text-center border-t pt-20'>
         {!selectedProduct && <h3>Select a product to view / edit its elements</h3>}
         {loading && <h3>Loading...</h3>}
-        {!loading && elemList.length > 0 && <div className='grid grid-cols-4'>
+        {!loading && elemList.length > 0 && <div className='grid grid-cols-4 gap-4'>
             {elemList.map((item) => (
                 <div key={item._id} className='flex flex-col gap-2 items-center border p-4 hover:shadow-md cursor-pointer rounded-lg'>
                     <Image src={item.image} alt={item.title} width={300} height={300}/>

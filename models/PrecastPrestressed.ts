@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const precastConcreteSchema = new mongoose.Schema({
+const precastPrestressedSchema = new mongoose.Schema({
     productSlug: String,
     pageTitle: String,
     metaTitle: String,
@@ -10,6 +10,12 @@ const precastConcreteSchema = new mongoose.Schema({
     firstSection: {
         firstTitle: String,
         secondTitle: String,
+        description: String,
+        image: String,
+        imageAlt: String,
+    },
+    secondSection: {
+        title: String,
         description: String,
         image: String,
         imageAlt: String,
@@ -42,27 +48,31 @@ const precastConcreteSchema = new mongoose.Schema({
                     description: String,
                 }],
             },
-        }],
-    },
-    thirdSection: {
-        title: String,
-        description: String,
-        items: [{
-            title: String,
-            description: String,
-            logo: String,
-            logoAlt: String,
-        }],
-    },
-    fourthSection: {
-        title: String,
-        items: [{
-            title: String,
-            description: String,
-            image: String,
-            imageAlt: String,
+            thirdSection: {
+                title: String,
+                description: String,
+                items: [{
+                    image: String,
+                    imageAlt: String,
+                    title: String,
+                    description: String,
+                }],
+            },
+            forthSectionStyle: String,
+            forthSection: {
+                title: String,
+                description: String,
+                image: String,
+                imageAlt: String,
+                column1Title: String,
+                column2Title: String,
+                items: [{
+                    column1Value: String,
+                    column2Value: String,
+                }],
+            },
         }],
     },
 })
 
-export default mongoose.models.PrecastConcrete || mongoose.model("PrecastConcrete", precastConcreteSchema);
+export default mongoose.models.PrecastPrestressed || mongoose.model("PrecastPrestressed", precastPrestressedSchema);

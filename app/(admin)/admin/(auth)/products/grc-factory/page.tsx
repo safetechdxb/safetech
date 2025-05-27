@@ -11,7 +11,7 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { Textarea } from '@/components/ui/textarea'
 import { usePathname } from 'next/navigation';
 
-interface PrecastConcreteFormProps {
+interface GrcFactoryFormProps {
 
     metaTitle: string;
     metaDescription: string;
@@ -37,19 +37,8 @@ interface PrecastConcreteFormProps {
     }[];
     thirdSection: {
         title: string;
-        description: string;
     };
     thirdSectionItems: {
-        title: string;
-        logo: string;
-        logoAlt: string;
-        description: string;
-    }[];
-
-    fourthSection: {
-        title: string;
-    };
-    fourthSectionItems: {
         title: string;
         image: string;
         imageAlt: string;
@@ -57,11 +46,11 @@ interface PrecastConcreteFormProps {
     }[];
 }
 
-const PrecastConcretePage = () => {
+const GrcFactoryPage = () => {
 
     const pathname = usePathname();
     const productSlug = pathname.split('/products/')[1];
-    const { register, handleSubmit, setValue, control, formState: { errors } } = useForm<PrecastConcreteFormProps>();
+    const { register, handleSubmit, setValue, control, formState: { errors } } = useForm<GrcFactoryFormProps>();
 
     const { fields: elementsSectionItems, append: appendElementsSectionItems, remove: removeElementsSectionItems } = useFieldArray({
         control,
@@ -73,15 +62,10 @@ const PrecastConcretePage = () => {
         name: "thirdSectionItems"
     });
 
-    const { fields: fourthSectionItems, append: appendFourthSectionItems, remove: removeFourthSectionItems } = useFieldArray({
-        control,
-        name: "fourthSectionItems"
-    });
 
-
-    const handleAddPrecastConcrete = async (data: PrecastConcreteFormProps) => {
+    const handleAddGrcFactory = async (data: GrcFactoryFormProps) => {
         try {
-            const response = await fetch(`/api/admin/products/precast-concrete`, {
+            const response = await fetch(`/api/admin/products/grc-factory`, {
                 method: "PATCH",
                 body: JSON.stringify({ ...data, productSlug }),
             });
@@ -91,13 +75,13 @@ const PrecastConcretePage = () => {
                 // router.push("/admin/commitment");
             }
         } catch (error) {
-            console.log("Error in adding precast concrete", error);
+            console.log("Error in adding about", error);
         }
     }
 
-    const fetchPrecastConcreteData = async () => {
+    const fetchAboutData = async () => {
         try {
-            const response = await fetch(`/api/admin/products/precast-concrete`);
+            const response = await fetch(`/api/admin/products/grc-factory`);
             if (response.ok) {
                 const data = await response.json();
                 console.log(data)
@@ -111,27 +95,25 @@ const PrecastConcretePage = () => {
                 setValue("elementsSectionItems", data.data.elementsSection.items);
                 setValue("thirdSection", data.data.thirdSection);
                 setValue("thirdSectionItems", data.data.thirdSection.items);
-                setValue("fourthSection", data.data.fourthSection);
-                setValue("fourthSectionItems", data.data.fourthSection.items);
             } else {
                 const data = await response.json();
                 alert(data.message);
             }
         } catch (error) {
-            console.log("Error in fetching precast concrete data", error);
+            console.log("Error in fetching grc factory data", error);
         }
     }
 
 
 
     useEffect(() => {
-        fetchPrecastConcreteData();
+        fetchAboutData();
     }, []);
 
 
     return (
         <div className='flex flex-col gap-5'>
-            <form className='flex flex-col gap-5' onSubmit={handleSubmit(handleAddPrecastConcrete)}>
+            <form className='flex flex-col gap-5' onSubmit={handleSubmit(handleAddGrcFactory)}>
 
 
                 <div className='flex flex-col gap-2'>
@@ -305,10 +287,6 @@ const PrecastConcretePage = () => {
                             })} />
                             {errors.thirdSection?.title && <p className='text-red-500'>{errors.thirdSection?.title.message}</p>}
                         </div>
-                        <div className='flex flex-col gap-1'>
-                            <Label className='pl-3 font-bold'>Description</Label>
-                            <Textarea placeholder='Description' {...register("thirdSection.description")} />
-                        </div>
                     </div>
 
 
@@ -324,11 +302,11 @@ const PrecastConcretePage = () => {
                                 <div className='grid grid-cols-2 gap-2 w-full'>
                                     <div>
                                         <div className='flex flex-col gap-2'>
-                                            <Label className='pl-3 font-bold'>Logo</Label>
+                                            <Label className='pl-3 font-bold'>Image</Label>
                                             <Controller
-                                                name={`thirdSectionItems.${index}.logo`}
+                                                name={`thirdSectionItems.${index}.image`}
                                                 control={control}
-                                                rules={{ required: "Logo is required" }}
+                                                rules={{ required: "Image is required" }}
                                                 render={({ field }) => (
                                                     <ImageUploader
                                                         value={field.value}
@@ -336,11 +314,11 @@ const PrecastConcretePage = () => {
                                                     />
                                                 )}
                                             />
-                                            {errors.thirdSectionItems?.[index]?.logo && <p className='text-red-500'>{errors.thirdSectionItems?.[index]?.logo.message}</p>}
+                                            {errors.thirdSectionItems?.[index]?.image && <p className='text-red-500'>{errors.thirdSectionItems?.[index]?.image.message}</p>}
                                         </div>
                                         <div className='flex flex-col gap-2'>
                                             <Label className='pl-3 font-bold'>Alt Tag</Label>
-                                            <Input type='text' placeholder='Alt Tag' {...register(`thirdSectionItems.${index}.logoAlt`)} />
+                                            <Input type='text' placeholder='Alt Tag' {...register(`thirdSectionItems.${index}.imageAlt`)} />
                                         </div>
                                     </div>
                                     <div className='flex flex-col gap-2'>
@@ -373,7 +351,7 @@ const PrecastConcretePage = () => {
                         ))}
 
                         <div>
-                            <Button type='button' className="w-full cursor-pointer" onClick={() => appendThirdSectionItems({ logo: "", logoAlt: "", title: "", description: "" })}>Add Item</Button>
+                            <Button type='button' className="w-full cursor-pointer" onClick={() => appendThirdSectionItems({ image: "", imageAlt: "", title: "", description: "" })}>Add Item</Button>
                         </div>
 
                     </div>
@@ -381,83 +359,6 @@ const PrecastConcretePage = () => {
                 </div>
 
 
-                <Label className='pl-3 font-bold border-b p-2 text-lg'>Fourth Section</Label>
-                <div className='border p-2 rounded-md flex flex-col gap-2'>
-                    <div className='flex flex-col gap-2'>
-                        <div className='flex flex-col gap-1'>
-                            <Label className='pl-3 font-bold'>Title</Label>
-                            <Input type='text' placeholder='Title' {...register("fourthSection.title", {
-                                required: "Title is required"
-                            })} />
-                            {errors.fourthSection?.title && <p className='text-red-500'>{errors.fourthSection?.title.message}</p>}
-                        </div>
-                    </div>
-
-
-
-                    <div className='border p-2 rounded-md flex flex-col gap-5'>
-
-                        <Label className='pl-2 font-bold'>Items</Label>
-                        {fourthSectionItems.map((field, index) => (
-                            <div key={field.id} className='grid grid-cols-1 gap-2 relative border p-2 rounded-md'>
-                                <div className='absolute top-2 right-2'>
-                                    <RiDeleteBinLine onClick={() => removeFourthSectionItems(index)} className='cursor-pointer text-red-600' />
-                                </div>
-                                <div className='grid grid-cols-2 gap-2 w-full'>
-                                    <div>
-                                        <div className='flex flex-col gap-2'>
-                                            <Label className='pl-3 font-bold'>Image</Label>
-                                            <Controller
-                                                name={`fourthSectionItems.${index}.image`}
-                                                control={control}
-                                                rules={{ required: "Image is required" }}
-                                                render={({ field }) => (
-                                                    <ImageUploader
-                                                        value={field.value}
-                                                        onChange={field.onChange}
-                                                    />
-                                                )}
-                                            />
-                                            {errors.fourthSectionItems?.[index]?.image && <p className='text-red-500'>{errors.fourthSectionItems?.[index]?.image.message}</p>}
-                                        </div>
-                                        <div className='flex flex-col gap-2'>
-                                            <Label className='pl-3 font-bold'>Alt Tag</Label>
-                                            <Input type='text' placeholder='Alt Tag' {...register(`fourthSectionItems.${index}.imageAlt`)} />
-                                        </div>
-                                    </div>
-                                    <div className='flex flex-col gap-2'>
-                                        <div className='flex flex-col gap-2'>
-                                            <Label className='pl-3 font-bold'>Title</Label>
-                                            <Input type='text' placeholder='Title' {...register(`fourthSectionItems.${index}.title`)} />
-                                        </div>
-                                        <div>
-                                            <Label className='pl-3'>Description</Label>
-                                            <Controller
-                                                name={`fourthSectionItems.${index}.description`}
-                                                control={control}
-                                                rules={{ required: "Description is required" }}
-                                                render={({ field }) => (
-                                                    <Textarea
-                                                        placeholder='Description'
-                                                        {...field}
-                                                    />
-                                                )}
-                                            />
-                                            {errors.fourthSectionItems?.[index]?.description && <p className='text-red-500'>{errors.fourthSectionItems?.[index]?.description.message}</p>}
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        ))}
-
-                        <div>
-                            <Button type='button' className="w-full cursor-pointer" onClick={() => appendFourthSectionItems({ image: "", imageAlt: "", title: "", description: "" })}>Add Item</Button>
-                        </div>
-
-                    </div>
-
-                </div>
 
                 <div className='flex flex-col gap-2'>
                     <Label className='pl-3 font-bold'>Meta Title</Label>
@@ -477,4 +378,4 @@ const PrecastConcretePage = () => {
     )
 }
 
-export default PrecastConcretePage
+export default GrcFactoryPage
