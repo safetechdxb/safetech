@@ -9,9 +9,11 @@ import { Button } from '@/components/ui/button'
 import { ImageUploader } from '@/components/ui/image-uploader'
 import { RiDeleteBinLine } from "react-icons/ri";
 import { Textarea } from '@/components/ui/textarea'
-import { usePathname } from 'next/navigation';
+import { useParams } from 'next/navigation';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
-interface PrecastConcreteFormProps {
+
+interface PrecastPrestressedPageElements {
 
     metaTitle: string;
     metaDescription: string;
@@ -25,14 +27,12 @@ interface PrecastConcreteFormProps {
         image: string;
         imageAlt: string;
     };
-    elementsSection: {
+    secondSection: {
         title: string;
         description: string;
     };
-    elementsSectionItems: {
+    secondSectionItems: {
         title: string;
-        image: string;
-        imageAlt: string;
         description: string;
     }[];
     thirdSection: {
@@ -40,32 +40,35 @@ interface PrecastConcreteFormProps {
         description: string;
     };
     thirdSectionItems: {
-        title: string;
-        logo: string;
-        logoAlt: string;
-        description: string;
-    }[];
-
-    fourthSection: {
-        title: string;
-    };
-    fourthSectionItems: {
-        title: string;
         image: string;
         imageAlt: string;
+        title: string;
         description: string;
     }[];
+    forthSectionStyle:string;
+    forthSection:{
+        title:string;
+        description:string;
+        image:string;
+        imageAlt:string;
+        column1Title:string;
+        column2Title:string;
+    }
+    forthSectionItems:{
+        column1Value:string;
+        column2Value:string;
+    }[]
 }
 
-const PrecastConcretePage = () => {
+const PrecastPrestressedPageElements = () => {
 
-    const pathname = usePathname();
-    const productSlug = pathname.split('/products/')[1];
-    const { register, handleSubmit, setValue, control, formState: { errors } } = useForm<PrecastConcreteFormProps>();
+    const { id } = useParams();
 
-    const { fields: elementsSectionItems, append: appendElementsSectionItems, remove: removeElementsSectionItems } = useFieldArray({
+    const { register, handleSubmit, setValue, control, formState: { errors },watch } = useForm<PrecastPrestressedPageElements>();
+
+    const { fields: secondSectionItems, append: appendSecondSectionItems, remove: removeSecondSectionItems } = useFieldArray({
         control,
-        name: "elementsSectionItems"
+        name: "secondSectionItems"
     });
 
     const { fields: thirdSectionItems, append: appendThirdSectionItems, remove: removeThirdSectionItems } = useFieldArray({
@@ -73,17 +76,16 @@ const PrecastConcretePage = () => {
         name: "thirdSectionItems"
     });
 
-    const { fields: fourthSectionItems, append: appendFourthSectionItems, remove: removeFourthSectionItems } = useFieldArray({
+    const { fields: forthSectionItems, append: appendForthSectionItems, remove: removeForthSectionItems } = useFieldArray({
         control,
-        name: "fourthSectionItems"
+        name: "forthSectionItems"
     });
 
-
-    const handleAddPrecastConcrete = async (data: PrecastConcreteFormProps) => {
+    const handleAddPrecastPrestressedElement = async (data: PrecastPrestressedPageElements) => {
         try {
-            const response = await fetch(`/api/admin/products/precast-concrete`, {
+            const response = await fetch(`/api/admin/products/precast-prestressed/elements?id=${id}`, {
                 method: "PATCH",
-                body: JSON.stringify({ ...data, productSlug }),
+                body: JSON.stringify({ ...data }),
             });
             if (response.ok) {
                 const data = await response.json();
@@ -91,13 +93,13 @@ const PrecastConcretePage = () => {
                 // router.push("/admin/commitment");
             }
         } catch (error) {
-            console.log("Error in adding precast concrete", error);
+            console.log("Error in adding element", error);
         }
     }
 
-    const fetchPrecastConcreteData = async () => {
+    const fetchElementData = async () => {
         try {
-            const response = await fetch(`/api/admin/products/precast-concrete`);
+            const response = await fetch(`/api/admin/products/precast-prestressed/elements?id=${id}`);
             if (response.ok) {
                 const data = await response.json();
                 console.log(data)
@@ -107,31 +109,33 @@ const PrecastConcretePage = () => {
                 setValue("metaTitle", data.data.metaTitle);
                 setValue("metaDescription", data.data.metaDescription);
                 setValue("firstSection", data.data.firstSection);
-                setValue("elementsSection", data.data.elementsSection);
-                setValue("elementsSectionItems", data.data.elementsSection.items);
+                setValue("secondSection", data.data.secondSection);
+                setValue("secondSectionItems", data.data.secondSection.items);
                 setValue("thirdSection", data.data.thirdSection);
                 setValue("thirdSectionItems", data.data.thirdSection.items);
-                setValue("fourthSection", data.data.fourthSection);
-                setValue("fourthSectionItems", data.data.fourthSection.items);
+                setValue("forthSection", data.data.forthSection);
+                setValue("forthSectionItems", data.data.forthSection.items);
+                setValue("forthSectionStyle", data.data.forthSectionStyle);
             } else {
                 const data = await response.json();
                 alert(data.message);
             }
         } catch (error) {
-            console.log("Error in fetching precast concrete data", error);
+            console.log("Error in fetching commitment data", error);
         }
     }
 
 
 
     useEffect(() => {
-        fetchPrecastConcreteData();
+        fetchElementData();
     }, []);
+
 
 
     return (
         <div className='flex flex-col gap-5'>
-            <form className='flex flex-col gap-5' onSubmit={handleSubmit(handleAddPrecastConcrete)}>
+            <form className='flex flex-col gap-5' onSubmit={handleSubmit(handleAddPrecastPrestressedElement)}>
 
 
                 <div className='flex flex-col gap-2'>
@@ -210,19 +214,21 @@ const PrecastConcretePage = () => {
                 </div>
 
 
-                <Label className='pl-3 font-bold border-b p-2 text-lg'>Elements Section</Label>
+                <div className='flex justify-between items-center'>
+                <Label className='pl-3 font-bold border-b p-2 text-lg'>Second Section</Label>
+                </div>
                 <div className='border p-2 rounded-md flex flex-col gap-2'>
                     <div className='flex flex-col gap-2'>
                         <div className='flex flex-col gap-1'>
                             <Label className='pl-3 font-bold'>Title</Label>
-                            <Input type='text' placeholder='Title' {...register("elementsSection.title", {
+                            <Input type='text' placeholder='Title' {...register("secondSection.title", {
                                 required: "Title is required"
                             })} />
-                            {errors.elementsSection?.title && <p className='text-red-500'>{errors.elementsSection?.title.message}</p>}
+                            {errors.secondSection?.title && <p className='text-red-500'>{errors.secondSection?.title.message}</p>}
                         </div>
                         <div className='flex flex-col gap-1'>
                             <Label className='pl-3 font-bold'>Description</Label>
-                            <Textarea placeholder='Description' {...register("elementsSection.description")} />
+                            <Textarea placeholder='Description' {...register("secondSection.description")} />
                         </div>
                     </div>
 
@@ -231,45 +237,24 @@ const PrecastConcretePage = () => {
                     <div className='border p-2 rounded-md flex flex-col gap-5'>
 
                         <Label className='pl-2 font-bold'>Items</Label>
-                        {elementsSectionItems.map((field, index) => (
+                        {secondSectionItems.map((field, index) => (
                             <div key={field.id} className='grid grid-cols-1 gap-2 relative border p-2 rounded-md'>
                                 <div className='absolute top-2 right-2'>
-                                    <RiDeleteBinLine onClick={() => removeElementsSectionItems(index)} className='cursor-pointer text-red-600' />
+                                    <RiDeleteBinLine onClick={() => removeSecondSectionItems(index)} className='cursor-pointer text-red-600' />
                                 </div>
                                 <div className='grid grid-cols-2 gap-2 w-full'>
-                                    <div>
-                                        <div className='flex flex-col gap-2'>
-                                            <Label className='pl-3 font-bold'>Image</Label>
-                                            <Controller
-                                                name={`elementsSectionItems.${index}.image`}
-                                                control={control}
-                                                rules={{ required: "Image is required" }}
-                                                render={({ field }) => (
-                                                    <ImageUploader
-                                                        value={field.value}
-                                                        onChange={field.onChange}
-                                                    />
-                                                )}
-                                            />
-                                            {errors.elementsSectionItems?.[index]?.image && <p className='text-red-500'>{errors.elementsSectionItems?.[index]?.image.message}</p>}
-                                        </div>
-                                        <div className='flex flex-col gap-2'>
-                                            <Label className='pl-3 font-bold'>Alt Tag</Label>
-                                            <Input type='text' placeholder='Alt Tag' {...register(`elementsSectionItems.${index}.imageAlt`)} />
-                                        </div>
-                                    </div>
                                     <div className='flex flex-col gap-2'>
                                         <div className='flex flex-col gap-2'>
                                             <Label className='pl-3 font-bold'>Title</Label>
-                                            <Input type='text' placeholder='Title' {...register(`elementsSectionItems.${index}.title`, {
+                                            <Input type='text' placeholder='Title' {...register(`secondSectionItems.${index}.title`, {
                                                 required: "Title is required"
                                             })} />
-                                            {errors.elementsSectionItems?.[index]?.title && <p className='text-red-500'>{errors.elementsSectionItems?.[index]?.title.message}</p>}
+                                            {errors.secondSectionItems?.[index]?.title && <p className='text-red-500'>{errors.secondSectionItems?.[index]?.title.message}</p>}
                                         </div>
                                         <div className='flex flex-col gap-2'>
                                             <Label className='pl-3 font-bold'>Description</Label>
                                             <Controller
-                                                name={`elementsSectionItems.${index}.description`}
+                                                name={`secondSectionItems.${index}.description`}
                                                 control={control}
                                                 rules={{ required: "Description is required" }}
                                                 render={({ field }) => (
@@ -287,7 +272,7 @@ const PrecastConcretePage = () => {
                         ))}
 
                         <div>
-                            <Button type='button' className="w-full cursor-pointer" onClick={() => appendElementsSectionItems({ image: "", imageAlt: "", title: "", description: "" })}>Add Item</Button>
+                            <Button type='button' className="w-full cursor-pointer" onClick={() => appendSecondSectionItems({ title: "", description: "" })}>Add Item</Button>
                         </div>
 
                     </div>
@@ -295,7 +280,9 @@ const PrecastConcretePage = () => {
                 </div>
 
 
+                <div className='flex justify-between items-center'>
                 <Label className='pl-3 font-bold border-b p-2 text-lg'>Third Section</Label>
+                </div>
                 <div className='border p-2 rounded-md flex flex-col gap-2'>
                     <div className='flex flex-col gap-2'>
                         <div className='flex flex-col gap-1'>
@@ -322,13 +309,14 @@ const PrecastConcretePage = () => {
                                     <RiDeleteBinLine onClick={() => removeThirdSectionItems(index)} className='cursor-pointer text-red-600' />
                                 </div>
                                 <div className='grid grid-cols-2 gap-2 w-full'>
-                                    <div>
+
+                                <div className='flex flex-col gap-2'>
                                         <div className='flex flex-col gap-2'>
-                                            <Label className='pl-3 font-bold'>Logo</Label>
+                                            <Label className='pl-3 font-bold'>Image</Label>
                                             <Controller
-                                                name={`thirdSectionItems.${index}.logo`}
+                                                name={`thirdSectionItems.${index}.image`}
                                                 control={control}
-                                                rules={{ required: "Logo is required" }}
+                                                rules={{ required: "Image is required" }}
                                                 render={({ field }) => (
                                                     <ImageUploader
                                                         value={field.value}
@@ -336,20 +324,18 @@ const PrecastConcretePage = () => {
                                                     />
                                                 )}
                                             />
-                                            {errors.thirdSectionItems?.[index]?.logo && <p className='text-red-500'>{errors.thirdSectionItems?.[index]?.logo.message}</p>}
+                                            {errors.thirdSectionItems?.[index]?.image && <p className='text-red-500'>{errors.thirdSectionItems?.[index]?.image.message}</p>}
                                         </div>
                                         <div className='flex flex-col gap-2'>
-                                            <Label className='pl-3 font-bold'>Alt Tag</Label>
-                                            <Input type='text' placeholder='Alt Tag' {...register(`thirdSectionItems.${index}.logoAlt`)} />
+                                            <Label className='pl-3 font-bold'>Image Alt</Label>
+                                            <Input type='text' placeholder='Image Alt' {...register(`thirdSectionItems.${index}.imageAlt`)} />
                                         </div>
                                     </div>
+
                                     <div className='flex flex-col gap-2'>
                                         <div className='flex flex-col gap-2'>
                                             <Label className='pl-3 font-bold'>Title</Label>
-                                            <Input type='text' placeholder='Title' {...register(`thirdSectionItems.${index}.title`, {
-                                                required: "Title is required"
-                                            })} />
-                                            {errors.thirdSectionItems?.[index]?.title && <p className='text-red-500'>{errors.thirdSectionItems?.[index]?.title.message}</p>}
+                                            <Input type='text' placeholder='Title' {...register(`thirdSectionItems.${index}.title`)} />
                                         </div>
                                         <div className='flex flex-col gap-2'>
                                             <Label className='pl-3 font-bold'>Description</Label>
@@ -364,7 +350,6 @@ const PrecastConcretePage = () => {
                                                     />
                                                 )}
                                             />
-                                            {errors.thirdSectionItems?.[index]?.description && <p className='text-red-500'>{errors.thirdSectionItems?.[index]?.description.message}</p>}
                                         </div>
                                     </div>
                                 </div>
@@ -373,7 +358,7 @@ const PrecastConcretePage = () => {
                         ))}
 
                         <div>
-                            <Button type='button' className="w-full cursor-pointer" onClick={() => appendThirdSectionItems({ logo: "", logoAlt: "", title: "", description: "" })}>Add Item</Button>
+                            <Button type='button' className="w-full cursor-pointer" onClick={() => appendThirdSectionItems({image:"", imageAlt:"", title: "", description: "" })}>Add Item</Button>
                         </div>
 
                     </div>
@@ -381,16 +366,62 @@ const PrecastConcretePage = () => {
                 </div>
 
 
+                <div className='flex justify-between items-center'>
                 <Label className='pl-3 font-bold border-b p-2 text-lg'>Fourth Section</Label>
+                <div className='flex flex-col gap-2 w-1/2'>
+                    <Controller
+                        name="forthSectionStyle"
+                        control={control}
+                        rules={{ required: "Style is required" }}
+                        render={({ field }) => (
+                            <Select
+                                onValueChange={field.onChange}
+                                value={field.value}
+                                defaultValue=""
+                            >
+                                <SelectTrigger className="w-full">
+                                    <SelectValue placeholder="Select Style" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                        <SelectItem value="with-weight">
+                                            With weight
+                                        </SelectItem>
+                                        <SelectItem value="with-image">
+                                            With image
+                                        </SelectItem>
+                                </SelectContent>
+                            </Select>
+                        )}
+                    />
+
+                </div>
+                </div>
+
+                {watch("forthSectionStyle") === "with-weight" ? (
                 <div className='border p-2 rounded-md flex flex-col gap-2'>
                     <div className='flex flex-col gap-2'>
                         <div className='flex flex-col gap-1'>
                             <Label className='pl-3 font-bold'>Title</Label>
-                            <Input type='text' placeholder='Title' {...register("fourthSection.title", {
+                            <Input type='text' placeholder='Title' {...register("forthSection.title", {
                                 required: "Title is required"
                             })} />
-                            {errors.fourthSection?.title && <p className='text-red-500'>{errors.fourthSection?.title.message}</p>}
+                            {errors.forthSection?.title && <p className='text-red-500'>{errors.forthSection?.title.message}</p>}
                         </div>
+                        <div className='flex flex-col gap-1'>
+                            <Label className='pl-3 font-bold'>Column 1 Title</Label>
+                            <Input type='text' placeholder='Column 1 Title' {...register("forthSection.column1Title", {
+                                required: "Column 1 Title is required"
+                            })} />
+                            {errors.forthSection?.column1Title && <p className='text-red-500'>{errors.forthSection?.column1Title.message}</p>}
+                        </div>
+                        <div className='flex flex-col gap-1'>
+                            <Label className='pl-3 font-bold'>Column 2 Title</Label>
+                            <Input type='text' placeholder='Column 2 Title' {...register("forthSection.column2Title", {
+                                required: "Column 2 Title is required"
+                            })} />
+                            {errors.forthSection?.column2Title && <p className='text-red-500'>{errors.forthSection?.column2Title.message}</p>}
+                        </div>
+                        
                     </div>
 
 
@@ -398,17 +429,59 @@ const PrecastConcretePage = () => {
                     <div className='border p-2 rounded-md flex flex-col gap-5'>
 
                         <Label className='pl-2 font-bold'>Items</Label>
-                        {fourthSectionItems.map((field, index) => (
+                        {forthSectionItems.map((field, index) => (
                             <div key={field.id} className='grid grid-cols-1 gap-2 relative border p-2 rounded-md'>
                                 <div className='absolute top-2 right-2'>
-                                    <RiDeleteBinLine onClick={() => removeFourthSectionItems(index)} className='cursor-pointer text-red-600' />
+                                    <RiDeleteBinLine onClick={() => removeForthSectionItems(index)} className='cursor-pointer text-red-600' />
                                 </div>
                                 <div className='grid grid-cols-2 gap-2 w-full'>
-                                    <div>
+
+                                    
                                         <div className='flex flex-col gap-2'>
+                                            <Label className='pl-3 font-bold'>Column 1 Value</Label>
+                                            <Input type='text' placeholder='Column 1 Value' {...register(`forthSectionItems.${index}.column1Value`)} />
+                                        </div>
+                                        <div className='flex flex-col gap-2'>
+                                            <Label className='pl-3 font-bold'>Column 2 Value</Label>
+                                            <Input type='text' placeholder='Column 2 Value' {...register(`forthSectionItems.${index}.column2Value`)} />
+                                        </div>
+                                    
+                                </div>
+
+                            </div>
+                        ))}
+
+                        <div>
+                            <Button type='button' className="w-full cursor-pointer" onClick={() => appendForthSectionItems({column1Value:"", column2Value:"" })}>Add Item</Button>
+                        </div>
+
+                    </div>
+
+                </div> ) : 
+                
+
+                (watch("forthSectionStyle") === "with-image" ? (
+
+                    <div className='border p-2 rounded-md flex flex-col gap-2'>
+                    <div className='flex flex-col gap-2'>
+                        <div className='flex flex-col gap-1'>
+                            <Label className='pl-3 font-bold'>Title</Label>
+                            <Input type='text' placeholder='Title' {...register("forthSection.title", {
+                                required: "Title is required"
+                            })} />
+                            {errors.forthSection?.title && <p className='text-red-500'>{errors.forthSection?.title.message}</p>}
+                        </div>
+                        <div className='flex flex-col gap-1'>
+                            <Label className='pl-3 font-bold'>Description</Label>
+                            <Textarea placeholder='Description' {...register("forthSection.description", {
+                                required: "Description is required"
+                            })} />
+                            {errors.forthSection?.description && <p className='text-red-500'>{errors.forthSection?.description.message}</p>}
+                        </div>
+                        <div className='flex flex-col gap-2'>
                                             <Label className='pl-3 font-bold'>Image</Label>
                                             <Controller
-                                                name={`fourthSectionItems.${index}.image`}
+                                                name={`forthSection.image`}
                                                 control={control}
                                                 rules={{ required: "Image is required" }}
                                                 render={({ field }) => (
@@ -418,46 +491,22 @@ const PrecastConcretePage = () => {
                                                     />
                                                 )}
                                             />
-                                            {errors.fourthSectionItems?.[index]?.image && <p className='text-red-500'>{errors.fourthSectionItems?.[index]?.image.message}</p>}
+                                            {errors.forthSection?.image && <p className='text-red-500'>{errors.forthSection?.image.message}</p>}
                                         </div>
-                                        <div className='flex flex-col gap-2'>
-                                            <Label className='pl-3 font-bold'>Alt Tag</Label>
-                                            <Input type='text' placeholder='Alt Tag' {...register(`fourthSectionItems.${index}.imageAlt`)} />
-                                        </div>
-                                    </div>
-                                    <div className='flex flex-col gap-2'>
-                                        <div className='flex flex-col gap-2'>
-                                            <Label className='pl-3 font-bold'>Title</Label>
-                                            <Input type='text' placeholder='Title' {...register(`fourthSectionItems.${index}.title`)} />
-                                        </div>
-                                        <div>
-                                            <Label className='pl-3'>Description</Label>
-                                            <Controller
-                                                name={`fourthSectionItems.${index}.description`}
-                                                control={control}
-                                                rules={{ required: "Description is required" }}
-                                                render={({ field }) => (
-                                                    <Textarea
-                                                        placeholder='Description'
-                                                        {...field}
-                                                    />
-                                                )}
-                                            />
-                                            {errors.fourthSectionItems?.[index]?.description && <p className='text-red-500'>{errors.fourthSectionItems?.[index]?.description.message}</p>}
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        ))}
-
-                        <div>
-                            <Button type='button' className="w-full cursor-pointer" onClick={() => appendFourthSectionItems({ image: "", imageAlt: "", title: "", description: "" })}>Add Item</Button>
+                                        
+                                        <div className='flex flex-col gap-1'>
+                            <Label className='pl-3 font-bold'>Alt tag</Label>
+                            <Input type='text' placeholder='Alt tag' {...register("forthSection.imageAlt")} />
+                            {errors.forthSection?.imageAlt && <p className='text-red-500'>{errors.forthSection?.imageAlt.message}</p>}
                         </div>
 
+                        
                     </div>
+                    </div>
+                ) : (
+                null
+                ))}
 
-                </div>
 
                 <div className='flex flex-col gap-2'>
                     <Label className='pl-3 font-bold'>Meta Title</Label>
@@ -477,4 +526,4 @@ const PrecastConcretePage = () => {
     )
 }
 
-export default PrecastConcretePage
+export default PrecastPrestressedPageElements

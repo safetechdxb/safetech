@@ -1,9 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
-import PrecastConcrete from "@/models/PrecastConcrete";
 import connectDB from "@/lib/mongodb";
 import { verifyAdmin } from "@/lib/verifyAdmin";
 import PrecastPrestressed from "@/models/PrecastPrestressed";
-import GrcFactory from "@/models/GrcFactory";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
     try {
@@ -12,41 +10,33 @@ export async function GET(request: NextRequest) {
         if (!isAdmin) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
-        const slug = request.nextUrl.searchParams.get("slug");
-
-        
-        if(slug=="precast-concrete"){
-           const product = await PrecastConcrete.findOne({}); 
-           return NextResponse.json({ data: product.elementsSection.items }, { status: 200 });
+        const id = request.nextUrl.searchParams.get("id");
+        const product = await PrecastPrestressed.findOne({});
+        if(product){
+            const element = product.elementsSection.items.find((item: { _id: string }) => item._id == id);
+            if(element){
+                return NextResponse.json({ data: element }, { status: 200 });
+            }
         }
-
-        if(slug=="precast-prestressed"){
-            const product = await PrecastPrestressed.findOne({}); 
-            return NextResponse.json({ data: product.elementsSection.items }, { status: 200 });
-         }
-
-         if(slug=="grc-factory"){
-            const product = await GrcFactory.findOne({}); 
-            return NextResponse.json({ data: product.elementsSection.items }, { status: 200 });
-         }
-
+        return NextResponse.json({ message: "Error fetching element" }, { status: 500 });
     } catch (error) {
-        console.log("Error in fetching elements", error);
-        return NextResponse.json({ error: "Error fetching elements" }, { status: 500 });
+        console.log("Error in fetching element", error);
+        return NextResponse.json({ message: "Error fetching element" }, { status: 500 });
     }
 }
 
 export async function PATCH(request: NextRequest) {
     try {
+        const id = request.nextUrl.searchParams.get("id");
         await connectDB();
         const isAdmin = await verifyAdmin(request);
         if (!isAdmin) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
         const body = await request.json();
-        const product = await PrecastConcrete.findOne({});
+        const product = await PrecastPrestressed.findOne({});
         if(product){
-            const element = product.elementsSection.items.find((item: { _id: string }) => item._id == body.id);
+            const element = product.elementsSection.items.find((item: { _id: string }) => item._id == id);
             if(element){
                 element.metaTitle = body.metaTitle;
                 element.metaDescription = body.metaDescription;
@@ -56,6 +46,11 @@ export async function PATCH(request: NextRequest) {
                 element.firstSection = body.firstSection;
                 element.secondSection = body.secondSection;
                 element.secondSection.items = body.secondSectionItems;
+                element.thirdSection = body.thirdSection;
+                element.thirdSection.items = body.thirdSectionItems;
+                element.forthSection = body.forthSection;
+                element.forthSection.items = body.forthSectionItems;
+                element.forthSectionStyle = body.forthSectionStyle;
                 await product.save();
                 return NextResponse.json({ message: "Element updated successfully" }, { status: 200 });
             }

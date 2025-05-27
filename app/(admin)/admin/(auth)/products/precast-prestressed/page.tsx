@@ -9,10 +9,9 @@ import { Button } from '@/components/ui/button'
 import { ImageUploader } from '@/components/ui/image-uploader'
 import { RiDeleteBinLine } from "react-icons/ri";
 import { Textarea } from '@/components/ui/textarea'
-import { useParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
-
-interface PrecastConcretePageElements {
+interface PrecastPrestressedFormProps {
 
     metaTitle: string;
     metaDescription: string;
@@ -29,29 +28,38 @@ interface PrecastConcretePageElements {
     secondSection: {
         title: string;
         description: string;
+        image:string;
+        imageAlt:string;
     };
-    secondSectionItems: {
+    elementsSection: {
         title: string;
+        description: string;
+    };
+    elementsSectionItems: {
+        title: string;
+        image: string;
+        imageAlt: string;
         description: string;
     }[];
 }
 
-const PrecastConcretePageElements = () => {
+const PrecastPrestressedPage = () => {
 
-    const { id } = useParams();
+    const pathname = usePathname();
+    const productSlug = pathname.split('/products/')[1];
+    const { register, handleSubmit, setValue, control, formState: { errors } } = useForm<PrecastPrestressedFormProps>();
 
-    const { register, handleSubmit, setValue, control, formState: { errors } } = useForm<PrecastConcretePageElements>();
-
-    const { fields: secondSectionItems, append: appendSecondSectionItems, remove: removeSecondSectionItems } = useFieldArray({
+    const { fields: elementsSectionItems, append: appendElementsSectionItems, remove: removeElementsSectionItems } = useFieldArray({
         control,
-        name: "secondSectionItems"
+        name: "elementsSectionItems"
     });
 
-    const handleAddPrecastConcrete = async (data: PrecastConcretePageElements) => {
+
+    const handleAddPrecastPrestressed = async (data: PrecastPrestressedFormProps) => {
         try {
-            const response = await fetch(`/api/admin/products/precast-concrete/elements?id=${id}`, {
+            const response = await fetch(`/api/admin/products/precast-prestressed`, {
                 method: "PATCH",
-                body: JSON.stringify({ ...data }),
+                body: JSON.stringify({ ...data, productSlug }),
             });
             if (response.ok) {
                 const data = await response.json();
@@ -59,13 +67,13 @@ const PrecastConcretePageElements = () => {
                 // router.push("/admin/commitment");
             }
         } catch (error) {
-            console.log("Error in adding about", error);
+            console.log("Error in adding product", error);
         }
     }
 
-    const fetchElementData = async () => {
+    const fetchProductData = async () => {
         try {
-            const response = await fetch(`/api/admin/products/precast-concrete/elements?id=${id}`);
+            const response = await fetch(`/api/admin/products/precast-prestressed`);
             if (response.ok) {
                 const data = await response.json();
                 console.log(data)
@@ -75,27 +83,28 @@ const PrecastConcretePageElements = () => {
                 setValue("metaTitle", data.data.metaTitle);
                 setValue("metaDescription", data.data.metaDescription);
                 setValue("firstSection", data.data.firstSection);
-                setValue("secondSection", data.data.secondSection);
-                setValue("secondSectionItems", data.data.secondSection.items);
+                setValue("secondSection",data.data.secondSection);
+                setValue("elementsSection", data.data.elementsSection);
+                setValue("elementsSectionItems", data.data.elementsSection.items);
             } else {
                 const data = await response.json();
                 alert(data.message);
             }
         } catch (error) {
-            console.log("Error in fetching commitment data", error);
+            console.log("Error in fetching product data", error);
         }
     }
 
 
 
     useEffect(() => {
-        fetchElementData();
+        fetchProductData();
     }, []);
 
 
     return (
         <div className='flex flex-col gap-5'>
-            <form className='flex flex-col gap-5' onSubmit={handleSubmit(handleAddPrecastConcrete)}>
+            <form className='flex flex-col gap-5' onSubmit={handleSubmit(handleAddPrecastPrestressed)}>
 
 
                 <div className='flex flex-col gap-2'>
@@ -174,9 +183,7 @@ const PrecastConcretePageElements = () => {
                 </div>
 
 
-                <div className='flex justify-between items-center'>
                 <Label className='pl-3 font-bold border-b p-2 text-lg'>Second Section</Label>
-                </div>
                 <div className='border p-2 rounded-md flex flex-col gap-2'>
                     <div className='flex flex-col gap-2'>
                         <div className='flex flex-col gap-1'>
@@ -190,6 +197,46 @@ const PrecastConcretePageElements = () => {
                             <Label className='pl-3 font-bold'>Description</Label>
                             <Textarea placeholder='Description' {...register("secondSection.description")} />
                         </div>
+                        <div className='flex flex-col gap-1'>
+                            <Label className='pl-3 font-bold'>Image</Label>
+                            <Controller
+                                name="secondSection.image"
+                                control={control}
+                                rules={{ required: "Image is required" }}
+                                render={({ field }) => (
+                                    <ImageUploader
+                                        value={field.value}
+                                        onChange={field.onChange}
+                                    />
+                                )}
+                            />
+                            {errors.secondSection?.image && (
+                                <p className="text-red-500">{errors.secondSection?.image.message}</p>
+                            )}
+                        </div>
+                        <div>
+                            <Label className='pl-3 font-bold'>Alt Tag</Label>
+                            <Input type='text' placeholder='Alt Tag' {...register("secondSection.imageAlt")} />
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <Label className='pl-3 font-bold border-b p-2 text-lg'>Elements Section</Label>
+                <div className='border p-2 rounded-md flex flex-col gap-2'>
+                    <div className='flex flex-col gap-2'>
+                        <div className='flex flex-col gap-1'>
+                            <Label className='pl-3 font-bold'>Title</Label>
+                            <Input type='text' placeholder='Title' {...register("elementsSection.title", {
+                                required: "Title is required"
+                            })} />
+                            {errors.elementsSection?.title && <p className='text-red-500'>{errors.elementsSection?.title.message}</p>}
+                        </div>
+                        <div className='flex flex-col gap-1'>
+                            <Label className='pl-3 font-bold'>Description</Label>
+                            <Textarea placeholder='Description' {...register("elementsSection.description")} />
+                        </div>
                     </div>
 
 
@@ -197,24 +244,45 @@ const PrecastConcretePageElements = () => {
                     <div className='border p-2 rounded-md flex flex-col gap-5'>
 
                         <Label className='pl-2 font-bold'>Items</Label>
-                        {secondSectionItems.map((field, index) => (
+                        {elementsSectionItems.map((field, index) => (
                             <div key={field.id} className='grid grid-cols-1 gap-2 relative border p-2 rounded-md'>
                                 <div className='absolute top-2 right-2'>
-                                    <RiDeleteBinLine onClick={() => removeSecondSectionItems(index)} className='cursor-pointer text-red-600' />
+                                    <RiDeleteBinLine onClick={() => removeElementsSectionItems(index)} className='cursor-pointer text-red-600' />
                                 </div>
                                 <div className='grid grid-cols-2 gap-2 w-full'>
+                                    <div>
+                                        <div className='flex flex-col gap-2'>
+                                            <Label className='pl-3 font-bold'>Image</Label>
+                                            <Controller
+                                                name={`elementsSectionItems.${index}.image`}
+                                                control={control}
+                                                rules={{ required: "Image is required" }}
+                                                render={({ field }) => (
+                                                    <ImageUploader
+                                                        value={field.value}
+                                                        onChange={field.onChange}
+                                                    />
+                                                )}
+                                            />
+                                            {errors.elementsSectionItems?.[index]?.image && <p className='text-red-500'>{errors.elementsSectionItems?.[index]?.image.message}</p>}
+                                        </div>
+                                        <div className='flex flex-col gap-2'>
+                                            <Label className='pl-3 font-bold'>Alt Tag</Label>
+                                            <Input type='text' placeholder='Alt Tag' {...register(`elementsSectionItems.${index}.imageAlt`)} />
+                                        </div>
+                                    </div>
                                     <div className='flex flex-col gap-2'>
                                         <div className='flex flex-col gap-2'>
                                             <Label className='pl-3 font-bold'>Title</Label>
-                                            <Input type='text' placeholder='Title' {...register(`secondSectionItems.${index}.title`, {
+                                            <Input type='text' placeholder='Title' {...register(`elementsSectionItems.${index}.title`, {
                                                 required: "Title is required"
                                             })} />
-                                            {errors.secondSectionItems?.[index]?.title && <p className='text-red-500'>{errors.secondSectionItems?.[index]?.title.message}</p>}
+                                            {errors.elementsSectionItems?.[index]?.title && <p className='text-red-500'>{errors.elementsSectionItems?.[index]?.title.message}</p>}
                                         </div>
                                         <div className='flex flex-col gap-2'>
                                             <Label className='pl-3 font-bold'>Description</Label>
                                             <Controller
-                                                name={`secondSectionItems.${index}.description`}
+                                                name={`elementsSectionItems.${index}.description`}
                                                 control={control}
                                                 rules={{ required: "Description is required" }}
                                                 render={({ field }) => (
@@ -232,12 +300,13 @@ const PrecastConcretePageElements = () => {
                         ))}
 
                         <div>
-                            <Button type='button' className="w-full cursor-pointer" onClick={() => appendSecondSectionItems({ title: "", description: "" })}>Add Item</Button>
+                            <Button type='button' className="w-full cursor-pointer" onClick={() => appendElementsSectionItems({ image: "", imageAlt: "", title: "", description: "" })}>Add Item</Button>
                         </div>
 
                     </div>
 
                 </div>
+
 
                 <div className='flex flex-col gap-2'>
                     <Label className='pl-3 font-bold'>Meta Title</Label>
@@ -257,4 +326,4 @@ const PrecastConcretePageElements = () => {
     )
 }
 
-export default PrecastConcretePageElements
+export default PrecastPrestressedPage
