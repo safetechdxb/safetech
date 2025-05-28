@@ -11,14 +11,26 @@ export async function GET(request: NextRequest) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         }
         const id = request.nextUrl.searchParams.get("id");
+        const slug = request.nextUrl.searchParams.get("slug");
         const product = await PrecastConcrete.findOne({});
         if(product){
-            const element = product.elementsSection.items.find((item: { _id: string }) => item._id == id);
-            if(element){
-                return NextResponse.json({ data: element }, { status: 200 });
+            if(id){
+                const element = product.elementsSection.items.find((item: { _id: string }) => item._id == id);
+                if(element){
+                    return NextResponse.json({ data: element }, { status: 200 });
+                }
+                return NextResponse.json({ message: "Error fetching element" }, { status: 500 });
+            }else{
+                const element = product.elementsSection.items.find((item: { slug: string }) => item.slug == slug);
+                if(element){
+                    return NextResponse.json({ data: element }, { status: 200 });
+                }
+                return NextResponse.json({ message: "Error fetching element" }, { status: 500 });
             }
+            
+        }else{
+            return NextResponse.json({ message: "Error fetching element" }, { status: 500 });
         }
-        return NextResponse.json({ message: "Error fetching element" }, { status: 500 });
     } catch (error) {
         console.log("Error in fetching element", error);
         return NextResponse.json({ message: "Error fetching element" }, { status: 500 });
