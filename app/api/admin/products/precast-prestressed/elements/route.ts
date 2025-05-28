@@ -6,10 +6,6 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest) {
     try {
         await connectDB();
-        const isAdmin = await verifyAdmin(request);
-        if (!isAdmin) {
-            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-        }
         const id = request.nextUrl.searchParams.get("id");
         const slug = request.nextUrl.searchParams.get("slug");
         const product = await PrecastPrestressed.findOne({});

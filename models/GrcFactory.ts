@@ -18,6 +18,10 @@ const grcFactorySchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    productSlug:{
+        type: String,
+        required: true,
+    },
     firstSection:{
         firstTitle:{
             type: String,
