@@ -39,9 +39,13 @@ export async function GET(req: NextRequest) {
         const searchParams = req.nextUrl.searchParams;
         const id = searchParams.get("id");
         const resource = await Resource.findOne({});
-        if(resource){
+        if(id){
             const resourceCategory = resource.categories.find((category:{_id:string, category:string})=>category._id == id);
-            return NextResponse.json({ data: resourceCategory }, { status: 200 });
+            if(resourceCategory){
+                return NextResponse.json({ data: resourceCategory }, { status: 200 });
+            }else{
+               return NextResponse.json({ message: "Error fetching resource" }, { status: 500 }); 
+            }
         }else if(resource && !id){
             return NextResponse.json({ data: resource }, { status: 200 });
         }else{
