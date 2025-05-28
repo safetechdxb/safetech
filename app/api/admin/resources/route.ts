@@ -42,6 +42,8 @@ export async function GET(req: NextRequest) {
         if(resource){
             const resourceCategory = resource.categories.find((category:{_id:string, category:string})=>category._id == id);
             return NextResponse.json({ data: resourceCategory }, { status: 200 });
+        }else if(resource && !id){
+            return NextResponse.json({ data: resource }, { status: 200 });
         }else{
             return NextResponse.json({ message: "Error fetching resource" }, { status: 500 });
         }
