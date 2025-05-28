@@ -17,6 +17,9 @@ const HomeSchema = new mongoose.Schema({
         image:{
             type: String,
         },
+        imageAlt:{
+            type:String
+        },
         items:[{
             number:{
                 type: String,

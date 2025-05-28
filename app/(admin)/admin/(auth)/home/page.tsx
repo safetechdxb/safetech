@@ -21,6 +21,7 @@ interface SystemFormProps {
         title: string;
         description: string;
         image: string;
+        imageAlt:string;
         items: {
             number: string;
             value: string;

@@ -35,13 +35,9 @@ try {
 }
 }
 
-export async function GET(request: NextRequest) {
+export async function GET() {
     try {
         await connectDB();
-        const isAdmin = await verifyAdmin(request);
-        if (!isAdmin) {
-            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-        }
         const grcFactory = await GrcFactory.findOne({});
         if (!grcFactory) {
             return NextResponse.json({ message: "GRC Factory not found" }, { status: 404 });
