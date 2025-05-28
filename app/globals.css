@@ -94,8 +94,9 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   --cmn-letter-spacing: 0.5px;
-
   --section-gap: clamp(60px, 10vw + 1rem, 140px);
+  --section-gap-sm: clamp(40px, 7vw + 1rem, 118px);
+
 }
 
 @theme inline {
@@ -126,6 +127,8 @@
   /* ~22px */
   --text-24: clamp(1rem, 0.75rem + 1.5vw, 1.5rem);
   /* ~24px */
+  --text-30: clamp(1.5rem, 1.5rem + 0.45vw, 1.875rem);
+  /* ~30px */
   --text-32: clamp(1.8rem, 1.5rem + 0.5vw, 2rem);
   /* ~32px */
   --text-48: clamp(2rem, 1.5rem + 2vw, 48px);
@@ -235,6 +238,7 @@
   --radius-xl: calc(var(--radius) + 4px);
 
   --spacing-140: var(--section-gap);
+  --spacing-118: var(--section-gap-sm)
 }
 
 .container {
@@ -575,4 +579,18 @@ body {
 .loader .bar12 {
   transform: rotate(330deg) translate(0, -130%);
   animation-delay: -0.1s;
+}
+
+
+.primary-text-stroke{
+  -webkit-text-stroke: 1px #E11F27;
+}
+
+.short-bnr-gradient {
+  background: linear-gradient(to right,
+      rgba(30, 30, 30, 0) 0%,
+      rgba(30, 30, 30, 0.56) 34%,
+      rgba(30, 30, 30, 0.6) 51%,
+      rgba(30, 30, 30, 1) 74%,
+      rgba(30, 30, 30, 1) 100%);
 }
