@@ -1,10 +1,10 @@
+import Index from '@/app/components/precast-pre-stressed-element'
 import React from 'react'
-import Index from '../components/precast-pre-stressed'
 
 export default function page() {
   return (
-    <div>
+    <>
       <Index/>
-    </div>
+    </>
   )
 }

@@ -152,6 +152,8 @@
   --color-tm-gray: var(--tm-gray);
   /* colors end */
 
+  
+
   --tracking-cmn: var(--cmn-letter-spacing);
 
   --breakpoint-xs: 480px;
@@ -238,7 +240,8 @@
   --radius-xl: calc(var(--radius) + 4px);
 
   --spacing-140: var(--section-gap);
-  --spacing-118: var(--section-gap-sm)
+  --spacing-118: var(--section-gap-sm);
+  --spacing-32p: clamp(1.2em, 5vw, 32px);
 }
 
 .container {
@@ -580,7 +583,6 @@ body {
   transform: rotate(330deg) translate(0, -130%);
   animation-delay: -0.1s;
 }
-
 
 .primary-text-stroke{
   -webkit-text-stroke: 1px #E11F27;

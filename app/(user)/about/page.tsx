@@ -1,4 +1,4 @@
-import Index from "../components/about";
+import Index from "@/app/components/about";
 
 const About = () => {
   return ( 

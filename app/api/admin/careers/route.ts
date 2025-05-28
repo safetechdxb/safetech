@@ -20,7 +20,7 @@ export async function PATCH(request: NextRequest) {
     try {
         await connectDB();
         const body = await request.json();
-        const { banner, bannerAlt,pageTitle, firstSection, secondSection, thirdSection, firstSectionItems, secondSectionItems, thirdSectionItems,metaTitle,metaDescription } = body;
+        const { banner, bannerAlt,pageTitle, firstSection, secondSection, firstSectionItems, secondSectionItems, thirdSectionItems,metaTitle,metaDescription } = body;
         console.log(body)
         const career = await Career.findOne({});
         if (!career) {

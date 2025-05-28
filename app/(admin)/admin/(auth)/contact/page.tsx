@@ -21,7 +21,7 @@ interface Contact {
     phone: string;
 }
 
-const page = () => {
+const AdminContact = () => {
 
     const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm<Contact>();
 
@@ -126,4 +126,4 @@ const page = () => {
   )
 }
 
-export default page
+export default AdminContact

@@ -1,10 +1,16 @@
+"use client"
 import React from 'react'
 import SubTitle from '../common/SubTitle'
 import { elementsData } from './data'
 import Image from 'next/image'
 import ArrowBtn from '../common/ArrowBtn'
+import { usePathname } from 'next/navigation'
 
 export default function ElementsList() {
+  const pathname = usePathname();
+
+  const slugify = (text: string) => text.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
+  
   return (
     <section className='py-140 bg-off-white '>
       <div className="container">
@@ -24,7 +30,7 @@ export default function ElementsList() {
               <p className='text-20 font-normal leading-[1.5] text-secondary/75'>{el.desc}</p>
             </div>
             <div className="mt-auto px-8 pb-8">
-              <ArrowBtn btnText='Read more' btnLInk='#' border={false} />
+              <ArrowBtn btnText='Read more' btnLInk={`${pathname}/${slugify(el.title)}`} border={false} />
             </div>
           </div>
         ))}

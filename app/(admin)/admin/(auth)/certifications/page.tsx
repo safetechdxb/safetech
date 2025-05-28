@@ -21,7 +21,7 @@ interface Certifications {
     }[];
 }
 
-const page = () => {
+const AdminCertifications = () => {
 
     const { control, register, handleSubmit, formState: { errors }, setValue, watch } = useForm<Certifications>();
     const { fields, append, remove } = useFieldArray({
@@ -142,4 +142,4 @@ const page = () => {
   )
 }
 
-export default page
+export default AdminCertifications

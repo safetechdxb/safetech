@@ -13,7 +13,10 @@ export async function POST(req:NextRequest) {
         const body = await req.json();
         
         const response = await Certifications.findOneAndUpdate({},body);
-        return NextResponse.json({ message: "Certifications updated successfully" }, { status: 200 });
+        if(response){
+            return NextResponse.json({ message: "Certifications updated successfully" }, { status: 200 });
+        }
+        return NextResponse.json({ message: "Error updating certifications" }, { status: 500 });
     } catch (error) {
         console.log("Error in adding certifications", error);
         return NextResponse.json({ message: "Error adding certifications" }, { status: 500 });

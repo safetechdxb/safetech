@@ -21,7 +21,7 @@ import { ImageUploader } from '@/components/ui/image-uploader';
 
 
 
-const page = () => {
+const AdminGallery = () => {
 
     const [category, setCategory] = useState<string>("")
 
@@ -241,4 +241,4 @@ const page = () => {
     )
 }
 
-export default page
+export default AdminGallery

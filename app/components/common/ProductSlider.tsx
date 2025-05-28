@@ -59,7 +59,7 @@ const ProductSlider = ({mainTitle, sliderData}:ProductSliderProps) => {
             modules={[Navigation, A11y]}
             spaceBetween={50}
             slidesPerView={1}
-            navigation={{
+            navigation={{ 
               prevEl: prevRef.current,
               nextEl: nextRef.current,
             }}
