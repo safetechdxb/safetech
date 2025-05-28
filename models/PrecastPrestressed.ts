@@ -33,6 +33,7 @@ const precastPrestressedSchema = new mongoose.Schema({
             banner: String,
             bannerAlt: String,
             pageTitle: String,
+            slug: String,
             firstSection: {
                 firstTitle: String,
                 secondTitle: String,

@@ -43,6 +43,7 @@ export async function PATCH(request: NextRequest) {
                 element.banner = body.banner;
                 element.bannerAlt = body.bannerAlt;
                 element.pageTitle = body.pageTitle;
+                element.slug = body.slug;
                 element.firstSection = body.firstSection;
                 element.secondSection = body.secondSection;
                 element.secondSection.items = body.secondSectionItems;

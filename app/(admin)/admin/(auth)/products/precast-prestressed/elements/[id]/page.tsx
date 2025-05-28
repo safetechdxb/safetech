@@ -7,7 +7,7 @@ import React, { useEffect } from 'react'
 import { useForm, useFieldArray, Controller } from "react-hook-form";
 import { Button } from '@/components/ui/button'
 import { ImageUploader } from '@/components/ui/image-uploader'
-import { RiDeleteBinLine } from "react-icons/ri";
+import { RiAiGenerateText, RiDeleteBinLine } from "react-icons/ri";
 import { Textarea } from '@/components/ui/textarea'
 import { useParams } from 'next/navigation';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -20,6 +20,7 @@ interface PrecastPrestressedPageElements {
     banner: string;
     bannerAlt: string;
     pageTitle: string;
+    slug:string;
     firstSection: {
         firstTitle: string;
         secondTitle: string;
@@ -116,6 +117,7 @@ const PrecastPrestressedPageElements = () => {
                 setValue("forthSection", data.data.forthSection);
                 setValue("forthSectionItems", data.data.forthSection.items);
                 setValue("forthSectionStyle", data.data.forthSectionStyle);
+                setValue("slug", data.data.slug);
             } else {
                 const data = await response.json();
                 alert(data.message);
@@ -130,6 +132,24 @@ const PrecastPrestressedPageElements = () => {
     useEffect(() => {
         fetchElementData();
     }, []);
+
+
+        useEffect(()=>{
+            if(watch("slug") === undefined) return;
+            const slug = watch("slug").replace(/\s+/g, '-');
+            setValue("slug", slug);
+        },[watch("slug")])
+    
+        const handleAutoGenerate = () => {
+          const name = watch("pageTitle");
+          if (!name) return;
+          const slug = name
+            .toLowerCase()
+            .trim()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-+|-+$/g, ''); // remove leading/trailing dashes
+          setValue("slug", slug);
+        };
 
 
 
@@ -164,6 +184,20 @@ const PrecastPrestressedPageElements = () => {
                         <Label className='pl-3 font-bold'>Page Title</Label>
                         <Input type='text' placeholder='Page Title' {...register("pageTitle")} />
                     </div>
+                    <div className='flex flex-col gap-1'>
+                                                                <Label className='pl-3 font-bold mb-1'>
+                                                                    Slug
+                                                                    <div className='flex gap-2 items-center bg-green-600 text-white p-1 rounded-md cursor-pointer w-fit mt-1' onClick={handleAutoGenerate}>
+                                                                        <p>Auto Generate</p>
+                                                                        <RiAiGenerateText />
+                                                                    </div>
+                                                                    </Label>
+                                                                <Input type='text' placeholder='Product Slug' {...register("slug", { required: "Slug is required",pattern: {
+                                                value: /^[a-z0-9]+(-[a-z0-9]+)*$/,
+                                                message: "Slug must contain only lowercase letters, numbers, and hyphens (no spaces)"
+                                              } })} />
+                                                                {errors.slug && <p className='text-red-500'>{errors.slug.message}</p>}
+                                                            </div>
                 </div>
 
                 <Label className='pl-3 font-bold border-b p-2 text-lg'>First Section</Label>
