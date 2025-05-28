@@ -35,7 +35,7 @@ try {
 }
 }
 
-export async function GET(request: NextRequest) {
+export async function GET() {
     try {
         await connectDB();
         const grcFactory = await GrcFactory.findOne({});
