@@ -5,7 +5,8 @@ import Image from "next/image";
 import ArrowBtn from "../common/ArrowBtn";
 import {motion} from "framer-motion";
 import {moveUp} from "../motionVarients"
-const Sustainability = () => {
+import { About } from "@/public/types/about";
+const Sustainability = ({data}:{data:About}) => {
   return (
     <section className="py-140 relative" style={{
       backgroundImage: `url(${assets.forestBg.src})`,
@@ -19,7 +20,7 @@ const Sustainability = () => {
         </div>
         <div className="lg:w-1/2 ml-auto pt-4 lg:pt-[90px] flex flex-col gap-20">
           <motion.div variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }}  >
-            <p className="text-white/80 text-24 leading-[1.3]">At Safe Tech, sustainability is at the heart of everything we do. As a proud subsidiary of United Engineering Construction Company LLC (UNEC), we are dedicated to developing construction solutions that are both innovative and environmentally friendly. Our product range—including precast, prestressed, hollow core, GRC, and troughs—is designed with sustainability in mind, ensuring that each project we undertake helps pave the way for a greener future. </p>
+            <p className="text-white/80 text-24 leading-[1.3]">{data.sustainablity.description}</p>
           </motion.div>
           <motion.ul variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} >
             <li className="flex gap-3 items-center mb-4 last:mb-0">

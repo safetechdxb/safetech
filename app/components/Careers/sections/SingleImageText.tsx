@@ -1,30 +1,15 @@
 "use client";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion"
 import { moveUp, paragraphItem } from "../../motionVarients";
 import SubTitle from "../../common/SubTitle";
 import { assets } from "@/public/assets/assets";
-interface PlatformsItem {
-  id: number;
-  title: string;
-  paragraphs: string[];
-  image: string | StaticImageData;
-}
-interface PlatformsSectionProps {
-  data: PlatformsItem[];
-  heading: string;
-  description: string;
-}
+import { careers } from "@/public/types/careers";
 
-const SingleImageText: React.FC<PlatformsSectionProps> = ({
-  data,
-  heading,
-  description,
-}) => {
+
+const SingleImageText = ({data}:{data:careers}) => {
   const [activeIndex, setActiveIndex] = useState(0);
-
-
   const slideInLeft = {
     hidden: { opacity: 0, x: -30 },
     visible: {
@@ -39,14 +24,14 @@ const SingleImageText: React.FC<PlatformsSectionProps> = ({
       <div className="container">
         <div className="lg:flex lg:items-center xxl:items-start">
           <motion.div variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="relative w-full lg:w-[51%] pr-0 lg:pr-[35px] xl:pr-[142px]">
-            {data.map((item) => (
-              <motion.div className="hidden first:block" key={item.id} variants={slideInLeft} initial="hidden" animate="visible" exit="exit">
+           
+              <motion.div className="hidden first:block" variants={slideInLeft} initial="hidden" animate="visible" exit="exit">
                 <figure className="image-wrapper h-full ">
-                  <Image src={item.image} alt="A beautiful view" className="w-full object-cover " priority />
+                  <Image src={data.firstSection.image} alt="A beautiful view" className="w-full object-cover " width={400} height={400} />
                 </figure>
                
               </motion.div>
-            ))}
+      
            <div className="absolute bottom-[-40px] left-0">
               <div className="w-10 h-20 bg-white relative z-20 group">
                 <div className="w-10 h-10 bg-black absolute top-0 left-0 "></div>
@@ -57,12 +42,12 @@ const SingleImageText: React.FC<PlatformsSectionProps> = ({
 
           <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="w-full lg:w-[49%] pl-0   mt-6 lg:mt-0">
             <div className="relative tracking-[3px]  mb-4 lg:mb-[30px]">
-              <SubTitle titleText={heading} color="text-black" />
+              <SubTitle titleText={data.firstSection.title} color="text-black" />
             </div>
             <motion.div variants={slideInLeft} initial="hidden" animate="visible" exit="exit" >
-              <p className="font-normal text-20 leading-[1.4] text-secondary opacity-75 mb-5 lg:mb-[40px]">{description}</p>
+              <p className="font-normal text-20 leading-[1.4] text-secondary opacity-75 mb-5 lg:mb-[40px]">{data.firstSection.description}</p>
             </motion.div>
-            {data.map((da, index) => (
+            {data.firstSection.items.map((da, index) => (
               <motion.div
                 key={index}
                 className="group border-b first:border-t border-[#00000015] py-5  lg:py-[20px] xxl:py-[30px] group transition-all duration-300"
@@ -93,7 +78,7 @@ const SingleImageText: React.FC<PlatformsSectionProps> = ({
                   {activeIndex === index && (
                     <>
                       <motion.div key="content" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto", marginTop: "20px" }} exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                        transition={{ duration: 0.4 }} className="text-territory text-[16px] font-[400] leading-[1.7] text-secondary"> <p className="opacity-75">{da.paragraphs}</p>
+                        transition={{ duration: 0.4 }} className="text-territory text-[16px] font-[400] leading-[1.7] text-secondary"> <p className="opacity-75">{da.description}</p>
                       </motion.div>
                     </>
                   )}

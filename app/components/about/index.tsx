@@ -8,18 +8,19 @@ import { assets } from "@/public/assets/assets";
 import AccrSec from "./AccrSec";
 import FacilitiesEquipmentSec from "./FacilitiesEquipmentSec";
 import Sustainability from "../home/Sustainability";
-const Index = () => {
+import { About } from "@/public/types/about";
+const Index = ({data}:{data:About}) => {
   return ( 
     <main>
       <InnerBanner pageTitle={"About Us"} bannerBg={assets.aboutBnr}/>
-      <AboutDesc/>
-      <VisionMission/>
-      <Achievements/>
-      <FacilitiesEquipmentSec/>
+      <AboutDesc data={data} />
+      <VisionMission data={data}/>
+      <Achievements data={data} />
+      <FacilitiesEquipmentSec data={data}/>
       {/* <ProductCategoriesList/> */}
-      <ParentalCompaniesSec/>
-      <AccrSec/>
-      <Sustainability/>
+      <ParentalCompaniesSec data={data}/>
+      <AccrSec data={data}/>
+      <Sustainability data={data}/>
     </main>
    );
 }

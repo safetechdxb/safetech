@@ -596,3 +596,33 @@ body {
       rgba(30, 30, 30, 1) 74%,
       rgba(30, 30, 30, 1) 100%);
 }
+
+.arrow-list ol,
+.arrow-list ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+  margin-top: 24px;
+}
+
+.arrow-list li {
+  position: relative;
+  padding-left: 1em;
+  margin-bottom: 0.5em;
+  @apply text-20 font-normal;
+}
+
+.arrow-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+  width: 10px;
+  height: 17px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='17' viewBox='0 0 10 17'%3E%3Cpath fill='black' d='M0 2.796 6.16 8.96 0 15.122 1.878 17 9.916 8.96 1.876.92 0 2.796Z'/%3E%3C/svg%3E");
+}
+.icon-crd:hover .arrow-list li::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='17' viewBox='0 0 10 17'%3E%3Cpath fill='white' d='M0 2.796 6.16 8.96 0 15.122 1.878 17 9.916 8.96 1.876.92 0 2.796Z'/%3E%3C/svg%3E");
+}
