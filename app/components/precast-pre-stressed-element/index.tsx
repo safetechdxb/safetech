@@ -15,6 +15,7 @@ export default function index({elementData}: {elementData: PrecastPreStressedEle
       <FeaturesSec data={elementData}/>
       <DiagramSlide data={elementData}/>
       <WeightsSec data={elementData}/>
+      
     </>
   )
 }
