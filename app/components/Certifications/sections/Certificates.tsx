@@ -4,28 +4,21 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { moveUp } from "../../motionVarients";
 import Image, { StaticImageData } from "next/image";
+import { Certifications } from "@/public/types/certifications";
 
-interface PlatformsItem {
-  id: number;
-  image: StaticImageData;
-  title: string;
-}
 
-interface PlatformsSectionProps {
-  data: PlatformsItem[];
-}
 
-const Certificates: React.FC<PlatformsSectionProps> = ({ data }) => {
-  const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(null);
+const Certificates = ({ data }:{data:Certifications}) => {
+  const [selectedImage, setSelectedImage] = useState<string | StaticImageData | null>(null);
 
   return (
     <section className="py-[50px] md:py-[60px] xl:py-[100px] overflow-hidden relative">
       <div className="container">
         <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-25">
-          {data.map((item) => (
+          {data.certifications.map((item,index) => (
             <motion.div
-              key={item.id}
-              variants={moveUp(item.id * 0.2)}
+              key={index}
+              variants={moveUp(index * 0.2)}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
@@ -34,7 +27,7 @@ const Certificates: React.FC<PlatformsSectionProps> = ({ data }) => {
             >
               <div className="relative group overlbl h-full">
                 <figure className="overlayclr">
-                  <Image src={item.image} alt="" className="w-full object-cover" />
+                  <Image src={item.image} alt="" width={400} height={400} className="w-full object-cover" />
                 </figure>
                 <motion.div
                   className="absolute z-10 flex flex-col inset-x-[10px] xxl:inset-x-[20px] bottom-[10px] xxl:bottom-[20px] p-[10px] lg:p-[20px] backdrop-blur-[10px] bg-white/10 text-white rounded-custom gap-[20px] group-hover:bg-primary transition-all"
@@ -78,7 +71,7 @@ const Certificates: React.FC<PlatformsSectionProps> = ({ data }) => {
               exit={{ scale: 0.8 }}
               onClick={(e) => e.stopPropagation()} // prevent modal from closing when clicking on image
             >
-              <Image src={selectedImage} alt="Modal Image" className="w-full px-[6vw] h-auto rounded-lg" />
+              <Image src={selectedImage} alt="Modal Image" width={400} height={400} className="w-full px-[6vw] h-auto rounded-lg" />
               <button
                 onClick={() => setSelectedImage(null)}
                 className="absolute top-[-15%] lg:top-2 right-2 text-white text-2xl cursor-pointer"

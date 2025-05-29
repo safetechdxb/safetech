@@ -1,14 +1,16 @@
 
 import React from "react";
-import { boxcontent } from "./data";
+// import { boxcontent } from "./data";
 import InnerBanner from "../common/InnerBanner";
 import Certificates from "./sections/Certificates";
-export default function Index() {
+import { Certifications } from "@/public/types/certifications";
+
+export default function Index({data}:{data:Certifications}) {
   return (
     <>
 
-      <InnerBanner pageTitle={"CERTIFICATIONS"}   />
-     <Certificates data={boxcontent.data} />
+      <InnerBanner pageTitle={"CERTIFICATIONS"} />
+      <Certificates data={data} />
 
     </>
   );
