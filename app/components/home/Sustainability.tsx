@@ -1,7 +1,7 @@
 "use client"
 import { assets } from "@/public/assets/assets";
 import SubTitle from "../common/SubTitle";
-import Image from "next/image";
+// import Image from "next/image";
 import ArrowBtn from "../common/ArrowBtn";
 import {motion} from "framer-motion";
 import {moveUp} from "../motionVarients"
@@ -20,9 +20,10 @@ const Sustainability = ({data}:{data:About}) => {
         </div>
         <div className="lg:w-1/2 ml-auto pt-4 lg:pt-[90px] flex flex-col gap-20">
           <motion.div variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }}  >
-            <p className="text-white/80 text-24 leading-[1.3]">{data.sustainablity.description}</p>
+            {/* <p className="text-white/80 text-24 leading-[1.3]">{data.sustainablity.description}</p> */}
+            <div className="text-white/80 text-24 leading-[1.3] flex flex-col gap-20 sustainability-content" dangerouslySetInnerHTML={{ __html: data.sustainablity.description }}></div>
           </motion.div>
-          <motion.ul variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} >
+          {/* <motion.ul variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} >
             <li className="flex gap-3 items-center mb-4 last:mb-0">
               <Image src={assets.Leaf} alt="Sustainability Image 1" className="" />
               <p className="text-white text-24 leading-[1.3]">Reduce carbon footprint through precast technologies.</p>
@@ -35,7 +36,7 @@ const Sustainability = ({data}:{data:About}) => {
               <Image src={assets.Leaf} alt="Sustainability Image 1" className="" />
               <p className="text-white/80 text-24 leading-[1.3]">Innovate for long-lasting sustainability.</p>
             </li>
-          </motion.ul>
+          </motion.ul> */}
           <motion.div className="brightness-[0] invert opacity-80" variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} >
             <ArrowBtn btnText="More About Sustainability" btnLInk="#" border={true} />
           </motion.div>

@@ -2,7 +2,7 @@
 import {motion} from "framer-motion";
 import { moveUp } from "../motionVarients";
 import SubTitle from "../common/SubTitle";
-import { aboutMainDesc } from "./data";
+// import { aboutMainDesc } from "./data";
 import Image from "next/image";
 import { About } from "@/public/types/about";
 const AboutDesc = ({data}:{data:About}) => {
