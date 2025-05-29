@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   description: "Every construction is built to last and enhances the spaces where people live, work, and thrive.",
 };
 
+export const dynamic = 'force-dynamic';
+
 export default function RootLayout({
   children,
 }: Readonly<{

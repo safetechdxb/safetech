@@ -31,6 +31,8 @@ interface PrecastPrestressedPageElements {
     secondSection: {
         title: string;
         description: string;
+        image:string;
+        imageAlt:string;
     };
     secondSectionItems: {
         title: string;
@@ -263,6 +265,23 @@ const PrecastPrestressedPageElements = () => {
                         <div className='flex flex-col gap-1'>
                             <Label className='pl-3 font-bold'>Description</Label>
                             <Textarea placeholder='Description' {...register("secondSection.description")} />
+                        </div>
+                        <div>
+                            <Label className='pl-3 font-bold'>Image</Label>
+                            <Controller
+                                name="secondSection.image"
+                                control={control}
+                                render={({ field }) => (
+                                    <ImageUploader
+                                        value={field.value}
+                                        onChange={field.onChange}
+                                    />
+                                )}
+                            />
+                        </div>
+                        <div>
+                            <Label className='pl-3 font-bold'>Alt Tag</Label>
+                            <Input type='text' placeholder='Alt Tag' {...register("secondSection.imageAlt")} />
                         </div>
                     </div>
 

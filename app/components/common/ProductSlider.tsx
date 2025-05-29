@@ -21,11 +21,11 @@ import { moveLeft } from '../motionVarients';
 interface ProductSliderProps {
   mainTitle: string;
   sliderData: {
-    id: number;
-    prdImg: string;
-    prdName: string;
-    prdDec?: string;
-    prdLink: string;
+    title: string;
+    description: string;
+    image: string;
+    imageAlt: string;
+    slug: string;
   }[];
 }
 
@@ -99,14 +99,14 @@ const ProductSlider = ({mainTitle, sliderData}:ProductSliderProps) => {
             }}
           >
             {
-              sliderData.map((slide) => (
-                <SwiperSlide key={slide.id}>
+              sliderData.map((slide,index) => (
+                <SwiperSlide key={index}>
                   <ProductSliderItem
-                    prdId={slide.id}
-                    prdImg={slide.prdImg}
-                    prdName={slide.prdName}
-                    prdDec={slide.prdDec}
-                    prdLink={slide.prdLink}
+                    prdId={index}
+                    prdImg={slide.image}
+                    prdName={slide.title}
+                    prdDec={slide.description}
+                    prdLink={slide.slug}
                   />
                 </SwiperSlide>
               ))

@@ -1,15 +1,16 @@
 import InnerBanner from "../common/InnerBanner"
-import { assets } from "@/public/assets/assets"
 import Main from "./Main"
 import ElementsList from "./ElementsList"
 import AccSec from "./AccSec"
-export default function index() {
+import { GrcFactory } from "@/types/GrcFactory"
+
+export default function index({data}: {data: GrcFactory}) {
   return (
     <>
-      <InnerBanner pageTitle="GRC FACTORY" bannerBg={assets.precastBnr} />
-      <Main/>
-      <ElementsList/>
-      <AccSec/>
+      <InnerBanner pageTitle={data.pageTitle} bannerBg={data.banner} />
+      <Main data={data}/>
+      <ElementsList data={data}/>
+      <AccSec data={data}/>
     </>
   )
 }

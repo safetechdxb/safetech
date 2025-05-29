@@ -3,17 +3,18 @@ import Main from "./Main"
 import FeaturesSec from "./FeaturesSec"
 import DiagramSlide from "./DiagramSlide"
 import WeightsSec from "./WeightsSec"
+import { PrecastPreStressedElement } from "@/types/PrecastPreStressedElement"
 
 
 
-export default function index() {
+export default function index({elementData}: {elementData: PrecastPreStressedElement}) {
   return (
     <>
-      <InnerBanner pageTitle="Hollowcore Slabs" />
-      <Main />
-      <FeaturesSec/>
-      <DiagramSlide/>
-      <WeightsSec/>
+      <InnerBanner pageTitle={elementData.pageTitle} bannerBg={elementData.banner}  />
+      <Main data={elementData}/>
+      <FeaturesSec data={elementData}/>
+      <DiagramSlide data={elementData}/>
+      <WeightsSec data={elementData}/>
     </>
   )
 }

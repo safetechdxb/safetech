@@ -1,17 +1,17 @@
 import InnerBanner from "../common/InnerBanner"
-import { assets } from "@/public/assets/assets"
 import Main from "./Main"
 import ElementsList from "./ElementsList"
 import BuildingSystems from "./BuildingSystems"
 import Benifits from "./Benifits"
-export default function index() {
+import { PrecastConcrete } from "@/types/PrecastConcrete"
+export default function index({data}: {data: PrecastConcrete}) {
   return (
     <>
-      <InnerBanner pageTitle="Precast Concrete" bannerBg={assets.precastBnr} />
-      <Main/>
-      <ElementsList/>
-      <BuildingSystems/>
-      <Benifits/>
+      <InnerBanner pageTitle={data.pageTitle} bannerBg={data.banner} />
+      <Main data={data}/>
+      <ElementsList data={data}/>
+      <BuildingSystems data={data}/>
+      <Benifits data={data}/>
     </>
   )
 }

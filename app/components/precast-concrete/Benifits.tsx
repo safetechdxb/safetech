@@ -4,10 +4,9 @@ import Image from 'next/image'
 import SubTitle from '../common/SubTitle'
 import { motion, AnimatePresence } from "framer-motion"
 import { moveUp,paragraphItem } from '../motionVarients'
-import { assets } from '@/public/assets/assets'
-import { benifitsData } from './data'
+import { PrecastConcrete } from '@/types/PrecastConcrete'
 import { useState } from 'react'
-export default function Benifits() {
+export default function Benifits({data}: {data: PrecastConcrete}) {
    const [activeIndex, setActiveIndex] = useState(0);
   return (
    <section className="py-140 bg-exlight-gray">
@@ -17,7 +16,7 @@ export default function Benifits() {
 
             <div className="" >
               <figure className="image-wrapper h-full ">
-                <Image src={assets.precastBenifitsImg} alt="A beautiful view" className="w-full object-cover " priority />
+                <Image src={data.fourthSection.items[activeIndex].image} alt={data.fourthSection.items[activeIndex].imageAlt} width={400} height={400} className="w-full object-cover " priority />
               </figure>
 
             </div>
@@ -32,9 +31,9 @@ export default function Benifits() {
 
           <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="w-full lg:w-[49%] pl-0 mt-6 lg:mt-0">
             <div className="relative tracking-[3px] mb-4 lg:mb-[30px]">
-              <SubTitle titleText="Our precast systems offer significant benefits." color="text-black" />
+              <SubTitle titleText={data.fourthSection.title} color="text-black" />
             </div>
-            {benifitsData.map((da, index) => (
+            {data.fourthSection.items.map((da, index) => (
               <motion.div
                 key={index}
                 className="group border-b first:border-t border-[#00000015] py-5  lg:py-[20px] xxl:py-[30px] group transition-all duration-300"
@@ -65,7 +64,7 @@ export default function Benifits() {
                   {activeIndex === index && (
                     <>
                       <motion.div key="content" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto", marginTop: "20px" }} exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                        transition={{ duration: 0.4 }} className="text-territory text-[16px] font-[400] leading-[1.7] text-secondary"> <p className="opacity-75">{da.paragraphs}</p>
+                        transition={{ duration: 0.4 }} className="text-territory text-[16px] font-[400] leading-[1.7] text-secondary"> <p className="opacity-75">{da.description}</p>
                       </motion.div>
                     </>
                   )}

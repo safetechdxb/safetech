@@ -1,11 +1,11 @@
 import React from 'react'
 import ProductSlider from '../common/ProductSlider'
-import { relatedElementsData } from './data'
+import { PrecastConcrete } from '@/types/PrecastConcrete'
 
-export default function RelatedElements() {
+export default function RelatedElements({data}: {data: PrecastConcrete}) {
   return (
     <section className='py-140'>
-        <ProductSlider mainTitle="Related Elements" sliderData={relatedElementsData} />
+        <ProductSlider mainTitle="Related Elements" sliderData={data.elementsSection.items} />
     </section>
   )
 }

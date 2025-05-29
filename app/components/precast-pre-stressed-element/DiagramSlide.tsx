@@ -7,9 +7,10 @@ import Image from 'next/image';
 import "swiper/css";
 import 'swiper/css/navigation';
 import SubTitle from '../common/SubTitle'
-import { diagramData } from './data';
 import { NavigationOptions } from 'swiper/types';
-export default function DiagramSlide() {
+import { PrecastPreStressedElement } from '@/types/PrecastPreStressedElement'
+
+export default function DiagramSlide({data}:{data:PrecastPreStressedElement}) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   return (
@@ -17,7 +18,7 @@ export default function DiagramSlide() {
       <div className="container">
         <div className="flex justify-between">
           <div className="relative mb-10 lg:mb-20">
-            <SubTitle titleText='standard thickness range' color='text-secondar' />
+            <SubTitle titleText={data.thirdSection.title} color='text-secondary' />
           </div>
           <div className="flex">
             <button ref={prevRef} className="text-secondary cursor-pointer font-bold border-2 border-secondary first:border-r-0 px-8 py-4 h-fit group hover:bg-secondary hover:text-white transition">
@@ -57,16 +58,16 @@ export default function DiagramSlide() {
                           }, 100)
                         }}>
             {
-              diagramData.data.map(item => (
-                <SwiperSlide key={item.id}>
+              data.thirdSection.items.map(item => (
+                <SwiperSlide key={item.title}>
                   <div className='bg-white p-5 lg:py-20'>
                     <div className="flex gap-10 lg:gap-20 items-center">
                       <div className='bg-exlight-gray p-32p flex flex-col h-full justify-between min-h-[328px] lg:w-3/7'>
-                        <Image src={item.diagram} alt={diagramData.title} width={605} height={286}></Image>
+                        <Image src={item.image} alt={item.imageAlt} width={605} height={286}></Image>
                         <h3 className='text-secondary font-semibold text-20 leading-[1.6]'>{item.title}</h3>
                       </div>
                       <div className='lg:w-4/7'>
-                        <p className='text-20 text-secondary/75 leading-[1.6]'>{item.desc}</p>
+                        <p className='text-20 text-secondary/75 leading-[1.6]'>{item.description}</p>
                       </div>
                     </div>
                   </div>

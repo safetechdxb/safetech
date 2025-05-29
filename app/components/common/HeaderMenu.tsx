@@ -25,14 +25,10 @@ const navItems: NavItem[] = [
     label: 'Products',
     href: '/products',
     submenu: [
-      { id: 3, label: 'Structural Products', href: '/structural-products' },
-      { id: 4, label: 'Architectural Products', href: '/structural-products' },
-      { id: 5, label: 'Infrastructureal Products', href: '/structural-products' },
-      { id: 6, label: 'Utility Products', href: '/structural-products' },
-      { id: 7, label: 'Transportation Products', href: '/structural-products' },
-      { id: 8, label: 'Enviornmental Products', href: '/structural-products' },
-      { id: 9, label: 'Custom Products', href: '/structural-products' },
-      { id: 10, label: 'LandScaping Products', href: '/structural-products' },
+      { id: 3, label: 'Precast Concrete', href: '/products/precast-concrete' },
+      { id: 4, label: 'Precast Prestressed', href: '/products/precast-prestressed' },
+      { id: 5, label: 'GRC Factory', href: '/products/grc-factory' },
+      { id: 6, label: 'Bathroom Pod', href: '/products/bathroom-pod' }
     ],
   },
   { label: 'Gallery', href: '/gallery' },
