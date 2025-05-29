@@ -4,21 +4,22 @@ import Image from 'next/image'
 import SubTitle from '../common/SubTitle'
 import { motion, AnimatePresence } from "framer-motion"
 import { moveUp,paragraphItem } from '../motionVarients'
-import { accData } from './data'
 import { useState } from 'react'
-export default function AccSec() {
+import { GrcFactory } from '@/types/GrcFactory'
+
+export default function AccSec({data}: {data: GrcFactory}) {
    const [activeIndex, setActiveIndex] = useState(0);
   return (
    <section className="py-140 bg-exlight-gray">
     <div className="container">
             <div className="relative tracking-[3px] mb-10 lg:mb-20 lg:max-w-3xl">
-              <SubTitle titleText={accData.title} color="text-black" />
+              <SubTitle titleText={data.thirdSection.title} color="text-black" />
             </div>
         <div className="lg:flex flex-wrap lg:flex-nowrap lg:gap-15">
           <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="w-full lg:w-4/7 ">
-            {accData.data.map((da, index) => (
+            {data.thirdSection.items.map((da, index) => (
               <motion.div
-                key={da.id}
+                key={index}
                 className="group border-b first:border-t border-[#00000015] py-5  lg:py-[20px] xxl:py-[30px] group transition-all duration-300"
                 onMouseEnter={() => setActiveIndex(index)}
                 initial={{ opacity: 0, y: 20 }}
@@ -35,7 +36,7 @@ export default function AccSec() {
                   {activeIndex === index && (
                     <>
                       <motion.div key="content" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto", marginTop: "20px" }} exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                        transition={{ duration: 0.4 }} className="text-territory text-[16px] font-[400] leading-[1.7] text-secondary lg:max-w-2xl"> <p className="opacity-75">{da.paragraphs}</p>
+                        transition={{ duration: 0.4 }} className="text-territory text-[16px] font-[400] leading-[1.7] text-secondary lg:max-w-2xl"> <p className="opacity-75">{da.description}</p>
                       </motion.div>
                     </>
                   )}
@@ -47,7 +48,7 @@ export default function AccSec() {
 
             <div className="" >
               <figure className="image-wrapper h-full ">
-                <Image src={accData.img} alt="A beautiful view" className="w-full object-cover" width={600} height={600} priority />
+                <Image src={data.thirdSection.items[activeIndex].image} alt={data.thirdSection.items[activeIndex].imageAlt} className="w-full object-cover" width={600} height={600} priority />
               </figure>
             </div>
 

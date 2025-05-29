@@ -44,6 +44,8 @@ const precastPrestressedSchema = new mongoose.Schema({
             secondSection: {
                 title: String,
                 description: String,
+                image: String,
+                imageAlt: String,
                 items: [{
                     title: String,
                     description: String,

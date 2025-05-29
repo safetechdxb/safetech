@@ -1,17 +1,18 @@
 import InnerBanner from "../common/InnerBanner"
-import { assets } from "@/public/assets/assets"
 import Main from "./Main"
 import AccSec from "./AccSec"
 import KeyAdvSec from "./KeyAdvSec"
 import DigSec from "./DigSec"
-export default function index() {
+import { PrecastPreStressedElement } from "@/types/PrecastPreStressedElement"
+
+export default function index({elementData}: {elementData: PrecastPreStressedElement}) {
   return (
     <>
-      <InnerBanner pageTitle="GRC FACTORY" bannerBg={assets.precastBnr} />
-      <Main/>
-      <KeyAdvSec/>
-      <AccSec/>
-      <DigSec/>
+      <InnerBanner pageTitle={elementData.pageTitle} bannerBg={elementData.banner} />
+      <Main data={elementData}/>
+      <KeyAdvSec data={elementData}/>
+      <AccSec data={elementData}/>
+      <DigSec data={elementData}/>
     </>
   )
 }

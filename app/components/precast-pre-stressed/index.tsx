@@ -1,15 +1,16 @@
 import InnerBanner from "../common/InnerBanner"
-import { assets } from "@/public/assets/assets"
 import Main from "./Main"
 import ShortBnr from "./ShortBnr"
 import ElementsList from "./ElementsList"
-export default function index() {
+import { PrecastPrestressed } from "@/types/PrecastPrestressed"
+
+export default function index({data}: {data: PrecastPrestressed}) {
   return (
     <>
-      <InnerBanner pageTitle="Precast Pre Stressed" bannerBg={assets.precastBnr} />
-      <Main/>
-      <ShortBnr/>
-      <ElementsList/>
+      <InnerBanner pageTitle={data.pageTitle} bannerBg={data.banner} />
+      <Main data={data}/>
+      <ShortBnr data={data}/>
+      <ElementsList data={data}/>
     </>
   )
 }
