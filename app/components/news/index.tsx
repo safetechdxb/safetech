@@ -1,11 +1,12 @@
 import InnerBanner from "../common/InnerBanner";
-import { assets } from "@/public/assets/assets";
 import NewsFilter from "./NewsFilter";
-const Index = () => {
+import { News } from "@/types/News";
+
+const Index = ({data}: {data: News}) => {
   return ( 
     <>
-      <InnerBanner pageTitle="News" bannerBg={assets.newsBnr}  />
-      <NewsFilter />
+      <InnerBanner pageTitle={data.pageTitle} bannerBg={data.banner}  />
+      <NewsFilter data={data}/>
     </>
    );
 }

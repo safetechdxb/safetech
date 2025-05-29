@@ -1,36 +1,15 @@
 "use client"
+import { Blog } from "@/types/Blog";
 import InnerBanner from "../common/InnerBanner";
 import PageWrapper from "./PageWrapper";
-import { blogs } from "../blog/data";
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-const Index = () => {
-  const [slug, setSlug] = useState<string | undefined>(undefined);
-  const pathname = usePathname(); // Use usePathname to get the current path
+import { IndiBlog } from "@/types/IndiBlog";
 
-  useEffect(() => {
-    // Ensure the slug is available and set it from the pathname
-    if (pathname) {
-      const slugFromPath = pathname.split("/").pop(); // Get the last part of the path
-      setSlug(slugFromPath); // Set slug based on the pathname
-    }
-  }, [pathname]);
+const Index = ({data,allBlogs}: {data: IndiBlog,allBlogs: Blog}) => {
 
-  if (!slug) {
-    return <div>Loading...</div>; // Show loading until slug is available
-  }
-
-  // Extract ID from slug (last part of the slug)
-  const id = slug.split("-").pop();
-
-  // Find the blog post by ID
-  const blog = id ? blogs.find((post) => post.id.toString() === id) : undefined;
-
-  if (!blog) return <div>Post not found</div>;
   return ( 
     <main>
-      <InnerBanner pageTitle={blog.title} isBlogDetails={true} category={blog.category} date={new Date(blog.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", })} />
-      <PageWrapper/>
+      <InnerBanner pageTitle={data.title} isBlogDetails={true} category={data.category} date={data.createdAt} />
+      <PageWrapper data={data} allBlogs={allBlogs}/>
     </main>
    );
 }

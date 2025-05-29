@@ -1,9 +1,16 @@
 import Index from "@/app/components/blog";
 
-const Blog = () => {
+const Blog = async() => {
+  const blogResponse = await fetch(`${process.env.BASE_URL}/api/admin/blog`,{
+    next: {
+        revalidate: 60,
+    }
+});
+
+const blogData = await blogResponse.json();
   return ( 
     <>
-      <Index/>
+      <Index data={blogData.data}/>
     </>
    );
 }

@@ -1,14 +1,26 @@
 import { useState, useRef, useEffect } from "react";
 import SubTitle from "../common/SubTitle";
-import { newsEvents } from "./data";
 import NewsBox from "../news/NewsBox";
 import { motion } from "framer-motion";
 // import Image from "next/image";
 interface PreviousNewsProps {
-  previousNews: typeof newsEvents;
+  previousNews: {
+  title: string;
+  slug: string;
+  content: string;
+  thumbnail: string;
+  thumbnailAlt: string;
+  coverImage: string;
+  coverImageAlt: string;
+  category: string;
+  images: string[];
+  createdAt: string;
+  metaTitle: string;
+  metaDescription: string;
+  }[]
 }
 
-const PreviousNews: React.FC<PreviousNewsProps> = ({ previousNews }) => {
+const PreviousNews: React.FC<PreviousNewsProps> = ({previousNews}) => {
   const [showAll, setShowAll] = useState(false);
   const [hasToggled, setHasToggled] = useState(false);
   const initialCount = 6;
@@ -37,16 +49,16 @@ const PreviousNews: React.FC<PreviousNewsProps> = ({ previousNews }) => {
           {previousNews.map((news, index) => {
             const isVisible = showAll || index < initialCount;
             return (
-              <div key={news.id} ref={index === 0 ? firstBoxRef : null}
+              <div key={index} ref={index === 0 ? firstBoxRef : null}
                 className={`transition-opacity duration-500 ease-in-out ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none h-0 overflow-hidden"
                   }`} >
                 <NewsBox
-                  newsId={news.id}
-                  newsImage={news.imageSrc}
+                  newsId={index}
+                  newsImage={news.thumbnail}
                   newsTitle={news.title}
-                  newsCategory={news.categories}
-                  newsDate={news.date}
-                  pageLink={news.readMoreLink}
+                  newsCategory={news.category}
+                  newsDate={news.createdAt}
+                  pageLink={`news/${news.slug}`}
                 />
               </div>
             );
