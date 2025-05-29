@@ -1,10 +1,13 @@
 import InnerBanner from "../common/InnerBanner";
 import PageWrapper from "./PageWrapper";
-const Index = () => {
+import { IndiNews } from "@/types/IndiNews";
+import { News } from "@/types/News";
+
+const Index = ({data,allNews}: {data: IndiNews,allNews: News}) => {
   return ( 
     <main>
-      <InnerBanner pageTitle={"Lorem ipsum dolor sit amet, consectetur adipiscing eiusmod tempor incididunt "} isBlogDetails={true} category="Technology" date="Augest 7, 2024" />
-      <PageWrapper/>
+      <InnerBanner pageTitle={data.title} isBlogDetails={true} category={data.category} date={data.createdAt} />
+      <PageWrapper data={data} allNews={allNews}/>
     </main>
    );
 }

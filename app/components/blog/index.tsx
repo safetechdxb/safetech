@@ -1,11 +1,12 @@
 import InnerBanner from "../common/InnerBanner";
-import { assets } from "@/public/assets/assets";
 import BlogsList from "./BlogsList";
-const Index = () => {
+import { Blog } from "@/types/Blog";
+
+const Index = ({data}: {data: Blog}) => {
   return ( 
     <main>
-      <InnerBanner pageTitle={"Blog"} bannerBg={assets.blogBnr}/>
-      <BlogsList/>
+      <InnerBanner pageTitle={data.pageTitle} bannerBg={data.banner}/>
+      <BlogsList data={data}/>
     </main>
    );
 }

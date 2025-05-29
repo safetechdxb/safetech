@@ -3,14 +3,13 @@ import NewsBlock from "../common/NewsBlock";
 import SubTitle from "../common/SubTitle";
 
 interface newsData {
-  id: number;
-  type: string;
-  imageSrc: string;
-  date: string;
   title: string;
-  desc: string;
-  categories: string[];
-  readMoreLink: string;
+  createdAt: string;
+  thumbnail: string;
+  thumbnailAlt: string;
+  slug: string;
+  category: string;
+  content: string;
 }
 interface NewsBlockSecProps {
   latestNews: newsData[]; // Replace 'any[]' with the appropriate type for your news data

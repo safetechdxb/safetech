@@ -4,6 +4,8 @@ import { moveUp } from "../motionVarients";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
 import {assets} from "@/public/assets/assets";
+import moment from "moment";
+
 interface InnerBannerProps {
   pageTitle: string;
   bannerBg?: string | StaticImageData;
@@ -47,7 +49,7 @@ const InnerBanner = ({pageTitle, bannerBg, isBlogDetails, category, date, isDeta
                 </div>
               <div className="flex items-center gap-2">
                 <Image src={assets.calenderPrimary} alt=""></Image>
-                <p className="text-20 font-semibold text-white/75 uppercase">{date}</p>
+                <p className="text-20 font-semibold text-white/75 uppercase">{moment(date).format("MMM D, YYYY")}</p>
               </div>
             </div>
           )}
