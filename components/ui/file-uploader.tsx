@@ -8,9 +8,17 @@ import { Button } from "./button";
 
 interface FileUploaderProps {
   value?: string;
-  onChange: (url: string, fileName: string) => void;
+  onChange: (url: string, fileName: string,size:string) => void;
   className?: string;
   accept?: Record<string, string[]>;
+}
+
+function formatBytes(bytes: number): string {
+  if (bytes === 0) return '0 Bytes';
+  const k = 1024;
+  const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
 
 export function FileUploader({
@@ -69,7 +77,8 @@ export function FileUploader({
 
         const data = await response.json();
         setFileName(file.name);
-        onChange(data.url, file.name);
+        console.log(file.size)
+        onChange(data.url, file.name,formatBytes(file.size));
       } catch (err) {
         setError(err instanceof Error ? err.message : "Failed to upload file");
       } finally {
@@ -88,7 +97,7 @@ export function FileUploader({
 
   const removeFile = useCallback(() => {
     setFileName("");
-    onChange("", "");
+    onChange("", "","0");
   }, [onChange]);
 
   return (
