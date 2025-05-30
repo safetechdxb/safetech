@@ -8,19 +8,20 @@ import OurClients from './OurClients'
 // import NewsBlockSec from './NewsBlockSec'
 // import { newsEvents } from './data'
 import Facilities from './Facilities'
+import { home } from '@/public/types/home'
 
-const Index = () => {
+const Index = ({data}:{data:home}) => {
   // const latestNews = (newsEvents || [])
   //   .filter((item) => item.type === "news")
   //   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
   //   .slice(0, 3);
   return (
     <>
-        <HeroSlider/>
-        <OurCompany/>
-        <ProductSlider/>
-        <Facilities/>
-        <OurClients/>
+        <HeroSlider data={data} />
+        <OurCompany data={data} />
+        <ProductSlider data={data}/>
+        <Facilities data={data} />
+        <OurClients data={data} />
         {/* <Sustainability/>
         <HomNumberSec/>
         <NewsBlockSec latestNews={latestNews} /> */}
