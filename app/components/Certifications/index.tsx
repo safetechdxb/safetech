@@ -9,7 +9,7 @@ export default function Index({data}:{data:Certifications}) {
   return (
     <>
 
-      <InnerBanner pageTitle={"CERTIFICATIONS"} />
+      <InnerBanner pageTitle={data.pageTitle} />
       <Certificates data={data} />
 
     </>
