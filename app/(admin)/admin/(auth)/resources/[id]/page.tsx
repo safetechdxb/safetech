@@ -13,6 +13,7 @@ interface Certifications {
     files: {
         title: string;
         file: string;
+        size: string;
     }[];
 }
 
@@ -20,11 +21,15 @@ const IndiResource = () => {
     const router = useRouter();
             const { id } = useParams();
 
-    const { control, register, handleSubmit, formState: { errors }, setValue, getValues } = useForm<Certifications>();
+    const { control, register, handleSubmit, formState: { errors }, setValue, getValues,watch } = useForm<Certifications>();
     const { fields, append, remove } = useFieldArray({
         control,
         name: "files"
     });
+
+    useEffect(()=>{
+        console.log(watch("files"))
+    },[watch("files")])
 
     const onSubmit = async () => {
         try {
@@ -82,7 +87,10 @@ const IndiResource = () => {
                                         render={({ field }) => (
                                             <FileUploader
                                                 value={field.value}
-                                                onChange={field.onChange}
+                                                onChange={(url, fileName, size) => {
+                                                    field.onChange(url); // update file URL
+                                                    setValue(`files.${index}.size`, size); // update size separately
+                                                  }}
                                             />
                                         )}
                                     />
@@ -92,13 +100,17 @@ const IndiResource = () => {
                                     <Label className='pl-3 font-bold'>Title</Label>
                                     <Input type='text' placeholder='Title' {...register(`files.${index}.title`)} />
                                 </div>
+                                <div className='flex flex-col gap-2'>
+                                    <Label className='pl-3 font-bold'>Size</Label>
+                                    <Input type='text' placeholder='Size' {...register(`files.${index}.size`)} readOnly/>
+                                </div>
                             </div>
 
                         </div>
                     ))}
 
                     <div>
-                        <Button type='button' className="w-full cursor-pointer" onClick={() => append({ file: "", title: "" })}>Add Item</Button>
+                        <Button type='button' className="w-full cursor-pointer" onClick={() => append({ file: "", title: "",size:"" })}>Add Item</Button>
                     </div>
 
                 </div>

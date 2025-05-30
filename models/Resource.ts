@@ -29,6 +29,9 @@ const ResourceSchema = new mongoose.Schema({
             file: {
                 type: String,
             },
+            size: {
+                type: String,
+            },
         }],
     }],
 });
