@@ -18,6 +18,7 @@ import { NavigationOptions } from 'swiper/types';
 import {motion} from "framer-motion"
 import { moveLeft } from '../motionVarients';
 import { home } from '@/public/types/home';
+import { PrecastConcrete } from '@/types/PrecastConcrete';
 
 // interface ProductSliderProps {
 //   mainTitle: string;
@@ -25,14 +26,14 @@ import { home } from '@/public/types/home';
 // }
 
 // Add more products as needed
-const ProductSlider = ({data}:{data:home}) => {
+const ProductSlider = ({data}:{data:home | PrecastConcrete}) => {
   const prevRef = useRef(null)
   const nextRef = useRef(null)
   return (
       <div className="container overflow-visible">
         <div className="flex flex-wrap align-center justify-between gap-y-4 lg:gap-0 mb-10 lg:mb-20">
           <div className="relative">
-            <SubTitle titleText={data.products.title} color="text-secondary" />
+            {'products' in data && <SubTitle titleText={data.products.title} color="text-secondary" />}
           </div>
           {/* Custom Nav Buttons */}
           <motion.div className="flex" variants={moveLeft(0)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} >
@@ -94,7 +95,7 @@ const ProductSlider = ({data}:{data:home}) => {
             }}
           >
             {
-              data.products.items.map((slide,index) => (
+              'products' in data && data.products.items.map((slide,index) => (
                 <SwiperSlide key={index}>
                   <ProductSliderItem
                     prdId={index}
