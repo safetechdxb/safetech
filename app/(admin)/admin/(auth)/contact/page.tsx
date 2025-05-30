@@ -10,6 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 
 interface Contact {
     pageTitle: string;
+    title: string;
     metaTitle: string;
     metaDescription: string;
     banner: string;
@@ -48,6 +49,7 @@ const AdminContact = () => {
             if (response.ok) {
                 const data = await response.json();
                 setValue("pageTitle", data.data.pageTitle);
+                setValue("title", data.data.title);
                 setValue("metaTitle", data.data.metaTitle);
                 setValue("metaDescription", data.data.metaDescription);
                 setValue("banner", data.data.banner);
@@ -84,6 +86,11 @@ const AdminContact = () => {
                                                   <Label>Page Title</Label>
                                                   <Input type="text" {...register("pageTitle",{required:"Page title is required"})}/>
                                               {errors.pageTitle && <p className="text-red-500">{errors.pageTitle.message}</p>}
+                                              </div>
+                                              <div>
+                                                  <Label>Title</Label>
+                                                  <Input type="text" {...register("title",{required:"Title is required"})}/>
+                                              {errors.title && <p className="text-red-500">{errors.title.message}</p>}
                                               </div>
                                               <div>
                                                   <Label>Map</Label>
