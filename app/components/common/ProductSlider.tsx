@@ -17,27 +17,22 @@ import { NavigationOptions } from 'swiper/types';
 
 import {motion} from "framer-motion"
 import { moveLeft } from '../motionVarients';
+import { home } from '@/public/types/home';
 
-interface ProductSliderProps {
-  mainTitle: string;
-  sliderData: {
-    title: string;
-    description: string;
-    image: string;
-    imageAlt: string;
-    slug: string;
-  }[];
-}
+// interface ProductSliderProps {
+//   mainTitle: string;
+//   data:home;
+// }
 
 // Add more products as needed
-const ProductSlider = ({mainTitle, sliderData}:ProductSliderProps) => {
+const ProductSlider = ({data}:{data:home}) => {
   const prevRef = useRef(null)
   const nextRef = useRef(null)
   return (
       <div className="container overflow-visible">
         <div className="flex flex-wrap align-center justify-between gap-y-4 lg:gap-0 mb-10 lg:mb-20">
           <div className="relative">
-            <SubTitle titleText={mainTitle} color="text-secondary" />
+            <SubTitle titleText={data.products.title} color="text-secondary" />
           </div>
           {/* Custom Nav Buttons */}
           <motion.div className="flex" variants={moveLeft(0)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} >
@@ -99,14 +94,14 @@ const ProductSlider = ({mainTitle, sliderData}:ProductSliderProps) => {
             }}
           >
             {
-              sliderData.map((slide,index) => (
+              data.products.items.map((slide,index) => (
                 <SwiperSlide key={index}>
                   <ProductSliderItem
                     prdId={index}
                     prdImg={slide.image}
                     prdName={slide.title}
                     prdDec={slide.description}
-                    prdLink={slide.slug}
+                    prdLink={slide.url}
                   />
                 </SwiperSlide>
               ))

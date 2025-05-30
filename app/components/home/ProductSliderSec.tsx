@@ -1,8 +1,8 @@
 "use client";
 import { useRef } from 'react'
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";
 // import Swiper core and required modules
-import { Navigation, A11y } from 'swiper/modules';
+// import { Navigation, A11y } from 'swiper/modules';
 import "swiper/css";
 
 // Import Swiper styles
@@ -12,13 +12,15 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 import SubTitle from "../common/SubTitle";
-import ProductSliderItem from "./ProductSliderItem";
-import { NavigationOptions } from 'swiper/types';
-import { products } from './data';
+// import ProductSliderItem from "./ProductSliderItem";
+import ProductSlider from '../common/ProductSlider';
+// import { NavigationOptions } from 'swiper/types';
+// import { products } from './data';
 import {motion} from "framer-motion"
 import { moveLeft } from '../motionVarients';
+import { home } from '@/public/types/home';
 // Add more products as needed
-const ProductSlider = () => {
+const ProductSliderSec = ({data}:{data:home}) => {
   const prevRef = useRef(null)
   const nextRef = useRef(null)
   return (
@@ -43,7 +45,8 @@ const ProductSlider = () => {
           </motion.div>
         </div>
         <div>
-          <Swiper className="!overflow-visible"
+          <ProductSlider data={data} />
+          {/* <Swiper className="!overflow-visible"
             // install Swiper modules
             modules={[Navigation, A11y]}
             spaceBetween={50}
@@ -100,11 +103,11 @@ const ProductSlider = () => {
                 </SwiperSlide>
               ))
             }
-          </Swiper>
+          </Swiper> */}
         </div>
       </div>
     </section>
   );
 }
 
-export default ProductSlider;
+export default ProductSliderSec;
