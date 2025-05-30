@@ -13,6 +13,8 @@ export async function POST(req: NextRequest) {
         const searchParams = req.nextUrl.searchParams;
         const id = searchParams.get("id");
         const body = await req.json();
+
+        // console.log("body",body)
         if (!body) {
             return NextResponse.json({ error: "Images is required" }, { status: 400 });
         }
@@ -20,7 +22,13 @@ export async function POST(req: NextRequest) {
         if(gallery){
             const category = gallery.categories.find((category:{_id:string, category:string})=>category._id == id);
             if(category){
-                category.images = body;
+                category.images = body.images.map((image:{image:string,imageAlt:string,title:string})=>{
+                    return {
+                        image:image.image,
+                        imageAlt:image.imageAlt,
+                        title:image.title
+                    }
+                });
                 await gallery.save();
                 return NextResponse.json({ message: "gallery updated successfully" }, { status: 200 });
             }

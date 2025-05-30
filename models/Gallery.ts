@@ -22,10 +22,17 @@ const GallerySchema = new mongoose.Schema({
         category: {
             type: String,
         },
-        images: {
-            type: Array,
-            default: [],
-        },
+        images: [{
+            image: {
+                type: String,
+            },
+            imageAlt: {
+                type: String,
+            },
+            title: {
+                type: String,
+            },
+        }],
     }],
 });
 
