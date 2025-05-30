@@ -1,8 +1,4 @@
 "use client";
-import { useRef } from 'react'
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import Swiper core and required modules
-// import { Navigation, A11y } from 'swiper/modules';
 import "swiper/css";
 
 // Import Swiper styles
@@ -11,18 +7,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-import SubTitle from "../common/SubTitle";
-// import ProductSliderItem from "./ProductSliderItem";
 import ProductSlider from '../common/ProductSlider';
-// import { NavigationOptions } from 'swiper/types';
-// import { products } from './data';
-import {motion} from "framer-motion"
-import { moveLeft } from '../motionVarients';
 import { home } from '@/public/types/home';
 // Add more products as needed
 const ProductSliderSec = ({data}:{data:home}) => {
-  const prevRef = useRef(null)
-  const nextRef = useRef(null)
   return (
     <section className="py-140 bg-off-white overflow-hidden">
       <div className="container overflow-visible">

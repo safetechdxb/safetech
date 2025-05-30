@@ -15,8 +15,8 @@ import SubTitle from "../common/SubTitle";
 import ProductSliderItem from "./ProductSliderItem";
 import { NavigationOptions } from 'swiper/types';
 
-import {motion} from "framer-motion"
-import { moveLeft } from '../motionVarients';
+// import {motion} from "framer-motion"
+// import { moveLeft } from '../motionVarients';
 import { home } from '@/public/types/home';
 import { PrecastConcrete } from '@/types/PrecastConcrete';
 
