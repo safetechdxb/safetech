@@ -1,16 +1,17 @@
 
 import React from "react";
-import { address, gitouch } from "./data";
+import {gitouch } from "./data";
 import InnerBanner from "../common/InnerBanner";
 import { assets } from "@/public/assets/assets";
 import Contact from "./sections/Contact";
 import GetInTouch from "./sections/GetInTouch";
-export default function Index() {
+import { contactData } from "@/public/types/contactData";
+export default function Index({ data }: { data: contactData }) {
   return (
     <>
 
-      <InnerBanner pageTitle={"Contact"} bannerBg={assets.conbanner} />
-      <Contact data={address.data} title="We're available to assist you and address any inquiries you may have." />
+      <InnerBanner pageTitle={data.pageTitle} bannerBg={assets.conbanner} />
+      <Contact data={data} />
       <GetInTouch title={gitouch.title} description={gitouch.description} />
     </>
   );

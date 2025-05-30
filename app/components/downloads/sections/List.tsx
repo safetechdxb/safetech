@@ -4,17 +4,10 @@ import { motion } from "framer-motion";
 import { listUpMove } from "../../motionVarients";
 import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
+import { downloadsData } from "@/public/types/downloads";
+import Link from "next/link";
 
-interface PlatformsItem {
-  id: number;
-  doctitle: string;
-  size: string;
-  category: string;
-}
 
-interface PlatformsSectionProps {
-  data: PlatformsItem[];
-}
 
 const listItem = {
   hidden: { opacity: 0, y: 50 },  // Start with opacity 0 and slide up
@@ -27,14 +20,14 @@ const listItem = {
     },
   },
 };
-const categories = ["Safety", "Product brochure", "Industry guides", "Safety information"];
+// const categories = ["Safety", "Product brochure", "Industry guides", "Safety information"];
 
-const List: React.FC<PlatformsSectionProps> = ({ data }) => {
+const List = ({ data }:{data:downloadsData}) => {
   const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
-  const [activeCategory, setActiveCategory] = useState<string>(categories[0]);
+  const [activeCategory, setActiveCategory] = useState<string>(data.categories[0].category);
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
 
-  const filteredData = data.filter((item) => item.category === activeCategory);
+  const filteredData = data.categories.filter((item) => item.category === activeCategory);
 
   const handleAccordionToggle = (category: string) => {
     setOpenAccordion(openAccordion === category ? null : category);
@@ -49,14 +42,14 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
 
             <div className="border-b border-[#1E1E1E66] mb-5 lg:mb-[80px]">
               <motion.div className="flex items-center" variants={listUpMove} initial="hidden" animate="show" >
-                {categories.map((category,index) => (
+                {data.categories.map((category,index) => (
                   <div className="flex gap-[16px] items-center group" key={index}>
-                    <p className={`select-none text-14 font-[600] pb-[10px] border-b-2 relative top-0 ${activeCategory === category
+                    <p className={`select-none text-14 font-[600] pb-[10px] border-b-2 relative top-0 ${activeCategory === category.category
                           ? "border-primary text-primary"
                           : "border-transparent text-secondary"
                         } uppercase cursor-pointer transition-all duration-300 hover:text-primary `}
-                      onClick={() => setActiveCategory(category)} >
-                      {category}
+                      onClick={() => setActiveCategory(category.category)} >
+                      {category.category}
                     </p>
                     <p className="pb-[10px] mr-[16px] text-secondary/40 group-last:opacity-0">|</p>
                   </div>
@@ -66,38 +59,55 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
           ) : (
             // Accordions (mobile)
             <div className="space-y-4 mb-6">
-              {categories.map((category) => (
-                <div key={category} className="border border-[#1E1E1E66] rounded-lg">
+              {data.categories.map((category) => (
+                <div key={category._id} className="border border-[#1E1E1E66] rounded-lg">
                   <button
                     className="w-full text-left px-4 py-3 flex justify-between items-center text-14 font-semibold uppercase text-secondary hover:text-[#E11F27] transition-all duration-300"
-                    onClick={() => handleAccordionToggle(category)} >
-                    {category}
-                    <span>{openAccordion === category ? "−" : "+"}</span>
+                    onClick={() => handleAccordionToggle(category.category)} >
+                    {category.category}
+                    <span>{openAccordion === category.category ? "−" : "+"}</span>
                   </button>
-                  {openAccordion === category && (
+                  {openAccordion === category.category && (
                     <div className="p-4">
-                      {data
-                        .filter((item) => item.category === category)
-                        .map((item) => (
-                          <div key={item.id} className="flex justify-between items-center border-b border-secondary/30 border-dashed mb-4 pb-4 group" >
-                            <p className="text-18 text-secondary group-hover:text-primary transition-all duration-300">
-                              {item.doctitle}
-                            </p>
-                            <div className="flex items-center gap-4">
-                              <span className="uppercase px-4 py-1 bg-[#1E1E1E0D] rounded-2xl opacity-60 text-14">
-                                {item.size}
-                              </span>
-                              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none" className="cursor-pointer" >
-                                <path
-                                  className="stroke-[#1E1E1E] group-hover:stroke-primary transition duration-300 "
-                                  d="M1 14.5V16.5C1 17.0304 1.21071 17.5391 1.58579 17.9142C1.96086 18.2893 2.46957 18.5 3 18.5H15C15.5304 18.5 16.0391 18.2893 16.4142 17.9142C16.7893 17.5391 17 17.0304 17 16.5V14.5M4 8.5L9 13.5M9 13.5L14 8.5M9 13.5V1.5 "
-                                  strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                                />
-                              </svg>
+                      {data.categories
+                        .filter((cat) => cat.category === category.category)
+                        .map((cat) =>
+                          cat.files.map((file) => (
+                            <div
+                              key={file._id}
+                              className="flex justify-between items-center border-b border-secondary/30 border-dashed mb-4 pb-4 group"
+                            >
+                              <p className="text-18 text-secondary group-hover:text-primary transition-all duration-300">
+                                {file.title}
+                              </p>
+                              <div className="flex items-center gap-4">
+                                <span className="uppercase px-4 py-1 bg-[#1E1E1E0D] rounded-2xl opacity-60 text-14">
+                                  5mb
+                                </span>
+                                <Link href={file.file} download>
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="18"
+                                    height="20"
+                                    viewBox="0 0 18 20"
+                                    fill="none"
+                                    className="cursor-pointer"
+                                  >
+                                    <path
+                                      className="stroke-[#1E1E1E] group-hover:stroke-primary transition duration-300"
+                                      d="M1 14.5V16.5C1 17.0304 1.21071 17.5391 1.58579 17.9142C1.96086 18.2893 2.46957 18.5 3 18.5H15C15.5304 18.5 16.0391 18.2893 16.4142 17.9142C16.7893 17.5391 17 17.0304 17 16.5V14.5M4 8.5L9 13.5M9 13.5L14 8.5M9 13.5V1.5"
+                                      strokeWidth="2"
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                    />
+                                  </svg>
+                                </Link>
+                              </div>
                             </div>
-                          </div>
-                        ))}
+                          ))
+                        )}
                     </div>
+
                   )}
                 </div>
               ))}
@@ -107,11 +117,12 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
           {/* Tab content (only shown on desktop) */}
           {!isMobile && (
             <motion.div variants={listUpMove} initial="hidden" animate="show" >
-              {filteredData.map((item) => (
-                <motion.div key={item.id} variants={listItem} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} className="md:flex justify-between group items-center border-b border-[#1E1E1E66] border-dashed mb-7 pb-7 md:mb-[30px] md:pb-[30px]" >
+              {filteredData[0]?.files.map((file) => (
+                <motion.div key={file._id} variants={listItem} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} className="md:flex justify-between group items-center border-b border-[#1E1E1E66] border-dashed mb-7 pb-7 md:mb-[30px] md:pb-[30px]" >
                   <div className="w-full md:w-3/7 mb-4 md:mb-0 cursor-context-menu">
+                     
                     <p className="text-24 text-secondary group-hover:text-primary font-normal transition-all duration-300">
-                      {item.doctitle}
+                        {file.title}
                     </p>
                   </div>
                   <div className="w-full md:w-5/9 flex justify-between items-center group">
@@ -123,8 +134,9 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
                       </svg>
 
                       <span className="uppercase px-4 py-1 bg-[#1E1E1E0D] rounded-2xl opacity-60 text-18 font-normal cursor-context-menu">
-                        {item.size}
+                        {/* {item.size} */}52
                       </span>
+                      <Link href={file.file} download>
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none" className="cursor-pointer" >
                         <path
                           className="stroke-[#1E1E1E] group-hover:stroke-[#E11F27] transition duration-300 "
@@ -132,6 +144,7 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
                           strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
                         />
                       </svg>
+                      </Link>
                     </div>
                     {/* No changes needed inside here */}
                   </div>

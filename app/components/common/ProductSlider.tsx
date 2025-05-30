@@ -15,8 +15,8 @@ import SubTitle from "../common/SubTitle";
 import ProductSliderItem from "./ProductSliderItem";
 import { NavigationOptions } from 'swiper/types';
 
-// import {motion} from "framer-motion"
-// import { moveLeft } from '../motionVarients';
+import {motion} from "framer-motion"
+import { moveLeft } from '../motionVarients';
 import { home } from '@/public/types/home';
 import { PrecastConcrete } from '@/types/PrecastConcrete';
 
@@ -115,12 +115,6 @@ const ProductSlider = ({data}:{data:home | PrecastConcrete}) => {
     )
   }
   
-
-
-
-
-
-
   return (
       <div className="container overflow-visible">
         <div className="flex flex-wrap align-center justify-between gap-y-4 lg:gap-0 mb-10 lg:mb-20">
@@ -128,7 +122,7 @@ const ProductSlider = ({data}:{data:home | PrecastConcrete}) => {
             <SubTitle titleText={data.products.title} color="text-secondary" />
           </div>
           {/* Custom Nav Buttons */}
-          <motion.div className="flex" variants={moveLeft(0)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} >
+          <motion.div className="flex" variants={moveLeft(0)} initial="hidden" animate="show" viewport={{ once: false, amount: 0.2 }} >
             <button ref={prevRef} className="text-secondary cursor-pointer font-bold border-2 border-secondary first:border-r-0 px-8 py-4 h-fit group hover:bg-secondary hover:text-white transition">
               <svg width="22" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20.991 5.75C21.4052 5.75 21.741 6.08579 21.741 6.5C21.741 6.91421 21.4052 7.25 20.991 7.25V5.75ZM0.413664 7.03033C0.120771 6.73744 0.120771 6.26256 0.413664 5.96967L5.18664 1.1967C5.47953 0.903806 5.9544 0.903806 6.2473 1.1967C6.54019 1.48959 6.54019 1.96447 6.2473 2.25736L2.00465 6.5L6.2473 10.7426C6.54019 11.0355 6.54019 11.5104 6.2473 11.8033C5.9544 12.0962 5.47953 12.0962 5.18664 11.8033L0.413664 7.03033ZM20.991 7.25H0.943995V5.75H20.991V7.25Z" fill="#1E1E1E" className='group-hover:fill-white' />

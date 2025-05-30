@@ -2,11 +2,14 @@
 import React from "react";
 import Index from "@/app/components/downloads";
 
-const Downloads = () => {
+const page = async() => {
+  const response = await fetch(`${process.env.BASE_URL}/api/admin/resources`, { next: { revalidate: 60 } });
+  const data = await response.json();
+  console.log(data)
   return (
     <>
-      <Index />
+      <Index data={data.data} />
     </>
   );
 };
-export default Downloads;
+export default page;

@@ -4,7 +4,6 @@ import Achievements from "./Achievements";
 import VisionMission from "./VisionMission";
 // import ProductCategoriesList from "./ProductCategoriesList";
 import ParentalCompaniesSec from "./ParentCompaniesSec";
-import { assets } from "@/public/assets/assets";
 import AccrSec from "./AccrSec";
 import FacilitiesEquipmentSec from "./FacilitiesEquipmentSec";
 import Sustainability from "../home/Sustainability";
@@ -12,7 +11,7 @@ import { About } from "@/public/types/about";
 const Index = ({data}:{data:About}) => {
   return ( 
     <main>
-      <InnerBanner pageTitle={"About Us"} bannerBg={assets.aboutBnr}/>
+      <InnerBanner pageTitle={data.pageTitle} bannerBg={data.banner}/>
       <AboutDesc data={data} />
       <VisionMission data={data}/>
       <Achievements data={data} />
