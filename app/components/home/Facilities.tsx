@@ -25,7 +25,7 @@ const Facilities = ({data}:{data:home}) => {
                 key={index}
                 value={item.title}
                 className={`relative group cursor-pointer text-white hover:text-primary capitalize text-left w-fit lg:w-auto lg:text-center px-0 lg:px-8 py-0 
-                rounded-none data-[state=active]:text-primary first:pl-0 leading-[1] data-[state=active]:bg-transparent ${index !== facilitiesData.length - 1 ? 'lg:border-r lg:border-white/50' : ''}`}
+                rounded-none data-[state=active]:text-primary first:pl-0 leading-[1] data-[state=active]:bg-transparent ${index !== facilitiesData.length - 2 ? 'lg:border-r lg:border-white/50' : ''}`}
               >
                 {item.title}
                 <div className="hidden lg:flex absolute w-full h-[2px] group-data-[state=active]:bg-primary bottom-[-18px] left-0 z-20"></div>
