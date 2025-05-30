@@ -82,7 +82,7 @@ const List = ({ data }:{data:downloadsData}) => {
                               </p>
                               <div className="flex items-center gap-4">
                                 <span className="uppercase px-4 py-1 bg-[#1E1E1E0D] rounded-2xl opacity-60 text-14">
-                                  5mb
+                                  {file.size}
                                 </span>
                                 <Link href={file.file} download>
                                   <svg
@@ -134,7 +134,7 @@ const List = ({ data }:{data:downloadsData}) => {
                       </svg>
 
                       <span className="uppercase px-4 py-1 bg-[#1E1E1E0D] rounded-2xl opacity-60 text-18 font-normal cursor-context-menu">
-                        {/* {item.size} */}52
+                        {file.size}
                       </span>
                       <Link href={file.file} download>
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none" className="cursor-pointer" >

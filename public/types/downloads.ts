@@ -10,9 +10,10 @@ export type downloadsData = {
       _id: string;
       files: [
         {
-          file: string;
-          title: string;
           _id: string;
+          title: string;
+          file: string;
+          size:string;
         }
       ];
     }
