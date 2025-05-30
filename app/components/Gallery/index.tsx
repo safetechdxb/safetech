@@ -1,15 +1,15 @@
 
 import React from "react";
-import { doc } from "./data";
 import InnerBanner from "../common/InnerBanner";
-import { assets } from "@/public/assets/assets";
 import ImageList from "./sections/ImageList";
-export default function Index() {
+import { Gallery } from "@/types/Gallery";
+
+export default function Index({data}:{data:Gallery}) {
   return (
     <>
 
-      <InnerBanner pageTitle={"Gallery"} bannerBg={assets.gbanner} />
-      <ImageList data={doc.data} />
+      <InnerBanner pageTitle={data.pageTitle} bannerBg={data.banner} />
+      <ImageList data={data} />
 
     </>
   );

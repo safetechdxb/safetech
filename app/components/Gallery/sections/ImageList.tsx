@@ -2,31 +2,35 @@
 
 import { motion } from "framer-motion";
 import { moveUp } from "../../motionVarients";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
 interface PlatformsItem {
-  id: number;
-  image: StaticImageData;
-  category: string;
-  name:string;
-  isWide: boolean;
+  categories:{
+    category:string;
+    images:{
+      title:string;
+      image:string;
+      imageAlt:string;
+    }[]
+  }[]
 }
 
 interface PlatformsSectionProps {
-  data: PlatformsItem[];
+  data: PlatformsItem;
 }
-const categories = ["All", "projects", "Precast", "prestress", "hollow core", "Throughs", "grc", "steel reinforcement", "modular prefab"];
 
-const List: React.FC<PlatformsSectionProps> = ({ data }) => {
+const List = ({ data }:PlatformsSectionProps) => {
+  const categories = ["All",...data.categories.map((category)=>category.category)];
   const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
   const [activeCategory, setActiveCategory] = useState<string>(categories[0]);
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
 
   const filteredData = activeCategory === 'All'
-    ? data
-    : data.filter((item) => item.category === activeCategory);
+    ? data.categories.map((item)=>item.images).flat()
+    : data.categories.filter((item) => item.category === activeCategory).map((item)=>item.images).flat();
+
 
   const handleAccordionToggle = (category: string) => {
     setOpenAccordion(openAccordion === category ? null : category);
@@ -72,17 +76,18 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
                     <div className="p-4">
                       <div className="  ">
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-[60px]">
-                          {data
-                            .filter((item) => category === "All" || item.category === category)
+                          {data.categories
+                            .map((item) => category === "All" ? item.images : item.category === category ? item.images : [])
+                            .flat()
                             .map((item, index) => (
                               <Image
                                 key={index}
                                 src={item.image}
                                 alt={`Image ${index}`}
-                                className={`w-full  h-[150px]  md:h-[200px] xl:h-[355px] object-cover ${item.isWide ? 'col-span-2' : 'col-span-1'
-                                  }`}
+                                className={`w-full  h-[150px]  md:h-[200px] xl:h-[355px] object-cover col-span-1`}
+                                width={100}
+                                height={100}
                               />
-
                             ))}
                         </div>
 
@@ -99,10 +104,10 @@ const List: React.FC<PlatformsSectionProps> = ({ data }) => {
             <div>
               <div className="grid grid-cols-4 gap-4 lg:gap-[60px]">
                 {filteredData.map((item, index) => (
-                  <motion.div variants={moveUp(index * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={index} className={`relative h-[250px]  md:h-[200px] xl:h-[355px] group ${item.isWide ? 'col-span-2' : 'col-span-1'}`}>
-                    <Image key={index} src={item.image} alt={`Image ${index}`} className={`w-full h-full object-cover `} />
+                  <motion.div variants={moveUp(index * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={index} className={`relative h-[250px]  md:h-[200px] xl:h-[355px] group ${(index % 10) == 0 ? 'col-span-2' : 'col-span-1'}`}>
+                    <Image key={index} src={item.image} alt={`Image ${index}`} className={`w-full h-full object-cover `} width={100} height={100}/>
                     <div className="absolute left-0 bottom-10 w-0 overflow-hidden transition-all duration-200 bg-primary group-hover:w-[75%]">
-                      <h3 className="text-white font-semibold text-18 min-w-max leading-[1] uppercase p-8 mb-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200">{item.name}</h3>
+                      <h3 className="text-white font-semibold text-18 min-w-max leading-[1] uppercase p-8 mb-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200">{item.title}</h3>
                     </div>
                   </motion.div>
                 ))}
