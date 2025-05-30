@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const contactSchema = new mongoose.Schema({
     pageTitle: { type: String, required: true },
+    title: { type: String, required: true },
     metaTitle: { type: String },
     metaDescription: { type: String },
     banner: { type: String, required: true },

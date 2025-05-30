@@ -117,11 +117,6 @@ const ProductSlider = ({data}:{data:home | PrecastConcrete}) => {
   }
   
 
-
-
-
-
-
   return (
       <div className="container overflow-visible">
         <div className="flex flex-wrap align-center justify-between gap-y-4 lg:gap-0 mb-10 lg:mb-20">
