@@ -26,11 +26,11 @@ const ProductSliderSec = ({data}:{data:home}) => {
   return (
     <section className="py-140 bg-off-white overflow-hidden">
       <div className="container overflow-visible">
-        <div className="flex flex-wrap align-center justify-between gap-y-4 lg:gap-0 mb-10 lg:mb-20">
+        {/* <div className="flex flex-wrap align-center justify-between gap-y-4 lg:gap-0 mb-10 lg:mb-20">
           <div className="relative">
             <SubTitle titleText="Our Products" color="text-secondary" />
           </div>
-          {/* Custom Nav Buttons */}
+          
           <motion.div className="flex" variants={moveLeft(0)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} >
             <button ref={prevRef} className="text-secondary cursor-pointer font-bold border-2 border-secondary first:border-r-0 px-8 py-4 h-fit group hover:bg-secondary hover:text-white transition">
               <svg width="22" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,8 +43,7 @@ const ProductSliderSec = ({data}:{data:home}) => {
               </svg>
             </button>
           </motion.div>
-        </div>
-        <div>
+        </div> */}
           <ProductSlider data={data} />
           {/* <Swiper className="!overflow-visible"
             // install Swiper modules
@@ -104,7 +103,6 @@ const ProductSliderSec = ({data}:{data:home}) => {
               ))
             }
           </Swiper> */}
-        </div>
       </div>
     </section>
   );
