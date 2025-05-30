@@ -3,6 +3,7 @@ import ProductSlider from '../common/ProductSlider'
 import { PrecastConcrete } from '@/types/PrecastConcrete'
 
 export default function RelatedElements({data}: {data: PrecastConcrete}) {
+  console.log(data)
   return (
     <section className='py-140'>
         <ProductSlider data={data} />

@@ -14,6 +14,7 @@ export async function POST(request: NextRequest) {
         const contact = await Contact.findOne({});
         if(contact){
             contact.pageTitle = body.pageTitle;
+            contact.title = body.title;
             contact.metaTitle = body.metaTitle;
             contact.metaDescription = body.metaDescription;
             contact.banner = body.banner;
