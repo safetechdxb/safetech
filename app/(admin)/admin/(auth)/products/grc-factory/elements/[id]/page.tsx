@@ -13,7 +13,7 @@ import { useParams } from 'next/navigation';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 
-interface PrecastPrestressedPageElements {
+interface GrcFactoryPageElements {
 
     metaTitle: string;
     metaDescription: string;
@@ -63,11 +63,11 @@ interface PrecastPrestressedPageElements {
     }[]
 }
 
-const PrecastPrestressedPageElements = () => {
+const GrcFactoryPageElements = () => {
 
     const { id } = useParams();
 
-    const { register, handleSubmit, setValue, control, formState: { errors },watch } = useForm<PrecastPrestressedPageElements>();
+    const { register, handleSubmit, setValue, control, formState: { errors },watch } = useForm<GrcFactoryPageElements>();
 
     const { fields: secondSectionItems, append: appendSecondSectionItems, remove: removeSecondSectionItems } = useFieldArray({
         control,
@@ -84,9 +84,9 @@ const PrecastPrestressedPageElements = () => {
         name: "forthSectionItems"
     });
 
-    const handleAddPrecastPrestressedElement = async (data: PrecastPrestressedPageElements) => {
+    const handleAddGrcFactoryElement = async (data: GrcFactoryPageElements) => {
         try {
-            const response = await fetch(`/api/admin/products/precast-prestressed/elements?id=${id}`, {
+            const response = await fetch(`/api/admin/products/grc-factory/elements?id=${id}`, {
                 method: "PATCH",
                 body: JSON.stringify({ ...data }),
             });
@@ -102,7 +102,7 @@ const PrecastPrestressedPageElements = () => {
 
     const fetchElementData = async () => {
         try {
-            const response = await fetch(`/api/admin/products/precast-prestressed/elements?id=${id}`);
+            const response = await fetch(`/api/admin/products/grc-factory/elements?id=${id}`);
             if (response.ok) {
                 const data = await response.json();
                 console.log(data)
@@ -157,7 +157,7 @@ const PrecastPrestressedPageElements = () => {
 
     return (
         <div className='flex flex-col gap-5'>
-            <form className='flex flex-col gap-5' onSubmit={handleSubmit(handleAddPrecastPrestressedElement)}>
+            <form className='flex flex-col gap-5' onSubmit={handleSubmit(handleAddGrcFactoryElement)}>
 
 
                 <div className='flex flex-col gap-2'>
@@ -578,4 +578,4 @@ const PrecastPrestressedPageElements = () => {
     )
 }
 
-export default PrecastPrestressedPageElements
+export default GrcFactoryPageElements
