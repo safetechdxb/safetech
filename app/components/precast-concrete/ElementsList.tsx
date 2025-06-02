@@ -38,7 +38,7 @@ export default function ElementsList({data}: {data: PrecastConcrete}) {
               <p className='text-20 font-normal leading-[1.5] text-secondary/75'>{el.description}</p>
             </div>
             <div className="mt-auto px-8 pb-8">
-              <ArrowBtn btnText='Read more' btnLInk={`${pathname}/${el.slug}`} border={false} />
+              <ArrowBtn btnText='Read more' btnLInk={el.slug ? `${pathname}/${el.slug}` : '#'} border={false} />
             </div>
           </div>
         ))}
