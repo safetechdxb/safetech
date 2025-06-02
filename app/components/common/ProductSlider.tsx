@@ -29,6 +29,8 @@ import { PrecastConcrete } from '@/types/PrecastConcrete';
 const ProductSlider = ({data}:{data:home | PrecastConcrete}) => {
   const prevRef = useRef(null)
   const nextRef = useRef(null)
+
+  console.log(data)
   
 
   if(!('products' in data)){
@@ -105,7 +107,7 @@ const ProductSlider = ({data}:{data:home | PrecastConcrete}) => {
                     prdImg={slide.image}
                     prdName={slide.title}
                     prdDec={slide.description}
-                    prdLink={slide.slug}
+                    prdLink={slide.slug ?? ""}
                   />
                 </SwiperSlide>
               ))
