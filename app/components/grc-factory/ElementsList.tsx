@@ -24,7 +24,7 @@ export default function ElementsList({data}: {data: GrcFactory}) {
               <p className='text-20 font-normal leading-[1.5] text-secondary/75'>{el.description}</p>
             </div>
             <div className="mt-auto px-8 pb-8">
-              <ArrowBtn btnText='Read more' btnLInk={`/products/grc-factory/${el.slug}`} border={false} />
+              <ArrowBtn btnText='Read more' btnLInk={el.slug ? `/products/grc-factory/${el.slug}` : '#'} border={false} />
             </div>
           </div>
         ))}
