@@ -11,8 +11,8 @@ export default function DigSec({data}:{data:PrecastPreStressedElement}) {
             <SubTitle titleText={data.forthSection.title} color='text-secondary' />
           </div>
         <div className='bg-off-white p-5'>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-            <div className='bg-exlight-gray p-32'>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 2xl:gap-20 items-center">
+            <div className='bg-exlight-gray 2xl:p-32'>
               <Image src={data.forthSection.image} alt={data.forthSection.imageAlt} width={605} height={286}></Image>
             </div>
             <div>

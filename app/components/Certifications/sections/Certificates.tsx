@@ -5,9 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { moveUp } from "../../motionVarients";
 import Image, { StaticImageData } from "next/image";
 import { Certifications } from "@/public/types/certifications";
-
-
-
 const Certificates = ({ data }:{data:Certifications}) => {
   const [selectedImage, setSelectedImage] = useState<string | StaticImageData | null>(null);
 
@@ -65,17 +62,14 @@ const Certificates = ({ data }:{data:Certifications}) => {
             onClick={() => setSelectedImage(null)} // close on background click
           >
             <motion.div
-              className="relative max-w-3xl w-full"
+              className="relative max-w-2xl 2xl:max-w-3xl w-full"
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               onClick={(e) => e.stopPropagation()} // prevent modal from closing when clicking on image
             >
               <Image src={selectedImage} alt="Modal Image" width={400} height={400} className="w-full px-[6vw] h-auto rounded-lg" />
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute top-[-15%] lg:top-2 right-2 text-white text-2xl cursor-pointer"
-              >
+              <button onClick={() => setSelectedImage(null)} className="absolute top-[-15%] md:top-5 2xl:top-2 right-0 2xl:right-2 text-white text-2xl cursor-pointer" >
                 ×
               </button>
             </motion.div>

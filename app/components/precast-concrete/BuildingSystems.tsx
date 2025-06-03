@@ -19,7 +19,7 @@ export default function BuildingSystems({data}: {data: PrecastConcrete}) {
             structural and architectural components into a fully precast building
             solution, suitable for a wide range of projects, including:</p> */}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
           {
             data.thirdSection.items.map((item, index) => (
               <div className='group p-5 lg:p-30p bg-white hover:bg-primary trasition-all duration-300 hover:-translate-y-2' key={index}>

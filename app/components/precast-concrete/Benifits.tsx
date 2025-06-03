@@ -12,7 +12,7 @@ export default function Benifits({data}: {data: PrecastConcrete}) {
    <section className="py-140 bg-exlight-gray">
     <div className="container">
         <div className="lg:flex ">
-          <motion.div variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="relative w-full lg:w-[51%] pr-0 lg:pr-[35px] xl:pr-[142px]">
+          <motion.div variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="relative w-full lg:w-[51%] pr-0 lg:pr-[35px] 2xl:pr-[142px]">
 
             <div className="" >
               <figure className="image-wrapper h-full ">
