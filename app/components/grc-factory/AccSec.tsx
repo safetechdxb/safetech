@@ -15,7 +15,7 @@ export default function AccSec({data}: {data: GrcFactory}) {
             <div className="relative tracking-[3px] mb-10 lg:mb-20 lg:max-w-3xl">
               <SubTitle titleText={data.thirdSection.title} color="text-black" />
             </div>
-        <div className="lg:flex flex-wrap lg:flex-nowrap lg:gap-15">
+        <div className="flex flex-wrap lg:flex-nowrap gap-y-10 2xl:gap-15">
           <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="w-full lg:w-4/7 ">
             {data.thirdSection.items.map((da, index) => (
               <motion.div

@@ -11,7 +11,7 @@ export default function ShortBnr({data}: {data: PrecastPrestressed}) {
         <Image src={data.secondSection.image} alt={data.secondSection.imageAlt} width={1920} height={550} className='w-full h-full object-cover'></Image>
       </div>
       <div className="container relative z-40">
-        <div className="w-1/2 lg:ml-auto">
+        <div className="lg:w-1/2 lg:ml-auto">
           <div className="relative mb-10">
             <SubTitle titleText={data.secondSection.title} color='text-white' />
           </div>

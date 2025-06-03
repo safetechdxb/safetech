@@ -7,7 +7,7 @@ const Main = ({data}: {data: PrecastConcrete}) => {
   return (
     <section className="py-140">
       <div className="container">
-        <div className="flex flex-wrap lg:flex-nowrap gap-20 items-center">
+        <div className="flex flex-wrap lg:flex-nowrap gap-10 2xl:gap-20 items-center">
           <motion.div variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="w-full lg:w-1/2 ">
             <div className="relative">
               <Image src={data.firstSection.image} alt="Our Company" width={400} height={400} className="w-full lg:min-h-[50vh]"></Image>

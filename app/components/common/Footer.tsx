@@ -10,7 +10,7 @@ const Footer = async() => {
       <div className="container mx-auto py-4">
         <div className="lg:flex gap-4">
           <div className="flex flex-col w-full lg:w-1/3">
-            <Image src={assets.logo} alt="Logo" width={200} height={100} className="object-contain lg:h-[100px] mb-8 lg:mb-20 brightness-0 invert-100" />
+            <Image src={assets.logo} alt="Logo" width={200} height={100} className="object-contain h-10 w-fit lg:h-[100px] mb-8 lg:mb-20 brightness-0 invert-100" />
             <p className="text-white/50 text-18 font-normal leading-[1.3] lg:max-w-[80%] mb-8 ">
             Safe Tech, a subsidiary of UNEC, delivers innovative construction solutions with advanced precast, prestress, and GRC products</p>
           </div>
@@ -84,10 +84,14 @@ const Footer = async() => {
                 </div>
                 <div>
                   <ul className="flex border-1 border-primary w-fit">
-                    <li className="border-r border-primary last:border-0 flex justify-center items-center w-10 h-10 hover:bg-primary transition-all duration-200"><Link href="#"><Image src={assets.facebook} alt="Facebook" width={12} height={16.62} className="flex w-auto" /></Link></li>
-                    <li className="border-r border-primary last:border-0 flex justify-center items-center w-10 h-10 hover:bg-primary transition-all duration-200"><Link href="#"><Image src={assets.linkedin} alt="LinkedIn" width={12} height={15.71} className="flex w-auto" /></Link></li>
-                    <li className="border-r border-primary last:border-0 flex justify-center items-center w-10 h-10 hover:bg-primary transition-all duration-200"><Link href="#"><Image src={assets.instagram} alt="Instagram" width={14} height={14} className="flex w-auto" /></Link></li>
-                    <li className="border-r border-primary last:border-0 flex justify-center items-center w-10 h-10 hover:bg-primary transition-all duration-200"><Link href="#"><Image src={assets.youtube} alt="Twitter" width={12} height={10.6} className="flex w-auto" /></Link></li>
+                    <li className="border-r border-primary last:border-0 flex justify-center items-center w-10 h-10 hover:bg-primary transition-all duration-200"><Link href="#">
+                    <Image src={assets.facebook} alt="Facebook" width={12} height={16.62} className="flex w-full h-[13px] object-contain 2xl:w-auto" /></Link></li>
+                    <li className="border-r border-primary last:border-0 flex justify-center items-center w-10 h-10 hover:bg-primary transition-all duration-200"><Link href="#">
+                    <Image src={assets.linkedin} alt="LinkedIn" width={12} height={15.71} className="flex w-full h-[13px] object-contain 2xl:w-auto" /></Link></li>
+                    <li className="border-r border-primary last:border-0 flex justify-center items-center w-10 h-10 hover:bg-primary transition-all duration-200"><Link href="#">
+                    <Image src={assets.instagram} alt="Instagram" width={14} height={14} className="flex w-full h-[13px] object-contain 2xl:w-auto" /></Link></li>
+                    <li className="border-r border-primary last:border-0 flex justify-center items-center w-10 h-10 hover:bg-primary transition-all duration-200"><Link href="#">
+                    <Image src={assets.youtube} alt="Twitter" width={12} height={10.6} className="flex w-full h-[13px] object-contain 2xl:w-auto" /></Link></li>
                   </ul>
                 </div>
             </div>

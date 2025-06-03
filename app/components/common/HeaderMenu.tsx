@@ -58,7 +58,7 @@ export default function HeaderMenu() {
       <div className="container flex justify-between items-center h-16">
         <Link href={"/"}> <Image src={assets.logo} alt="" width={400} height={400} className="w-auto lg:w-[107px] h-auto brightness-0 invert-100" />  </Link>
         {/* Desktop nav */}
-        <nav className="hidden lg:flex md:items-center space-x-8">
+        <nav className="hidden 2xl:flex md:items-center space-x-8">
           {navItems.map((item) =>
             item.submenu ? (
               <div key={item.label} className="relative group">
@@ -85,7 +85,7 @@ export default function HeaderMenu() {
         </nav>
 
         {/* Mobile menu button */}
-        <button onClick={() => setIsOpen(true)} className="lg:hidden text-white" aria-label="Open menu" >
+        <button onClick={() => setIsOpen(true)} className="2xl:hidden text-white" aria-label="Open menu" >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
