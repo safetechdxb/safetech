@@ -14,8 +14,8 @@ interface ProductSliderItemProps {
 const ProductSliderItem = ({prdId, prdImg,prdName,prdDec,prdLink}:ProductSliderItemProps) => {
   return ( 
     <motion.div variants={moveUp(prdId * 0.3)} initial="hidden" whileInView="show" viewport={{once:true, amount:0.2}}>
-      <div className="relative w-full h-[15em] lg:h-[388px] mb-4 group">
-        <Image src={prdImg} width={150} height={150} alt={prdName} className="w-full h-full object-cover" />
+      <div className="relative w-full h-[15em] 2xl:h-[388px] mb-4 group">
+        <Image src={prdImg} width={400} height={400} alt={prdName} className="w-full h-full object-cover" />
         <div className="absolute bottom-0 left-0 bg-off-white w-[64px] h-[64px] group-hover:w-[128px] group-hover:bg-primary duration-200 transition-all">
           <Link className="w-[64px] h-[64px] flex justify-center items-center absolute top-0 left-0 group-hover:right-0 group-hover:left-[64px] duration-200 transition-all" href={prdLink}>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:rotate-45 group-hover:fill-white duration-200 transition-all">

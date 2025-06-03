@@ -56,10 +56,9 @@ export default function HeaderMenu() {
   return (
     <header className="w-full bg-transparent border-b border-white/10 absolute top-0 left-0 z-50 py-2">
       <div className="container flex justify-between items-center h-16">
-        <Link href={"/"}> <Image src={assets.logo} alt="" />  </Link>
-
+        <Link href={"/"}> <Image src={assets.logo} alt="" width={400} height={400} className="w-auto lg:w-[107px] h-auto brightness-0 invert-100" />  </Link>
         {/* Desktop nav */}
-        <nav className="hidden md:flex md:items-center space-x-8">
+        <nav className="hidden lg:flex md:items-center space-x-8">
           {navItems.map((item) =>
             item.submenu ? (
               <div key={item.label} className="relative group">
@@ -86,7 +85,7 @@ export default function HeaderMenu() {
         </nav>
 
         {/* Mobile menu button */}
-        <button onClick={() => setIsOpen(true)} className="md:hidden text-white" aria-label="Open menu" >
+        <button onClick={() => setIsOpen(true)} className="lg:hidden text-white" aria-label="Open menu" >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>

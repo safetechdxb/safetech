@@ -36,7 +36,7 @@ const ProductSlider = ({data}:{data:home | PrecastConcrete}) => {
   if(!('products' in data)){
     return(
       <div className="container overflow-visible">
-        <div className="flex flex-wrap align-center justify-between gap-y-4 lg:gap-0 mb-10 lg:mb-20">
+        <div className="flex flex-wrap align-center justify-between gap-y-4 lg:gap-0 mb-4 md:mb-8 2xl:mb-20">
           <div className="relative">
             <SubTitle titleText={data.elementsSection.title} color="text-secondary" />
           </div>
@@ -123,7 +123,7 @@ const ProductSlider = ({data}:{data:home | PrecastConcrete}) => {
 
   return (
       <div className="container overflow-visible">
-        <div className="flex flex-wrap align-center justify-between gap-y-4 lg:gap-0 mb-10 lg:mb-20">
+      <div className="flex flex-wrap align-center justify-between gap-y-4 lg:gap-0 mb-4 md:mb-10 2xl:mb-20">
           <div className="relative">
             <SubTitle titleText={data.products.title} color="text-secondary" />
           </div>

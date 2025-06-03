@@ -6,16 +6,15 @@ import {motion} from "framer-motion"
 import  {moveUp} from "../motionVarients"
 import { home } from "@/public/types/home";
 const OurCompany = ({data}:{data:home}) => {
-
   return (
     <section className="my-140">
       <div className="container">
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-[4em] xlg:gap-15 lg:gap-y-28 xl:gap-y-0">
-          <motion.div className="flex flex-col lg:pr-15 order-2 xl:order-1" variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} >
-            <div className="flex align-center gap-[3em] relative mb-6 md:mb-10 xl:mb-20">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-[4em] lg:gap-15 2xl:gap-y-0">
+          <motion.div className="flex flex-col 2xl:pr-15 order-2 xl:order-1" variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} >
+            <div className="flex align-center gap-[3em] relative mb-6 md:mb-10 2xl:mb-20">
               <SubTitle titleText={data.aboutSection.title} color="text-secondary" />
             </div>
-            <div className="text-20 font-normal text-secondary/75 leading-[1.3]" dangerouslySetInnerHTML={ {__html:data.aboutSection.description}} ></div>
+            <div className="text-20 font-normal text-secondary/75 leading-[1.3] 2xl:mb-10" dangerouslySetInnerHTML={ {__html:data.aboutSection.description}} ></div>
             <ArrowBtn btnText="About Us" btnLInk="/about" border={true} />
             <div className="pt-10 lg:pt-20">
               <div className="bg-secondary w-[261px] h-[40px] relative group">
@@ -65,14 +64,14 @@ const OurCompany = ({data}:{data:home}) => {
               </div>
             </div>
           </motion.div>
-          <motion.div className=" flex-col lg:h-[15em] xl:h-full order-1 xl:order-2 hidden xl:flex" 
+          <motion.div className="flex-col lg:h-[15em] xl:h-full order-1 xl:order-2 hidden xl:flex" 
           variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }}>
             <div className="relative h-full">
               <div className="absolute top-[-40px] left-0 w-[40px] h-[80px] bg-white group">
                 <div className="w-[40px] h-[40px] bg-secondary "></div>
                 <div className="absolute top-0 left-0 w-[40px] h-[40px] bg-primary group-hover:top-[50%] duration-200 transition-all"></div>
               </div>
-              <Image src={data.aboutSection.image} width={770} height={667} className="h-auto w-auto xl:w-full xl:h-full" alt={data.aboutSection.title}></Image>
+              <Image src={data.aboutSection.image} width={770} height={667} className="h-auto w-auto xl:w-full xl:h-full object-cover" alt={data.aboutSection.title}></Image>
             </div>
           </motion.div>
         </div>
