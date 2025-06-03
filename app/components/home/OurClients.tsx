@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { home } from "@/public/types/home";
 const OurClients = ({data}:{data:home}) => {
   return ( 
-    <section className='py-140 bg-light-gray'>
+    <section className='py-140'>
       <div className="container">
       <div className="relative mb-10 lg:mb-20">
           <SubTitle titleText={data.clients.title} color='text-secondary' />
