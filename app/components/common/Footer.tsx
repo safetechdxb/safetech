@@ -6,12 +6,13 @@ const Footer = async() => {
   const response = await fetch(`${process.env.BASE_URL}/api/admin/home`, { next: { revalidate: 60 } });
   const data = await response.json();
   return (
-    <footer className="bg-secondary pt-[50px] md:pt-[70px] xl:pt-[140px]   border-t-4 border-t-primary px-0">
+    <footer className="bg-secondary py-140 border-t-4 border-t-primary px-0">
       <div className="container mx-auto py-4">
         <div className="lg:flex gap-4">
           <div className="flex flex-col w-full lg:w-1/3">
             <Image src={assets.logo} alt="Logo" width={200} height={100} className="object-contain lg:h-[100px] mb-8 lg:mb-20 brightness-0 invert-100" />
-            <p className="text-white/50 text-18 font-normal leading-[1.3] lg:max-w-[80%] mb-8 ">Safe Tech, a subsidiary of UNEC, delivers innovative construction solutions with advanced precast, prestress, and GRC products</p>
+            <p className="text-white/50 text-18 font-normal leading-[1.3] lg:max-w-[80%] mb-8 ">
+            Safe Tech, a subsidiary of UNEC, delivers innovative construction solutions with advanced precast, prestress, and GRC products</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4  gap-y-15 lg:gap-y-[5em] w-full lg:w-2/3">
             <div className="group/box">

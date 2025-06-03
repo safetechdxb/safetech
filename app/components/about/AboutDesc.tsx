@@ -25,7 +25,7 @@ const AboutDesc = ({data}:{data:About}) => {
             <div className="relative mb-5 lg:mb-10">
               <SubTitle titleText={data.firstSection.mainTitle} color="text-secondary" />
             </div>
-              <h2 className="text-32 font-semibold text-primary mb-6 leading-[1.5] lg:max-w-[60%]">{data.firstSection.firstTitle}<span className="text-black">{data.firstSection.secondTitle}</span> </h2>
+              <h2 className="text-32 font-semibold text-primary mb-6 leading-[1.5] ">{data.firstSection.firstTitle} <br/><span className="text-black">{data.firstSection.secondTitle}</span> </h2>
               {/* <p className="text-20 leading-[1.3] font-normal text-secondary/75 text-body-color mb-5">{data.firstSection.description}</p> */}
               {/* <p className="text-20 leading-[1.3] font-normal text-secondary/75 text-body-color mb-0">{aboutMainDesc.desc2}</p> */}
             {data.firstSection.description.split('\n').map((line, idx) => (

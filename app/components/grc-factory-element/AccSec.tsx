@@ -13,7 +13,7 @@ export default function AccSec({data}:{data:PrecastPreStressedElement}) {
    <section className="py-140 bg-off-white">
     <div className="container">
             <div className="relative tracking-[3px] mb-10 lg:mb-20 lg:max-w-3xl">
-              <SubTitle titleText={data.secondSection.title} color="text-black" />
+              <SubTitle titleText={data.thirdSection.title} color="text-black" />
             </div>
         <div className="lg:flex flex-wrap lg:flex-nowrap lg:gap-15">
           <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="w-full lg:w-4/7 ">
