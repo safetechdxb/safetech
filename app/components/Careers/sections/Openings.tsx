@@ -61,12 +61,12 @@ const Openings = ({data}:{data:careers}) => {
               <div className="w-full md:w-3/5 flex flex-wrap lg:flex-row justify-between lg:items-center group">
                 <div className="lg:w-5/9">
                   <p className="uppercase text-secondary/50 text-16 font-semibold">
-                    {item.jobType}
+                    {item.mode}
                   </p>
                 </div>
                 <div className="w-1/2 lg:w-3/9 text-18">
                   <p className="px-[16px] py-[4px] bg-secondary/5 text-secondary/60 rounded-2xl font-normal w-fit leading-[1.4]">
-                    {item.mode}
+                    {item.jobType}
                   </p>
                 </div>
                 <div className="lg:w-1/9 flex items-center gap-2 justify-end cursor-pointer font-normal">
