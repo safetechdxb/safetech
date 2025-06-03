@@ -2,20 +2,22 @@ import Image from "next/image";
 import { assets } from "@/public/assets/assets";
 import Link from "next/link";
 import { ChevronRight, MoveRight } from 'lucide-react';
-const Footer = () => {
+const Footer = async() => {
+  const response = await fetch(`${process.env.BASE_URL}/api/admin/home`, { next: { revalidate: 60 } });
+  const data = await response.json();
   return (
     <footer className="bg-secondary pt-[50px] md:pt-[70px] xl:pt-[140px]   border-t-4 border-t-primary px-0">
       <div className="container mx-auto py-4">
         <div className="lg:flex gap-4">
           <div className="flex flex-col w-full lg:w-1/3">
-            <Image src={assets.logo} alt="Logo" width={200} height={100} className="object-contain lg:h-[100px] mb-8 lg:mb-20" />
+            <Image src={assets.logo} alt="Logo" width={200} height={100} className="object-contain lg:h-[100px] mb-8 lg:mb-20 brightness-0 invert-100" />
             <p className="text-white/50 text-18 font-normal leading-[1.3] lg:max-w-[80%] mb-8 ">Safe Tech, a subsidiary of UNEC, delivers innovative construction solutions with advanced precast, prestress, and GRC products</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4  gap-y-15 lg:gap-y-[5em] w-full lg:w-2/3">
             <div className="group/box">
               <h3 className="text-white text-18 font-bold uppercase mb-8 group-hover/box:text-primary">Quick links</h3>
               <ul className="flex flex-col gap-2 lg:gap-4">
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight className="" /></span><Link href="about0us" className="text-16 leading-[1.3] font-normal">About Us</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight className="" /></span><Link href="about" className="text-16 leading-[1.3] font-normal">About Us</Link></li>
                 <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="news" className="text-16 leading-[1.3] font-normal">News</Link></li>
                 <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="careers" className="text-16 leading-[1.3] font-normal">Careers</Link></li>
               </ul>
@@ -31,9 +33,13 @@ const Footer = () => {
             <div className="group/box">
               <h3 className="text-white text-18 font-bold uppercase mb-8 group-hover/box:text-primary">Products</h3>
               <ul className="flex flex-col gap-2 lg:gap-4">
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
-                  <ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Precast</Link></li>
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
+                {
+                  data.data.products.items.map((product: { title: string,url:string }, index: number) => (
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group" key={index}><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
+                      <ChevronRight /></span><Link href={`products${product.url}`} className="text-16 leading-[1.3] font-normal">{product.title}</Link></li>
+                  ))
+                }
+                {/* <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
                   <ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Prestress</Link></li>
                 <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
                   <ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Hollow Core</Link></li>
@@ -44,7 +50,7 @@ const Footer = () => {
                 <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
                   <ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Steel Reinforcement</Link></li>
                 <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
-                  <ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Modular Prefeb</Link></li>
+                  <ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Modular Prefeb</Link></li> */}
               </ul>
             </div>
             <div className="group/box">

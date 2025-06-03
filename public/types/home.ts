@@ -22,7 +22,7 @@ export type home = {
     }
   ];
   products: {
-    title: string;
+    title: string; 
     items: [
       {
         title: string;

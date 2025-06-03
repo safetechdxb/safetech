@@ -16,7 +16,7 @@ const OurCompany = ({data}:{data:home}) => {
               <SubTitle titleText={data.aboutSection.title} color="text-secondary" />
             </div>
             <div className="text-20 font-normal text-secondary/75 leading-[1.3]" dangerouslySetInnerHTML={ {__html:data.aboutSection.description}} ></div>
-            <ArrowBtn btnText="About Us" btnLInk="#" border={true} />
+            <ArrowBtn btnText="About Us" btnLInk="/about" border={true} />
             <div className="pt-10 lg:pt-20">
               <div className="bg-secondary w-[261px] h-[40px] relative group">
                 <div className="absolute top-0 right-0 w-[80px] h-[40px] bg-white group ">
