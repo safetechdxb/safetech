@@ -1,3 +1,6 @@
+"use client"
+import {motion} from 'framer-motion';
+import { moveUp } from '../motionVarients';
 import React from 'react'
 import SubTitle from '../common/SubTitle'
 import { PrecastConcreteElement } from '@/types/PrecastConcreteElement'
@@ -14,7 +17,7 @@ export default function WallPanelsSec({data}: {data: PrecastConcreteElement}) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {
             data.secondSection.items.map((panel, index) => (
-              <div key={index}>
+              <motion.div variants={moveUp(index * 0.5)} initial="hidden" whileInView="show" viewport={{once:true, amount:0.2}} key={index}>
                 <div className='border-b border-secondary/45 pb-8 mb-8'>
                   <div className='bg-primary w-fit p-5 text-white'>
                     <h4 className='text-30 font-semibold leading-[1.3333]'>{(index+1).toString().padStart(2, '0')}</h4>
@@ -24,7 +27,7 @@ export default function WallPanelsSec({data}: {data: PrecastConcreteElement}) {
                   <h3 className='text-20 font-semibold leading-[1.3] mb-5'>{panel.title}</h3>
                   <p className='text-20 text-secondary/75 leading-[1.5] font-normal'>{panel.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))
           }
         </div>

@@ -1,3 +1,6 @@
+"use client"
+import {motion} from "framer-motion";
+import { moveUp } from "../motionVarients";
 import React from 'react'
 import SubTitle from '../common/SubTitle'
 import Image from 'next/image'
@@ -15,7 +18,7 @@ export default function ShortBnr({data}: {data: PrecastPrestressed}) {
           <div className="relative mb-10">
             <SubTitle titleText={data.secondSection.title} color='text-white' />
           </div>
-          <p className='text-20 font-normal leading-[1.5] text-off-white'>{data.secondSection.description}</p>
+          <motion.p variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{once:true, amount:0.2}} className='text-20 font-normal leading-[1.5] text-off-white'>{data.secondSection.description}</motion.p>
         </div>
       </div>
     </section>

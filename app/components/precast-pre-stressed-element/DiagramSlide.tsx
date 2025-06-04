@@ -1,4 +1,6 @@
 "use client";
+import {motion} from  "framer-motion";
+import { moveUp } from "../motionVarients";
 import { useRef } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 // import Swiper core and required modules
@@ -58,17 +60,18 @@ export default function DiagramSlide({data}:{data:PrecastPreStressedElement}) {
                           }, 100)
                         }}>
             {
-              data.thirdSection.items.map(item => (
+              data.thirdSection.items.map((item) => 
+                (
                 <SwiperSlide key={item.title}>
                   <div className='bg-white p-5 lg:py-20'>
                     <div className="flex gap-10 lg:gap-20 items-center">
-                      <div className='bg-exlight-gray p-32p flex flex-col h-full justify-between min-h-[328px] lg:w-3/7'>
+                      <motion.div className='bg-exlight-gray p-32p flex flex-col h-full justify-between min-h-[328px] lg:w-3/7'>
                         <Image src={item.image} alt={item.imageAlt} width={605} height={286}></Image>
                         <h3 className='text-secondary font-semibold text-20 leading-[1.6]'>{item.title}</h3>
-                      </div>
-                      <div className='lg:w-4/7'>
+                      </motion.div>
+                      <motion.div variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}  className='lg:w-4/7'>
                         <p className='text-20 text-secondary/75 leading-[1.6]'>{item.description}</p>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </SwiperSlide>

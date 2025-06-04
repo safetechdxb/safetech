@@ -1,4 +1,6 @@
 "use client"
+import { motion } from 'framer-motion';
+import { moveUp } from '../motionVarients';
 import Image from 'next/image'
 import React from 'react'
 import SubTitle from '../common/SubTitle'
@@ -18,7 +20,7 @@ export default function FacilitiesEquipmentSec({ data }: { data: About }) {
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
           {
             data.fourthSection.items.map((item, index) => (
-              <div className='group p-5 lg:p-8 bg-white hover:bg-primary trasition-all duration-300 hover:-translate-y-2 icon-crd' key={index}>
+              <motion.div variants={moveUp(index * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className='group p-5 lg:p-8 bg-white hover:bg-primary trasition-all duration-300 hover:-translate-y-2 icon-crd' key={index}>
                 <div className='border-b border-secondary/40 pb-10 group-hover:border-white trasition-all duration-300'>
                   <div className="bg-primary p-3 w-20 h-20 group-hover:bg-white trasition-all duration-300">
                     <Image src={item.logo} alt={item.title} width={100} height={100} className='w-full h-auto object-contain brightness-0 invert-100 group-hover:brightness-100 group-hover:invert-0' />
@@ -32,10 +34,10 @@ export default function FacilitiesEquipmentSec({ data }: { data: About }) {
                   <li className='flex items-start' key={index}><div className='min-w-6'><ChevronRight /></div><span className='text-20 font-normal leading-[1.5]' >{li}</span></li>
                 ))}
               </ul> */}
-                  
-                  <div className='arrow-list' dangerouslySetInnerHTML={{ __html: item.description }}/>
+
+                  <div className='arrow-list' dangerouslySetInnerHTML={{ __html: item.description }} />
                 </div>
-              </div>
+              </motion.div>
             ))
           }
         </div>

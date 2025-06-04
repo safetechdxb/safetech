@@ -16,7 +16,7 @@ const AccrSec = ({data}:{data:About}) => {
         <div className="flex flex-wrap gap-4 lg:gap-8 justify-between w-full">
           {data.accreditations.map((item,index)=>(
             <motion.div variants={moveUp(index * 0.3)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} key={index} className="group">
-              <Image src={item.logo} alt={item.logoAlt} width={106} height={104} className="w-[100px] lg:w-[106px] lg:h-[104px] object-contain grayscale-100 group-hover:grayscale-0" />
+              <Image src={item.logo} alt={item.logoAlt} width={200} height={200} className="w-[100px] lg:w-[106px] lg:h-[104px] object-contain grayscale-100 group-hover:grayscale-0" />
             </motion.div>
           ))}
         </div>

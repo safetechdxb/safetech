@@ -1,4 +1,6 @@
 "use client"
+import { motion } from 'framer-motion';
+import { moveUp } from '../motionVarients';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import Image from "next/image";
 import { useState } from "react";
@@ -6,7 +8,7 @@ import { facilitiesData } from "./data";
 import { home } from "@/public/types/home";
 import SubTitle from "../common/SubTitle";
 
-const Facilities = ({data}:{data:home}) => {
+const Facilities = ({ data }: { data: home }) => {
   const [activeTab, setActiveTab] = useState(data.facilities.items[0].title);
 
   // Filter data based on selected tab
@@ -20,7 +22,7 @@ const Facilities = ({data}:{data:home}) => {
         </div>
         <Tabs defaultValue="all" onValueChange={setActiveTab} value={activeTab}>
           <TabsList className="relative flex flex-wrap gap-4 lg:gap-0 gap-y-5 lg:flex-row rounded-none mb-10 lg:mb-20 bg-transparent justify-start p-0 h-auto">
-            {data.facilities.items.map((item,index) => (
+            {data.facilities.items.map((item, index) => (
               <TabsTrigger
                 key={index}
                 value={item.title}
@@ -35,22 +37,22 @@ const Facilities = ({data}:{data:home}) => {
           </TabsList>
 
           <TabsContent value={activeTab}>
-              {filteredData.map((item,index) => (
-            <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 lg:gap-15" key={index}>
-                <div key={index}>
-                  <Image src={item.image} alt={item.title} width={600} height={600} className="w-full "/>
-                </div>
-                <div className="text-white">
+            {filteredData.map((item, index) => (
+              <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 lg:gap-15" key={index}>
+                <motion.div variants={moveUp(index * 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }}>
+                  <Image src={item.image} alt={item.title} width={600} height={600} className="w-full " />
+                </motion.div>
+                <motion.div variants={moveUp(index * 0.3)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} className="text-white">
                   <h2 className="text-32 font-medium mb-6 lg:mb-10">{item.title}</h2>
-                  <div className="text-20 font-normal leading-1.3 facilities-sec" dangerouslySetInnerHTML={{__html:item.description}} ></div>
+                  <div className="text-20 font-normal leading-1.3 facilities-sec" dangerouslySetInnerHTML={{ __html: item.description }} ></div>
                   {/* <ul className="flex flex-col gap-3 mt-10">
                     <li className="flex items-center gap-4"><div className="bg-primary w-5 h-5 rounded-full flex items-center justify-center"><Check width={10} hanging={10}/></div> Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, quos!</li>
                     <li className="flex items-center gap-4"><div className="bg-primary w-5 h-5 rounded-full flex items-center justify-center"><Check width={10} hanging={10}/></div> Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, quos!</li>
                     <li className="flex items-center gap-4"><div className="bg-primary w-5 h-5 rounded-full flex items-center justify-center"><Check width={10} hanging={10}/></div> Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, quos!</li>
                   </ul> */}
-                </div>
-            </div>
-              ))}
+                </motion.div>
+              </div>
+            ))}
           </TabsContent>
         </Tabs>
       </div>

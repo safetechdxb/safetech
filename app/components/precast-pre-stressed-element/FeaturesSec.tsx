@@ -1,3 +1,6 @@
+"use client"
+import {motion} from "framer-motion";
+import { moveUp } from "../motionVarients";
 import React from 'react'
 import SubTitle from '../common/SubTitle'
 import Image from 'next/image'
@@ -19,11 +22,11 @@ export default function FeaturesSec({data}:{data:PrecastPreStressedElement}) {
         </div>
         <div className="grid grid-cols-1 md:grid-cos-2 lg:grid-cols-3 gap-5 lg:gap-10">
           {
-            data.secondSection.items.map(item => (
-              <div className='bg-primary p-32p text-white flex flex-col min-h-[251px]' key={item.title}>
+            data.secondSection.items.map((item,index) => (
+              <motion.div variants={moveUp(index *0.3)} initial="hidden" whileInView="show" className='bg-primary p-32p text-white flex flex-col min-h-[251px]' key={item.title}>
                 <h3 className='text-24 font-bold leading-[1.5]'>{item.title}</h3>
                 <p className='mt-auto leading-[1.5] text-20 font-normal'>{item.description}</p>
-              </div>
+              </motion.div>
             ))
           }
         </div>
