@@ -1,5 +1,6 @@
 "use client"
-import React from 'react'
+import {motion} from "framer-motion";
+import { moveUp } from "../motionVarients";
 import SubTitle from '../common/SubTitle'
 import Image from 'next/image'
 import ArrowBtn from '../common/ArrowBtn'
@@ -19,7 +20,7 @@ export default function ElementsList({data}: {data:PrecastPrestressed}) {
           </div>
        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {data.elementsSection.items.map((el,index) =>(
-          <div className='bg-white flex flex-col' key={index}>
+          <motion.div variants={moveUp(index * 0.3)} initial="hidden" whileInView="show" viewport={{once:true, amount:0.2}} className='bg-white flex flex-col' key={index}>
             <div className='h-[271px] overflow-hidden'>
               <Image src={el.image} alt={el.imageAlt} width={400} height={400} className='w-full h-full object-cover' />
             </div>
@@ -30,7 +31,7 @@ export default function ElementsList({data}: {data:PrecastPrestressed}) {
             <div className="mt-auto px-8 pb-8">
               <ArrowBtn btnText='Read more' btnLInk={`${pathname}/${el.slug}`} border={false} />
             </div>
-          </div>
+          </motion.div>
         ))}
        </div>
       </div>

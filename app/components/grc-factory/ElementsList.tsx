@@ -1,4 +1,6 @@
-import React from 'react'
+"use client"
+import {motion} from 'framer-motion';
+import { moveUp } from '../motionVarients';
 import SubTitle from '../common/SubTitle'
 import { GrcFactory } from '@/types/GrcFactory'
 import Image from 'next/image'
@@ -15,7 +17,7 @@ export default function ElementsList({data}: {data: GrcFactory}) {
        </div>
        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 2x:gap-10">
         {data.elementsSection.items.map((el,index) =>(
-          <div className='bg-white flex flex-col' key={index}>
+          <motion.div variants={moveUp(index * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className='bg-white flex flex-col' key={index}>
             <div className='h-[271px] overflow-hidden'>
               <Image src={el.image} alt={el.imageAlt} width={400} height={400} className='w-full h-full object-cover' />
             </div>
@@ -30,7 +32,7 @@ export default function ElementsList({data}: {data: GrcFactory}) {
                 )
               }
             </div>
-          </div>
+          </motion.div>
         ))}
        </div>
       </div>

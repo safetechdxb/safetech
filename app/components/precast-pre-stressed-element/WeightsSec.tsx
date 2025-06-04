@@ -1,4 +1,6 @@
-import React from 'react'
+"use client"
+import {motion} from "framer-motion"
+import { moveUp } from "../motionVarients"
 import SubTitle from '../common/SubTitle'
 import { PrecastPreStressedElement } from '@/types/PrecastPreStressedElement'
 
@@ -13,7 +15,7 @@ export default function WeightsSec({data}:{data:PrecastPreStressedElement}) {
           </div>  
           </div>
           <div className='lg:flex-7/12 bg-light-gray p-32p'>
-            <table className='w-full text-left'>
+            <motion.table variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{once:true, amount:0.2}} className='w-full text-left'>
               <thead >
                 <tr className='border-b border-gray-300 pb-3 grid grid-cols-2'>
                   <th className='text-20 font-semibold leading-[1.3]'>{data.forthSection.column1Title}</th>
@@ -23,15 +25,15 @@ export default function WeightsSec({data}:{data:PrecastPreStressedElement}) {
               <tbody>
                 {
                   data.forthSection.items.map((item,index) => (
-                    <tr key={index} className='border-b border-gray-300 py-3 grid grid-cols-2 w-full'>
+                    <motion.tr variants={moveUp(index * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={index} className='border-b border-gray-300 py-3 grid grid-cols-2 w-full'>
                       <td className='text-20 font-normal leading-[1.6] text-secondary/75'>{item.column1Value}</td>
                       <td className='text-20 font-normal leading-[1.6] text-secondary/75'>{item.column2Value}</td>
-                    </tr>
+                    </motion.tr>
                   ))
                 }
                 {/* <td></td> */}
               </tbody>
-            </table>
+            </motion.table>
           </div>
         </div>
       </div>

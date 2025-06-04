@@ -37,7 +37,7 @@ const navItems: NavItem[] = [
     label: 'News & Media',
     href: '/news',
     submenu: [
-      { id: 11, label: 'News & Events', href: '/news' },
+      { id: 11, label: 'News & Media', href: '/news' },
       { id: 12, label: 'Blog', href: '/blog' },
     ],
   },

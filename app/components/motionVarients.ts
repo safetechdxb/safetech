@@ -1,4 +1,11 @@
 // motionVariants.ts
+export const containerStagger = {
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
 export const moveUp = (delay: number = 0) => ({
   hidden: { opacity: 0, y: 50 },
   show: {
@@ -89,6 +96,44 @@ export const listUpMove = {
       staggerChildren: 0.2, // Controls the stagger effect (delay for each item)
       duration: 0.6,
       ease: "easeOut",
+    },
+  },
+};
+
+export const letterContainer = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.05, // a little more time between letters
+      ease: "easeOut",
+    },
+  },
+};
+
+export const letterItem = {
+  hidden: { y: "100%", opacity: 0 },
+  show: {
+    y: "0%",
+    opacity: 1,
+    transition: {
+      ease: "easeOut",
+      duration: 0.5,
+    },
+  },
+};
+
+
+export const letterItemTop = {
+  hidden: {
+    y: -40, // Start from top
+    opacity: 0,
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1], // cubic-bezier for a soft easeOut
     },
   },
 };

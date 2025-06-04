@@ -1,5 +1,6 @@
 "use client";
-
+import { motion } from 'framer-motion';
+import {letterContainer, letterItemTop, moveUp } from '../motionVarients';
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperClass } from "swiper";
@@ -31,15 +32,26 @@ const HeroSlider = ({data}:{data:home}) => {
               <Image src={slide.image} alt={slide.title} width={1500} height={1000} className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-secondary/75"/>
               <div className="relative z-10 h-full container mx-auto px-6 flex flex-col justify-end pb-20 sm:pb-25 2xl:pb-36 gap-8 text-white">
-                <h1 className="text-[2.5rem] lg:text-96 font-bold leading-[1.15] uppercase" dangerouslySetInnerHTML={{ __html: slide.title }}>
+                <motion.h1 className="text-[2.5rem] lg:text-96 font-bold leading-[1.15] uppercase" variants={letterContainer}
+                  initial="hidden"
+                  animate="show">
                   {/* {slide.title} */}
-                </h1>
-                <p className="max-w-xl text-sm md:text-22 text-gray-200 border-l-4 border-red-600 pl-4 lg:pl-8 leading-[1.3]"> {slide.description} </p>
+                  {slide.title.split("").map((char, index) => (
+                    <motion.span
+                      key={index}
+                      variants={letterItemTop}
+                      className="inline-block whitespace-pre"
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                  </motion.h1>
+                <motion.p variants={moveUp(0.2)} initial="hidden" animate="show" className="max-w-xl text-sm md:text-22 text-gray-200 border-l-4 border-red-600 pl-4 lg:pl-8 leading-[1.3]"> {slide.description} </motion.p>
               </div>
             </div>
           </SwiperSlide>
         ))}
-      </Swiper>
+      </Swiper> 
 
       {/* Custom Pagination */}
       <div className="absolute bottom-[5%] lg:bottom-[10%] z-20 w-full">

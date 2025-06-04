@@ -1,5 +1,6 @@
 "use client"
-
+import {motion} from "framer-motion";
+import {moveUp} from "../motionVarients";
 import React from 'react'
 import SubTitle from '../common/SubTitle'
 import Image from 'next/image'
@@ -17,9 +18,9 @@ export default function ElementsList({data}: {data: PrecastConcrete}) {
           <div className="relative mb-10">
             <SubTitle titleText={data.elementsSection.title} color='text-secondary' />
           </div>
-          <div className='leading-[1.5] font-normal text-20 text-secondary/75 max-w-4xl'>
+          <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show"  className='leading-[1.5] font-normal text-20 text-secondary/75 max-w-4xl'>
             {data.elementsSection.description}
-          </div>
+          </motion.div>
           {/* <p className='leading-[1.5] font-normal text-20 text-secondary/75 max-w-4xl'>
             At SAFETECH Precast Building Manufacturing LLC, we
             manufacture a wide range of high-quality precast concrete
@@ -29,7 +30,7 @@ export default function ElementsList({data}: {data: PrecastConcrete}) {
        </div>
        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {data.elementsSection.items.map((el, index) =>(
-          <div className='bg-white flex flex-col' key={index}>
+          <motion.div variants={moveUp(index * 0.5)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className='bg-white flex flex-col' key={index}>
             <div className='h-[271px] overflow-hidden'>
               <Image src={el.image} alt={el.imageAlt} width={400} height={400} className='w-full h-full object-cover' />
             </div>
@@ -41,11 +42,10 @@ export default function ElementsList({data}: {data: PrecastConcrete}) {
             {
               el.slug && (
               <ArrowBtn btnText='Read more' btnLInk={`${pathname}/${el.slug}`} border={false} />
-              
             )
           }
           </div>
-          </div>
+          </motion.div>
         ))}
        </div>
       </div>
