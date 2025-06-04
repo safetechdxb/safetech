@@ -20,7 +20,7 @@ export default function AccSec({ data }: { data: PrecastPreStressedElement }) {
             {data.thirdSection.items.map((da, index) => (
               <motion.div key={index}
                 className="group border-b first:border-t border-[#00000015] py-5  lg:py-[20px] xxl:py-[30px] group transition-all duration-300"
-                onMouseEnter={() => setActiveIndex(index)}
+                onClick={() => setActiveIndex(index)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: index * 0.1 }} >
 
