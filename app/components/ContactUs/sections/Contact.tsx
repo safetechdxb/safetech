@@ -13,9 +13,9 @@ const Contact  = ({ data }: { data: contactData }) => {
 
   return (
     <>
-      <section className="pt-[50px] md:pt-[70px] xl:pt-[140px]  overflow-hidden relative ">
+      <section className="pt-140  overflow-hidden relative ">
         <div className="container">
-          <div className="  mb-10 lg:mb-[94px]">
+          <div className="mb-10 2xl:mb-[94px]">
             <div className="relative tracking-[3px] max-w-[75ch]">
               <SubTitle titleText={data.title} color="text-black" />
             </div>
@@ -33,7 +33,7 @@ const Contact  = ({ data }: { data: contactData }) => {
       </section>
       <section className=" ">
         <div className="container">
-          <div className=" py-[20px] md:py-[70px] xl:py-[140px]  border-b border-secondary/60 ">
+          <div className="py-140 border-b border-secondary/60 ">
             <div>
               {/* {data.map((item, index) => (
                 <div key={index} className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 justify-center items-center">

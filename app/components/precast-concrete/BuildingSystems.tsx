@@ -32,8 +32,8 @@ export default function BuildingSystems({data}: {data: PrecastConcrete}) {
                     <Image src={item.logo} alt={item.logoAlt} width={100} height={100} className='w-full h-[50px] object-contain brightness-0 invert-100 group-hover:brightness-100 group-hover:invert-0' />
                   </div>
                 </div>
-                <div className='pt-10 group-hover:text-white trasition-all duration-300'>
-                  <h3 className='font-medium text-20 mb-5'>{item.title}</h3>
+                <div className='pt-5 2xl:pt-10 group-hover:text-white trasition-all duration-300'>
+                  <h3 className='font-medium text-20 mb-3 2xl:mb-5'>{item.title}</h3>
                   <p className='text-20 leading-[1.5] font-normal'>{item.description}</p>
                 </div>
               </motion.div>

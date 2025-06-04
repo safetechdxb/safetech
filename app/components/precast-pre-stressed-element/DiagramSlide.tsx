@@ -1,5 +1,5 @@
 "use client";
-import {motion} from  "framer-motion";
+import { motion } from "framer-motion";
 import { moveUp } from "../motionVarients";
 import { useRef } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,7 +12,7 @@ import SubTitle from '../common/SubTitle'
 import { NavigationOptions } from 'swiper/types';
 import { PrecastPreStressedElement } from '@/types/PrecastPreStressedElement'
 
-export default function DiagramSlide({data}:{data:PrecastPreStressedElement}) {
+export default function DiagramSlide({ data }: { data: PrecastPreStressedElement }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   return (
@@ -40,36 +40,36 @@ export default function DiagramSlide({data}:{data:PrecastPreStressedElement}) {
             modules={[Autoplay, Navigation, A11y]}
             autoplay={{ delay: 5000 }}
             speed={800}
-            loop 
+            loop
             navigation={{
               prevEl: prevRef.current,
               nextEl: nextRef.current,
             }}
             onSwiper={(swiper) => {
-                          // Link refs after initialization
-                          setTimeout(() => {
-                            if (prevRef.current && nextRef.current && swiper?.params?.navigation) {
-                              if (prevRef.current && nextRef.current) {
-                                (swiper.params.navigation as NavigationOptions).prevEl = prevRef.current;
-                                (swiper.params.navigation as NavigationOptions).nextEl = nextRef.current;
-                              }
-                              swiper.navigation.destroy()
-                              swiper.navigation.init()
-                              swiper.navigation.update()
-                            }
-                          }, 100)
-                        }}>
+              // Link refs after initialization
+              setTimeout(() => {
+                if (prevRef.current && nextRef.current && swiper?.params?.navigation) {
+                  if (prevRef.current && nextRef.current) {
+                    (swiper.params.navigation as NavigationOptions).prevEl = prevRef.current;
+                    (swiper.params.navigation as NavigationOptions).nextEl = nextRef.current;
+                  }
+                  swiper.navigation.destroy()
+                  swiper.navigation.init()
+                  swiper.navigation.update()
+                }
+              }, 100)
+            }}>
             {
-              data.thirdSection.items.map((item) => 
-                (
+              data.thirdSection.items.map((item) =>
+              (
                 <SwiperSlide key={item.title}>
                   <div className='bg-white p-5 lg:py-20'>
-                    <div className="flex gap-10 lg:gap-20 items-center">
-                      <motion.div className='bg-exlight-gray p-32p flex flex-col h-full justify-between min-h-[328px] lg:w-3/7'>
+                    <div className="flex flex-wrap xl:flex-nowrap gap-10 2xl:gap-20 items-center">
+                      <motion.div className='bg-exlight-gray p-32p flex flex-col gap-y-5 2xl:gap-y-0 h-full justify-between 2xl:min-h-[328px] lg:w-3/7'>
                         <Image src={item.image} alt={item.imageAlt} width={605} height={286}></Image>
                         <h3 className='text-secondary font-semibold text-20 leading-[1.6]'>{item.title}</h3>
                       </motion.div>
-                      <motion.div variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}  className='lg:w-4/7'>
+                      <motion.div variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className='lg:w-4/7'>
                         <p className='text-20 text-secondary/75 leading-[1.6]'>{item.description}</p>
                       </motion.div>
                     </div>

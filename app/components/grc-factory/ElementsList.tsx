@@ -10,11 +10,9 @@ export default function ElementsList({data}: {data: GrcFactory}) {
   return (
     <section className='py-140 bg-secondary'>
       <div className="container">
-       <div className="mb-20">
-          <div className="relative mb-10">
+          <div className="relative mb-8 2xl:mb-10">
             <SubTitle titleText={data.elementsSection.title} color='text-white' />
           </div>
-       </div>
        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 2x:gap-10">
         {data.elementsSection.items.map((el,index) =>(
           <motion.div variants={moveUp(index * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className='bg-white flex flex-col' key={index}>

@@ -14,7 +14,7 @@ export default function ElementsList({data}: {data: PrecastConcrete}) {
   return (
     <section className='py-140 bg-off-white '>
       <div className="container">
-       <div className="mb-20">
+       <div className="mb-10 2xl:mb-20">
           <div className="relative mb-10">
             <SubTitle titleText={data.elementsSection.title} color='text-secondary' />
           </div>

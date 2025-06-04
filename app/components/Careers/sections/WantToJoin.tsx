@@ -54,12 +54,12 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
     setFileName(file.name);
   };
   return (
-    <section className="py-[50px] md:py-[70px] xl:py-[140px]  overflow-hidden relative">
+    <section className="py-140 overflow-hidden relative">
       <div className="container">
-        <div className="relative tracking-[3px]   mb-3 lg:mb-[30px]">
+        <div className="relative tracking-[3px] mb-3 md:mb-5 lg:mb-30p">
           <SubTitle titleText={title} color="text-black" />
         </div>
-        <div className="mb-6 lg:mb-[60px]">
+        <div className="mb-6 lg:mb-15">
           <motion.div className="mb-6 lg:mb-[60px]" variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} >
             <p className="text-secondary text-20 font-normal leading-[1.6] opacity-90 max-w-[60ch]">
               {description}
