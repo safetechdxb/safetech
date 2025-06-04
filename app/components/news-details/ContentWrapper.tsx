@@ -17,7 +17,7 @@ const ContentWrapper = ({mainImg,mainImageAlt,mainDesc,galleryImgs}:Props) => {
     <div className="flex flex-col gap-10">
       {mainImg && (
         <motion.div variants={moveUp(0)} initial="hidden" animate="show" viewport={{ once: true, amount: 0.2 }}>
-          <Image src={mainImg} alt={mainImageAlt || ""} width={1920} height={1080} className="w-full h-auto object-cover" />
+          <Image src={mainImg} alt={mainImageAlt || ""} width={1920} height={1080} className="w-full h-[350px] lg:h-400 2xl:h-[614px] object-cover" />
         </motion.div>
       )}
       {
@@ -32,8 +32,8 @@ const ContentWrapper = ({mainImg,mainImageAlt,mainDesc,galleryImgs}:Props) => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-7 mt-4">
             {galleryImgs.map((img, index) => (
               <motion.div variants={moveUp(index * 0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={index}>
-              <Image  src={img} alt={`Gallery Image ${index + 1}`} width={1920} height={1080} className="w-full h-auto object-cover" />
-              </motion.div>
+              <Image  src={img} alt={`Gallery Image ${index + 1}`} width={1920} height={1080} className="w-full h-[277px] object-cover" />
+              </motion.div> 
             ))}
           </div>
         )
