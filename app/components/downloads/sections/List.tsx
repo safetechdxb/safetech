@@ -34,7 +34,7 @@ const List = ({ data }:{data:downloadsData}) => {
   };
 
   return (
-    <section className="py-[50px] md:py-[70px] xl:py-[140px] overflow-hidden relative">
+    <section className="py-140 overflow-hidden relative">
       <div className="container">
         <div>
           {!isMobile ? (

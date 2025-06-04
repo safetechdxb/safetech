@@ -6,7 +6,7 @@ const Footer = async() => {
   const response = await fetch(`${process.env.BASE_URL}/api/admin/home`, { next: { revalidate: 60 } });
   const data = await response.json();
   return (
-    <footer className="bg-secondary py-140 border-t-4 border-t-primary px-0">
+    <footer className="bg-secondary pt-140 border-t-4 border-t-primary px-0">
       <div className="container mx-auto py-4">
         <div className="lg:flex gap-4">
           <div className="flex flex-col w-full lg:w-1/3">
