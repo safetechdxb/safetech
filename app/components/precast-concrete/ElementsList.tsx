@@ -34,8 +34,8 @@ export default function ElementsList({data}: {data: PrecastConcrete}) {
             <div className='h-[271px] overflow-hidden'>
               <Image src={el.image} alt={el.imageAlt} width={400} height={400} className='w-full h-full object-cover' />
             </div>
-            <div className='px-8 pt-15'>
-              <h3 className='text-20 leading-[1.3] font-semibold text-black mb-5'>{el.title}</h3>
+            <div className='px-8 pt-10 2xl:pt-15'>
+              <h3 className='text-20 leading-[1.3] font-semibold text-black mb-3 2xl:mb-5'>{el.title}</h3>
               <p className='text-20 font-normal leading-[1.5] text-secondary/75'>{el.description}</p>
             </div>
               <div className="mt-auto px-8 pb-8">
