@@ -19,6 +19,7 @@ import {motion} from "framer-motion"
 import { moveLeft } from '../motionVarients';
 import { home } from '@/public/types/home';
 import { PrecastConcrete } from '@/types/PrecastConcrete';
+import { useParams } from 'next/navigation';
 
 // interface ProductSliderProps {
 //   mainTitle: string;
@@ -29,8 +30,9 @@ import { PrecastConcrete } from '@/types/PrecastConcrete';
 const ProductSlider = ({data}:{data:home | PrecastConcrete}) => {
   const prevRef = useRef(null)
   const nextRef = useRef(null)
+  const {elements} = useParams()
 
-  console.log(data)
+  console.log(elements)
   
 
   if(!('products' in data)){
@@ -38,7 +40,7 @@ const ProductSlider = ({data}:{data:home | PrecastConcrete}) => {
       <div className="container overflow-visible">
         <div className="flex flex-wrap align-center justify-between gap-y-4 lg:gap-0 mb-4 md:mb-8 2xl:mb-20">
           <div className="relative">
-            <SubTitle titleText={data.elementsSection.title} color="text-secondary" />
+            <SubTitle titleText="Related Elements" color="text-secondary" />
           </div>
           {/* Custom Nav Buttons */}
           <div className="flex" >
@@ -101,15 +103,19 @@ const ProductSlider = ({data}:{data:home | PrecastConcrete}) => {
           >
             {
               data.elementsSection.items.map((slide,index) => (
-                <SwiperSlide key={index}>
-                  <ProductSliderItem
-                    prdId={index}
-                    prdImg={slide.image}
-                    prdName={slide.title}
-                    prdDec={slide.description}
-                    prdLink={slide.slug ?? ""}
-                  />
-                </SwiperSlide>
+                slide.slug !== elements ? 
+                (
+                  <SwiperSlide key={index}>
+                    <ProductSliderItem
+                      prdId={index}
+                      prdImg={slide.image}
+                      prdName={slide.title}
+                      prdDec={slide.description}
+                      prdLink={slide.slug ?? ""}
+                    />
+                  </SwiperSlide>
+                ) : null
+                
               ))
             }
           </Swiper>

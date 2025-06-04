@@ -26,7 +26,7 @@ const SingleImageText = ({data}:{data:careers}) => {
            
               <motion.div className="hidden first:block" variants={slideInLeft} initial="hidden" animate="visible" exit="exit">
                 <figure className="image-wrapper h-full ">
-                  <Image src={data.firstSection.image} alt="A beautiful view" className="w-full object-cover " width={400} height={400} />
+                <Image src={data.firstSection.image} alt="A beautiful view" className="w-full h-[300px] md:h-[350px] xl:h-full object-left-top object-cover " width={400} height={400} />
                 </figure>
                
               </motion.div>

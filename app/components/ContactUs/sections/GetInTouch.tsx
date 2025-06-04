@@ -22,7 +22,7 @@ const GetInTouch: React.FC<PlatformsSectionProps> = ({
   description,
 }) => {
   return (
-    <section className="py-[50px] md:py-[70px] xl:py-[140px]  overflow-hidden relative" id="enq-form">
+    <section className="py-140 overflow-hidden relative" id="enq-form">
       <div className="container">
         <div className="relative tracking-[3px]   mb-3 lg:mb-[30px]">
           <SubTitle titleText={title} color="text-black" />

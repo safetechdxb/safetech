@@ -11,13 +11,13 @@ export default function Benifits({data}: {data: PrecastConcrete}) {
   return (
    <section className="py-140 bg-exlight-gray">
     <div className="container">
-        <div className="lg:flex ">
+        <div className="flex flex-wrap gap-4 md:gap-y-8">
           <motion.div variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="relative w-full lg:w-[51%] pr-0 lg:pr-[35px] 2xl:pr-[142px]">
 
-            <div className="" >
-              <figure className="image-wrapper h-full ">
-                <Image src={data.fourthSection.items[activeIndex].image} alt={data.fourthSection.items[activeIndex].imageAlt} width={400} height={400} className="w-full object-cover " priority />
-              </figure>
+            <div className="">
+              <div className="image-wrapper">
+                <Image src={data.fourthSection.items[activeIndex].image} alt={data.fourthSection.items[activeIndex].imageAlt} width={400} height={400} className="w-full h-[400px] 2xl:h-full object-cover" />
+              </div>
 
             </div>
 

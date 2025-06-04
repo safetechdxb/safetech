@@ -253,6 +253,7 @@
   @theme inline {
     /* --text-20: clamp(0.9rem, 1rem + 0.25vw, 1.2rem); */
     --text-24: clamp(1rem, 0.75rem + 1.5vw, 20px);
+    --text-32: clamp(1.3rem, 1.5rem + 0.5vw, 25px);
   }
 }
 

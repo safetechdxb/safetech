@@ -3,20 +3,36 @@ import React from 'react'
 import Image from 'next/image'
 import SubTitle from '../common/SubTitle'
 import { motion, AnimatePresence } from "framer-motion"
-import { moveUp,paragraphItem } from '../motionVarients'
+import { moveUp, paragraphItem } from '../motionVarients'
 import { useState } from 'react'
 import { GrcFactory } from '@/types/GrcFactory'
 
-export default function AccSec({data}: {data: GrcFactory}) {
-   const [activeIndex, setActiveIndex] = useState(0);
+export default function AccSec({ data }: { data: GrcFactory }) {
+  const [activeIndex, setActiveIndex] = useState(0);
   return (
-   <section className="py-140 bg-exlight-gray">
-    <div className="container">
-            <div className="relative tracking-[3px] mb-10 lg:mb-20 lg:max-w-3xl">
-              <SubTitle titleText={data.thirdSection.title} color="text-black" />
+    <section className="py-140 bg-exlight-gray">
+      <div className="container">
+        <div className="relative tracking-[3px] mb-10 lg:mb-20 lg:max-w-3xl">
+          <SubTitle titleText={data.thirdSection.title} color="text-black" />
+        </div>
+        <div className="flex flex-wrap lg:flex-nowrap gap-y-15 xl:gap-10 2xl:gap-15">
+          <motion.div variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="relative lg:order-2 w-full lg:w-3/7">
+
+            <div className="" >
+              <figure className="image-wrapper h-full ">
+                <Image src={data.thirdSection.items[activeIndex].image} alt={data.thirdSection.items[activeIndex].imageAlt} width={1000} height={600} 
+                className="w-full h-[250px] md:h-[300px] 2xl:h-full object-cover" />
+              </figure>
             </div>
-        <div className="flex flex-wrap lg:flex-nowrap gap-y-10 2xl:gap-15">
-          <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="w-full lg:w-4/7 ">
+
+            <div className="absolute bottom-[-40px] left-0">
+              <div className="w-10 h-20 bg-white relative z-20 group">
+                <div className="w-10 h-10 bg-black absolute top-0 left-0 "></div>
+                <div className="w-10 h-10 bg-primary absolute top-0 left-0 group-hover:top-[50%] transition-all duration-200"></div>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div variants={paragraphItem} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="w-full lg:order-1 lg:w-4/7 ">
             {data.thirdSection.items.map((da, index) => (
               <motion.div
                 key={index}
@@ -44,23 +60,9 @@ export default function AccSec({data}: {data: GrcFactory}) {
               </motion.div>
             ))}
           </motion.div>
-          <motion.div variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="relative w-full lg:w-3/7">
 
-            <div className="" >
-              <figure className="image-wrapper h-full ">
-                <Image src={data.thirdSection.items[activeIndex].image} alt={data.thirdSection.items[activeIndex].imageAlt} className="w-full object-cover" width={600} height={600} priority />
-              </figure>
-            </div>
-
-            <div className="absolute bottom-[-40px] left-0">
-              <div className="w-10 h-20 bg-white relative z-20 group">
-                <div className="w-10 h-10 bg-black absolute top-0 left-0 "></div>
-                <div className="w-10 h-10 bg-primary absolute top-0 left-0 group-hover:top-[50%] transition-all duration-200"></div>
-              </div>
-            </div>
-          </motion.div>
         </div>
-    </div>
-   </section>
+      </div>
+    </section>
   )
 }

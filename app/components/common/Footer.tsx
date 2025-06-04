@@ -102,9 +102,9 @@ const Footer = async() => {
         <div className="container">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-white/50">2025 Safetech. All Rights reserved</p>
-            <ul className="flex gap-4">
-              <li><Link href="#" className="border-r border-white/10 text-white/50 last:border-none">Privacy policy</Link></li>
-              <li><Link href="#" className="border-r border-white/10 text-white/50 last:border-none">Terms of use</Link></li>
+            <ul className="flex ">
+              <li className="border-r border-white/50 pr-4 last:border-none"><Link href="#" className="text-white/50 block">Privacy policy</Link></li>
+              <li className="border-r border-white/50 pl-4 last:border-none"><Link href="#" className="text-white/50 block">Terms of use</Link></li>
             </ul>
           </div>
         </div>
