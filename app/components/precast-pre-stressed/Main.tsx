@@ -11,7 +11,7 @@ const Main = ({data}: {data: PrecastPrestressed}) => {
         <div className="flex flex-wrap lg:flex-nowrap gap-13 md:gap-18 2xl:gap-20 items-center">
           <motion.div variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="w-full lg:w-1/2 ">
             <div className="relative">
-              <Image src={data.firstSection.image} alt={data.firstSection.imageAlt} width={400} height={400} className="w-full h-[300px] lg:h-[350px] 2xl:h-full object-cover"></Image>
+              <Image src={data.firstSection.image} alt={data.firstSection.imageAlt} width={400} height={400} className="w-full h-[250px] lg:h-[350px] 2xl:h-full object-cover"></Image>
               <div className="absolute bottom-[-40px] left-0">
                 <div className="w-10 h-20 bg-white relative z-20 group">
                   <div className="w-10 h-10 bg-black absolute bottom-0 left-0 "></div>
