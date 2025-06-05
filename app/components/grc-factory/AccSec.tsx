@@ -25,7 +25,7 @@ export default function AccSec({ data }: { data: GrcFactory }) {
               </figure>
             </div>
 
-            <div className="absolute bottom-[-40px] left-0">
+            <div className="absolute bottom-[-40px] right-0">
               <div className="w-10 h-20 bg-white relative z-20 group">
                 <div className="w-10 h-10 bg-black absolute top-0 left-0 "></div>
                 <div className="w-10 h-10 bg-primary absolute top-0 left-0 group-hover:top-[50%] transition-all duration-200"></div>

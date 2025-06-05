@@ -34,7 +34,7 @@ const GetInTouch: React.FC<PlatformsSectionProps> = ({
         </div>
 
         {/* Reusable animation wrapper for fields */}
-
+        <form>
         <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-x-4 lg:gap-x-[140px] mb-4 lg:mb-7 gap-y-4 lg:gap-y-[30px] " >
           <div className="relative w-full ">
             <input type="text" placeholder="Name"
@@ -54,14 +54,14 @@ const GetInTouch: React.FC<PlatformsSectionProps> = ({
           </div>
         </motion.div>
         <motion.div
-          className="grid grid-cols-1 gap-x-4 lg:gap-x-6 xxl:gap-x-10 gap-y-4 lg:gap-y-[30px] " >
+          className="" >
           <div className="relative w-full ">
             <textarea placeholder="Message" className="px-1 appearance-none bg-transparent lg:h-[178px]
              border-0 border-b border-secondary focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 font-normal text-16 
              py-[16px] pr-6 w-full resize-none"/>
           </div>
-          <motion.div className="w-full ">
-            <motion.button className="mt-2 flex w-[215px] cursor-pointer overflow-hidden group transition duration-300 ml-auto">
+          <div className="w-full ">
+            <button type="submit" className="mt-2 flex w-[215px] cursor-pointer overflow-hidden group transition duration-300 ml-auto">
               <div className="bg-primary text-white text-[16px] font-[400] px-2 py-4 transition duration-300 min-w-[165px]"> Send message </div>
               <div className="flex min-w-[100px] overflow-hidden">
                 <div className="bg-black w-[50px] text-white text-[16px] font-[400] px-4 py-4 flex items-center justify-center transition duration-300 transform group-hover:-translate-x-[50px]">
@@ -71,10 +71,10 @@ const GetInTouch: React.FC<PlatformsSectionProps> = ({
                   <Image src={assets.arrowwhite} alt="arrow" width={16} height={16} />
                 </div>
               </div>
-            </motion.button>
-
-          </motion.div>
+            </button>
+          </div>
         </motion.div>
+        </form>
       </div>
     </section>
   );

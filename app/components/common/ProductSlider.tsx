@@ -110,7 +110,6 @@ const ProductSlider = ({data}:{data:home | PrecastConcrete}) => {
                       prdId={index}
                       prdImg={slide.image}
                       prdName={slide.title}
-                      prdDec={slide.description}
                       prdLink={slide.slug ?? ""}
                     />
                   </SwiperSlide>

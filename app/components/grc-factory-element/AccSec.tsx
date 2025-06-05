@@ -22,7 +22,7 @@ export default function AccSec({ data }: { data: PrecastPreStressedElement }) {
                 className="group border-b first:border-t border-[#00000015] py-5  lg:py-[20px] xxl:py-[30px] group transition-all duration-300"
                 onClick={() => setActiveIndex(index)} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: index * 0.1 }} >
                 <div className="flex justify-between">
-                  <h3 className={`text-20 lg:leading-[1] transition-all duration-300 cursor-pointer group-hover:text-primary group-hover:font-[600] lg:mb-0
+                  <h3 className={`text-20 font-semibold lg:leading-[1] transition-all duration-300 cursor-pointer group-hover:text-primary lg:mb-0
                     ${activeIndex === index ? 'text-primary font-[600]' : 'text-secondary font-[400] '} `}> {da.title}
                   </h3>
                   
