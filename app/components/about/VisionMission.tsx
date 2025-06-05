@@ -15,7 +15,7 @@ const VisionMission = ({data}:{data:About}) => {
                     <Image src={data.secondSection.vision.logo} alt="" width={400} height={400} className="w-full h-full" />
                   </div>
                   <div className="">
-                    <h2 className="text-32 leading-[1] font-semibold text-black uppercase mb-5 group-hover:text-white">Vission</h2>
+                    <h2 className="text-32 leading-[1] font-semibold text-black uppercase mb-5 group-hover:text-white">Our Vision</h2>
                     <p className="text-20 leading-[1.3] font-normal text-secondary group-hover:text-white">{data.secondSection.vision.description}</p>
                   </div>
                 </div>

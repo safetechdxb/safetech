@@ -28,7 +28,7 @@ const navItems: NavItem[] = [
       { id: 3, label: 'Precast Concrete', href: '/products/precast-concrete' },
       { id: 4, label: 'Precast Prestressed', href: '/products/precast-prestressed' },
       { id: 5, label: 'GRC Factory', href: '/products/grc-factory' },
-      { id: 6, label: 'Bathroom Pod', href: '/products/bathroom-pod' }
+      { id: 6, label: 'Bathroom Pod', href: '#' }
     ],
   },
   { label: 'Gallery', href: '/gallery' },

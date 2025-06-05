@@ -12,7 +12,7 @@ export default function WallPanelsSec({data}: {data: PrecastConcreteElement}) {
           <div className="relative mb-10">
             <SubTitle titleText={data.secondSection.title} color="text-secondary" />
           </div>
-          <p className=" max-w-4xl">{data.secondSection.description}</p>
+          <p className="max-w-5xl text-20 leading-[1.5] font-normal text-secondary/75">{data.secondSection.description}</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {
