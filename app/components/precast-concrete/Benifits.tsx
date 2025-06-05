@@ -11,7 +11,7 @@ export default function Benifits({data}: {data: PrecastConcrete}) {
   return (
    <section className="py-140 bg-exlight-gray">
     <div className="container">
-        <div className="flex flex-wrap gap-4 md:gap-y-8">
+        <div className="flex flex-wrap xl:flex-nowrap gap-4 md:gap-y-8">
           <motion.div variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="relative w-full lg:w-[51%] pr-0 lg:pr-[35px] 2xl:pr-[142px]">
 
             <div className="">
@@ -44,7 +44,8 @@ export default function Benifits({data}: {data: PrecastConcrete}) {
               >
 
                 <div className="flex justify-between">
-                  <h3 className={`text-20 leading-[1] transition-all duration-300 cursor-pointer group-hover:text-primary group-hover:font-[600] ${activeIndex === index ? 'text-primary font-[600]' : 'text-secondary font-[400] '} `}> {da.title}
+                  <h3 className={`text-20 leading-[1] transition-all duration-300 cursor-pointer group-hover:text-primary group-hover:font-[600]
+                     ${activeIndex === index ? 'text-primary font-[600]' : 'text-secondary font-[400] '} `}> {da.title}
                   </h3>
                   {/* {
                     activeIndex === index ? (

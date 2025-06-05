@@ -18,9 +18,9 @@ export default function AccSec({ data }: { data: GrcFactory }) {
         <div className="flex flex-wrap lg:flex-nowrap gap-y-15 xl:gap-10 2xl:gap-15">
           <motion.div variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="relative lg:order-2 w-full lg:w-3/7">
 
-            <div className="" >
-              <figure className="image-wrapper h-full ">
-                <Image src={data.thirdSection.items[activeIndex].image} alt={data.thirdSection.items[activeIndex].imageAlt} width={1000} height={600} 
+            <div className="">
+              <figure className="image-wrapper ">
+                <Image src={data.thirdSection.items[activeIndex].image} alt={data.thirdSection.items[activeIndex].imageAlt} width={1000} height={1000} 
                 className="w-full h-[250px] md:h-[300px] 2xl:h-full object-cover" />
               </figure>
             </div>
