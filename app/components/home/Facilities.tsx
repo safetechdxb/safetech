@@ -39,10 +39,10 @@ const Facilities = ({ data }: { data: home }) => {
           <TabsContent value={activeTab}>
             {filteredData.map((item, index) => (
               <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 lg:gap-15" key={index}>
-                <motion.div variants={moveUp(index * 0.2)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }}>
+                <motion.div variants={moveUp(index * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
                   <Image src={item.image} alt={item.title} width={600} height={600} className="w-full " />
                 </motion.div>
-                <motion.div variants={moveUp(index * 0.3)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} className="text-white">
+                <motion.div variants={moveUp(index * 0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="text-white">
                   <h2 className="text-32 font-medium mb-6 lg:mb-10">{item.title}</h2>
                   <div className="text-20 font-normal leading-1.3 facilities-sec" dangerouslySetInnerHTML={{ __html: item.description }} ></div>
                   {/* <ul className="flex flex-col gap-3 mt-10">
