@@ -19,6 +19,8 @@ const HeroSlider = ({data}:{data:home}) => {
       <Swiper
         modules={[Autoplay]}
         autoplay={{ delay: 5000 }}
+        slidesPerView={1}
+        spaceBetween={0}
         loop
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
@@ -54,6 +56,8 @@ const HeroSlider = ({data}:{data:home}) => {
       </Swiper> 
 
       {/* Custom Pagination */}
+      {data.banners.length > 1 && (
+
       <div className="absolute bottom-[5%] lg:bottom-[10%] z-20 w-full">
         <div className="container">
           <div className="flex gap-3 justify-end">
@@ -64,6 +68,8 @@ const HeroSlider = ({data}:{data:home}) => {
           </div>
         </div>
       </div>
+      )}
+
     </section>
   );
 };

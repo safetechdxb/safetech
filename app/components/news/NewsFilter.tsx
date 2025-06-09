@@ -51,14 +51,14 @@ const NewsFilter = ({data}: {data: News}) => {
           <div className="container">
             <TabsList className="relative flex flex-wrap gap-4 lg:gap-0 gap-y-5 lg:flex-row rounded-none mb-10 lg:mb-20 bg-transparent justify-start p-0 h-auto group-tab">
             <TabsTrigger value="all"
-                  className={`relative group cursor-pointer text-secondary hover:text-primary capitalize text-left w-fit lg:w-auto lg:text-center px-0 lg:px-8 py-0 
+                  className={`relative group cursor-pointer text-secondary hover:text-primary uppercase text-left w-fit lg:w-auto lg:text-center px-0 lg:px-8 py-0 
                    rounded-none data-[state=active]:shadow-none data-[state=active]:text-primary first:pl-0 leading-[1] lg:border-r`}>
                   All
                   <div className="hidden lg:flex absolute w-full h-[2px] group-data-[state=active]:bg-primary bottom-[-18px] left-0 z-20"></div>
                 </TabsTrigger>
               {data.categories.map((cat,index) => (
                 <TabsTrigger key={index} value={cat.name}
-                  className={`relative group cursor-pointer text-secondary hover:text-primary capitalize text-left w-fit lg:w-auto lg:text-center px-0 lg:px-8 py-0 
+                  className={`relative group cursor-pointer text-secondary hover:text-primary uppercase text-left w-fit lg:w-auto lg:text-center px-0 lg:px-8 py-0 
                    rounded-none data-[state=active]:shadow-none data-[state=active]:text-primary first:pl-0 leading-[1] ${index === data.categories.length - 1 ? "lg:border-0" : "lg:border-r"}`}>
                   {cat.name}
                   <div className="hidden lg:flex absolute w-full h-[2px] group-data-[state=active]:bg-primary bottom-[-18px] left-0 z-20"></div>
@@ -74,7 +74,10 @@ const NewsFilter = ({data}: {data: News}) => {
               <NewsBlock latestNews={filteredItems} />
             </div>
           </section>
-          <PreviousNews previousNews={previousItems} />
+          { previousItems.length > 0 &&(
+            <PreviousNews previousNews={previousItems} />
+
+          )}
         </TabsContent>
       </Tabs>
     </>

@@ -100,7 +100,7 @@ export default function HeaderMenu() {
             <motion.nav key="menu" initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }} transition={{ type: 'tween' }} className="fixed top-0 left-0 bottom-0 w-72 bg-black
              shadow-lg z-50 p-6 overflow-y-auto" >
               <div className="flex justify-between items-center mb-6">
-                <Link href={"/"} > <Image src={assets.logo} alt="" />  </Link>
+                <Link href={"/"} > <Image src={assets.logo} alt="" width={100} height={100} className='object-fit-contain brightness-0 invert-100' />  </Link>
                 <button onClick={() => setIsOpen(false)} aria-label="Close menu" >
                   <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
