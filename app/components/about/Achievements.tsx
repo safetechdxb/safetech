@@ -18,7 +18,7 @@ const Achievements = ({data}:{data:About}) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] mt-[60px]">
            {
             data.thirdSection.items.map((item,index)=>(
-              <motion.div variants={moveUp(index * 0.3)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} key={index} className="bg-primary p-8 flex flex-col gap-[86px]">
+              <motion.div variants={moveUp(index * 0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={index} className="bg-primary p-8 flex flex-col gap-[86px]">
                 <div className="flex justify-between items-center">
                   <h3 className="text-64 font-bold leading-[1] text-white">{item.number}</h3>
                   <Image src={item.logo} alt={item.logoAlt} width={50} height={50} className="w-auto h-[50px] object-contain" />
