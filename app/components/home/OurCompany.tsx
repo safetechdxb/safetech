@@ -10,7 +10,7 @@ const OurCompany = ({data}:{data:home}) => {
     <section className="my-140">
       <div className="container">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-[4em] lg:gap-15 2xl:gap-y-0">
-          <motion.div className="flex flex-col 2xl:pr-15 order-2 xl:order-1" variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }} >
+          <motion.div className="flex flex-col 2xl:pr-15 order-2 xl:order-1" variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once:true, amount: 0.2 }} >
             <div className="flex align-center gap-[3em] relative mb-6 md:mb-10 2xl:mb-20">
               <SubTitle titleText={data.aboutSection.title} color="text-secondary" />
             </div>
@@ -65,7 +65,7 @@ const OurCompany = ({data}:{data:home}) => {
             </div>
           </motion.div>
           <motion.div className="flex-col lg:h-[15em] xl:h-full order-1 xl:order-2 hidden xl:flex" 
-          variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.2 }}>
+          variants={moveUp(0.3)} initial="hidden" whileInView="show" viewport={{ once:true, amount: 0.2 }}>
             <div className="relative h-full">
               <div className="absolute top-[-40px] left-0 w-[40px] h-[80px] bg-white group">
                 <div className="w-[40px] h-[40px] bg-secondary "></div>

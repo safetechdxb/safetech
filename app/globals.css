@@ -97,6 +97,12 @@
   --section-gap: clamp(60px, 8.5vw + 0.05rem, 140px);
   --section-gap-sm: clamp(40px, 7vw + 1rem, 118px);
 
+  --text-20: clamp(0.9rem, 1rem + 0.25vw, 20px);
+  /* ~20px */
+  --text-24: clamp(1rem, 0.75rem + 1.5vw, 24px);
+  /* ~24px */
+  --text-32: clamp(1.8rem, 1.5rem + 0.5vw, 32px);
+  /* ~32px */
 }
 
 
@@ -122,15 +128,15 @@
   /* ~14px */
   --text-18: clamp(0.8rem, 0.9rem + 0.25vw, 1.125rem);
   /* ~18px */
-  --text-20: clamp(0.9rem, 1rem + 0.25vw, 1.25rem);
+  --text-20: var(--text-20);
   /* ~20px */
   --text-22: clamp(0.95rem, 1.1rem + 0.3vw, 1.375rem);
   /* ~22px */
-  --text-24: clamp(1rem, 0.75rem + 1.5vw, 1.5rem);
+  --text-24: var(--text-24);
   /* ~24px */
   --text-30: clamp(1.5rem, 1.5rem + 0.45vw, 1.875rem);
   /* ~30px */
-  --text-32: clamp(1.8rem, 1.5rem + 0.5vw, 2rem);
+  --text-32: var(--text-32);
   /* ~32px */
   --text-48: clamp(2rem, 1.5rem + 2vw, 48px);
   /* ~48px */
@@ -249,12 +255,11 @@
 @media (max-width: 1280px) {
   :root {
     --section-gap: clamp(60px, 5vw + 0.05rem, 100px);
-  }
-  @theme inline {
-    /* --text-20: clamp(0.9rem, 1rem + 0.25vw, 1.2rem); */
+    --text-20: clamp(0.9rem, 1rem + 0.25vw, 1.2rem);
     --text-24: clamp(1rem, 0.75rem + 1.5vw, 20px);
     --text-32: clamp(1.3rem, 1.5rem + 0.5vw, 25px);
   }
+
 }
 
 .container {
