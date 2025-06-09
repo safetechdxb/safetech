@@ -18,7 +18,7 @@ export default function ElementsList({data}: {data: PrecastConcrete}) {
           <div className="relative mb-10">
             <SubTitle titleText={data.elementsSection.title} color='text-secondary' />
           </div>
-          <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show"  className='leading-[1.5] font-normal text-20 text-secondary/75 max-w-4xl'>
+          <motion.div variants={moveUp(0.5)} initial="hidden" whileInView="show" viewport={{once:true,amount:0.2}} className='leading-[1.5] font-normal text-20 text-secondary/75 max-w-4xl'>
             {data.elementsSection.description}
           </motion.div>
           {/* <p className='leading-[1.5] font-normal text-20 text-secondary/75 max-w-4xl'>
