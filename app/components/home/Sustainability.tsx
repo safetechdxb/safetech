@@ -2,7 +2,7 @@
 import { assets } from "@/public/assets/assets";
 import SubTitle from "../common/SubTitle";
 // import Image from "next/image";
-import ArrowBtn from "../common/ArrowBtn";
+// import ArrowBtn from "../common/ArrowBtn";
 import {motion} from "framer-motion";
 import {moveUp} from "../motionVarients"
 import { About } from "@/public/types/about";
