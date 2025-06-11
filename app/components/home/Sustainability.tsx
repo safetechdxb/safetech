@@ -37,9 +37,9 @@ const Sustainability = ({data}:{data:About}) => {
               <p className="text-white/80 text-24 leading-[1.3]">Innovate for long-lasting sustainability.</p>
             </li>
           </motion.ul> */}
-          <motion.div className="brightness-[0] invert opacity-80" variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} >
+          {/* <motion.div className="brightness-[0] invert opacity-80" variants={moveUp(0.6)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} >
             <ArrowBtn btnText="More About Sustainability" btnLInk="#" border={true} />
-          </motion.div>
+          </motion.div> */}
           </div>
         </div>
     </section>
