@@ -152,7 +152,7 @@ const PrecastConcretePageElements = () => {
                                                 </div>
                                                 </Label>
                                             <Input type='text' placeholder='Product Slug' {...register("slug", { required: "Slug is required",pattern: {
-                            value: /^[a-z0-9]+(-[a-z0-9]+)*$/,
+                            value: /^[a-z0-9#]+(-[a-z0-9#]+)*$/,
                             message: "Slug must contain only lowercase letters, numbers, and hyphens (no spaces)"
                           } })} />
                                             {errors.slug && <p className='text-red-500'>{errors.slug.message}</p>}
