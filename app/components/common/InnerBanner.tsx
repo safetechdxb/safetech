@@ -5,7 +5,7 @@ import Image from "next/image";
 import { StaticImageData } from "next/image";
 import { assets } from "@/public/assets/assets";
 import moment from "moment";
-import Breadcrumb from "./BreadCrumb";
+// import Breadcrumb from "./BreadCrumb";
 
 interface InnerBannerProps {
   pageTitle: string;
