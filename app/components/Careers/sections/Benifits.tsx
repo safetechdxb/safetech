@@ -13,13 +13,7 @@ import { careers } from "@/public/types/careers";
 
 
 const Benifits  = ({data}:{data:careers}) => {
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
+  
 
   return (
     <section className="py-140 bg-secondary overflow-hidden relative">
@@ -27,11 +21,11 @@ const Benifits  = ({data}:{data:careers}) => {
         <div className="relative tracking-[3px]   mb-3 lg:mb-[30px]">
           <SubTitle titleText={data.secondSection.title} color="text-white" />
         </div>
-        <motion.div className="mb-6 lg:mb-[60px]" variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} >
+        <div className="mb-6 lg:mb-[60px]">
           <p className="text-white text-20 font-normal leading-[1.6] opacity-90 max-w-[60ch]">
             {data.secondSection.description}
           </p>
-        </motion.div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {data.secondSection.items.map((item,index) => (
             <motion.div key={index} variants={moveUp(index * 0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }}  
