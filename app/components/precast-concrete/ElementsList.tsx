@@ -30,7 +30,7 @@ export default function ElementsList({data}: {data: PrecastConcrete}) {
        </div>
        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {data.elementsSection.items.map((el, index) =>(
-          <motion.div variants={moveUp(index * 0.5)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className='bg-white flex flex-col' key={index}>
+          <motion.div variants={moveUp(index * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className='bg-white flex flex-col' key={index}>
             <div className='h-[271px] overflow-hidden'>
               <Image src={el.image} alt={el.imageAlt} width={400} height={400} className='w-full h-full object-cover' />
             </div>
@@ -39,11 +39,11 @@ export default function ElementsList({data}: {data: PrecastConcrete}) {
               <p className='text-20 font-normal leading-[1.5] text-secondary/75'>{el.description}</p>
             </div>
               <div className="mt-auto px-8 pb-8">
-            {
-              el.slug && (
-              <ArrowBtn btnText='Read more' btnLInk={`${pathname}/${el.slug}`} border={false} />
-            )
-          }
+              {
+                el.slug && el.slug !== "#" && (
+                  <ArrowBtn btnText="Read more" btnLInk={`${pathname}/${el.slug}`} border={false} />
+                )
+              }
           </div>
           </motion.div>
         ))}
