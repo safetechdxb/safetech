@@ -104,11 +104,12 @@ const List = ({ data }:PlatformsSectionProps) => {
             <div>
               <div className="grid grid-cols-4 gap-4 lg:gap-[60px]">
                 {filteredData.map((item, index) => (
-                  <motion.div variants={moveUp(index * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={index} className={`relative h-[250px]  md:h-[200px] xl:h-[355px] group ${(index % 9) == 0 ? 'col-span-2' : 'col-span-1'}`}>
-                    <Image key={index} src={item.image} alt={`Image ${index}`} className={`w-full h-full object-cover `} width={600} height={600}/>
-                    <div className="absolute left-0 bottom-10 w-0 overflow-hidden transition-all duration-200 bg-primary group-hover:w-[75%]">
+                  <motion.div variants={moveUp(index * 0.1)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={index}
+                   className={`relative h-[250px]  md:h-[200px] xl:h-[355px] group overflow-hidden ${(index % 9) == 0 ? 'col-span-2' : 'col-span-1'}`}>
+                    <Image key={index} src={item.image} alt={`Image ${index}`} className="w-full h-full object-cover hover:scale-110 transition-all duration-300" width={600} height={600}/>
+                    {/* <div className="absolute left-0 bottom-10 w-0 overflow-hidden transition-all duration-200 bg-primary group-hover:w-[75%]">
                       <h3 className="text-white font-semibold text-18 min-w-max leading-[1] uppercase p-8 mb-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200">{item.title}</h3>
-                    </div>
+                    </div> */}
                   </motion.div>
                 ))}
               </div>
