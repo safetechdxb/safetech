@@ -5,7 +5,7 @@ import Image from "next/image";
 import { StaticImageData } from "next/image";
 import { assets } from "@/public/assets/assets";
 import moment from "moment";
-// import Breadcrumb from "./BreadCrumb";
+import Breadcrumb from "./BreadCrumb";
 
 interface InnerBannerProps {
   pageTitle: string;
@@ -52,7 +52,7 @@ const InnerBanner = ({ pageTitle, bannerBg, isBlogDetails, category, date, isDet
             <li className="flex items-center gap-4 text-15 leading-[1.2] font-normal group">Precast Wall panels <span className="group-last:hidden"><svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 1.64667L5.94949 6.45378L1 11.3533" stroke="#E11F27" strokeWidth="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" /></svg></span></li>
           </ul> */}
-          {/* <Breadcrumb/> */}
+          <Breadcrumb/>
           {isBlogDetails && (
             <div className="flex items-center gap-8 text-white text-16 font-medium">
               <div className="flex items-center gap-2">
