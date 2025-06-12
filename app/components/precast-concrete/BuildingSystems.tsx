@@ -26,7 +26,7 @@ export default function BuildingSystems({data}: {data: PrecastConcrete}) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
           {
             data.thirdSection.items.map((item, index) => (
-              <motion.div variants={moveUp(index * 0.5)} initial="hidden" whileInView="show" viewport={{once:true, amount:0.2}} className='group p-5 lg:p-30p bg-white hover:bg-primary trasition-all duration-300 hover:-translate-y-2' key={index}>
+              <motion.div variants={moveUp(index * 0.2)} initial="hidden" whileInView="show" viewport={{once:true, amount:0.2}} className='group p-5 lg:p-30p bg-white hover:bg-primary trasition-all duration-300 hover:-translate-y-2' key={index}>
                 <div className='border-b border-secondary/40 pb-10 group-hover:border-white trasition-all duration-300'>
                   <div className="bg-primary p-3 w-20 h-20 group-hover:bg-white trasition-all duration-300 overflow-hidden">
                     <Image src={item.logo} alt={item.logoAlt} width={100} height={100} className='w-full h-[50px] object-contain brightness-0 invert-100 group-hover:brightness-100 group-hover:invert-0' />

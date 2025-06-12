@@ -33,14 +33,14 @@ const navItems: NavItem[] = [
   },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Careers', href: '/careers' },
-  {
-    label: 'News & Media',
-    href: '/news',
-    submenu: [
-      { id: 11, label: 'News & Media', href: '/news' },
-      { id: 12, label: 'Blog', href: '/blog' },
-    ],
-  },
+  // {
+  //   label: 'News & Media',
+  //   href: '/news',
+  //   submenu: [
+  //     { id: 11, label: 'News & Media', href: '/news' },
+  //     { id: 12, label: 'Blog', href: '/blog' },
+  //   ],
+  // },
   { label: 'Contact Us', href: '/contact-us' },
   { label: 'Downloads', href: '/downloads' },
 ];

@@ -25,8 +25,14 @@ const Footer = async() => {
             <div className="group/box">
               <h3 className="text-white text-18 font-bold uppercase mb-8 group-hover/box:text-primary">Connect</h3>
               <ul className="flex flex-col gap-2 lg:gap-4">
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="contact-us" className="text-16 leading-[1.3] font-normal">Call Us</Link></li>
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="contact-us/#enq-form" className="text-16 leading-[1.3] font-normal">Enquiry Form</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group">
+                  <span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight />
+                  </span><Link href="contact-us" className="text-16 leading-[1.3] font-normal">Contact Us</Link>
+                </li>
+                {/* <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group">
+                  <span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight />
+                  </span><Link href="contact-us/#enq-form" className="text-16 leading-[1.3] font-normal">Enquiry Form</Link>
+                </li> */}
               </ul>
             </div>
 
@@ -85,7 +91,7 @@ const Footer = async() => {
                   <ul className="flex border-1 border-primary w-fit">
                     <li className="border-r border-primary last:border-0 flex justify-center items-center w-10 h-10 hover:bg-primary transition-all duration-200"><Link href="#">
                     <Image src={assets.facebook} alt="Facebook" width={12} height={16.62} className="flex w-full h-[13px] object-contain 2xl:w-auto" /></Link></li>
-                    <li className="border-r border-primary last:border-0 flex justify-center items-center w-10 h-10 hover:bg-primary transition-all duration-200"><Link href="#">
+                  <li className="border-r border-primary last:border-0 flex justify-center items-center w-10 h-10 hover:bg-primary transition-all duration-200"><Link href="https://www.linkedin.com/company/safetech-precast-building-manufacturing-llc">
                     <Image src={assets.linkedin} alt="LinkedIn" width={12} height={15.71} className="flex w-full h-[13px] object-contain 2xl:w-auto" /></Link></li>
                     <li className="border-r border-primary last:border-0 flex justify-center items-center w-10 h-10 hover:bg-primary transition-all duration-200"><Link href="#">
                     <Image src={assets.instagram} alt="Instagram" width={14} height={14} className="flex w-full h-[13px] object-contain 2xl:w-auto" /></Link></li>
