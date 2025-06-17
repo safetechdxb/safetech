@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { PrecastPreStressedElement } from '@/types/PrecastPreStressedElement'
 
 export default function DigSec({ data }: { data: PrecastPreStressedElement }) {
+  
   return (
     <section className='py-140'>
       <div className="container ">

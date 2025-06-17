@@ -14,21 +14,21 @@ const OurClients = ({data}:{data:home}) => {
         <div className="flex justify-center lg:justify-between gap-2 gap-y-6 md:gap-4 2xl:gap-6 flex-wrap items-center ">
           {data.clients.items.slice(0, 6).map((client,index) => (
             <motion.div variants={fadeIn(index * 0.1)} initial="hidden" whileInView="show" viewport={{once:true, amount:0.2}} key={index} className='flex justify-center items-center '>
-              <Image src={client.image} alt={client.imageAlt} className='object-contain w-20 h-5 lg:w-30 lg:h-10 2xl:h-auto 2xl:w-auto' height={40} width={30} />
+              <Image src={client.image} alt={client.imageAlt} className='object-contain w-20 h-5 lg:w-30 lg:h-10 2xl:h-auto 2xl:w-auto grayscale-100 group-hover:grayscale-0' height={40} width={30} />
             </motion.div>
           ))}
         </div>
         <div className="flex justify-center lg:justify-around gap-2 gap-y-6 md:gap-4 2xl:gap-6 flex-wrap items-center mt-15">
           {data.clients.items.slice(6, 11).map((client,index) => (
             <motion.div variants={fadeIn(index * 0.1)} initial="hidden" whileInView="show" viewport={{once:true, amount:0.2}} key={index} className='flex justify-center items-center '>
-              <Image src={client.image} alt={client.imageAlt} className='object-contain w-20 h-5 lg:w-30 lg:h-10 2xl:h-auto 2xl:w-auto' height={30} width={30} />
+              <Image src={client.image} alt={client.imageAlt} className='object-contain w-20 h-5 lg:w-30 lg:h-10 2xl:h-auto 2xl:w-auto grayscale-100 group-hover:grayscale-0' height={30} width={30} />
             </motion.div>
           ))}
         </div>
         <div className="flex justify-center lg:justify-between gap-2 gap-y-6 md:gap-4 2xl:gap-6 flex-wrap items-center mt-15">
           {data.clients.items.slice(11, 17).map((client,index) => (
             <motion.div variants={fadeIn(index * 0.1)} initial="hidden" whileInView="show" viewport={{once:true, amount:0.2}} key={index} className='flex justify-center items-center '>
-              <Image src={client.image} alt={client.imageAlt} className='object-contain w-20 h-5 lg:w-30 lg:h-10 2xl:h-auto 2xl:w-auto' height={40} width={30} />
+              <Image src={client.image} alt={client.imageAlt} className='object-contain w-20 h-5 lg:w-30 lg:h-10 2xl:h-auto 2xl:w-auto grayscale-100 group-hover:grayscale-0' height={40} width={30} />
             </motion.div>
           ))}
         </div>
