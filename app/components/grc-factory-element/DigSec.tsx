@@ -7,6 +7,9 @@ import { PrecastPreStressedElement } from '@/types/PrecastPreStressedElement'
 
 export default function DigSec({ data }: { data: PrecastPreStressedElement }) {
   
+
+  if(data.forthSectionStyle === "none") return null;
+  
   return (
     <section className='py-140'>
       <div className="container ">

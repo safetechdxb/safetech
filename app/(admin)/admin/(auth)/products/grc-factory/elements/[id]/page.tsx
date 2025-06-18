@@ -441,6 +441,9 @@ const GrcFactoryPageElements = () => {
                                         <SelectItem value="with-image">
                                             With image
                                         </SelectItem>
+                                        <SelectItem value="none">
+                                            None
+                                        </SelectItem>
                                 </SelectContent>
                             </Select>
                         )}
@@ -556,7 +559,7 @@ const GrcFactoryPageElements = () => {
                     </div>
                     </div>
                 ) : (
-                null
+                watch("forthSectionStyle") === "none" ? <div>This section will be hidden</div> : null
                 ))}
 
 
