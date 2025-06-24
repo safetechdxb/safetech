@@ -39,7 +39,7 @@ export default function KeyAdvSec() {
                 className={`transition-opacity duration-500 ease-in-out ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none h-0 overflow-hidden"
                   }`} >
                 <div className='border-b border-white/45 pb-8 mb-8'>
-                  <div className='bg-primary w-fit p-5 text-white'>
+                  <div className='bg-primary py-2 lg:py-[10px] text-white w-15 h-15 lg:w-20 lg:h-20 flex items-center justify-center'>
                     {safePodsData.thirdSection.items[index].image ? <Image src={safePodsData.thirdSection.items[index].image} alt={safePodsData.thirdSection.items[index].imageAlt} width={50} height={50} className="w-auto h-[50px] object-contain" /> : <h4 className='text-30 font-semibold leading-[1.3333]'>{(index + 1).toString().padStart(2, '0')}</h4>}
                   </div>
                 </div>

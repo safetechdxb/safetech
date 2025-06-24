@@ -105,7 +105,7 @@ const CarouselTypeTwo = ({ title, items }: CarouselTypeTwoProps) => {
           {
             items.map((slide, index) => {
                 const isActive = index === activeIndex;
-              return <SwiperSlide key={index} className={` transition-all duration-300 ease-in-out ${index === activeIndex ? 'w-[300px] min-w-[300px]' : 'w-[250px] min-w-[250px]'} `}
+              return <SwiperSlide key={index} className={` transition-all duration-700 ease-in-out ${index === activeIndex ? 'w-[300px] min-w-[300px]' : 'w-[250px] min-w-[250px]'} `}
                 onMouseEnter={() => {
                   if (index !== activeIndex) setIsHovering(true);
                 }}
