@@ -102,65 +102,65 @@ export const safePodsData = {
         title: "The Pod Walls",
         image: assets.productionprocess2,
         imageAlt: "The Pod Walls",
-        description: "Precisely engineered walls with integrated MEP systems, ensuring airtight, energy-efficient, and durable construction.",
+        description: "A durable, precisely engineered foundation ensuring structural stability and seamless integration with modular units.",
       },
       {
         title: "The Pod Walls",
         image: assets.productionprocess3,
         imageAlt: "The Pod Walls",
-        description: "Precisely engineered walls with integrated MEP systems, ensuring airtight, energy-efficient, and durable construction.",
+        description: "A durable, precisely engineered foundation ensuring structural stability and seamless integration with modular units.",
       },
       {
         title: "The Pod Ceiling",
         image: assets.productionprocess4,
         imageAlt: "The Pod Ceiling",
-        description: "Precisely engineered walls with integrated MEP systems, ensuring airtight, energy-efficient, and durable construction.",
+        description: "A durable, precisely engineered foundation ensuring structural stability and seamless integration with modular units.",
       },
       {
         title: "Pod Assembly",
         image: assets.productionprocess5,
         imageAlt: "Pod Assembly",
-        description: "Precisely engineered walls with integrated MEP systems, ensuring airtight, energy-efficient, and durable construction.",
+        description: "A durable, precisely engineered foundation ensuring structural stability and seamless integration with modular units.",
       },
       {
         title: "Pod Waterproofing",
         image: assets.productionprocess6,
         imageAlt: "Pod Waterproofing",
-        description: "Precisely engineered walls with integrated MEP systems, ensuring airtight, energy-efficient, and durable construction.",
+        description: "A durable, precisely engineered foundation ensuring structural stability and seamless integration with modular units.",
       },
       {
         title: "Electro Mechanical",
         image: assets.productionprocess7,
         imageAlt: "Electro Mechanical",
-        description: "Precisely engineered walls with integrated MEP systems, ensuring airtight, energy-efficient, and durable construction.",
+        description: "A durable, precisely engineered foundation ensuring structural stability and seamless integration with modular units.",
       },
       {
         title: "Final Inspection",
         image: assets.productionprocess8,
         imageAlt: "Final Inspection",
-        description: "Precisely engineered walls with integrated MEP systems, ensuring airtight, energy-efficient, and durable construction.",
+        description: "A durable, precisely engineered foundation ensuring structural stability and seamless integration with modular units.",
       },
     ],
   },
-  galleryData:{
-    title:"Gallery",
-    items:[
+  galleryData: {
+    title: "Gallery",
+    items: [
       {
-        image:assets.safepodgimg1,
-        imageAlt:"safepodgimg1",
+        image: assets.safepodgimg1,
+        imageAlt: "safepodgimg1",
       },
       {
-        image:assets.safepodgimg2,
-        imageAlt:"safepodgimg2",
+        image: assets.safepodgimg2,
+        imageAlt: "safepodgimg2",
       },
       {
-        image:assets.safepodgimg3,
-        imageAlt:"safepodgimg3",
+        image: assets.safepodgimg3,
+        imageAlt: "safepodgimg3",
       },
       {
-        image:assets.safepodgimg4,
-        imageAlt:"safepodgimg4",
+        image: assets.safepodgimg4,
+        imageAlt: "safepodgimg4",
       },
-    ]
-  }
+    ],
+  },
 };
