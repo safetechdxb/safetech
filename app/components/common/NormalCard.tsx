@@ -1,13 +1,17 @@
+"use client"
 import Image from "next/image";
 import { StaticImageData } from "next/image";
+import { motion } from "framer-motion";
+import { moveUp } from "../motionVarients";
 interface NormalCardProps {
     image: string | StaticImageData;
     title: string;
     description: string;
+    key:number
 }
-const NormalCard = ({ image, title, description }: NormalCardProps) => {
+const NormalCard = ({ image, title, description,key }: NormalCardProps) => {
   return ( 
-    <div className="group">
+    <motion.div variants={moveUp(key*0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="group">
       <div className="overflow-hidden">
         <Image src={image} alt={title} width={400} height={400} className="w-full h-[250px] md:h-[350px] 2xl:h-full object-cover flex group-hover:scale-105 transition-all duration-300 ease-in-out"/>
       </div>
@@ -15,7 +19,7 @@ const NormalCard = ({ image, title, description }: NormalCardProps) => {
         <h2 className="text-24 font-semibold leading-[1.3]">{title}</h2>
         <p className="text-20 font-normal leading-[1.5]">{description}</p>
       </div>
-    </div>
+    </motion.div>
    );
 }
  
