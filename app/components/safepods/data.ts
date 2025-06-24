@@ -81,6 +81,12 @@ export const safePodsData = {
         image: assets.safepodAdvIcon6,
         imageAlt: "safepodAdvIcon6",
       },
+      {
+        title: "test",
+        description: "The bathrooms are normally one of the rooms that requires most attention, and from up to 6 or 8 different trades, so a lot less labor, coordination and supervision on site is required.",
+        image: assets.safepodAdvIcon6,
+        imageAlt: "safepodAdvIcon6",
+      },
     ],
   },
   carouselData: {
