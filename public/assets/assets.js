@@ -69,7 +69,29 @@ import phone from './img/icons/phone.svg';
 import email from './img/icons/email.svg';
 import precastBenifitsImg from './img/precast-concrete/benifitsimg.jpg'
 import shortBnrBg from './img/precast-pre-stressed/short-bnr-bg.jpg';
-
+import safePodsBanner from './img/products/safepods/safepod-bnr.jpg';
+import safePodsMain from './img/products/safepods/safepod-main.jpg';
+import bathroomPods from './img/products/safepods/modular-solutions/bathroom-pods.jpg';
+import kitchenPods from './img/products/safepods/modular-solutions/kitchen-pods.jpg';
+import multiUsePods from './img/products/safepods/modular-solutions/multi-use-pods.jpg';
+import safepodAdvIcon1 from './img/products/safepods/key-advs/icon1.svg';
+import safepodAdvIcon2 from './img/products/safepods/key-advs/icon2.svg';
+import safepodAdvIcon3 from './img/products/safepods/key-advs/icon3.svg';
+import safepodAdvIcon4 from './img/products/safepods/key-advs/icon4.svg';
+import safepodAdvIcon5 from './img/products/safepods/key-advs/icon5.svg';
+import safepodAdvIcon6 from './img/products/safepods/key-advs/icon6.svg';
+import productionprocess1 from './img/products/safepods/production-process/prdpro1.jpg';
+import productionprocess2 from './img/products/safepods/production-process/prdpro2.jpg';
+import productionprocess3 from './img/products/safepods/production-process/prdpro3.jpg';
+import productionprocess4 from './img/products/safepods/production-process/prdpro4.jpg';
+import productionprocess5 from './img/products/safepods/production-process/prdpro5.jpg';
+import productionprocess6 from './img/products/safepods/production-process/prdpro6.jpg';
+import productionprocess7 from './img/products/safepods/production-process/prdpro7.jpg';
+import productionprocess8 from './img/products/safepods/production-process/prdpro8.jpg';
+import safepodgimg1 from './img/products/safepods/gallery/gal1.jpg';
+import safepodgimg2 from './img/products/safepods/gallery/gal2.jpg';
+import safepodgimg3 from './img/products/safepods/gallery/gal3.jpg';
+import safepodgimg4 from './img/products/safepods/gallery/gal4.jpg';
 
 export const assets = {
     location,
@@ -142,6 +164,28 @@ export const assets = {
     calenderPrimary,
     sharePrimary,
     precastBenifitsImg,
-    shortBnrBg
-
+    shortBnrBg,
+    safePodsBanner,
+    safePodsMain,
+    bathroomPods,
+    kitchenPods,
+    multiUsePods,
+    safepodAdvIcon1,
+    safepodAdvIcon2,
+    safepodAdvIcon3,
+    safepodAdvIcon4,
+    safepodAdvIcon5,
+    safepodAdvIcon6,
+    productionprocess1,
+    productionprocess2,
+    productionprocess3,
+    productionprocess4,
+    productionprocess5,
+    productionprocess6,
+    productionprocess7,
+    productionprocess8,
+    safepodgimg1,
+    safepodgimg2,
+    safepodgimg3,
+    safepodgimg4,
 }
