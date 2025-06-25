@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from 'react'
+import { useRef, useState, useLayoutEffect } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 // import Swiper core and required modules
 import { Navigation, A11y } from 'swiper/modules';
@@ -33,16 +33,42 @@ interface CarouselTypeTwoProps {
 const CarouselTypeTwo = ({ title, items }: CarouselTypeTwoProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const prevRef = useRef(null)
   const nextRef = useRef(null)
+  const activeSlideRef = useRef<HTMLDivElement>(null);
+  const [activeSlideWidth, setActiveSlideWidth] = useState(0);
+  const prevActiveIndex = useRef(-1);
   const { elements } = useParams()
 
   console.log(elements)
 
+
+  useLayoutEffect(() => {
+    const measure = () => {
+      if (activeSlideRef.current) {
+        const width = activeSlideRef.current.offsetWidth;
+
+        // Only update width if activeIndex has changed
+        if (prevActiveIndex.current !== activeIndex) {
+          prevActiveIndex.current = activeIndex;
+          setActiveSlideWidth(width + 20);
+        }
+      }
+    };
+
+    // Initial measure and on activeIndex change
+    measure();
+
+    // Also update width on window resize
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [activeIndex]);
+
   return (
     <div className="container overflow-visible">
-      <div className="flex flex-wrap align-center justify-between gap-y-4 lg:gap-0 mb-4 md:mb-8 2xl:mb-20">
-        <div className="relative mb-8 lg:mb-10 xl:mb-20">
+      <div className="flex flex-wrap align-center justify-between gap-y-4 lg:gap-0 mb-8 md:mb-10 2xl:mb-20">
+        <div className="relative ">
           <SubTitle titleText={title} color="text-secondary" />
         </div>
         {/* Custom Nav Buttons */}
@@ -104,15 +130,23 @@ const CarouselTypeTwo = ({ title, items }: CarouselTypeTwoProps) => {
         >
           {
             items.map((slide, index) => {
-                const isActive = index === activeIndex;
+              // const isActive = index === activeIndex;
               return <SwiperSlide key={index} className={` transition-all duration-700 ease-in-out ${index === activeIndex ? 'w-[300px] min-w-[300px]' : 'w-[250px] min-w-[250px]'} `}
                 onMouseEnter={() => {
                   if (index !== activeIndex) setIsHovering(true);
                 }}
                 onMouseLeave={() => setIsHovering(false)}
               >
-                <CarouselTypeTwoItem image={slide.image} imageAlt={slide.imageAlt} title={slide.title} description={slide.description} isActive={index === activeIndex}
-                 hideDesc={isActive && isHovering} />
+                <CarouselTypeTwoItem image={slide.image} imageAlt={slide.imageAlt} title={slide.title} description={slide.description}
+                  isActive={index === activeIndex}
+                  hideDesc={hoveredIndex !== null && hoveredIndex !== index}
+                  isHovered={hoveredIndex === index}
+                  setHoveredIndex={setHoveredIndex}
+                  index={index}
+                  activeSlideWidth={activeSlideWidth}
+
+                  activeSlideRef={index === activeIndex ? activeSlideRef : undefined}
+                />
               </SwiperSlide>
             })
           }
