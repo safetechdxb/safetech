@@ -32,27 +32,27 @@ const [selectedProduct, setSelectedProduct] = useState<string>("")
 
   return (
     <div className='flex flex-col h-3/4 justify-between'>
-    <div className='grid grid-cols-4 gap-4  h-1/2'>
+    <div className='grid grid-cols-4 gap-4  h-1/2 mb-5'>
         <div className='col-span-1'>
-            <div className='flex justify-between items-center border p-4 hover:shadow-md cursor-pointer rounded-lg' onClick={() => handleSelectProduct("precast-concrete")}>
+            <div className='flex justify-between items-center border p-4 hover:shadow-md cursor-pointer rounded-lg bg-white' onClick={() => handleSelectProduct("precast-concrete")}>
                 <h4>Precast concrete</h4>
                 <Link href='/admin/products/precast-concrete'><CiLogin /></Link>
             </div>
         </div>
         <div className='col-span-1'>
-        <div className='flex justify-between items-center border p-4 hover:shadow-md cursor-pointer rounded-lg' onClick={() => handleSelectProduct("precast-prestressed")}>
+        <div className='flex justify-between items-center border p-4 hover:shadow-md cursor-pointer rounded-lg bg-white' onClick={() => handleSelectProduct("precast-prestressed")}>
                 <h4>Precast prestressed</h4>
                 <Link href='/admin/products/precast-prestressed'><CiLogin /></Link>
             </div>
         </div>
         <div className='col-span-1'>
-        <div className='flex justify-between items-center border p-4 hover:shadow-md cursor-pointer rounded-lg' onClick={() => handleSelectProduct("grc-factory")}>
+        <div className='flex justify-between items-center border p-4 hover:shadow-md cursor-pointer rounded-lg bg-white' onClick={() => handleSelectProduct("grc-factory")}>
                 <h4>GRC factory</h4>
                 <Link href='/admin/products/grc-factory'><CiLogin /></Link>
             </div>
         </div>
         <div className='col-span-1'>
-        <div className='flex justify-between items-center border p-4 hover:shadow-md cursor-pointer rounded-lg' onClick={() => handleSelectProduct("bathroom-pod")}>
+        <div className='flex justify-between items-center border p-4 hover:shadow-md cursor-pointer rounded-lg bg-white' onClick={() => handleSelectProduct("bathroom-pod")}>
                 <h4>Bathroom pode</h4>
                 <Link href='/admin/products/bathroom-pod'><CiLogin /></Link>
             </div>
@@ -65,7 +65,7 @@ const [selectedProduct, setSelectedProduct] = useState<string>("")
         {!loading && selectedProduct && elemList.length === 0 && <h3>No elements found for this product</h3>}
         {!loading && elemList.length > 0 && <div className='grid grid-cols-4 gap-4'>
             {elemList.map((item) => (
-                <div key={item._id} className='flex flex-col gap-2 items-center border p-4 hover:shadow-md cursor-pointer rounded-lg'>
+                <div key={item._id} className='flex flex-col gap-2 items-center border p-4 hover:shadow-md cursor-pointer rounded-lg bg-white'>
                     <Image src={item.image} alt={item.title} width={300} height={300}/>
                     <div className='flex justify-between items-center w-full'>
                     <h4>{item.title}</h4>

@@ -14,10 +14,11 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import Link from 'next/link';
-import { Label } from '@radix-ui/react-label';
+import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { ImageUploader } from '@/components/ui/image-uploader';
 import { FilesIcon } from 'lucide-react';
+import AdminItemContainer from '@/app/components/AdminInnerContainer/AdminItemContainer';
 
 
 
@@ -151,9 +152,10 @@ const AdminResources = () => {
 
     return (
         <div className='flex flex-col gap-4'>
-            <div className="h-fit w-full p-2 border-2 border-gray-300 rounded-md mt-5">
+            <AdminItemContainer>
+            <div className="h-fit w-full p-5 border-gray-300 rounded-md mt-5">
                                   <div className="flex justify-between border-b-2 pb-2">
-                                      <Label className="text-sm font-bold">Intro / Meta Section</Label>
+                                      <Label generalSection>Intro / Meta Section</Label>
                                       <Button onClick={submitMetaSection}>Save</Button>
                                   </div>
                                   <div className="mt-2 grid grid-cols-1 gap-2  h-fit">
@@ -179,8 +181,10 @@ const AdminResources = () => {
                                       </div>
                                   </div>
                               </div>
-            <div className='flex justify-between items-center'>
-                <h1 className='text-lg font-semibold'>Resources</h1>
+                              </AdminItemContainer>
+                              <AdminItemContainer>
+            <div className='flex justify-between items-center p-5'>
+                <Label generalSection>Resources</Label>
                 <Dialog>
                         <DialogTrigger className='bg-primary text-white px-2 py-1 rounded-md' onClick={()=>setCategory("")}>Add Category</DialogTrigger>
                         <DialogContent>
@@ -195,6 +199,7 @@ const AdminResources = () => {
 
                     </Dialog>
             </div>
+            <div className='p-5 flex flex-col gap-2'>
             {categoryList.map((item)=>(
                 <div className='flex justify-between items-center border rounded-md p-4 hover:bg-gray-100  hover:shadow-md transform  transition-all' key={item._id}>
                 <div>
@@ -237,6 +242,8 @@ const AdminResources = () => {
                 </div>
             </div>
             ))}
+            </div>
+            </AdminItemContainer>
         </div>
     )
 }

@@ -1,12 +1,13 @@
 "use client"
 
 import { ImageUploader } from '@/components/ui/image-uploader';
-import { Label } from '@radix-ui/react-label';
+import { Label } from '@/components/ui/label';
 import React, { useEffect } from 'react'
 import { useForm,useFieldArray, Controller } from "react-hook-form";
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import AdminItemContainer from '@/app/components/AdminInnerContainer/AdminItemContainer';
 
 interface Certifications {
     pageTitle: string;
@@ -70,35 +71,41 @@ const AdminCertifications = () => {
     <div className='flex flex-col gap-5'>
         <div className="h-fit w-full">
                                           
-                                          <div className=" grid grid-cols-1 gap-2  h-fit">
+                                          <div className=" grid grid-cols-2 gap-2  h-fit">
+                                            <div className='flex flex-col gap-2'>
                                             <div>
-                                              <Label>Banner</Label>
+                                              <Label oneInput>Banner</Label>
                                               <ImageUploader onChange={(url)=>setValue("banner",url)} value={watch("banner")}/>
                                             </div>
                                             <div>
-                                                  <Label>Banner Alt</Label>
+                                                  <Label oneInput>Banner Alt</Label>
                                                   <Input type="text" {...register("bannerAlt")}/>
                                               </div>
+                                              </div>
+                                              <div className='flex flex-col gap-2'>
                                               <div>
-                                                  <Label>Page Title</Label>
+                                                  <Label oneInput>Page Title</Label>
                                                   <Input type="text" {...register("pageTitle",{required:"Page title is required"})}/>
                                               </div>
                                               <div>
-                                                  <Label>Meta title</Label>
+                                                  <Label oneInput>Meta title</Label>
                                                   <Input type="text" {...register("metaTitle")}/>
                                               </div>
                                               <div>
-                                                  <Label>Meta Description</Label>
+                                                  <Label oneInput>Meta Description</Label>
                                                   <Input type="text" {...register("metaDescription")}/>
+                                              </div>
                                               </div>
                                           </div>
                                       </div>
-        <h1 className='text-lg font-semibold'>Certifications</h1>
-        <div className='border-2 p-2 rounded-md flex flex-col gap-5'>
+
+                                <AdminItemContainer>    
+        <Label main>Certifications</Label>
+        <div className='p-5 rounded-md flex flex-col gap-5'>
 
 
                     {fields.map((field, index) => (
-                        <div key={field.id} className='grid grid-cols-2 gap-2 relative border p-2 rounded-md'>
+                        <div key={field.id} className='grid grid-cols-2 gap-2 relative border-b pb-5 last:border-b-0'>
                             <div className='absolute top-2 right-2'>
                                 <RiDeleteBinLine onClick={() => remove(index)} className='cursor-pointer text-red-600' />
                             </div>
@@ -118,7 +125,10 @@ const AdminCertifications = () => {
                                     />
                                     {errors.certifications?.[index]?.image && <p className='text-red-500'>{errors.certifications?.[index]?.image.message}</p>}
                                 </div>
-                                <div className='flex flex-col gap-2'>
+                                
+                            </div>
+                            <div className='flex flex-col gap-2'>
+                            <div className='flex flex-col gap-2'>
                                     <Label className='pl-3 font-bold'>Alt Tag</Label>
                                     <Input type='text' placeholder='Alt Tag' {...register(`certifications.${index}.imageAlt`)} />
                                 </div>
@@ -131,13 +141,14 @@ const AdminCertifications = () => {
                         </div>
                     ))}
 
-                    <div>
-                        <Button type='button' className="w-full cursor-pointer" onClick={() => append({ image: "", imageAlt: "", title: "" })}>Add Item</Button>
+                    <div className='flex justify-end'>
+                        <Button type='button' className="cursor-pointer" addItem onClick={() => append({ image: "", imageAlt: "", title: "" })}>Add Item</Button>
                     </div>
 
                 </div>
+                </AdminItemContainer>  
 
-                <Button type='submit' onClick={handleSubmit(onSubmit)} className='w-fit mx-auto'>Submit</Button>
+                <Button type='submit' onClick={handleSubmit(onSubmit)} className='w-full mx-auto cursor-pointer'>Submit</Button>
     </div>
   )
 }

@@ -15,9 +15,10 @@ interface ImageUploaderProps {
   deleteAfterUpload?: boolean;
   removeIcon?: boolean
   handleRemovePlaceHolder?:()=>void
+  isLogo?: boolean
 }
 
-export function ImageUploader({ value, onChange, className, deleteAfterUpload = false, removeIcon,handleRemovePlaceHolder }: ImageUploaderProps) {
+export function ImageUploader({ value, onChange, className, deleteAfterUpload = false, removeIcon,handleRemovePlaceHolder,isLogo }: ImageUploaderProps) {
   const [isUploading, setIsUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [localImageUrl, setLocalImageUrl] = useState<string | null>(null);
@@ -89,11 +90,11 @@ export function ImageUploader({ value, onChange, className, deleteAfterUpload = 
   return (
     <div className={cn("space-y-4 w-full", className)}>
   {displayUrl && isUploadComplete ? (
-    <div className="relative max-w-[300px] aspect-[4/3] overflow-hidden rounded-lg border">
+    <div className={`relative w-full max-w-[300px] aspect-[4/3] overflow-hidden rounded-lg border ${isLogo ? "max-w-[100px] h-[100px] bg-black" : "max-w-[300px]"}`}>
       <Image
         src={value ? value : displayUrl}
         alt="Uploaded image"
-        className="object-cover"
+        className={isLogo ? "object-contain p-2" : "object-cover"}
         fill
       />
       <Button

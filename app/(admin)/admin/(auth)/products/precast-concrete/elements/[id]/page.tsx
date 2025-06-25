@@ -10,6 +10,7 @@ import { ImageUploader } from '@/components/ui/image-uploader'
 import { RiAiGenerateText, RiDeleteBinLine } from "react-icons/ri";
 import { Textarea } from '@/components/ui/textarea'
 import { useParams } from 'next/navigation';
+import AdminItemContainer from '@/app/components/AdminInnerContainer/AdminItemContainer';
 
 
 interface PrecastConcretePageElements {
@@ -119,7 +120,7 @@ const PrecastConcretePageElements = () => {
 
                 <div className='flex flex-col gap-2'>
                     <div>
-                        <Label className="pl-3 font-bold">Banner</Label>
+                        <Label oneInput>Banner</Label>
                         <Controller
                             name="banner"
                             control={control}
@@ -136,15 +137,15 @@ const PrecastConcretePageElements = () => {
                         )}
                     </div>
                     <div>
-                        <Label className='pl-3 font-bold'>Alt Tag</Label>
+                        <Label oneInput>Alt Tag</Label>
                         <Input type='text' placeholder='Alt Tag' {...register("bannerAlt")} />
                     </div>
                     <div>
-                        <Label className='pl-3 font-bold'>Page Title</Label>
+                        <Label oneInput>Page Title</Label>
                         <Input type='text' placeholder='Page Title' {...register("pageTitle")} />
                     </div>
                     <div className='flex flex-col gap-1'>
-                                            <Label className='pl-3 font-bold mb-1'>
+                                            <Label oneInput>
                                                 Slug
                                                 <div className='flex gap-2 items-center bg-green-600 text-white p-1 rounded-md cursor-pointer w-fit mt-1' onClick={handleAutoGenerate}>
                                                     <p>Auto Generate</p>
@@ -159,30 +160,32 @@ const PrecastConcretePageElements = () => {
                                         </div>
                 </div>
 
-                <Label className='pl-3 font-bold border-b p-2 text-lg'>First Section</Label>
-                <div className='border p-2 rounded-md flex flex-col gap-2'>
+                <AdminItemContainer>
+                <Label main>First Section</Label>
+                <div className='p-5 rounded-md flex flex-col gap-2'>
                     <div className='flex flex-col gap-2'>
                         
                         <div className='flex flex-col gap-1'>
-                            <Label className='pl-3 font-bold'>First Title</Label>
+                            <Label className='font-bold'>First Title</Label>
                             <Input type='text' placeholder='First Title' {...register("firstSection.firstTitle", {
                                 required: "Title is required"
                             })} />
                             {errors.firstSection?.firstTitle && <p className='text-red-500'>{errors.firstSection?.firstTitle.message}</p>}
                         </div>
                         <div className='flex flex-col gap-1'>
-                            <Label className='pl-3 font-bold'>Second Title</Label>
+                            <Label className='font-bold'>Second Title</Label>
                             <Input type='text' placeholder='Second Title' {...register("firstSection.secondTitle", {
                                 required: "Title is required"
                             })} />
                             {errors.firstSection?.secondTitle && <p className='text-red-500'>{errors.firstSection?.secondTitle.message}</p>}
                         </div>
                         <div className='flex flex-col gap-1'>
-                            <Label className='pl-3 font-bold'>Description</Label>
+                            <Label className='font-bold'>Description</Label>
                             <Textarea placeholder='Description' {...register("firstSection.description")} />
                         </div>
+                        <div className='grid grid-cols-2 gap-2'>
                         <div>
-                            <Label className='pl-3 font-bold'>Image</Label>
+                            <Label className='font-bold'>Image</Label>
                             <Controller
                                 name="firstSection.image"
                                 control={control}
@@ -199,53 +202,57 @@ const PrecastConcretePageElements = () => {
                             )}
                         </div>
                         <div>
-                            <Label className='pl-3 font-bold'>Alt Tag</Label>
+                            <Label className='font-bold'>Alt Tag</Label>
                             <Input type='text' placeholder='Alt Tag' {...register("firstSection.imageAlt")} />
                         </div>
+                        </div>
+                        
                     </div>
 
                 </div>
+                </AdminItemContainer>
 
-
-                <div className='flex justify-between items-center'>
-                <Label className='pl-3 font-bold border-b p-2 text-lg'>Second Section</Label>
-                </div>
-                <div className='border p-2 rounded-md flex flex-col gap-2'>
+                <AdminItemContainer>
+                <Label main>Second Section</Label>
+                <div className='p-5 rounded-md flex flex-col gap-2'>
                     <div className='flex flex-col gap-2'>
                         <div className='flex flex-col gap-1'>
-                            <Label className='pl-3 font-bold'>Title</Label>
+                            <Label className='font-bold'>Title</Label>
                             <Input type='text' placeholder='Title' {...register("secondSection.title", {
                                 required: "Title is required"
                             })} />
                             {errors.secondSection?.title && <p className='text-red-500'>{errors.secondSection?.title.message}</p>}
                         </div>
                         <div className='flex flex-col gap-1'>
-                            <Label className='pl-3 font-bold'>Description</Label>
+                            <Label className='font-bold'>Description</Label>
                             <Textarea placeholder='Description' {...register("secondSection.description")} />
                         </div>
                     </div>
 
 
 
-                    <div className='border p-2 rounded-md flex flex-col gap-5'>
+                    <div className='rounded-md flex flex-col gap-5'>
 
-                        <Label className='pl-2 font-bold'>Items</Label>
+                        <Label className='font-bold'>Items</Label>
+                        <div className='border p-2 rounded-md'>
                         {secondSectionItems.map((field, index) => (
-                            <div key={field.id} className='grid grid-cols-1 gap-2 relative border p-2 rounded-md'>
+                            <div key={field.id} className='grid grid-cols-1 gap-2 relative border-b pb-5 last:border-b-0 pt-3'>
                                 <div className='absolute top-2 right-2'>
                                     <RiDeleteBinLine onClick={() => removeSecondSectionItems(index)} className='cursor-pointer text-red-600' />
                                 </div>
                                 <div className='grid grid-cols-2 gap-2 w-full'>
                                     <div className='flex flex-col gap-2'>
                                         <div className='flex flex-col gap-2'>
-                                            <Label className='pl-3 font-bold'>Title</Label>
+                                            <Label className='font-bold'>Title</Label>
                                             <Input type='text' placeholder='Title' {...register(`secondSectionItems.${index}.title`, {
                                                 required: "Title is required"
                                             })} />
                                             {errors.secondSectionItems?.[index]?.title && <p className='text-red-500'>{errors.secondSectionItems?.[index]?.title.message}</p>}
                                         </div>
-                                        <div className='flex flex-col gap-2'>
-                                            <Label className='pl-3 font-bold'>Description</Label>
+                                        
+                                    </div>
+                                    <div className='flex flex-col gap-2'>
+                                            <Label className='font-bold'>Description</Label>
                                             <Controller
                                                 name={`secondSectionItems.${index}.description`}
                                                 control={control}
@@ -258,19 +265,21 @@ const PrecastConcretePageElements = () => {
                                                 )}
                                             />
                                         </div>
-                                    </div>
                                 </div>
 
                             </div>
                         ))}
 
-                        <div>
-                            <Button type='button' className="w-full cursor-pointer" onClick={() => appendSecondSectionItems({ title: "", description: "" })}>Add Item</Button>
+                        </div>
+
+                        <div className='flex justify-end'>
+                            <Button type='button' className="cursor-pointer" addItem onClick={() => appendSecondSectionItems({ title: "", description: "" })}>Add Item</Button>
                         </div>
 
                     </div>
 
                 </div>
+                </AdminItemContainer>
 
                 <div className='flex flex-col gap-2'>
                     <Label className='pl-3 font-bold'>Meta Title</Label>
@@ -282,7 +291,7 @@ const PrecastConcretePageElements = () => {
                 </div>
 
                 <div className='flex justify-center'>
-                    <Button type='submit'>Submit</Button>
+                    <Button type='submit' className='w-full cursor-pointer'>Submit</Button>
                 </div>
 
             </form>

@@ -15,9 +15,10 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import Link from 'next/link';
-import { Label } from '@radix-ui/react-label';
+import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { ImageUploader } from '@/components/ui/image-uploader';
+import AdminItemContainer from '@/app/components/AdminInnerContainer/AdminItemContainer';
 
 
 
@@ -151,12 +152,14 @@ const AdminGallery = () => {
 
     return (
         <div className='flex flex-col gap-4'>
-            <div className="h-fit w-full p-2 border-2 border-gray-300 rounded-md mt-5">
+            <AdminItemContainer>
+            <div className="h-fit w-full p-5 border-gray-300 rounded-md mt-5">
                                   <div className="flex justify-between border-b-2 pb-2">
-                                      <Label className="text-sm font-bold">Intro / Meta Section</Label>
+                                      <Label generalSection>Intro / Meta Section</Label>
                                       <Button onClick={submitMetaSection}>Save</Button>
                                   </div>
-                                  <div className="mt-2 grid grid-cols-1 gap-2  h-fit">
+                                  <div className="mt-2 grid grid-cols-2 gap-2  h-fit">
+                                    <div className="flex flex-col gap-2">
                                     <div>
                                       <Label>Banner</Label>
                                       <ImageUploader onChange={(url) => setBanner(url)} value={banner}/>
@@ -165,6 +168,8 @@ const AdminGallery = () => {
                                           <Label>Banner Alt</Label>
                                           <Input type="text" value={bannerAlt} onChange={(e) => setBannerAlt(e.target.value)} />
                                       </div>
+                                      </div>
+                                      <div className="flex flex-col gap-2">
                                       <div>
                                           <Label>Page Title</Label>
                                           <Input type="text" value={pageTitle} onChange={(e) => setPageTitle(e.target.value)} />
@@ -177,12 +182,15 @@ const AdminGallery = () => {
                                           <Label>Meta Description</Label>
                                           <Input type="text" value={metaDescription} onChange={(e) => setMetaDescription(e.target.value)} />
                                       </div>
+                                      </div>
                                   </div>
                               </div>
-            <div className='flex justify-between items-center'>
-                <h1 className='text-lg font-semibold'>Gallery</h1>
+                              </AdminItemContainer>
+                              <AdminItemContainer>
+            <div className='flex justify-between items-center p-5'>
+                <h1 className='text-md font-semibold'>Gallery</h1>
                 <Dialog>
-                        <DialogTrigger className='bg-primary text-white px-2 py-1 rounded-md' onClick={()=>setCategory("")}>Add Category</DialogTrigger>
+                        <DialogTrigger className='bg-primary text-white px-3 py-1 rounded-md font-semibold' onClick={()=>setCategory("")}>Add Category</DialogTrigger>
                         <DialogContent>
                             <DialogHeader>
                                 <DialogTitle>Add Category</DialogTitle>
@@ -195,6 +203,7 @@ const AdminGallery = () => {
 
                     </Dialog>
             </div>
+            <div className='px-5 flex flex-col gap-4 py-3'>
             {categoryList.map((item)=>(
                 <div className='flex justify-between items-center border rounded-md p-4 hover:bg-gray-100  hover:shadow-md transform  transition-all' key={item._id}>
                 <div>
@@ -237,6 +246,8 @@ const AdminGallery = () => {
                 </div>
             </div>
             ))}
+            </div>
+            </AdminItemContainer>
         </div>
     )
 }
