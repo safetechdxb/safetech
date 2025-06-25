@@ -25,7 +25,7 @@ const CarouselTypeTwoItem = ({ image, imageAlt, title, description,isActive,hide
   }, [isActive, hideDesc, isHovered]);
   return (
     <div onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)} className="relative overflow-hidden group flex flex-col justify-end h-[200px] md:h-[250px] lg:h-[300px] xl:h-[463px] transition-all duration-300 ease-in-out primary-grd-type-two">
+      onMouseLeave={() => setIsHovered(false)} className="relative overflow-hidden group flex flex-col justify-end h-[200px] md:h-[350px] lg:h-[300px] xl:h-[463px] transition-all duration-300 ease-in-out primary-grd-type-two">
       <div className="absolute inset-0 z-10 h-full w-full primary-grd-type-two opacity-70 bg-gradient-to-b from-secondary/10 to-secondary/100 group-hover:opacity-0 transition-all duration-300"></div>
       <Image src={image} alt={imageAlt} width={500} height={500} className="w-full h-full object-cover absolute top-0 left-0 z-0" />
       {/* <div className={`px-4 z-30 text-white absolute left-0 group-hover:relative group-hover:bottom-0 group-hover:translate-y-0 transition-all duration-700 type-two-carousel-title
