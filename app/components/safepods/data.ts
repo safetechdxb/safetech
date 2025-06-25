@@ -52,7 +52,7 @@ export const safePodsData = {
         imageAlt: "safepodAdvIcon1",
       },
       {
-        title: "CLess snagging",
+        title: "Less snagging",
         description: "Considerably less requirement for snagging later on in the often hectic finishing stage of the project.",
         image: assets.safepodAdvIcon2,
         imageAlt: "safepodAdvIcon2",
