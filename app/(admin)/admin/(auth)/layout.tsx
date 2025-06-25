@@ -16,7 +16,7 @@ import Image from "next/image";
         {/* Sidebar */}
         <aside className="w-64 bg-black text-white shadow-md flex flex-col overflow-y-auto">
           <div className="flex-1 px-3 py-8">
-          <div className="flex items-center pl-5 mb-2">
+          <div className="flex items-center pl-5 mb-6">
         <Image src="/assets/img/logo.svg" alt="Logo" width={100} height={100} />
           </div>
             

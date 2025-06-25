@@ -101,11 +101,11 @@ const AdminCertifications = () => {
 
                                 <AdminItemContainer>    
         <Label main>Certifications</Label>
-        <div className='p-5 rounded-md flex flex-col gap-5'>
+        <div className='p-5 rounded-md grid grid-cols-2 gap-5'>
 
 
                     {fields.map((field, index) => (
-                        <div key={field.id} className='grid grid-cols-2 gap-2 relative border-b pb-5 last:border-b-0'>
+                        <div key={field.id} className='grid grid-cols-2 gap-2 relative border-r pb-5 pr-5 last:border-b-0 even:border-r-0'>
                             <div className='absolute top-2 right-2'>
                                 <RiDeleteBinLine onClick={() => remove(index)} className='cursor-pointer text-red-600' />
                             </div>
@@ -141,11 +141,12 @@ const AdminCertifications = () => {
                         </div>
                     ))}
 
-                    <div className='flex justify-end'>
-                        <Button type='button' className="cursor-pointer" addItem onClick={() => append({ image: "", imageAlt: "", title: "" })}>Add Item</Button>
-                    </div>
+                    
 
                 </div>
+                <div className='flex justify-end mb-5 mr-5'>
+                        <Button type='button' className="cursor-pointer" addItem onClick={() => append({ image: "", imageAlt: "", title: "" })}>Add Item</Button>
+                    </div>
                 </AdminItemContainer>  
 
                 <Button type='submit' onClick={handleSubmit(onSubmit)} className='w-full mx-auto cursor-pointer'>Submit</Button>
