@@ -14,6 +14,8 @@ export async function GET(request: NextRequest) {
         }
         const slug = request.nextUrl.searchParams.get("slug");
 
+        console.log(slug)
+
         
         if(slug=="precast-concrete"){
            const product = await PrecastConcrete.findOne({}); 
