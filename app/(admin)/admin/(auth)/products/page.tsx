@@ -52,9 +52,9 @@ const [selectedProduct, setSelectedProduct] = useState<string>("")
             </div>
         </div>
         <div className='col-span-1'>
-        <div className='flex justify-between items-center border p-4 hover:shadow-md cursor-pointer rounded-lg bg-white' onClick={() => handleSelectProduct("bathroom-pod")}>
-                <h4>Bathroom pode</h4>
-                <Link href='/admin/products/bathroom-pod'><CiLogin /></Link>
+        <div className='flex justify-between items-center border p-4 hover:shadow-md cursor-pointer rounded-lg bg-white' onClick={() => handleSelectProduct("safe-podes")}>
+                <h4>Safe podes</h4>
+                <Link href='/admin/products/safe-podes'><CiLogin /></Link>
             </div>
         </div>
     </div>
