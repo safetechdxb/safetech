@@ -44,8 +44,8 @@ export default function KeyAdvSec() {
                   </div>
                 </div>
                 <div className='text-white'>  
-                  <h3 className='text-20 font-semibold leading-[1.3] mb-5'>{item.title}</h3>
-                  <p className='text-20 leading-[1.5] font-normal'>{item.description}</p>
+                  <h3 className='text-24 font-semibold leading-[1.3] mb-5'>{item.title}</h3>
+                  <p className='text-20 leading-[1.5] font-[300]'>{item.description}</p>
                 </div>
               </motion.div>
             )}  
