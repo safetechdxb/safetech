@@ -20,6 +20,7 @@ import { useParams } from 'next/navigation'
 import { ImageUploader } from '@/components/ui/image-uploader'
 import Image from 'next/image'
 import { RiAiGenerateText } from 'react-icons/ri'
+import AdminItemContainer from '../AdminInnerContainer/AdminItemContainer'
 
 
 
@@ -156,16 +157,17 @@ const BlogForm = ({ editMode }: { editMode?: boolean }) => {
 
     return (
         <div className='flex flex-col gap-5'>
-            <h1 className='text-lg font-bold'>{editMode ? "Edit Blog" : "Add Blog"}</h1>
-            <form className='flex flex-col gap-5 border p-2 rounded-md' onSubmit={handleSubmit(handleAddBlog)}>
+            <h1 className='text-md font-bold'>{editMode ? "Edit Blog" : "Add Blog"}</h1>
+            <AdminItemContainer>
+            <form className='flex flex-col gap-5 border p-5 rounded-md' onSubmit={handleSubmit(handleAddBlog)}>
 
                 <div>
-                    <Label className='pl-3'>Title</Label>
+                    <Label className=''>Title</Label>
                     <Input type='text' placeholder='Title' {...register("title", { required: "Title is required" })} />
                     {errors.title && <p className='text-red-500'>{errors.title.message}</p>}
                 </div>
                 <div>
-                <Label className='pl-3 flex gap-2 items-center mb-1'>
+                <Label className='flex gap-2 items-center mb-1'>
                                                 Slug
                                                 <div className='flex gap-2 items-center bg-green-600 text-white p-1 rounded-md cursor-pointer w-fit' onClick={handleAutoGenerate}>
                                                     <p>Auto Generate</p>
@@ -181,7 +183,7 @@ const BlogForm = ({ editMode }: { editMode?: boolean }) => {
                     {errors.slug && <p className='text-red-500'>{errors.slug.message}</p>}
                 </div>
                 <div className='flex flex-col gap-2'>
-                    <Label className='pl-3'>Category</Label>
+                    <Label className=''>Category</Label>
                     <Controller
                         name="category"
                         control={control}
@@ -211,27 +213,27 @@ const BlogForm = ({ editMode }: { editMode?: boolean }) => {
 
 
                 <div className='grid grid-cols-2 gap-2'>
-                    <div>
+                    <div className='flex flex-col gap-2'>
                         <div>
-                            <Label className='pl-3'>Thumbnail</Label>
+                            <Label className=''>Thumbnail</Label>
                             <ImageUploader onChange={(url) => setValue("thumbnail", url)} value={watch("thumbnail")} />
                             {errors.thumbnail && <p className='text-red-500'>{errors.thumbnail.message}</p>}
                         </div>
                         <div>
-                            <Label className='pl-3'>Thumbnail Alt</Label>
+                            <Label className=''>Thumbnail Alt</Label>
                             <Input type='text' placeholder='Alt Tag' {...register("thumbnailAlt")} />
                             {errors.thumbnailAlt && <p className='text-red-500'>{errors.thumbnailAlt.message}</p>}
                         </div>
                     </div>
 
-                    <div>
+                    <div className='flex flex-col gap-2'>
                         <div>
-                            <Label className='pl-3'>Cover Image</Label>
+                            <Label className=''>Cover Image</Label>
                             <ImageUploader onChange={(url) => setValue("coverImage", url)} value={watch("coverImage")} />
                             {errors.coverImage && <p className='text-red-500'>{errors.coverImage.message}</p>}
                         </div>
                         <div>
-                            <Label className='pl-3'>Cover Image Alt</Label>
+                            <Label className=''>Cover Image Alt</Label>
                             <Input type='text' placeholder='Alt Tag' {...register("coverImageAlt")} />
                             {errors.coverImageAlt && <p className='text-red-500'>{errors.coverImageAlt.message}</p>}
                         </div>
@@ -239,10 +241,10 @@ const BlogForm = ({ editMode }: { editMode?: boolean }) => {
 
                 </div>
 
-                <div className='flex flex-col gap-2 border p-2 rounded-md'>
+                <div className='flex flex-col gap-2'>
                    
                 <div>
-                    <Label className="block text-sm pl-2 ">Images</Label>
+                    <Label className="block text-sm">Images</Label>
                     <div className="mt-2">
                         <ImageUploader onChange={handleImageUpload} deleteAfterUpload={true} />
                     </div>
@@ -273,14 +275,14 @@ const BlogForm = ({ editMode }: { editMode?: boolean }) => {
                 </div>
 
                 <div>
-                    <Label className='pl-3'>Content</Label>
+                    <Label className=''>Content</Label>
                     <Controller name="content" control={control} rules={{ required: "Content is required" }} render={({ field }) => {
                         return <ReactQuill theme="snow" value={field.value} onChange={field.onChange} />
                     }} />
                     {errors.content && <p className='text-red-500'>{errors.content.message}</p>}
                 </div>
 
-                <div className="h-fit w-full p-2 border-2 border-gray-300 rounded-md mt-5">
+                <div className="h-fit w-full rounded-md mt-5">
                     <div className="flex justify-between border-b-2 pb-2">
                         <Label className="text-sm ">Meta Section</Label>
                     </div>
@@ -298,10 +300,11 @@ const BlogForm = ({ editMode }: { editMode?: boolean }) => {
 
 
                 <div className='flex justify-center'>
-                    <Button type='submit'>Submit</Button>
+                    <Button type='submit' className="w-full">Submit</Button>
                 </div>
 
             </form>
+            </AdminItemContainer>
         </div>
     )
 }

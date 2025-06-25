@@ -86,7 +86,7 @@ const IndiGallery = () => {
                             </div>
                             <div className='flex flex-col gap-2 w-full'>
                                 <div className='flex flex-col gap-2 w-full'>
-                                    <Label className='pl-3 font-bold'>Image</Label>
+                                    <Label className=''>Image</Label>
                                     <Controller
                                         name={`images.${index}.image`}
                                         control={control}
@@ -101,11 +101,11 @@ const IndiGallery = () => {
                                     {errors.images?.[index]?.image && <p className='text-red-500'>{errors.images?.[index]?.image.message}</p>}
                                 </div>
                                 <div className='flex flex-col gap-2 w-full'>
-                                    <Label className='pl-3 font-bold'>Alt Tag</Label>
+                                    <Label className=''>Alt Tag</Label>
                                     <Input type='text' placeholder='Alt Tag' {...register(`images.${index}.imageAlt`)} />
                                 </div>
                                 <div className='flex flex-col gap-2 w-full'>
-                                    <Label className='pl-3 font-bold'>Title</Label>
+                                    <Label className=''>Title</Label>
                                     <Input type='text' placeholder='Title' {...register(`images.${index}.title`)} />
                                     {errors.images?.[index]?.title && <p className='text-red-500'>{errors.images?.[index]?.title.message}</p>}
                                 </div>
@@ -116,7 +116,7 @@ const IndiGallery = () => {
                 </div>
 
                 <div className='flex justify-center'>
-                    <Button type="submit">Submit</Button>
+                    <Button type="submit" className="w-full">Submit</Button>
                 </div>
 
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { ImageUploader } from '@/components/ui/image-uploader';
-import { Label } from '@radix-ui/react-label';
+import { Label } from '@/components/ui/label';
 import React, { useEffect } from 'react'
 import { useForm } from "react-hook-form";
 import { Input } from '@/components/ui/input';
@@ -74,61 +74,65 @@ const AdminContact = () => {
         <div className="h-fit w-full">
                                           
                                           <div className=" grid grid-cols-1 gap-2  h-fit">
+                                            <div className="grid grid-cols-2 gap-2">
                                             <div>
-                                              <Label>Banner</Label>
+                                              <Label oneInput>Banner</Label>
                                               <ImageUploader onChange={(url)=>setValue("banner",url)} value={watch("banner")}/>
                                             </div>
+                                            <div className="flex flex-col gap-2">
                                             <div>
-                                                  <Label>Banner Alt</Label>
+                                                  <Label oneInput>Banner Alt</Label>
                                                   <Input type="text" {...register("bannerAlt")}/>
                                               </div>
                                               <div>
-                                                  <Label>Page Title</Label>
+                                                  <Label oneInput>Page Title</Label>
                                                   <Input type="text" {...register("pageTitle",{required:"Page title is required"})}/>
                                               {errors.pageTitle && <p className="text-red-500">{errors.pageTitle.message}</p>}
                                               </div>
+                                              </div>
+                                              </div>
                                               <div>
-                                                  <Label>Title</Label>
+                                                  <Label oneInput>Title</Label>
                                                   <Input type="text" {...register("title",{required:"Title is required"})}/>
                                               {errors.title && <p className="text-red-500">{errors.title.message}</p>}
                                               </div>
                                               <div>
-                                                  <Label>Map</Label>
+                                                  <Label oneInput>Map</Label>
                                                   <Input type="text" {...register("map",{required:"Map is required"})}/>
                                               {errors.map && <p className="text-red-500">{errors.map.message}</p>}
                                               </div>
                                               <div>
-                                                  <Label>Location</Label>
+                                                  <Label oneInput>Location</Label>
                                                   <Input type="text" {...register("location",{required:"Location is required"})}/>
                                               {errors.location && <p className="text-red-500">{errors.location.message}</p>}
                                               </div>
                                               <div>
-                                                  <Label>Address</Label>
+                                                  <Label oneInput>Address</Label>
                                                   <Textarea {...register("address",{required:"Address is required"})}/>
                                               {errors.address && <p className="text-red-500">{errors.address.message}</p>}
                                               </div>
                                               <div>
-                                                  <Label>Email</Label>
+                                                  <Label oneInput>Email</Label>
                                                   <Input type="text" {...register("email",{required:"Email is required"})}/>
                                               {errors.email && <p className="text-red-500">{errors.email.message}</p>}
                                               </div>
                                               <div>
-                                                  <Label>Phone</Label>
+                                                  <Label oneInput>Phone</Label>
                                                   <Input type="text" {...register("phone",{required:"Phone is required"})}/>
                                               {errors.phone && <p className="text-red-500">{errors.phone.message}</p>}
                                               </div>
                                               <div>
-                                                  <Label>Meta title</Label>
+                                                  <Label oneInput>Meta title</Label>
                                                   <Input type="text" {...register("metaTitle")}/>
                                               </div>
                                               <div>
-                                                  <Label>Meta Description</Label>
+                                                  <Label oneInput>Meta Description</Label>
                                                   <Input type="text" {...register("metaDescription")}/>
                                               </div>
                                           </div>
                                       </div>
 
-                <Button type='submit' onClick={handleSubmit(onSubmit)} className='w-fit mx-auto'>Submit</Button>
+                <Button type='submit' onClick={handleSubmit(onSubmit)} className='w-full mx-auto cursor-pointer'>Submit</Button>
     </div>
   )
 }

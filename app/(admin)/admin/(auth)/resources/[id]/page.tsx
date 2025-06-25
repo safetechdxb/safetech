@@ -68,12 +68,12 @@ const IndiResource = () => {
 
   return (
     <div className='flex flex-col gap-5'>
-        <h1 className='text-lg font-semibold'>Files</h1>
-        <div className='border-2 p-2 rounded-md flex flex-col gap-5'>
+        <h1 className='text-md font-semibold'>Files</h1>
+        <div className='border-2 p-2 rounded-md grid grid-cols-2 gap-5'>
 
 
                     {fields.map((field, index) => (
-                        <div key={field.id} className='grid grid-cols-2 gap-2 relative border p-2 rounded-md'>
+                        <div key={field.id} className='grid grid-cols-2 gap-2 relative border-r pr-5 even:border-r-0'>
                             <div className='absolute top-2 right-2'>
                                 <RiDeleteBinLine onClick={() => remove(index)} className='cursor-pointer text-red-600' />
                             </div>
@@ -109,13 +109,14 @@ const IndiResource = () => {
                         </div>
                     ))}
 
-                    <div>
-                        <Button type='button' className="w-full cursor-pointer" onClick={() => append({ file: "", title: "",size:"" })}>Add Item</Button>
-                    </div>
+                    
 
                 </div>
+                <div className='flex justify-end'>
+                        <Button type='button' addItem className="cursor-pointer" onClick={() => append({ file: "", title: "",size:"" })}>Add Item</Button>
+                    </div>
 
-                <Button type='submit' onClick={handleSubmit(onSubmit)} className='w-fit mx-auto'>Submit</Button>
+                <Button type='submit' onClick={handleSubmit(onSubmit)} className='w-full mx-auto cursor-pointer'>Submit</Button>
     </div>
   )
 }

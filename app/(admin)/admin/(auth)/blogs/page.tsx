@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input"
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { ImageUploader } from "@/components/ui/image-uploader";
+import AdminItemContainer from "@/app/components/AdminInnerContainer/AdminItemContainer";
 
 
 export default function Blogs() {
@@ -187,12 +188,14 @@ export default function Blogs() {
 
   return (
     <div className="h-fit grid grid-cols-1 gap-5">
-                              <div className="h-fit w-full p-2 border-2 border-gray-300 rounded-md mt-5">
+      <AdminItemContainer>
+                              <div className="p-5">
                                   <div className="flex justify-between border-b-2 pb-2">
-                                      <Label className="text-sm font-bold">Into / Meta Section</Label>
+                                      <Label generalSection>Into / Meta Section</Label>
                                       <Button onClick={submitIntroMetaSection}>Save</Button>
                                   </div>
-                                  <div className="mt-2 grid grid-cols-1 gap-2  h-fit">
+                                  <div className="mt-2 grid grid-cols-2 gap-2  h-fit">
+                                    <div className="flex flex-col gap-2">
                                     <div>
                                       <Label>Banner</Label>
                                       <ImageUploader onChange={((url)=>setBanner(url))} value={banner}/>
@@ -201,6 +204,8 @@ export default function Blogs() {
                                       <Label>Banner Alt</Label>
                                       <Input type="text" value={bannerAlt} onChange={(e) => setBannerAlt(e.target.value)} />
                                     </div>
+                                    </div>
+                                    <div className="flex flex-col gap-2">
                                     <div>
                                       <Label>Page Title</Label>
                                       <Input type="text" value={pageTitle} onChange={(e) => setPageTitle(e.target.value)} />
@@ -213,14 +218,17 @@ export default function Blogs() {
                                           <Label>Meta Description</Label>
                                           <Input type="text" value={metaDescription} onChange={(e) => setMetaDescription(e.target.value)} />
                                       </div>
+                                      </div>
                                   </div>
                               </div>
+                              </AdminItemContainer>
 
-        <div className="h-[300px] w-full p-2 border-2 border-gray-300 rounded-md overflow-y-hidden">
+<AdminItemContainer>
+        <div className="h-[300px] w-full p-5  border-gray-300 rounded-md overflow-y-hidden">
           <div className="flex justify-between border-b-2 pb-2">
-            <Label className="text-sm font-bold">Category</Label>
+            <Label generalSection>Category</Label>
             <Dialog>
-              <DialogTrigger className="bg-black text-white px-2 py-1 rounded-md" onClick={()=>setCategory("")}>Add Category</DialogTrigger>
+              <DialogTrigger className="bg-primary text-white px-3 py-1 rounded-md font-semibold" onClick={()=>setCategory("")}>Add Category</DialogTrigger>
               <DialogContent>
                 <DialogHeader>
                   <DialogTitle>Add Category</DialogTitle>
@@ -278,12 +286,14 @@ export default function Blogs() {
           </div>
         </div>
 
+        </AdminItemContainer>
 
 
 
-      <div className="h-[300px] w-full p-2 border-2 border-gray-300 rounded-md overflow-y-hidden">
+<AdminItemContainer>
+      <div className="h-[300px] w-full p-5 border-2 border-gray-300 rounded-md overflow-y-hidden">
         <div className="flex justify-between border-b-2 pb-2">
-          <Label className="text-sm font-bold">Blogs</Label>
+          <Label generalSection>Blogs</Label>
           <Button onClick={()=>router.push("/admin/blogs/add")}>Add Blog</Button>
         </div>
         <div className="mt-2 flex flex-col gap-2 overflow-y-scroll h-3/4">
@@ -319,6 +329,7 @@ export default function Blogs() {
           
         </div>
       </div>
+    </AdminItemContainer>
     </div>
   );
 }
