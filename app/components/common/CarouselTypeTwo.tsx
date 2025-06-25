@@ -38,32 +38,57 @@ const CarouselTypeTwo = ({ title, items }: CarouselTypeTwoProps) => {
   const nextRef = useRef(null)
   const activeSlideRef = useRef<HTMLDivElement>(null);
   const [activeSlideWidth, setActiveSlideWidth] = useState(0);
-  const prevActiveIndex = useRef(-1);
+  // const prevActiveIndex = useRef(-1);
   const { elements } = useParams()
 
   console.log(elements)
 
 
   useLayoutEffect(() => {
-    const measure = () => {
-      if (activeSlideRef.current) {
-        const width = activeSlideRef.current.offsetWidth;
+    let frame: number;
+    let attempts = 0;
 
-        // Only update width if activeIndex has changed
-        if (prevActiveIndex.current !== activeIndex) {
-          prevActiveIndex.current = activeIndex;
-          setActiveSlideWidth(width + 20);
-        }
+    const measureUntilStable = () => {
+      if (!activeSlideRef.current) return;
+
+      const width = activeSlideRef.current.offsetWidth;
+
+      if (width > 0 && width !== activeSlideWidth) {
+        setActiveSlideWidth(width +10);
+      } else if (attempts < 10) {
+        // Keep checking until Swiper styles are applied
+        attempts++;
+        frame = requestAnimationFrame(measureUntilStable);
       }
     };
 
-    // Initial measure and on activeIndex change
-    measure();
+    measureUntilStable();
 
-    // Also update width on window resize
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    const handleResize = () => {
+      if (activeSlideRef.current) {
+        const width = activeSlideRef.current.offsetWidth;
+        setActiveSlideWidth(width);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(frame);
+    };
   }, [activeIndex]);
+
+
+  /* next */
+  
+ 
+
+/* next */
+
+
+
 
   return (
     <div className="container overflow-visible">
@@ -111,14 +136,15 @@ const CarouselTypeTwo = ({ title, items }: CarouselTypeTwoProps) => {
                 swiper.navigation.init()
                 swiper.navigation.update()
               }
+              
             }, 100)
           }}
           breakpoints={{
             320: {
-              slidesPerView: 1.5,
+              slidesPerView: 1,
             },
             640: {
-              slidesPerView: 2.5,
+              slidesPerView: 3.5,
             },
             768: {
               slidesPerView: 3.5,
@@ -144,7 +170,6 @@ const CarouselTypeTwo = ({ title, items }: CarouselTypeTwoProps) => {
                   setHoveredIndex={setHoveredIndex}
                   index={index}
                   activeSlideWidth={activeSlideWidth}
-
                   activeSlideRef={index === activeIndex ? activeSlideRef : undefined}
                 />
               </SwiperSlide>

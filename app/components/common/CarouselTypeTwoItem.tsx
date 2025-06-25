@@ -37,47 +37,18 @@ const CarouselTypeTwoItem = ({
 
   const shouldShow = (isActive && !hideDesc) || isHovered;
 
-  // Measure description height
-  // useLayoutEffect(() => {
-  //   if (hiddenRef.current) {
-  //     const measured = hiddenRef.current.getBoundingClientRect().height;
-  //     setDescHeight(measured);
-  //   }
-  // }, [description, index]);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     if (hiddenRef.current) {
-  //       const measured = hiddenRef.current.getBoundingClientRect().height;
-  //       setDescHeight(measured);
-  //     }
-  //   };
-  //   window.addEventListener("resize", handleResize);
-  //   return () => window.removeEventListener("resize", handleResize);
-  // }, []);
 
   useLayoutEffect(() => {
     if (!hiddenRef.current || activeSlideWidth === 0) return;
 
-    requestAnimationFrame(() => {
-      hiddenRef.current!.style.width = `${activeSlideWidth}px`;
-      const height = hiddenRef.current!.offsetHeight;
-      setDescHeight(height);
-    });
+    hiddenRef.current.style.width = `${activeSlideWidth}px`;
+    const height = hiddenRef.current.offsetHeight;
+    setDescHeight(height);
   }, [activeSlideWidth, description]);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     if (visibleRef.current && hiddenRef.current) {
-  //       const width = visibleRef.current.offsetWidth;
-  //       hiddenRef.current.style.width = `${width}px`;
-  //       setDescHeight(hiddenRef.current.offsetHeight);
-  //     }
-  //   };
+  
 
-  //   window.addEventListener("resize", handleResize);
-  //   return () => window.removeEventListener("resize", handleResize);
-  // }, []);
 
   return (
     <>
@@ -94,7 +65,7 @@ const CarouselTypeTwoItem = ({
         ref={isActive ? activeSlideRef : undefined}
         onMouseEnter={() => setHoveredIndex(index)}
         onMouseLeave={() => setHoveredIndex(null)}
-        className="relative overflow-hidden group flex flex-col justify-end h-[300px] md:h-[350px] lg:h-[300px] xl:h-[463px] transition-all duration-300 ease-in-out primary-grd-type-two"
+        className="relative overflow-hidden group flex flex-col justify-end pb-4 md:pb-6 lg:pb-0 h-[300px] md:h-[350px] lg:h-[300px] xl:h-[463px] transition-all duration-300 ease-in-out primary-grd-type-two"
       >
         <div className="absolute inset-0 z-10 h-full w-full primary-grd-type-two opacity-70 bg-gradient-to-b from-secondary/10 to-secondary/100 group-hover:opacity-0 transition-all duration-300"></div>
 
@@ -107,7 +78,7 @@ const CarouselTypeTwoItem = ({
         />
 
         <div className="px-4 lg:px-30p z-30 text-white pb-4 lg:pb-6">
-          <h3 className="text-24 font-semibold">{title}</h3>
+          <h3 className="text-24 font-medium">{title}</h3>
         </div>
 
         <div
@@ -118,8 +89,7 @@ const CarouselTypeTwoItem = ({
           }}
           className={`px-4 lg:px-30p relative z-30 text-white`}
         >
-          <p
-            className={`text-20 font-normal leading-[1.5] transition-opacity duration-400 ${shouldShow ? 'opacity-100' : 'opacity-0'}`}
+          <p className={`text-20 font-[300] mb-5 md:pb-0 leading-[1.5] transition-opacity duration-400 line-clamp-5 ${shouldShow ? 'opacity-100' : 'opacity-0'}`}
           >
             {description}
           </p>

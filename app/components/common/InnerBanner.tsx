@@ -26,7 +26,7 @@ const InnerBanner = ({ pageTitle, bannerBg, isBlogDetails, category, date, isDet
       }
       <div className={`absolute top-0 left-0 w-full h-full ${bannerBg ? "bg-secondary/75" : ""} z-1`}></div>
       <div className="container relative z-2 h-full">
-        <div className="flex flex-col justify-end h-full pb-10 lg:pb-20">
+        <div className="flex flex-col justify-end h-full pb-10 ">
           {
             !isDetailPage && !isBlogDetails && (
               <motion.h1 variants={moveUp(0)} initial="hidden" animate="show" viewport={{ once: true, amount: 0.2 }} className={`text-white uppercase text-96 font-semibold leading-[1.3]`}>{pageTitle}</motion.h1>
