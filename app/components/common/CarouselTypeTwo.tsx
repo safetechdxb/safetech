@@ -42,7 +42,7 @@ const CarouselTypeTwo = ({ title, items }: CarouselTypeTwoProps) => {
   return (
     <div className="container overflow-visible">
       <div className="flex flex-wrap align-center justify-between gap-y-4 lg:gap-0 mb-4 md:mb-8 2xl:mb-20">
-        <div className="relative">
+        <div className="relative mb-8 lg:mb-10 xl:mb-20">
           <SubTitle titleText={title} color="text-secondary" />
         </div>
         {/* Custom Nav Buttons */}
