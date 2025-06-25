@@ -8,10 +8,10 @@ const Main = () => {
   return (
     <section className="py-140 bg-off-white">
       <div className="container">
-        <div className="flex flex-wrap lg:flex-nowrap gap-15 items-center">
+        <div className="flex flex-wrap lg:flex-nowrap gap-15 items-stretch">
           <motion.div variants={moveUp(0)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="w-full lg:w-3/6 ">
             <div className="relative">
-              <Image src={safePodsData.firstSection.image} alt="Our Company" width={400} height={400} className="w-full h-[250px] md:h-[350px] 2xl:h-full object-cover"></Image>
+              <Image src={safePodsData.firstSection.image} alt="Our Company" width={400} height={400} className="w-full h-[250px] md:h-[350px] lg:h-full xl:h-full object-cover"></Image>
               <div className="absolute bottom-[-40px] left-0">
                 <div className="w-10 h-20 bg-white relative z-20 group">
                   <div className="w-10 h-10 bg-black absolute bottom-0 left-0 "></div>

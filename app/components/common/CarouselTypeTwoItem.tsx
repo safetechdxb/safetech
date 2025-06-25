@@ -65,7 +65,7 @@ const CarouselTypeTwoItem = ({
         ref={isActive ? activeSlideRef : undefined}
         onMouseEnter={() => setHoveredIndex(index)}
         onMouseLeave={() => setHoveredIndex(null)}
-        className="relative overflow-hidden group flex flex-col justify-end pb-4 md:pb-6 lg:pb-0 h-[300px] md:h-[350px] lg:h-[300px] xl:h-[463px] transition-all duration-300 ease-in-out primary-grd-type-two"
+        className="relative overflow-hidden group flex flex-col justify-end pb-4 md:pb-6 xxl:pb-0 h-[300px] md:h-[350px] lg:h-[300px] xl:h-[463px] transition-all duration-300 ease-in-out primary-grd-type-two"
       >
         <div className="absolute inset-0 z-10 h-full w-full primary-grd-type-two opacity-70 bg-gradient-to-b from-secondary/10 to-secondary/100 group-hover:opacity-0 transition-all duration-300"></div>
 
