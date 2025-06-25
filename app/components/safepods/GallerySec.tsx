@@ -15,7 +15,7 @@ const GallerySec = () => {
           </div>
           <ArrowBtn btnText="More Gallery" btnLInk="#" border={true} />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 auto-rows-[250px] xl:auto-rows-[510px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 xl:gap-[29.67px] auto-rows-[250px] xl:auto-rows-[510px]">
           {safePodsData.galleryData.items.map((item, index) => (
             <motion.div variants={moveUp(index * 0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={index} className="relative group overflow-hidden">
               < Image src={item.image} alt={item.imageAlt} width={500} height={600} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500" />
