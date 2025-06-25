@@ -102,7 +102,7 @@ export const safePodsData = {
         title: "The Pod Walls",
         image: assets.productionprocess2,
         imageAlt: "The Pod Walls",
-        description: "A durable, precisely engineered foundation ensuring structural stability and seamless integration with modular units.",
+        description: "A durable, precisely engineered foundation ensuring structural stability and seamless integration with modular units.  ",
       },
       {
         title: "The Pod Walls",
