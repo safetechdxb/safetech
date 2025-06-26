@@ -126,7 +126,11 @@
   /* ~12px */
   --text-14: clamp(0.825rem, 0.75rem + 0.2vw, 0.875rem);
   /* ~14px */
-  --text-18: clamp(0.8rem, 0.9rem + 0.25vw, 1.125rem);
+  --text-15: clamp(0.8rem, 0.9rem + 0.25vw, 15px);
+  /* ~15px */
+  --text-16: clamp(0.8rem, 0.9rem + 0.25vw, 16px);
+  /* ~16px */
+  --text-18: clamp(0.8rem, 0.9rem + 0.25vw, 18px);
   /* ~18px */
   --text-20: var(--text-20);
   /* ~20px */
@@ -704,8 +708,8 @@ body {
 }
 
 .primary-grd-type-two:hover::before {
-  height: 100%;
-  opacity: 1;
+  height: 120%;
+  opacity: 0.8;
 }
 
 .primary-grd-type-two::before {
@@ -738,8 +742,8 @@ background: linear-gradient(180deg, rgba(30, 30, 30, 0.1) 50%, rgba(140, 31, 35,
 }  */
 
 .type-two-carousel .swiper-slide-active .primary-grd-type-two::before {
-  height:100%;
-  opacity: 1;
+  height:120%;
+  opacity: 0.8;
 }
 
 .type-two-carousel.is-hovering .swiper-slide-active .primary-grd-type-two::before {
@@ -751,7 +755,7 @@ background: linear-gradient(180deg, rgba(30, 30, 30, 0.1) 50%, rgba(140, 31, 35,
 }
 
 .type-two-carousel .swiper-slide {
-  width: 18% !important;
+  width: 15% !important;
   transition: width 0.7s ease-in-out;
 }
 
@@ -768,9 +772,22 @@ background: linear-gradient(180deg, rgba(30, 30, 30, 0.1) 50%, rgba(140, 31, 35,
 }
 
 .type-two-carousel.is-hovering .swiper-slide-active {
-  width: 18% !important;
+  width: 15% !important;
 }
 
 .type-two-carousel.is-hovering .swiper-slide:hover {
   width: 25% !important;
+}
+
+@media  screen and (max-width:600px) {
+  .type-two-carousel .swiper-slide {
+    width: 100% !important;
+    transition: width 0.7s ease-in-out;
+  }
+
+  .type-two-carousel .swiper-slide-active {
+    width: 100% !important;
+  }
+
+
 }
