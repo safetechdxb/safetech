@@ -1,23 +1,11 @@
 import CarouselTypeTwo from "../common/CarouselTypeTwo";
-import { StaticImageData } from "next/image";
-interface ProductionProcessProps {
-  data: {
-    title: string;
-    items: {
-      title: string;
-      image: string | StaticImageData;
-      imageAlt: string;
-      description: string;
-    }[];
-  };
-}
+import { SafePodsData } from "@/types/SafePods";
 
 
-
-const ProductionProcess = ({ data }: ProductionProcessProps) => {
+const ProductionProcess = ({ data }: {data:SafePodsData}) => {
   return (
     <section className="py-140 overflow-x-hidden bg-light-gray">
-      <CarouselTypeTwo title={data.title} items={data.items} />
+      <CarouselTypeTwo title={data.fourthSection.title} items={data.fourthSection.items} />
     </section>
   );
 }
