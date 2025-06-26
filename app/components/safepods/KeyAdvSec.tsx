@@ -27,7 +27,7 @@ export default function KeyAdvSec({data}: {data:SafePodsData}) {
   return (
     <section className='py-140 bg-secondary'>
       <div className="container">
-        <div className="relative mb-10 xl:mb-20">
+        <div className="relative mb-10 lg:mb-12 2xl:mb-20">
           <SubTitle titleText={data.thirdSection.title} color='text-white' />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-12">
