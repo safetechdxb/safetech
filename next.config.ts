@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
         hostname: "dl.dropboxusercontent.com",
       },
     ],
+    unoptimized: true
   }
 };
 
