@@ -3,15 +3,15 @@ import { motion } from 'framer-motion';
 import { moveUp } from '../motionVarients';
 import SubTitle from '../common/SubTitle'
 // import { PrecastPreStressedElement } from '@/types/PrecastPreStressedElement'
-import { safePodsData } from './data'
+import { SafePodsData } from '@/types/SafePods'
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
-export default function KeyAdvSec() {
+export default function KeyAdvSec({data}: {data:SafePodsData}) {
   const [showAll, setShowAll] = useState(false);
   const [hasToggled, setHasToggled] = useState(false);
   const initialCount = 6;
-  const hasMore = safePodsData.thirdSection.items.length > initialCount;
+  const hasMore = data.thirdSection.items.length > initialCount;
   const firstBoxRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -28,11 +28,11 @@ export default function KeyAdvSec() {
     <section className='py-140 bg-secondary'>
       <div className="container">
         <div className="relative mb-10 xxl:mb-20">
-          <SubTitle titleText={safePodsData.thirdSection.title} color='text-white' />
+          <SubTitle titleText={data.thirdSection.title} color='text-white' />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-10 gap-y-12">
           {
-            safePodsData.thirdSection.items.map((item, index) => {
+            data.thirdSection.items.map((item, index) => {
               const isVisible = showAll || index < initialCount;  
               return (
               <motion.div variants={moveUp(index * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={index} ref={index === 0 ? firstBoxRef : null}
@@ -40,7 +40,7 @@ export default function KeyAdvSec() {
                   }`} >
                 <div className='border-b border-white/45 pb-8 mb-8'>
                   <div className='bg-primary py-2 lg:py-[10px] text-white w-15 h-15 lg:w-20 lg:h-20 flex items-center justify-center'>
-                    {safePodsData.thirdSection.items[index].image ? <Image src={safePodsData.thirdSection.items[index].image} alt={safePodsData.thirdSection.items[index].imageAlt} width={50} height={50} className="w-auto h-[50px] object-contain" /> : <h4 className='text-30 font-semibold leading-[1.3333]'>{(index + 1).toString().padStart(2, '0')}</h4>}
+                    {data.thirdSection.items[index].logo ? <Image src={data.thirdSection.items[index].logo} alt={data.thirdSection.items[index].logoAlt} width={50} height={50} className="w-auto h-[50px] object-contain" /> : <h4 className='text-30 font-semibold leading-[1.3333]'>{(index + 1).toString().padStart(2, '0')}</h4>}
                   </div>
                 </div>
                 <div className='text-white'>  
