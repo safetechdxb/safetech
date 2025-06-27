@@ -1,3 +1,5 @@
+import { easeOut } from "framer-motion";
+
 // motionVariants.ts
 export const containerStagger = {
   show: {
@@ -14,7 +16,7 @@ export const moveUp = (delay: number = 0) => ({
     transition: {
       delay: delay,
       duration: 0.6,
-      ease: "easeOut",
+      ease: easeOut,
     },
   },
 });
@@ -27,7 +29,7 @@ export const moveDown = (delay: number = 0) => ({
     transition: {
       delay: delay,
       duration: 0.6,
-      ease: "easeOut",
+      ease: easeOut,
     },
   },
 });
@@ -40,7 +42,7 @@ export const moveLeft = (delay: number = 0) => ({
     transition: {
       delay: delay,
       duration: 0.6,
-      ease: "easeOut",
+      ease: easeOut,
     },
   },
 });
@@ -53,7 +55,7 @@ export const moveRight = (delay: number = 0) => ({
     transition: {
       delay: delay,
       duration: 0.6,
-      ease: "easeOut",
+      ease: easeOut,
     },
   },
 });
@@ -65,7 +67,7 @@ export const fadeIn = (delay: number = 0) => ({
     transition: {
       delay: delay,
       duration: 0.6,
-      ease: "easeOut",
+      ease: easeOut,
     },
   },
 });
@@ -77,7 +79,7 @@ export const paragraphItem = {
     y: 0, // Slide to its normal position
     transition: {
       duration: 0.6,
-      ease: "easeOut",
+      ease: easeOut,
       staggerChildren: 0.1,
     },
   },
@@ -85,7 +87,7 @@ export const paragraphItem = {
 
 export const opacityMove = {
   hidden: { opacity: 0, x: -20 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  show: { opacity: 1, x: 0, transition: { duration: 0.4, ease: easeOut } },
 };
 
 export const listUpMove = {
@@ -95,7 +97,7 @@ export const listUpMove = {
     transition: {
       staggerChildren: 0.2, // Controls the stagger effect (delay for each item)
       duration: 0.6,
-      ease: "easeOut",
+      ease: easeOut,
     },
   },
 };
@@ -105,7 +107,7 @@ export const letterContainer = {
   show: {
     transition: {
       staggerChildren: 0.05, // a little more time between letters
-      ease: "easeOut",
+      ease: easeOut,
     },
   },
 };
@@ -116,7 +118,7 @@ export const letterItem = {
     y: "0%",
     opacity: 1,
     transition: {
-      ease: "easeOut",
+      ease: easeOut,
       duration: 0.5,
     },
   },
@@ -133,7 +135,7 @@ export const letterItemTop = {
     opacity: 1,
     transition: {
       duration: 0.6,
-      ease: [0.22, 1, 0.36, 1], // cubic-bezier for a soft easeOut
+      ease: easeOut, // cubic-bezier for a soft easeOut
     },
   },
 };

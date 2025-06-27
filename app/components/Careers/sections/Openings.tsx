@@ -3,7 +3,7 @@
 import { assets } from "@/public/assets/assets";
 import SubTitle from "../../common/SubTitle";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, easeOut } from "framer-motion";
 import { careers } from "@/public/types/careers";
 
 
@@ -20,7 +20,7 @@ const Openings = ({data}:{data:careers}) => {
       transition: {
         staggerChildren: 0.2, // Controls the stagger effect (delay for each item)
         duration: 0.6,
-        ease: "easeOut",
+        ease: easeOut,
       },
     },
   };
@@ -32,7 +32,7 @@ const Openings = ({data}:{data:careers}) => {
       y: 0,  // Slide into place
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: easeOut,
       },
     },
   };
