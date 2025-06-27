@@ -453,7 +453,7 @@ const HomePage = () => {
 
 
                     {clientsFields.map((field, index) => (
-                        <div key={field.id} className='grid grid-cols-2 gap-2 relative border-r pb-5 pr-5 last:border-b-0 even:border-r-0'>
+                        <div key={field.id} className='grid grid-cols-1 gap-2 relative border-r pb-5 pr-5 last:border-b-0 even:border-r-0'>
                             <div className='absolute top-2 right-2'>
                                 <RiDeleteBinLine onClick={() => clientsRemove(index)} className='cursor-pointer text-red-600' />
                             </div>
@@ -468,6 +468,7 @@ const HomePage = () => {
                                             <ImageUploader
                                                 value={field.value}
                                                 onChange={field.onChange}
+                                                
                                             />
                                         )}
                                     />

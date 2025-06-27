@@ -703,7 +703,7 @@ const AboutPage = () => {
                 </div>
 
                 <div className='flex justify-center'>
-                    <Button type='submit' className='w-full'>Submit</Button>
+                    <Button type='submit' className='w-full cursor-pointer'>Submit</Button>
                 </div>
 
             </form>
