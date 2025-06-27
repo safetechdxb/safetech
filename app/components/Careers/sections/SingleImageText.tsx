@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, easeOut } from "framer-motion"
 import { moveUp, paragraphItem } from "../../motionVarients";
 import SubTitle from "../../common/SubTitle";
 import { assets } from "@/public/assets/assets";
@@ -14,7 +14,7 @@ const SingleImageText = ({data}:{data:careers}) => {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.6, ease: easeOut },
     },
     exit: { opacity: 0, x: -30, transition: { duration: 0.4 } },
   };

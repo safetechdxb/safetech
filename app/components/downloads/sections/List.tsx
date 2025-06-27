@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion,easeOut } from "framer-motion";
 import { listUpMove } from "../../motionVarients";
 import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
@@ -16,7 +16,7 @@ const listItem = {
     y: 0,  // Slide into place
     transition: {
       duration: 0.6,
-      ease: "easeOut",
+      ease: easeOut,
     },
   },
 };

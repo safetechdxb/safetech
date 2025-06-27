@@ -2,7 +2,7 @@
 
 import Image, { StaticImageData } from "next/image";
 import SubTitle from "../../common/SubTitle";
-import { motion } from "framer-motion";
+import { motion,easeOut } from "framer-motion";
 
 interface PlatformsItem {
   id: number;
@@ -22,7 +22,7 @@ const ImageText: React.FC<PlatformsSectionProps> = ({ data }) => {
       y: 0,  // Slide to its normal position
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: easeOut,
       },
     },
   };
@@ -30,7 +30,7 @@ const ImageText: React.FC<PlatformsSectionProps> = ({ data }) => {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.6, ease: easeOut },
     },
   };
   return (

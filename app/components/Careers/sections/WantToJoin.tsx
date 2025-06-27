@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
-import { motion } from "framer-motion";
+import { motion,easeOut } from "framer-motion";
 import { useState } from "react";
 import { assets } from "@/public/assets/assets";
 import { submitCareerForm } from "../../action";
@@ -25,7 +25,7 @@ const fadeIn = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.6, ease: easeOut },
   },
 };
 const WantToJoin: React.FC<PlatformsSectionProps> = ({

@@ -5,7 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import SubTitle from "../../common/SubTitle";
 import Image, { StaticImageData } from "next/image";
 import { assets } from "@/public/assets/assets";
-import { motion } from "framer-motion";
+import { motion, easeOut } from "framer-motion";
 import { moveUp, listUpMove } from "../../motionVarients";
 interface PlatformsItem {
   id: number;
@@ -29,7 +29,7 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, x: -20 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  show: { opacity: 1, x: 0, transition: { duration: 0.4, ease: easeOut } },
 };
 const categories = ["HIgh-rise buildings", "Residential villas", "commercial complexes", "industrial facilities"];
 

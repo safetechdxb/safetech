@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
 import { Swiper as SwiperType } from "swiper";
-import { motion } from "framer-motion";
+import { motion, easeOut } from "framer-motion";
 
 interface PlatformsItem {
   id: number;
@@ -43,7 +43,7 @@ const ProductSlide: React.FC<PlatformsSectionProps> = ({ data }) => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut",
+        ease: easeOut,
       },
     },
   };
