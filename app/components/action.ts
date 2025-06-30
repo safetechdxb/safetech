@@ -72,6 +72,7 @@ type SubmitCareerFormResult = {
 };
 
 export const submitCareerForm = async (_prevState: unknown, formData: FormData): Promise<SubmitCareerFormResult> => {
+  
   const errors: Record<keyof CareerFormFields, string> = {
     firstName: "",
     lastName: "",
@@ -154,7 +155,7 @@ export const submitCareerForm = async (_prevState: unknown, formData: FormData):
       errors.file = "File must be smaller than 10MB.";
     }
   }
-
+  console.log(firstName, lastName, email, phone, gender, dob, nationality, currentNation, experience, coverLetter, file);
   const hasErrors = Object.values(errors).some((error) => error !== "");
 
   if (hasErrors) {
@@ -162,6 +163,7 @@ export const submitCareerForm = async (_prevState: unknown, formData: FormData):
   }
   
 
+  
   return { success: true, errors: {
     phone: "",
     email: "",
