@@ -13,7 +13,7 @@ const GallerySec = ({data}: {data:SafePodsData}) => {
           <div className="relative ">
             <SubTitle titleText={"Gallery"} color="text-secondary" />
           </div>
-          <ArrowBtn btnText="More Gallery" btnLInk="#" border={true} />
+          <ArrowBtn btnText="More Gallery" btnLInk="/gallery" border={true} />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 xl:gap-[29.67px] auto-rows-[250px] xl:auto-rows-[510px]">
           {data.fifthSection.items.map((item, index) => (
