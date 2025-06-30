@@ -8,24 +8,44 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import { motion } from "framer-motion";
 import { assets } from "@/public/assets/assets";
-import { submitContactForm } from "../../action";
-import { useActionState } from "react";
 import { contactData } from "@/public/types/contactData";
-import { useEffect, useRef } from "react";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm, SubmitHandler } from "react-hook-form"
+import { contactFormSchema } from "@/shemas/contactSchema";
 
 
-const initialState = { success: false, errors: {} as Record<string, string> };
+type ContactFormProps = z.infer<typeof contactFormSchema>
 
 
 const GetInTouch = ({ data }: { data: contactData }) => {
-  const formRef = useRef<HTMLFormElement>(null);
-  const [state, formAction] = useActionState(submitContactForm, initialState);
+
+    const {
+      register,
+      handleSubmit,
+      formState: { errors,isSubmitting },
+      reset,
+    } = useForm({
+      resolver: zodResolver(contactFormSchema),
+    })
+
+    const onSubmit: SubmitHandler<ContactFormProps> = async (data) => {
+      try {
+        const response = await fetch("/api/admin/enquiry", {
+          method: "POST",
+          body: JSON.stringify(data),
+        });
+        if (response.ok) {
+          const data = await response.json();
+          alert(data.message);
+          reset();
+        }
+      } catch (error) {
+        console.error(error);
+        alert("Something went wrong, please try again");
+      }
+    };
   
-  useEffect(() => {
-    if (state.success && formRef.current) {
-      formRef.current.reset(); // Clear all fields
-    }
-  }, [state.success]);
 
 
   return (
@@ -41,41 +61,41 @@ const GetInTouch = ({ data }: { data: contactData }) => {
           </p>
         </div>
 
-        <form action={formAction} ref={formRef}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-x-4 lg:gap-x-[140px] mb-4 lg:mb-7 gap-y-4 lg:gap-y-[30px] " >
             <div className="relative w-full ">
-              <input type="text" placeholder="Name" name="name"
+              <input type="text" placeholder="Name" {...register("name")}
                 className="px-1 appearance-none bg-transparent border-0 border-b border-secondary/80 focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 text-16 font-normal py-[16px] pr-6 w-full" />
-              {state.errors?.name && <p className="text-red-500 text-sm mt-1">{state.errors.name}</p>}
+              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name?.message}</p>}
             </div>
             <div className="relative w-full ">
-              <input type="tel" placeholder="Phone" name="phone" onInput={(e) => {
+              <input type="tel" placeholder="Phone" {...register("phone")} onInput={(e) => {
                 e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
               }}
                 className="px-1 appearance-none bg-transparent border-0 border-b border-secondary/80 focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 text-16 font-normal py-[16px] pr-6 w-full" />
-              {state.errors?.phone && <p className="text-red-500 text-sm mt-1">{state.errors.phone}</p>}
+              {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone?.message}</p>}
             </div>
             <div className="relative w-full ">
-              <input type="email" placeholder="Email" name="email"
+              <input type="email" placeholder="Email" {...register("email")}
                 className="px-1 appearance-none bg-transparent border-0 border-b border-secondary/80 focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 text-16 font-normal py-[16px] pr-6 w-full" />
-              {state.errors?.email && <p className="text-red-500 text-sm mt-1">{state.errors.phone}</p>}
+              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email?.message}</p>}
             </div>
             <div className="relative w-full ">
-              <input type="text" placeholder="Subject" name="subject"
+              <input type="text" placeholder="Subject" {...register("subject")}
                 className="px-1 appearance-none bg-transparent border-0 border-b border-secondary/80 focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 text-16 font-normal py-[16px] pr-6 w-full" />
-              {state.errors?.subject && <p className="text-red-500 text-sm mt-1">{state.errors.phone}</p>}
+              {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject?.message}</p>}
             </div>
           </motion.div>
           <motion.div
             className="" >
             <div className="relative w-full ">
-              <textarea placeholder="Message" name="message" className="px-1 appearance-none bg-transparent lg:h-[178px]
+              <textarea placeholder="Message" {...register("message")} className="px-1 appearance-none bg-transparent lg:h-[178px]
              border-0 border-b border-secondary focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 font-normal text-16 
              py-[16px] pr-6 w-full resize-none"/>
-              {state.errors?.message && <p className="text-red-500 text-sm mt-1">{state.errors.phone}</p>}
+              {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message?.message}</p>}
             </div>
             <div className="w-full ">
-              <button type="submit" className="mt-2 flex w-[215px] cursor-pointer overflow-hidden group transition duration-300 ml-auto">
+              <button type="submit" disabled={isSubmitting} className="mt-2 flex w-[215px] cursor-pointer overflow-hidden group transition duration-300 ml-auto">
                 <div className="bg-primary text-white text-[16px] font-[400] px-2 py-4 transition duration-300 min-w-[165px]">
                    Send Message </div>
                 <div className="flex min-w-[100px] overflow-hidden">
@@ -101,7 +121,6 @@ const GetInTouch = ({ data }: { data: contactData }) => {
         )} */}
 
         {/* Optional success message */}
-        {state.success && <p className="text-green-500 mt-4">Form submitted successfully!</p>}
       </div>
     </section>
   );
