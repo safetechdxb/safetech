@@ -31,11 +31,11 @@ const OurCompany = ({data}:{data:home}) => {
                   {
                     data.aboutSection.items.map((item,index)=>(
                       <div className="relative group flex sm:items-center flex-col first:block" key={index}>
-                        <div>
+                        <div className={`border-r border-primary pr-2 ${index === data.aboutSection.items.length - 1 ? "border-r-0" : ""}`}>
                           <small className="text-10 text-white opacity-50 uppercase cursor-context-menu tracking-cmn">{item.value}</small>
-                          <h3 className="text-white text-52 font-semibold cursor-context-menu">{item.number}</h3>
+                          <h3 className="text-white text-52 font-semibold cursor-context-menu flex items-center">{item.number.split("").filter((item)=>item!="+").join("")}{item.number.includes("+")?<sup className="text-primary text-[36px] mb-1">+</sup>:""}</h3>
                         </div>
-                        <div className="absolute right-0 top-0 sm:h-full sm:w-[1px] bg-primary group-last:hidden"></div>
+                        {/* <div className="absolute right-0 top-0 sm:h-full sm:w-[1px] bg-primary group-last:hidden"></div> */}
                       </div>
                     ))
                   }
