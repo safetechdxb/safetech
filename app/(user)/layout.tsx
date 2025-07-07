@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "../../app/globals.css";
 import Footer from "../components/common/Footer";
 import HeaderMenu from "../components/common/HeaderMenu";
+import { JobSelectContextProvider } from "../contexts/jobSelectContext";
 
 /* const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,9 +30,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`antialiased`} >
-        <HeaderMenu />
-        {children}
-        <Footer/>
+        <JobSelectContextProvider>
+          <HeaderMenu />
+          {children}
+          <Footer/>
+        </JobSelectContextProvider>
       </body>
     </html>
   );

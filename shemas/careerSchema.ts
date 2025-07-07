@@ -27,7 +27,7 @@ export const careerFormSchema = z.object({
           required_error: "Enter a valid phone number",
           invalid_type_error: "Enter a valid phone number",
         })
-        .min(1000000000, { message: "Enter a valid phone number" })
+        .min(100000000000, { message: "Enter a valid phone number" })
     ),
 
     gender: z.preprocess(
@@ -78,5 +78,9 @@ export const careerFormSchema = z.object({
         {
           message: "Only PDF, DOC, and DOCX files are allowed",
         }
-      )
+      ),
+      position: z.preprocess(
+        (val) => typeof val === "string" ? xss(val) : val,
+        z.string({ required_error: "Position is required" }).min(1, "Position is required")
+      ),
   })

@@ -8,18 +8,31 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import { motion,easeOut } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { assets } from "@/public/assets/assets";
 import { useForm, SubmitHandler, Controller } from "react-hook-form"
 import { careerFormSchema } from "@/shemas/careerSchema";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
+import { useJobSelectContext } from "@/app/contexts/jobSelectContext";
 
 type CareerFormProps = z.infer<typeof careerFormSchema>
 
 interface PlatformsSectionProps {
   title: string;
   description: string;
+  openings: {
+    title: string;
+    mode: string;
+    jobType: string;
+  }[];
 }
 const fadeIn = {
   hidden: { opacity: 0 },
@@ -31,6 +44,7 @@ const fadeIn = {
 const WantToJoin: React.FC<PlatformsSectionProps> = ({
   title,
   description,
+  openings,
 }) => {
 
   const {
@@ -45,7 +59,7 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
   })
 
 
-
+  const {jobSelect} = useJobSelectContext();
   const [fileName, setFileName] = useState("");
   const [file, setFile] = useState<File | null>(null);
 
@@ -104,10 +118,18 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
             const formdata = await formResponse.json();
             alert(formdata.message);
             reset();
+            setValue("position", "");
+            setFileName("");
           }
         }
     }
   };
+
+  useEffect(() => {
+    if(jobSelect){
+      setValue("position", jobSelect,{shouldValidate:true});
+    }
+  }, [jobSelect]);
 
 
   return (
@@ -125,7 +147,7 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
         </div>
 
         {/* Reusable animation wrapper for fields */}
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)}   id="wantToJoin">
           <motion.div variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="grid grid-cols-1 lg:grid-cols-2 gap-x-4 lg:gap-x-20 mb-4 lg:mb-7 gap-y-4 lg:gap-y-[30px]">
 
             <div className="relative w-full">
@@ -150,10 +172,10 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
             </div>
           </motion.div>
 
-          <motion.div variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="grid grid-cols-1  w-full mb-4 lg:mb-[30px]" >
-            <div className="relative w-full flex gap-4 items-center mt-2">
+          <motion.div variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="grid lg:grid-cols-2  w-full mb-4 lg:mb-[30px] gap-x-22" >
+            <div className="relative w-full lg:flex lg:gap-4 lg:items-center mt-2 flex gap-y-2 flex-col lg:flex-row">
               <p className="text-[16px] text-secondary/50 font-normal">Gender</p>
-              <div className="flex gap-4">
+              <div className="flex lg:gap-4">
                 {["Male", "Female", "Others"].map((gender, i) => (
                   <Controller
                     key={i}
@@ -162,15 +184,47 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
                     render={({ field }) => (
                       <div className="inline-flex items-center cursor-pointer mr-3">
                         <input type="radio" {...field} value={gender.toLowerCase()} className="w-5 h-5 accent-primary outline-secondary" />
-                        <label className="ml-2 text-secondary/75 font-normal">{gender}</label>
+                        <label className="ml-2 text-secondary/75 font-normal lg:text-[16px] text-[12px]">{gender}</label>
                       </div>
                     )}
                   />
                 ))}
-                {errors.gender && <p className="text-red-500 text-sm mt-1">{errors.gender?.message}</p>}
               </div>
+                {errors.gender && <p className="text-red-500 text-sm mt-1">{errors.gender?.message}</p>}
+            </div>
+
+            <div className="relative w-full lg:flex lg:gap-4 lg:items-center mt-2 flex gap-y-2 flex-col lg:flex-row">
+              <p className="text-[16px] text-secondary/50 font-normal">Position</p>
+              <div className="flex gap-4 w-full">
+              <Controller
+                        name="position"
+                        control={control}
+                        rules={{ required: "Position is required" }}
+                        render={({ field }) => (
+                            <Select
+                                onValueChange={field.onChange}
+                                value={field.value as string}
+                                defaultValue=""
+                            >
+                                <SelectTrigger className="w-full">
+                                    <SelectValue placeholder="Select Position" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  {openings.map((opening, i) => (
+                                        <SelectItem key={i} value={opening.title}>
+                                            {opening.title}
+                                        </SelectItem>
+                                  ))}
+                                </SelectContent>
+                            </Select>
+                        )}
+                    />
+              </div>
+                {errors.position && <p className="text-red-500 text-sm mt-1">{errors.position?.message}</p>}
             </div>
           </motion.div>
+
+          
           <motion.div variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="grid grid-cols-1 lg:grid-cols-2 gap-x-4 lg:gap-x-20 mb-4 lg:mb-7 gap-y-4 lg:gap-y-[30px] " >
             <div className="relative w-full ">
               <input type="text" placeholder="Date of Birth" {...register("dob")}

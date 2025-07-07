@@ -5,12 +5,13 @@ import SubTitle from "../../common/SubTitle";
 import Image from "next/image";
 import { motion, easeOut } from "framer-motion";
 import { careers } from "@/public/types/careers";
+import { useJobSelectContext } from "@/app/contexts/jobSelectContext";
 
 
 
 
 
-const Openings = ({data}:{data:careers}) => {
+const Openings = ({ data }: { data: careers }) => {
 
 
   const listContainer = {
@@ -36,6 +37,9 @@ const Openings = ({data}:{data:careers}) => {
       },
     },
   };
+
+  const { setJobSelect } = useJobSelectContext();
+  
   return (
     <section className="py-140 bg-off-white overflow-hidden relative">
       <div className="container">
@@ -70,8 +74,17 @@ const Openings = ({data}:{data:careers}) => {
                   </p>
                 </div>
                 <div className="lg:w-1/9 flex items-center gap-2 justify-end cursor-pointer font-normal">
-                  <div>
-                    <button className="uppercase font-[700] text-[14px] text-primary min-w-max">Apply now</button>
+                  <div onClick={() =>{
+                    setTimeout(() => {
+                      const target = document.getElementById("wantToJoin");
+                      if (target) {
+                        target.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }, 100)
+
+                    setJobSelect(item.title);
+                  }}>
+                    <button className="uppercase font-[700] text-[14px] text-primary min-w-max cursor-pointer">Apply now</button>
                   </div>
                   <Image src={assets.arrowred} alt="arrow" />
                 </div>

@@ -45,6 +45,10 @@ const careerRequestSchema = new mongoose.Schema({
     file:{
         type:String,
         required:true
+    },
+    position:{
+        type:String,
+        required:true
     }
     
 })

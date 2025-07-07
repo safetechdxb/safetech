@@ -7,7 +7,6 @@ import React, { useEffect, useState } from 'react'
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
@@ -21,7 +20,7 @@ import Link from 'next/link'
 
 const JobRequests = () => {
 
-    const [jobRequests, setJobRequests] = useState<{_id: string, firstName: string, lastName: string, email: string, phone: string, dob: string, nationality: string, currentLocation: string, experience: string, coverLetter: string, file: string}[]>([]);
+    const [jobRequests, setJobRequests] = useState<{_id: string, firstName: string, lastName: string, email: string,gender: string, phone: string, dob: string, nationality: string, currentLocation: string, experience: string, coverLetter: string, file: string, position: string}[]>([]);
 
     const handleFetchJobRequests = async() => {
         try {
@@ -75,7 +74,37 @@ const JobRequests = () => {
                         <DialogContent>
                             <DialogHeader>
                                 <DialogTitle>View Details</DialogTitle>
-                                <DialogDescription className='flex flex-col gap-2 h-[300px] overflow-y-scroll'>
+                                <div className='flex flex-col gap-2 h-[300px] overflow-y-scroll'>
+                                    <div className='flex gap-2'>
+                                    <Label>Applied for : </Label>
+                                    <span className='font-semibold'>{item.position}</span>
+                                    </div>
+                                <Label>First Name</Label>
+                                <Input type="text" placeholder="First Name" readOnly value={item.firstName}/>
+                                <Label>Last Name</Label>
+                                <Input type="text" placeholder="Last Name" readOnly value={item.lastName}/>
+                                <Label>Email</Label>
+                                <Input type="text" placeholder="Email" readOnly value={item.email}/>
+                                <Label>Phone</Label>
+                                <Input type="text" placeholder="Phone" readOnly value={item.phone}/>
+                                <Label>Gender</Label>
+                                <Input type="text" placeholder="Gender" readOnly value={item.gender}/>
+                                <Label>DOB</Label>
+                                <Input type="text" placeholder="DOB" readOnly value={item.dob}/>
+                                <Label>Nationality</Label>
+                                <Input type="text" placeholder="Nationality" readOnly value={item.nationality}/>
+                                <Label>Current Location</Label>
+                                <Input type="text" placeholder="Current Location" readOnly value={item.currentLocation}/>
+                                <Label>Experience</Label>
+                                <Input type="text" placeholder="Experience" readOnly value={item.experience}/>
+                                <Label>Cover Letter</Label>
+                                <Textarea placeholder="Cover Letter" readOnly value={item.coverLetter}/>
+                                <Label>Resume</Label>
+                                <Link href={item.file} target='_blank' rel="noopener noreferrer">
+                                <FaFilePdf className='text-lg cursor-pointer' />
+                                </Link>
+                                <Label>Position</Label>
+                                <Input type="text" placeholder="Position" readOnly value={item.position}/>
                                     <Label>First Name</Label>
                                     <Input type="text" placeholder="First Name" readOnly value={item.firstName}/>
                                     <Label>Last Name</Label>
@@ -98,7 +127,7 @@ const JobRequests = () => {
                                     <Link href={item.file} target='_blank' rel="noopener noreferrer">
                                     <FaFilePdf className='text-lg cursor-pointer' />
                                     </Link>
-                                </DialogDescription>
+                                </div>
                             </DialogHeader>
                             <DialogClose className="bg-black text-white px-2 py-1 rounded-md">Close</DialogClose>
                         </DialogContent>
