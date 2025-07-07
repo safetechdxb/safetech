@@ -13,6 +13,12 @@ const Breadcrumb = () => {
   const buildHref = (index: number) =>
     '/' + pathParts.slice(0, index + 1).join('/');
 
+  const changeFormats = {
+    grc: "GRC",
+    grp: "GRP",
+    grg: "GRG",
+  }
+
   return (
     <ul className="flex items-center gap-4 text-white text-16 font-medium capitalize pt-6 lg:pt-10">
       <li className="flex items-center gap-4 text-15 leading-[1.2] font-normal group">
@@ -44,6 +50,8 @@ const Breadcrumb = () => {
         const label = decodeURIComponent(part.replace(/-/g, ' '));
         const href = buildHref(index);
 
+        console.log(label)
+
         return (
           <li
             key={index}
@@ -51,10 +59,16 @@ const Breadcrumb = () => {
           >
             {!isLast ? (
               <Link href={href} className="text-15">
-                {label}
+                {label.split(" ")[0] in changeFormats
+                  ? changeFormats[label.split(" ")[0] as keyof typeof changeFormats] + label.slice(3)
+                  : label}
               </Link>
             ) : (
-              <span className="">{label}</span>
+              <span className="">
+                {label.split(" ")[0] in changeFormats
+                  ? changeFormats[label.split(" ")[0] as keyof typeof changeFormats] + label.slice(3)
+                  : label}
+              </span>
             )}
 
             {!isLast && (
