@@ -14,7 +14,10 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
  */
+
+
 export const metadata: Metadata = {
   title: "Safe tech",
   description: "Every construction is built to last and enhances the spaces where people live, work, and thrive.",
