@@ -12,7 +12,7 @@ import {
     BriefcaseIcon,
   } from "@heroicons/react/24/outline";
 import { CodeIcon, FilesIcon, FlowerIcon } from 'lucide-react';
-import { MdCardMembership } from 'react-icons/md';
+import { MdCardMembership, MdEmail } from 'react-icons/md';
 import { FaInfo } from 'react-icons/fa';
 
 
@@ -36,6 +36,7 @@ const AdminNavbar = () => {
         { name: "Resources", href: "/admin/resources", icon: FilesIcon },
         { name: "Job Requests", href: "/admin/job-requests", icon: MdCardMembership },
         { name: "Enquiries", href: "/admin/enquiry", icon: FaInfo },
+        { name: "News Letter", href: "/admin/news-letter", icon: MdEmail },
         { name: "Tag Codes", href: "/admin/codes", icon: CodeIcon},
       ];
 
