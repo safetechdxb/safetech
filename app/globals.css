@@ -265,6 +265,13 @@
   }
 
 }
+@media (max-width: 768px) {
+  :root {
+    --section-gap: clamp(40px, 3vw + 0.05rem, 80px);
+    
+  }
+
+}
 
 .container {
   @apply px-[15px] mx-auto;

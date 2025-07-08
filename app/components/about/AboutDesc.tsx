@@ -14,9 +14,9 @@ const AboutDesc = ({data}:{data:About}) => {
             <div className="relative h-full">
               <Image src={data.firstSection.image} alt="Our Company" width={400} height={400} className="w-full h-full object-cover"></Image>
               <div className="absolute bottom-[-40px] left-0">
-                <div className="w-10 h-20 bg-white relative z-20 group">
-                  <div className="w-10 h-10 bg-black absolute top-0 left-0 "></div>
-                  <div className="w-10 h-10 bg-primary absolute top-0 left-0 group-hover:top-[50%] transition-all duration-200"></div>
+                <div className="lg:w-10 lg:h-20 h-16 w-8 bg-white relative z-20 group">
+                  <div className="lg:w-10 lg:h-10 h-8 w-8 bg-black absolute bottom-0 left-0 "></div>
+                  <div className="lg:w-10 lg:h-10 h-8 w-8 bg-primary absolute bottom-0 left-0 group-hover:bottom-[50%] transition-all duration-200"></div>
                 </div>
               </div>
             </div>
@@ -25,7 +25,7 @@ const AboutDesc = ({data}:{data:About}) => {
             <div className="relative mb-5 lg:mb-10">
               <SubTitle titleText={data.firstSection.mainTitle} color="text-secondary" />
             </div>
-              <h2 className="text-32 font-semibold text-primary mb-6 leading-[1.5] ">{data.firstSection.firstTitle} <br/><span className="text-black">{data.firstSection.secondTitle}</span> </h2>
+              <h2 className="text-32 font-semibold text-primary lg:mb-6 mb-4 lg:leading-[1.5] leading-[1.2] ">{data.firstSection.firstTitle} <br/><span className="text-black">{data.firstSection.secondTitle}</span> </h2>
               {/* <p className="text-20 leading-[1.3] font-normal text-secondary/75 text-body-color mb-5">{data.firstSection.description}</p> */}
               {/* <p className="text-20 leading-[1.3] font-normal text-secondary/75 text-body-color mb-0">{aboutMainDesc.desc2}</p> */}
             {data.firstSection.description.split('\n').map((line, idx) => (

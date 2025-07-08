@@ -16,7 +16,7 @@ export default function KeyAdvSec({ data }: { data: PrecastPreStressedElement })
             data.secondSection.items.map((item, index) => (
               <motion.div variants={moveUp(index * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={index}>
                 <div className='border-b border-white/45 pb-8 mb-8'>
-                  <div className='bg-primary w-fit p-5 text-white'>
+                  <div className='bg-primary w-fit p-3 lg:p-5 text-white'>
                     <h4 className='text-30 font-semibold leading-[1.3333]'>{(index + 1).toString().padStart(2, '0')}</h4>
                   </div>
                 </div>
