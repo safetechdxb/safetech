@@ -791,3 +791,12 @@ background: linear-gradient(180deg, rgba(30, 30, 30, 0.1) 50%, rgba(140, 31, 35,
 
 
 }
+
+.react-tel-input {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  position: relative;
+  width: 100%;
+  border: none;
+  outline: none;
+}

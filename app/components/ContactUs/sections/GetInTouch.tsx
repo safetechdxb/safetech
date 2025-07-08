@@ -11,41 +11,46 @@ import { assets } from "@/public/assets/assets";
 import { contactData } from "@/public/types/contactData";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm, SubmitHandler, Controller } from "react-hook-form"
 import { contactFormSchema } from "@/shemas/contactSchema";
-
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+import { useState } from "react";
 
 type ContactFormProps = z.infer<typeof contactFormSchema>
 
 
 const GetInTouch = ({ data }: { data: contactData }) => {
 
-    const {
-      register,
-      handleSubmit,
-      formState: { errors,isSubmitting },
-      reset,
-    } = useForm({
-      resolver: zodResolver(contactFormSchema),
-    })
+  const [phoneIsFocused, setPhoneIsFocused] = useState(false);
 
-    const onSubmit: SubmitHandler<ContactFormProps> = async (data) => {
-      try {
-        const response = await fetch("/api/admin/enquiry", {
-          method: "POST",
-          body: JSON.stringify(data),
-        });
-        if (response.ok) {
-          const data = await response.json();
-          alert(data.message);
-          reset();
-        }
-      } catch (error) {
-        console.error(error);
-        alert("Something went wrong, please try again");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+    control,
+  } = useForm({
+    resolver: zodResolver(contactFormSchema),
+  })
+
+  const onSubmit: SubmitHandler<ContactFormProps> = async (data) => {
+    try {
+      const response = await fetch("/api/admin/enquiry", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        alert(data.message);
+        reset();
       }
-    };
-  
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong, please try again");
+    }
+  };
+
 
 
   return (
@@ -69,10 +74,50 @@ const GetInTouch = ({ data }: { data: contactData }) => {
               {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name?.message}</p>}
             </div>
             <div className="relative w-full ">
-              <input type="tel" placeholder="Phone" {...register("phone")} onInput={(e) => {
+              {/* <input type="tel" placeholder="Phone" {...register("phone")} onInput={(e) => {
                 e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
               }}
-                className="px-1 appearance-none bg-transparent border-0 border-b border-secondary/80 focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 text-16 font-normal py-[16px] pr-6 w-full" />
+                className="px-1 appearance-none bg-transparent border-0 border-b border-secondary/80 focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 text-16 font-normal py-[16px] pr-6 w-full" /> */}
+              <Controller
+                name="phone"
+                control={control}
+                render={({ field }) => (
+                  <PhoneInput
+                    country="ae"
+                    value={field.value as string}
+                    onChange={field.onChange}
+                    onFocus={() => setPhoneIsFocused(true)}
+                    onBlur={() => setPhoneIsFocused(false)}
+                    placeholder="Phone Number"
+                    containerClass="w-full py-[17px]"
+                    inputStyle={{
+                      paddingLeft: "46px", // px-1
+                      backgroundColor: "transparent",
+                      border: "none",
+                      borderBottom: `1px solid ${phoneIsFocused ? "#E11F27" : "rgba(0, 0, 0, 0.5)"}`, // #0066ff = primary color // border-secondary/80
+                      outline: "none",
+                      boxShadow: "none",
+                      width: "100%",
+                      fontFamily: "inherit",
+                      color: "#595959", // text-secondary
+                      fontSize: "16px",
+                      fontWeight: "400", // font-normal
+                      paddingTop: "16px",
+                      paddingBottom: "26px",
+                      paddingRight: "24px", // pr-6
+                      borderRadius: 0,
+                    }}
+                    buttonStyle={{
+                      backgroundColor: "transparent",
+                      border: "none",
+                      paddingTop: "16px",
+                      paddingBottom: "24px",
+                      paddingLeft: "8px",
+                    }}
+                  />
+                )}
+              />
+
               {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone?.message}</p>}
             </div>
             <div className="relative w-full ">
@@ -80,7 +125,7 @@ const GetInTouch = ({ data }: { data: contactData }) => {
                 className="px-1 appearance-none bg-transparent border-0 border-b border-secondary/80 focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 text-16 font-normal py-[16px] pr-6 w-full" />
               {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email?.message}</p>}
             </div>
-            <div className="relative w-full ">
+            <div className="relative w-full">
               <input type="text" placeholder="Subject" {...register("subject")}
                 className="px-1 appearance-none bg-transparent border-0 border-b border-secondary/80 focus:outline-none focus:ring-0 focus:border-primary text-secondary placeholder:text-secondary/75 text-16 font-normal py-[16px] pr-6 w-full" />
               {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject?.message}</p>}
@@ -97,7 +142,7 @@ const GetInTouch = ({ data }: { data: contactData }) => {
             <div className="w-full ">
               <button type="submit" disabled={isSubmitting} className="mt-2 flex w-[215px] cursor-pointer overflow-hidden group transition duration-300 ml-auto">
                 <div className="bg-primary text-white text-[16px] font-[400] px-2 py-4 transition duration-300 min-w-[165px]">
-                   Send Message </div>
+                  Send Message </div>
                 <div className="flex min-w-[100px] overflow-hidden">
                   <div className="bg-black w-[50px] text-white text-[16px] font-[400] px-4 py-4 flex items-center justify-center transition duration-300 transform group-hover:-translate-x-[50px]">
                     <Image src={assets.arrowwhite} alt="arrow" width={16} height={16} />
@@ -107,7 +152,7 @@ const GetInTouch = ({ data }: { data: contactData }) => {
                   </div>
                 </div>
               </button>
-              
+
             </div>
           </motion.div>
         </form>

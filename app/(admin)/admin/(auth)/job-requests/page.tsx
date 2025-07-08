@@ -103,30 +103,7 @@ const JobRequests = () => {
                                 <Link href={item.file} target='_blank' rel="noopener noreferrer">
                                 <FaFilePdf className='text-lg cursor-pointer' />
                                 </Link>
-                                <Label>Position</Label>
-                                <Input type="text" placeholder="Position" readOnly value={item.position}/>
-                                    <Label>First Name</Label>
-                                    <Input type="text" placeholder="First Name" readOnly value={item.firstName}/>
-                                    <Label>Last Name</Label>
-                                    <Input type="text" placeholder="Last Name" readOnly value={item.lastName}/>
-                                    <Label>Email</Label>
-                                    <Input type="text" placeholder="Email" readOnly value={item.email}/>
-                                    <Label>Phone</Label>
-                                    <Input type="text" placeholder="Phone" readOnly value={item.phone}/>
-                                    <Label>DOB</Label>
-                                    <Input type="text" placeholder="DOB" readOnly value={item.dob}/>
-                                    <Label>Nationality</Label>
-                                    <Input type="text" placeholder="Nationality" readOnly value={item.nationality}/>
-                                    <Label>Current Location</Label>
-                                    <Input type="text" placeholder="Current Location" readOnly value={item.currentLocation}/>
-                                    <Label>Experience</Label>
-                                    <Input type="text" placeholder="Experience" readOnly value={item.experience}/>
-                                    <Label>Cover Letter</Label>
-                                    <Textarea placeholder="Cover Letter" readOnly value={item.coverLetter}/>
-                                    <Label>Resume</Label>
-                                    <Link href={item.file} target='_blank' rel="noopener noreferrer">
-                                    <FaFilePdf className='text-lg cursor-pointer' />
-                                    </Link>
+                                
                                 </div>
                             </DialogHeader>
                             <DialogClose className="bg-black text-white px-2 py-1 rounded-md">Close</DialogClose>
