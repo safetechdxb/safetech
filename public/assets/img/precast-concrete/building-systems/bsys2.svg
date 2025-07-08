@@ -1,3 +1,5 @@
-<svg width="52" height="53" viewBox="0 0 52 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5.55391 22.209V47.2228C5.55745 49.8275 7.7012 51.9497 10.3326 51.9523L41.6188 51.9532C44.252 51.9497 46.3957 49.8284 46.3993 47.2246V22.209M5.55391 22.209L1 26.7152M5.55391 22.209L25.9762 2L46.3993 22.209M50.9532 26.7152L46.3993 22.209" stroke="#E11F27" stroke-width="2" stroke-linecap="round"/>
-</svg>
+<svg id="exXj1Rg2PT81" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 51 52" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" project-id="c6097c04ae4f42c29ede31bd3be73840" export-id="475ca9068dac4d0fa9a08a4e55cfb5e8" cached="false">
+<style><![CDATA[
+#exXj1Rg2PT82 {animation: exXj1Rg2PT82_s_do 3000ms linear infinite normal forwards}@keyframes exXj1Rg2PT82_s_do { 0% {stroke-dashoffset: 68.94} 33.333333% {stroke-dashoffset: 68.94} 66.666667% {stroke-dashoffset: 0} 100% {stroke-dashoffset: 0}} #exXj1Rg2PT83 {animation: exXj1Rg2PT83_s_do 3000ms linear infinite normal forwards}@keyframes exXj1Rg2PT83_s_do { 0% {stroke-dashoffset: 94.41} 33.333333% {stroke-dashoffset: 0} 100% {stroke-dashoffset: 0}}
+]]></style>
+<path id="exXj1Rg2PT82" d="M1,26.2435l4.46701-4.4202L25.4995,2L45.5329,21.8233l4.467,4.4202" fill="none" stroke="#e11f27" stroke-width="2" stroke-linecap="round" stroke-dashoffset="68.94" stroke-dasharray="68.94"/><path id="exXj1Rg2PT83" d="M5.8999,21.8235v24.5365c.00348,2.555,2.10631,4.6366,4.6875,4.6392l30.6891.0009c2.583-.0035,4.6858-2.0843,4.6893-4.6384l-.376-24.5382" fill="none" stroke="#e11f27" stroke-width="2" stroke-linecap="round" stroke-dashoffset="94.41" stroke-dasharray="94.41"/></svg>
