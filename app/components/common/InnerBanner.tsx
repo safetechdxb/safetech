@@ -18,7 +18,7 @@ interface InnerBannerProps {
 
 const InnerBanner = ({ pageTitle, bannerBg, isBlogDetails, category, date, isDetailPage }: InnerBannerProps) => {
   return (
-    <section className="relative w-full h-[60vh] min-h-max lg:h-[540px] bg-secondary">
+    <section className="relative w-full h-[55dvh] min-h-max lg:h-[540px] bg-secondary">
       {
         bannerBg && (
           <Image src={bannerBg} alt="About Us" width={1920} height={540} className="absolute top-0 left-0 w-full h-full object-cover object-center z-0" />
