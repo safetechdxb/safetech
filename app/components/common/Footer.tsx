@@ -1,10 +1,64 @@
+"use client"
+
 import Image from "next/image";
 import { assets } from "@/public/assets/assets";
 import Link from "next/link";
 import { ChevronRight, MoveRight } from 'lucide-react';
-const Footer = async() => {
-  const response = await fetch(`${process.env.BASE_URL}/api/admin/home`, { next: { revalidate: 60 } });
-  const data = await response.json();
+import { useEffect, useState, useCallback } from "react";
+
+const Footer = () => {
+  // const response = await fetch(`${process.env.BASE_URL}/api/admin/home`, { next: { revalidate: 60 } });
+  // const data = await response.json();
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/home`, { next: { revalidate: 60 } });
+      const data = await response.json();
+      setProducts(data.data.products.items);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+  fetchData();
+  }, []);
+
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSubmit = useCallback(async () => {
+    if(!email){
+      setError('Please enter an email');
+      return;
+    }
+    const isValidEmail = (email:string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if(!isValidEmail(email)){
+      setError('Please enter a valid email');
+      return;
+    }
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/news-letter`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        alert(data.message);
+      }else{
+        alert(data.message);
+      }
+      setEmail('');
+      setError('');
+    } catch (error) {
+      console.error('Error subscribing to newsletter:', error);
+    }
+  }, [email]);
+
   return (
     <footer className="bg-secondary pt-140 border-t-4 border-t-primary px-0">
       <div className="container mx-auto py-4">
@@ -40,7 +94,7 @@ const Footer = async() => {
               <h3 className="text-white text-18 font-bold uppercase mb-8 group-hover/box:text-primary">Products</h3>
               <ul className="flex flex-col gap-2 lg:gap-4">
                 {
-                  data.data.products.items.map((product: { title: string,url:string }, index: number) => (
+                  products.map((product: { title: string,url:string }, index: number) => (
                 <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group" key={index}><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
                       <ChevronRight /></span><Link href={`products${product.url}`} className="text-16 leading-[1.3] font-normal">{product.title}</Link></li>
                   ))
@@ -83,9 +137,12 @@ const Footer = async() => {
             </div>
             <div className="group">
               <h3 className="text-white text-18 font-bold uppercase mb-8 group-hover/box:text-primary">Newsletter</h3>
-                <div className="flex justify-between items-center border-b border-white/10 pb-4 mb-16  ">
-                  <input type="email" name="email" id="email" placeholder="Email" className="text-white/50 fw-normal text-16 focus:outline-0 focus:border-0 placeholder:text-white/50 placeholder:text-16 placeholder:font-normal" />
-                  <button className="flex gap-3 text-white/50 text-16 leading-[1.3] font-normal hover:text-white cursor-pointer">Subscribe <MoveRight/></button>
+              <div className="mb-16">
+                <div className="flex justify-between items-center border-b border-white/10 pb-4">
+                  <input type="email" name="email" id="email" placeholder="Email" className="text-white/50 fw-normal text-16 focus:outline-0 focus:border-0 placeholder:text-white/50 placeholder:text-16 placeholder:font-normal" value={email} onChange={(e) => setEmail(e.target.value)} />
+                  <button className="flex gap-3 text-white/50 text-16 leading-[1.3] font-normal hover:text-white cursor-pointer" onClick={handleSubmit}>Subscribe <MoveRight/></button>
+                </div>
+                {error && <p className="text-red-500 text-16 leading-[1.3] font-normal">{error}</p>}
                 </div>
                 <div>
                   <ul className="flex border-1 border-primary w-fit">
