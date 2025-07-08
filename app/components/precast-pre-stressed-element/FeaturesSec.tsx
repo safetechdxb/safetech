@@ -15,7 +15,7 @@ export default function FeaturesSec({data}:{data:PrecastPreStressedElement}) {
       <div className="absolute w-full h-full top-0 left-0 bg-secondary/50"></div>
       <div className="container relative z-20">
         <div className="mb-5 lg:mb-20">
-          <div className="relative mb-10">
+          <div className="relative mb-5 lg:mb-10">
             <SubTitle titleText={data.secondSection.title} color="text-white" />
           </div>
           <p className="text-white max-w-4xl text-20 font-normal leading-[1.6]">{data.secondSection.description}</p>

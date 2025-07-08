@@ -20,7 +20,7 @@ const Breadcrumb = () => {
   }
 
   return (
-    <ul className="flex items-center gap-4 text-white text-16 font-medium capitalize pt-6 lg:pt-10">
+    <ul className="flex flex-wrap items-center gap-4 text-white text-16 font-medium capitalize pt-6 lg:pt-10">
       <li className="flex items-center gap-4 text-15 leading-[1.2] font-normal group">
         <Link href="/" className="hover:underline">Home</Link>
         {pathParts.length > 0 && (
@@ -55,7 +55,7 @@ const Breadcrumb = () => {
         return (
           <li
             key={index}
-            className="flex items-center gap-4  leading-[1.2] font-normal group "
+            className="flex lfex- items-center gap-4  leading-[1.2] font-normal group "
           >
             {!isLast ? (
               <Link href={href} className="text-15">
