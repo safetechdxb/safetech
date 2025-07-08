@@ -632,9 +632,9 @@ body {
 .arrow-list li {
   position: relative;
   padding-left: 1em;
-  margin-bottom: 0.5em;
-  @apply text-20 font-normal;
+  @apply text-20 font-normal mb-[0.5em] last:mb-0;
 }
+
 
 .arrow-list li::before {
   content: "";
