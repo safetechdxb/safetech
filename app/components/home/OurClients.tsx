@@ -38,7 +38,7 @@ const OurClients = ({data}:{data:home}) => {
           ))}
         </div>
         </div>
-        <div className="block lg:hidden">
+        <div className="block lg:hidden"> 
           <Swiper
             className="w-full"
             slidesPerView={3}

@@ -5,6 +5,7 @@ import SubTitle from "../common/SubTitle";
 import {assets} from "@/public/assets/assets";
 import Image from "next/image";
 import { About } from "@/public/types/about";
+import Counter from "../common/Counter";
 const Achievements = ({data}:{data:About}) => {
   return ( 
     <section className="py-140 relative ">
@@ -18,10 +19,10 @@ const Achievements = ({data}:{data:About}) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] mt-[60px]">
            {
             data.thirdSection.items.map((item,index)=>(
-              <motion.div variants={moveUp(index * 0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={index} className="bg-primary p-8 flex flex-col gap-[86px]">
+              <motion.div variants={moveUp(index * 0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} key={index} className="bg-primary p-4 xl:p-8 flex flex-col gap-[86px]">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-64 font-bold leading-[1] text-white">{item.number}</h3>
-                  <Image src={item.logo} alt={item.logoAlt} width={50} height={50} className="w-auto h-[50px] object-contain" />
+                  <h3 className="xl:text-64 text-48 font-bold leading-[1] text-white"><Counter from={0} to={Number(item.number)} duration={2} /></h3>
+                  <Image src={item.logo} alt={item.logoAlt} width={50} height={50} className="w-auto h-8 lg:h-10 xl:h-[50px] object-contain" />
                 </div>
                 <h4 className="text-20 font-semibold text-white">{item.value}</h4>
               </motion.div>
