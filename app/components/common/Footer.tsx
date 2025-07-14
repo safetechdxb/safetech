@@ -72,8 +72,8 @@ const Footer = () => {
             <div className="group/box">
               <h3 className="text-white text-18 font-bold uppercase mb-8 group-hover/box:text-primary">Quick links</h3>
               <ul className="flex flex-col gap-2 lg:gap-4">
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight className="" /></span><Link href="about" className="text-16 leading-[1.3] font-normal">About Us</Link></li>
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="careers" className="text-16 leading-[1.3] font-normal">Careers</Link></li>
+                <li className="text-white flex gap-2 items-center duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight className="" /></span><Link href="about" className="text-16 leading-[1.3] font-normal group-hover:text-primary">About Us</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="careers" className="text-16 leading-[1.3] font-normal group-hover:text-primary">Careers</Link></li>
               </ul>
             </div>
             <div className="group/box">
@@ -81,7 +81,7 @@ const Footer = () => {
               <ul className="flex flex-col gap-2 lg:gap-4">
                 <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group">
                   <span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight />
-                  </span><Link href="contact-us" className="text-16 leading-[1.3] font-normal">Contact Us</Link>
+                  </span><Link href="/contact-us" className="text-16 leading-[1.3] font-normal group-hover:text-primary">Contact Us</Link>
                 </li>
                 {/* <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group">
                   <span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight />
@@ -96,7 +96,7 @@ const Footer = () => {
                 {
                   products.map((product: { title: string,url:string }, index: number) => (
                 <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group" key={index}><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
-                      <ChevronRight /></span><Link href={`products${product.url}`} className="text-16 leading-[1.3] font-normal">{product.title}</Link></li>
+                      <ChevronRight /></span><Link href={`/products${product.url}`} className="text-16 leading-[1.3] font-normal group-hover:text-primary">{product.title}</Link></li>
                   ))
                 }
                 {/* <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform">
@@ -116,12 +116,12 @@ const Footer = () => {
             <div className="group/box">
               <h3 className="text-white text-18 font-bold uppercase mb-8 group-hover/box:text-primary">Legal</h3>
               <ul className="flex flex-col gap-2 lg:gap-4">
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">QHSE Policy</Link></li>
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Code of Conduct</Link></li>
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Equal Opportunity Policy</Link></li>
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Modern Slavery Policy</Link></li>
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Whistleblowing Policy</Link></li>
-                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal">Data Protection Policy</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal group-hover:text-primary">QHSE Policy</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal group-hover:text-primary">Code of Conduct</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal group-hover:text-primary">Equal Opportunity Policy</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal group-hover:text-primary">Modern Slavery Policy</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal group-hover:text-primary">Whistleblowing Policy</Link></li>
+                <li className="text-white flex gap-2 items-center hover:text-white/80 duration-200 transition-colors group"><span className="text-primary group-hover:translate-x-0.5 duration-200 transition-transform"><ChevronRight /></span><Link href="#" className="text-16 leading-[1.3] font-normal group-hover:text-primary">Data Protection Policy</Link></li>
               </ul>
             </div>
             </div>

@@ -5,7 +5,11 @@ import SubTitle from "../common/SubTitle";
 import {motion} from "framer-motion"
 import  {moveUp} from "../motionVarients"
 import { home } from "@/public/types/home";
+import { useInView } from "react-intersection-observer";
+import CountUp from "react-countup";
+
 const OurCompany = ({data}:{data:home}) => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
   return (
     <section className="my-140">
       <div className="container">
@@ -27,13 +31,13 @@ const OurCompany = ({data}:{data:home}) => {
                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M6.99667 20V17.9558H16.6526L0 1.30197L1.43028 0L18.0816 16.5243V6.87087H20.1258V20H6.99667Z" fill="#E11F27" />
                 </svg>
-                <div className="flex flex-wrap justify-between gap-4 sm:grid grid-cols-2 sm:grid-cols-3 py-[40px] xs:gap-y-2.5">
+                <div ref={ref} className="flex flex-wrap justify-between gap-4 sm:grid grid-cols-2 sm:grid-cols-3 py-[40px] xs:gap-y-2.5">
                   {
                     data.aboutSection.items.map((item,index)=>(
                       <div className="relative group flex sm:items-center flex-col first:block" key={index}>
                         <div className={`lg:border-r lg:border-primary pr-2 ${index === data.aboutSection.items.length - 1 ? "lg:border-r-0" : ""}`}>
                           <small className="text-10 text-white opacity-50 uppercase cursor-context-menu tracking-cmn">{item.value}</small>
-                          <h3 className="text-white text-52 font-semibold cursor-context-menu flex items-center">{item.number.split("").filter((item)=>item!="+").join("")}{item.number.includes("+")?<sup className="text-primary text-[36px] mb-1">+</sup>:""}</h3>
+                          {inView && item.number.includes("+") ? <h3 className="text-white text-52 font-semibold cursor-context-menu flex items-center"><CountUp end={Number(item.number.split("").filter((item)=>item!="+").join(""))} />{item.number.includes("+")?<sup className="text-primary text-[36px] mb-1">+</sup>:""}</h3>:<h3 className="text-white text-52 font-semibold cursor-context-menu flex items-center">{item.number}</h3>}
                         </div>
                         {/* <div className="absolute right-0 top-0 sm:h-full sm:w-[1px] bg-primary group-last:hidden"></div> */}
                       </div>
