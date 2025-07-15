@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import Career from "@/models/Career";
 import connectDB from "@/lib/mongodb";
 import CareerRequest from "@/models/CareerRequest";
+import { verifyAdmin } from "@/lib/verifyAdmin";
 
 export async function GET() {
     try {
@@ -20,6 +21,10 @@ export async function GET() {
 export async function PATCH(request: NextRequest) {
     try {
         await connectDB();
+        const isAdmin = await verifyAdmin(request);
+        if (!isAdmin) {
+            return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+        }
         const body = await request.json();
         const { banner, bannerAlt,pageTitle, firstSection, secondSection, firstSectionItems, secondSectionItems, thirdSectionItems,metaTitle,metaDescription } = body;
         console.log(body)

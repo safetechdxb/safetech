@@ -1,6 +1,7 @@
 import connectDB from "@/lib/mongodb";
 import News from "@/models/News";
 import { NextRequest, NextResponse } from "next/server";
+import { verifyAdmin } from "@/lib/verifyAdmin";
 
 interface NewsData {
     _id: string;
@@ -20,6 +21,10 @@ interface NewsData {
 export async function POST(req:NextRequest) {
     try {
         await connectDB();
+        const isAdmin = await verifyAdmin(req);
+        if (!isAdmin) {
+            return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+        }
         const {title,slug,content,images,category,metaTitle,metaDescription,thumbnail,thumbnailAlt,coverImage,coverImageAlt} = await req.json();
         const news = await News.findOne({})
         if(news){
@@ -39,6 +44,10 @@ export async function POST(req:NextRequest) {
 export async function PATCH(req:NextRequest) {
     try {
         await connectDB();
+        const isAdmin = await verifyAdmin(req);
+        if (!isAdmin) {
+            return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+        }
         const {searchParams} = new URL(req.url);
         const id = searchParams.get("id");
         const {title,slug,content,images,category,metaTitle,metaDescription,thumbnail,thumbnailAlt,coverImage,coverImageAlt} = await req.json();
@@ -101,6 +110,10 @@ export async function GET(req:NextRequest) {
 export async function DELETE(req:NextRequest) {
     try {
         await connectDB();
+        const isAdmin = await verifyAdmin(req);
+        if (!isAdmin) {
+            return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+        }
         const {searchParams} = new URL(req.url);
         const id = searchParams.get("id");
         const news = await News.findOne({});
