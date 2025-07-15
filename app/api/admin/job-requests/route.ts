@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import CareerRequest from "@/models/CareerRequest";
 import connectDB from "@/lib/mongodb";
+import { verifyAdmin } from "@/lib/verifyAdmin";
 
 export async function GET() {
     try {
@@ -19,6 +20,10 @@ export async function GET() {
 export async function DELETE(request: NextRequest) {
     try {
         await connectDB();
+        const isAdmin = await verifyAdmin(request);
+        if (!isAdmin) {
+            return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+        }
         const id = request.nextUrl.searchParams.get("id");
         const jobRequest = await CareerRequest.findByIdAndDelete(id);
         if (!jobRequest) {

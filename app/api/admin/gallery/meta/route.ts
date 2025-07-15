@@ -1,10 +1,15 @@
 import connectDB from "@/lib/mongodb";
 import Gallery from "@/models/Gallery";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { verifyAdmin } from "@/lib/verifyAdmin";
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
     try {
         await connectDB();
+        const isAdmin = await verifyAdmin(req);
+        if (!isAdmin) {
+            return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+        }
         const body = await req.json();
         const { banner, bannerAlt, pageTitle, metaTitle, metaDescription } = body;
         const response = await Gallery.findOneAndUpdate({},{

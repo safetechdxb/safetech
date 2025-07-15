@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import connectDB from "@/lib/mongodb";
 import mongoose from "mongoose";
 import News from "@/models/News";
+import { verifyAdmin } from "@/lib/verifyAdmin";
 
 
 export async function GET() {
@@ -23,6 +24,10 @@ export async function GET() {
 export async function POST(req:NextRequest) {
     try {
         await connectDB();
+        const isAdmin = await verifyAdmin(req);
+        if (!isAdmin) {
+            return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+        }
         const { name } = await req.json();
         const news = await News.findOne({});
         if(news){
@@ -42,6 +47,10 @@ export async function PATCH(req:NextRequest) {
     const session = await mongoose.startSession();
     try {
         await connectDB();
+        const isAdmin = await verifyAdmin(req);
+        if (!isAdmin) {
+            return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+        }
         session.startTransaction();
         const { name,oldName } = await req.json();
         const news = await News.findOne({});
@@ -79,6 +88,10 @@ export async function DELETE(req:NextRequest) {
     const session = await mongoose.startSession();
     try {
         await connectDB();
+        const isAdmin = await verifyAdmin(req);
+        if (!isAdmin) {
+            return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+        }
         const searchParams = req.nextUrl.searchParams;
         const id = searchParams.get("id");
         session.startTransaction();

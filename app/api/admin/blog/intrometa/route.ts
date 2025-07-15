@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import connectDB from "@/lib/mongodb";
 import Blog from "@/models/Blog";
+import { verifyAdmin } from "@/lib/verifyAdmin";
 
 export async function POST(req:NextRequest) {
     try {
         await connectDB();
+        const isAdmin = await verifyAdmin(req);
+        if (!isAdmin) {
+            return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+        }
         const { metaTitle, metaDescription, banner, bannerAlt,pageTitle } = await req.json();
         const blog = await Blog.findOne({});
         if(blog){

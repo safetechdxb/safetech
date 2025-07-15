@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import connectDB from "@/lib/mongodb";
 import Resource from "@/models/Resource";
+import { verifyAdmin } from "@/lib/verifyAdmin";
 
 export async function POST(req:NextRequest) {
     try {
         await connectDB();
+        const isAdmin = await verifyAdmin(req);
+        if (!isAdmin) {
+            return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+        }
         const { name } = await req.json();
         const resource = await Resource.findOne({})
         if(resource){
@@ -23,6 +28,10 @@ export async function POST(req:NextRequest) {
 export async function PATCH(req:NextRequest) {
     try {
         await connectDB();
+        const isAdmin = await verifyAdmin(req);
+        if (!isAdmin) {
+            return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+        }
         const searchParams = req.nextUrl.searchParams;
         const id = searchParams.get("id");
         const { name } = await req.json();
@@ -46,6 +55,10 @@ export async function PATCH(req:NextRequest) {
 export async function DELETE(req:NextRequest) {
     try {
         await connectDB();
+        const isAdmin = await verifyAdmin(req);
+        if (!isAdmin) {
+            return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+        }
         const searchParams = req.nextUrl.searchParams;
         const id = searchParams.get("id");
         const resource = await Resource.findOne({});
