@@ -61,6 +61,17 @@ interface PrecastPrestressedPageElements {
     forthSectionItems:{
         column1Value:string;
         column2Value:string;
+        image:string;
+        imageAlt:string;
+        title:string;
+        description:string;
+    }[] | {
+        column1Value:string;
+        column2Value:string;
+        image:string;
+        imageAlt:string;
+        title:string;
+        description:string;
     }[]
 }
 
@@ -455,6 +466,9 @@ const PrecastPrestressedPageElements = () => {
                                         <SelectItem value="with-image">
                                             With image
                                         </SelectItem>
+                                        <SelectItem value="with-slides">
+                                            With slides
+                                        </SelectItem>
                                 </SelectContent>
                             </Select>
                         )}
@@ -519,7 +533,7 @@ const PrecastPrestressedPageElements = () => {
                         ))}
                         </div>
                         <div className='flex justify-end'>
-                            <Button type='button' className="cursor-pointer" addItem onClick={() => appendForthSectionItems({column1Value:"", column2Value:"" })}>Add Item</Button>
+                            <Button type='button' className="cursor-pointer" addItem onClick={() => appendForthSectionItems({column1Value:"", column2Value:"", image:"", imageAlt:"", title:"", description:"" })}>Add Item</Button>
                         </div>
 
                     </div>
@@ -571,8 +585,94 @@ const PrecastPrestressedPageElements = () => {
                     </div>
                     </div>
                 ) : (
-                null
-                ))}
+                    watch("forthSectionStyle") === "with-slides" ? (
+
+                        <div className='p-5 rounded-md flex flex-col gap-2'>
+                    <div className='flex flex-col gap-2'>
+                        <div className='flex flex-col gap-1'>
+                            <Label className='font-bold'>Title</Label>
+                            <Input type='text' placeholder='Title' {...register("forthSection.title", {
+                                required: "Title is required"
+                            })} />
+                            {errors.forthSection?.title && <p className='text-red-500'>{errors.forthSection?.title.message}</p>}
+                        </div>
+                        <div className='flex flex-col gap-1'>
+                            <Label className='font-bold'>Description</Label>
+                            <Textarea placeholder='Description' {...register("forthSection.description")} />
+                        </div>
+                    </div>
+
+
+
+                    <div className='rounded-md flex flex-col gap-5'>
+
+                        <Label className='font-bold'>Items</Label>
+                        <div className='border p-2 rounded-md'>
+                        {forthSectionItems.map((field, index) => (
+                            <div key={field.id} className='grid grid-cols-1 gap-2 relative border-b pb-5 pt-3 last:border-b-0'>
+                                <div className='absolute top-2 right-2'>
+                                    <RiDeleteBinLine onClick={() => removeForthSectionItems(index)} className='cursor-pointer text-red-600' />
+                                </div>
+                                <div className='grid grid-cols-2 gap-2 w-full'>
+
+                                <div className='flex flex-col gap-2'>
+                                        <div className='flex flex-col gap-2'>
+                                            <Label className='pl-3 font-bold'>Image</Label>
+                                            <Controller
+                                                name={`forthSectionItems.${index}.image`}
+                                                control={control}
+                                                rules={{ required: "Image is required" }}
+                                                render={({ field }) => (
+                                                    <ImageUploader
+                                                        value={field.value}
+                                                        onChange={field.onChange}
+                                                    />
+                                                )}
+                                            />
+                                            {errors.forthSectionItems?.[index]?.image && <p className='text-red-500'>{errors.forthSectionItems?.[index]?.image.message}</p>}
+                                        </div>
+                                        <div className='flex flex-col gap-2'>
+                                            <Label className='pl-3 font-bold'>Image Alt</Label>
+                                            <Input type='text' placeholder='Image Alt' {...register(`forthSectionItems.${index}.imageAlt`)} />
+                                        </div>
+                                    </div>
+
+                                    <div className='flex flex-col gap-2'>
+                                        <div className='flex flex-col gap-2'>
+                                            <Label className='pl-3 font-bold'>Title</Label>
+                                            <Input type='text' placeholder='Title' {...register(`forthSectionItems.${index}.title`)} />
+                                        </div>
+                                        <div className='flex flex-col gap-2'>
+                                            <Label className='pl-3 font-bold'>Description</Label>
+                                            <Controller
+                                                name={`forthSectionItems.${index}.description`}
+                                                control={control}
+                                                render={({ field }) => (
+                                                    <Textarea
+                                                        placeholder='Description'
+                                                        {...field}
+                                                    />
+                                                )}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        ))}
+                        </div>
+
+                        <div className='flex justify-end'>
+                            <Button type='button' className="cursor-pointer" addItem onClick={() => appendForthSectionItems({image:"", imageAlt:"", title: "", description: "", column1Value:"", column2Value:"" })}>Add Item</Button>
+                        </div>
+
+                    </div>
+
+                </div>
+                    ) : (
+                        null
+                    )
+                    ))}
 
 </div>
 

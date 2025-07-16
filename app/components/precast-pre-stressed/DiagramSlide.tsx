@@ -20,7 +20,7 @@ export default function DiagramSlide({ data }: { data: PrecastPreStressedElement
       <div className="container">
         <div className="flex justify-between flex-wrap gap-y-2 lg:gap-0 pb-8 lg:pb-0">
           <div className="relative mb-5 lg:mb-20">
-            <SubTitle titleText={data.thirdSection.title} color='text-secondary' />
+            <SubTitle titleText={data.forthSection.title} color='text-secondary' />
           </div>
           <div className="flex ">
             {/* Navigation buttons */}
@@ -61,7 +61,7 @@ export default function DiagramSlide({ data }: { data: PrecastPreStressedElement
               }, 100)
             }}>
             {
-              data.thirdSection.items.map((item,index) =>
+              data.forthSection.items.map((item,index) =>
               (
                 <SwiperSlide key={item.title+index}>
                   <div className='bg-white p-5 lg:py-20'>
