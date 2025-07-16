@@ -16,7 +16,14 @@ export default function FacilitiesEquipmentSec({ data }: { data: About }) {
         <div className="relative mb-5 lg:mb-10">
           <SubTitle titleText={data.fourthSection.title} color='text-secondary' />
         </div>
-        <p className='mb-10 lg:mb-15 text-20 leading-[1.5] font-normal max-w-6xl'>{data.fourthSection.description}</p>
+        <div className='mb-10 lg:mb-15 text-20 leading-[1.5] font-normal max-w-6xl'>
+        {data.fourthSection.description.split('\n').map((line, idx) => (
+          <p key={idx} className="mb-5 last:mb-0">
+            {line}
+          </p>
+        ))}
+        </div>
+        {/* <p className='mb-10 lg:mb-15 text-20 leading-[1.5] font-normal max-w-6xl'>{data.fourthSection.description}</p> */}
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
           {
             data.fourthSection.items.map((item, index) => (
