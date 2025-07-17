@@ -31,7 +31,15 @@ const HeroSlider = ({data}:{data:home}) => {
         {data.banners.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="relative w-full h-full ">
-              <Image src={slide.image} alt={slide.title} width={1500} height={1000} className="absolute inset-0 w-full h-full object-cover" />
+              {/* <Image src={slide.image} alt={slide.title} width={1500} height={1000} className="absolute inset-0 w-full h-full object-cover" /> */}
+              <video
+                    src={'/assets/videos/Safetech V3 1.mp4'}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loop
+                    autoPlay
+                    muted
+                    playsInline
+                  />
               <div className="absolute inset-0 bg-secondary/75"/>
               <div className="relative z-10 h-full container mx-auto px-6 flex flex-col justify-end pb-20 sm:pb-25 2xl:pb-36 gap-8 text-white">
                 <motion.h1 className="text-[2.5rem] lg:text-96 font-bold leading-[1.15] uppercase" variants={letterContainer}
