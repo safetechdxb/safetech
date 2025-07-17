@@ -10,6 +10,7 @@ export default function index({data}: {data: PrecastPrestressed}) {
       <InnerBanner pageTitle={data.pageTitle} bannerBg={data.banner} />
       <Main data={data}/>
       <ShortBnr data={data}/>
+      
       <ElementsList data={data}/>
     </>
   )

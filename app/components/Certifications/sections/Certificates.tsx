@@ -58,7 +58,7 @@ const Certificates = ({ data }:{data:Certifications}) => {
               exit={{ scale: 0.8 }}
               onClick={(e) => e.stopPropagation()} // prevent modal from closing when clicking on image
             >
-              <Image src={selectedImage} alt="Modal Image" width={400} height={400} className="w-full px-[6vw] h-auto rounded-lg" />
+              <Image src={selectedImage} alt="Modal Image" width={400} height={400} className="w-full px-[6vw] lg:h-[90vh] md:h-[80vh] h-auto rounded-lg" />
               <button onClick={() => setSelectedImage(null)} className="absolute top-[-15%] md:top-5 2xl:top-2 right-0 2xl:right-2 text-white text-2xl cursor-pointer" >
                 ×
               </button>

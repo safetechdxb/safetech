@@ -46,15 +46,15 @@ const HeroSlider = ({data}:{data:home}) => {
                   initial="hidden"
                   animate="show">
                   {/* {slide.title} */}
-                  {slide.title.split("").map((char, index) => (
-                    <motion.span
-                      key={index}
-                      variants={letterItemTop}
-                      className="inline-block whitespace-pre"
-                    >
-                      {char}
-                    </motion.span>
-                  ))}
+                  {slide.title.split(" ").map((word, index) => (
+    <motion.span
+      key={index}
+      variants={letterItemTop}
+      className="inline-block mr-3 whitespace-pre"
+    >
+      {word}
+    </motion.span>
+  ))}
                   </motion.h1>
                 <motion.p variants={moveUp(0.2)} initial="hidden" animate="show" className="max-w-xl text-sm md:text-22 text-gray-200 border-l-4 border-red-600 pl-4 lg:pl-8 leading-[1.3]"> {slide.description} </motion.p>
               </div>

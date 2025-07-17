@@ -51,7 +51,11 @@ export type PrecastPreStressedElement = {
       items: [
         {
           column1Value: string,
-          column2Value: string
+          column2Value: string,
+          image: string,
+          imageAlt: string,
+          title: string,
+          description: string
         }
       ]
     }

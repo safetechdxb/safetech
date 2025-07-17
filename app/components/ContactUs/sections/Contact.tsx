@@ -24,9 +24,7 @@ const Contact  = ({ data }: { data: contactData }) => {
 
         <motion.div className="" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }} >
           <div className="w-full h-[350px] lg:h-[610px]  overflow-hidden">
-            <iframe
-              src={data.map}
-              width="100%" height="100%" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src={data.map} width="100%" height="100%" style={{ border: 0 }} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </motion.div>
 

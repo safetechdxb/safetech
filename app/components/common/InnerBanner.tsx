@@ -18,7 +18,7 @@ interface InnerBannerProps {
 
 const InnerBanner = ({ pageTitle, bannerBg, isBlogDetails, category, date, isDetailPage }: InnerBannerProps) => {
   return (
-    <section className="relative w-full h-[50dvh] lg:h-[540px] bg-secondary">
+    <section className="relative w-full h-[55dvh] min-h-max lg:h-[540px] bg-secondary">
       {
         bannerBg && (
           <Image src={bannerBg} alt="About Us" width={1920} height={540} className="absolute top-0 left-0 w-full h-full object-cover object-center z-0" />
@@ -29,17 +29,19 @@ const InnerBanner = ({ pageTitle, bannerBg, isBlogDetails, category, date, isDet
         <div className="flex flex-col justify-end h-full pb-10 ">
           {
             !isDetailPage && !isBlogDetails && (
-              <motion.h1 variants={moveUp(0)} initial="hidden" animate="show" viewport={{ once: true, amount: 0.2 }} className={`text-white uppercase text-96 font-semibold leading-[1.3]`}>{pageTitle}</motion.h1>
+              <motion.h1 variants={moveUp(0)} initial="hidden" animate="show" viewport={{ once: true, amount: 0.2 }} className={`text-white uppercase lg:text-96 text-32 font-semibold leading-[1.3]`}>{pageTitle}</motion.h1>
             )
           }
           {
             isDetailPage && (
-              <motion.h1 variants={moveUp(0)} initial="hidden" animate="show" viewport={{ once: true, amount: 0.2 }} className={`text-white uppercase text-48 max-w-6xl font-semibold leading-[1.3] ws-sm`}>{pageTitle}</motion.h1>
+              <motion.h1 variants={moveUp(0)} initial="hidden" animate="show" viewport={{ once: true, amount: 0.2 }} className={`text-white uppercase text-48 
+                max-w-6xl font-semibold leading-[1.3] ws-sm`}>{pageTitle}</motion.h1>
             )
           }
           {
             isBlogDetails && (
-              <motion.h1 variants={moveUp(0)} initial="hidden" animate="show" viewport={{ once: true, amount: 0.2 }} className={`text-white text-48 max-w-6xl font-semibold leading-[1.3] mb-7 `}>{pageTitle}</motion.h1>
+              <motion.h1 variants={moveUp(0)} initial="hidden" animate="show" viewport={{ once: true, amount: 0.2 }} className={`text-white text-48 max-w-6xl
+                 font-semibold leading-[1.3] mb-7 `}>{pageTitle}</motion.h1>
             )
           }
           {/* <ul className="flex items-center gap-4 text-white text-16 font-medium uppercase pt-6 lg:pt-10">
@@ -66,10 +68,10 @@ const InnerBanner = ({ pageTitle, bannerBg, isBlogDetails, category, date, isDet
             </div>
           )}
         </div>
-        <div className="absolute bottom-[-40px] right-0">
-          <div className="w-10 h-20 bg-white relative z-20 group">
-            <div className="w-10 h-10 bg-black absolute bottom-0 left-0"></div>
-            <div className="w-10 h-10 bg-primary absolute bottom-0 left-0 group-hover:bottom-[50%] transition-all duration-200"></div>
+        <div className="absolute lg:bottom-[-40px] bottom-[-32px] right-0">
+          <div className=" lg:w-10 lg:h-20 h-16 w-8 bg-white relative z-20 group">
+            <div className=" lg:w-10 lg:h-10 h-8 w-8 bg-black absolute bottom-0 left-0"></div>
+            <div className=" lg:w-10 lg:h-10 h-8 w-8 bg-primary absolute bottom-0 left-0 group-hover:bottom-[50%] transition-all duration-200"></div>
           </div>
         </div>
       </div>

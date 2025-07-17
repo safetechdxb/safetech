@@ -11,9 +11,10 @@ import {
     PaperClipIcon,
     BriefcaseIcon,
   } from "@heroicons/react/24/outline";
-import { CodeIcon, FilesIcon, FlowerIcon } from 'lucide-react';
-import { MdCardMembership } from 'react-icons/md';
+import { FilesIcon, FlowerIcon } from 'lucide-react';
+import { MdCardMembership, MdEmail } from 'react-icons/md';
 import { FaInfo } from 'react-icons/fa';
+import { FaGear } from 'react-icons/fa6';
 
 
 const AdminNavbar = () => {
@@ -36,7 +37,8 @@ const AdminNavbar = () => {
         { name: "Resources", href: "/admin/resources", icon: FilesIcon },
         { name: "Job Requests", href: "/admin/job-requests", icon: MdCardMembership },
         { name: "Enquiries", href: "/admin/enquiry", icon: FaInfo },
-        { name: "Tag Codes", href: "/admin/codes", icon: CodeIcon},
+        { name: "News Letter", href: "/admin/news-letter", icon: MdEmail },
+        { name: "Settings", href: "/admin/settings", icon: FaGear},
       ];
 
       return (

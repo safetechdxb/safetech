@@ -72,6 +72,10 @@ const precastPrestressedSchema = new mongoose.Schema({
                 items: [{
                     column1Value: String,
                     column2Value: String,
+                    image: String,
+                    imageAlt: String,
+                    title: String,
+                    description: String,
                 }],
             },
         }],

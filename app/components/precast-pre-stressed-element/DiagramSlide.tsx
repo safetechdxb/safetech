@@ -61,9 +61,9 @@ export default function DiagramSlide({ data }: { data: PrecastPreStressedElement
               }, 100)
             }}>
             {
-              data.thirdSection.items.map((item) =>
+              data.thirdSection.items.map((item,index) =>
               (
-                <SwiperSlide key={item.title}>
+                <SwiperSlide key={item.title+index}>
                   <div className='bg-white p-5 lg:py-20'>
                     <div className="flex flex-wrap xl:flex-nowrap gap-10 2xl:gap-20 items-center">
                       <motion.div className='bg-exlight-gray p-32p flex flex-col gap-y-5 2xl:gap-y-0 h-full justify-between 2xl:min-h-[328px] lg:w-3/7'>

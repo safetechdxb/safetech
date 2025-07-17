@@ -64,9 +64,9 @@ import cert3 from './img/certificate/certificate3.jpg';
 import cert4 from './img/certificate/certificate4.jpg';
 import cert5 from './img/certificate/certificate5.jpg';
 import conbanner from './img/banner/contactbanner.jpg';
-import location from './img/icons/location.png';
-import phone from './img/icons/phone.svg';
-import email from './img/icons/email.svg';
+import location from './img/contactus/location.svg';
+import phone from './img/contactus/phone.svg';
+import email from './img/contactus/email.svg';
 import precastBenifitsImg from './img/precast-concrete/benifitsimg.jpg'
 import shortBnrBg from './img/precast-pre-stressed/short-bnr-bg.jpg';
 import safePodsBanner from './img/products/safepods/safepod-bnr.jpg';

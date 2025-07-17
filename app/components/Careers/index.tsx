@@ -14,7 +14,7 @@ export default function Index({data}:{data:careers}) {
       <SingleImageText data={data} />
       <Benifits data={data} />
       <Openings data={data} />
-      <WantToJoin title={join.title} description={join.description} />
+      <WantToJoin title={join.title} description={join.description} openings={data.thirdSection.items}/>
     </>
   );
 }
