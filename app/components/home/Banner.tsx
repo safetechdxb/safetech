@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperClass } from "swiper";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import Image from "next/image";
+// import Image from "next/image";
 import { home } from "@/public/types/home";
 
 
