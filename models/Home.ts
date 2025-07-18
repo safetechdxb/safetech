@@ -29,6 +29,27 @@ const HomeSchema = new mongoose.Schema({
             }
         }]
     },
+    bannerStyle:{
+        type: String,
+    },
+    bannerImage:{
+        type: String,
+    },
+    bannerVideo:{
+        type: String,
+    },
+    bannerImageAlt:{
+        type: String,
+    },
+    posterImage:{
+        type: String,
+    },
+    bannerTitle:{
+        type: String,
+    },
+    bannerDescription:{
+        type: String,
+    },
     banners:[{
         image:{
             type: String,

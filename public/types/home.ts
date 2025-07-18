@@ -13,6 +13,13 @@ export type home = {
       }
     ];
   };
+  bannerStyle: string;
+  bannerImage: string;
+  bannerVideo: string;
+  bannerImageAlt: string;
+  posterImage: string;
+  bannerTitle: string;
+  bannerDescription: string;
   banners: [
     {
       image: string;
