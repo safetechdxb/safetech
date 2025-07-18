@@ -69,6 +69,8 @@ export default function WallPanelsSec({ data }: { data: PrecastConcreteElement }
     };
   }, []);
 
+  console.log("hadmore",hasMore,hasFinished);
+
 
   return (
     <section className='py-140 bg-off-white'>
@@ -102,13 +104,15 @@ export default function WallPanelsSec({ data }: { data: PrecastConcreteElement }
           }
         </div>
 
-        {(hasFinished || hasMore) && (
+        {( hasMore || data.secondSection.items.length > 6) && (
+
+          (hasFinished) ? (
           <div className="text-center flex justify-center mt-20">
             <motion.button
               onClick={handleToggle}
               className="flex bg-primary text-white hover:bg-opacity-80 transition h-[50px] overflow-hidden group" >
               <span className="px-4 py-2 uppercase font-normal text-16 leading-normal border-r border-r-primary group-hover:border-white/20 flex items-center justify-center">
-                {showAll || hasFinished ? "Show Less" : "Show More"}
+                Show Less
               </span>
               <div className="flex flex-col relative overflow-hidden">
                 <div className={`bg-white w-[50px] h-[50px] text-white text-[16px] font-[400] px-4 py-4 flex items-center justify-center transition-all duration-300 
@@ -125,6 +129,32 @@ export default function WallPanelsSec({ data }: { data: PrecastConcreteElement }
               </div>
             </motion.button>
           </div>
+          ) : (
+
+            <div className="text-center flex justify-center mt-20">
+            <motion.button
+              onClick={handleToggle}
+              className="flex bg-primary text-white hover:bg-opacity-80 transition h-[50px] overflow-hidden group" >
+              <span className="px-4 py-2 uppercase font-normal text-16 leading-normal border-r border-r-primary group-hover:border-white/20 flex items-center justify-center">
+                Show More
+              </span>
+              <div className="flex flex-col relative overflow-hidden">
+                <div className={`bg-white w-[50px] h-[50px] text-white text-[16px] font-[400] px-4 py-4 flex items-center justify-center transition-all duration-300 
+                  ${showAll || hasFinished ? "group-hover:translate-y-[-50px]" : "group-hover:translate-y-[50px]"}`}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`lucide lucide-move-down transition-transform duration-300 ${showAll || hasFinished ? "rotate-180" : ""}`} >
+                    <path d="M8 18L12 22L16 18" stroke="black" /> <path d="M12 2V22" stroke="black" />
+                  </svg>
+                </div>
+                <div className={`bg-primary w-[50px] h-[50px] absolute  left-0 z-20 text-white text-[16px] font-[400] px-4 py-4 flex items-center justify-center transition-all duration-300 group-hover:top-0 ${showAll || hasFinished ? "top-[50px]" : "top-[-50px]"}`}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`lucide lucide-move-down transition-transform duration-300 ${showAll || hasFinished ? "rotate-180" : ""}`} >
+                    <path d="M8 18L12 22L16 18" stroke="white" /> <path d="M12 2V22" stroke="white" />
+                  </svg>
+                </div>
+              </div>
+            </motion.button>
+          </div>
+
+          )
         )}
 
       </div>) : (

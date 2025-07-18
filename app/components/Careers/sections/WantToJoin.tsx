@@ -99,22 +99,9 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
 
   const onSubmit: SubmitHandler<CareerFormProps> = async (data) => {
     if (fileName) {
-      const formData = new FormData();
-      formData.append("file", file as File);
-      formData.append("fileType", "file");
-      const response = await fetch("/api/admin/upload", {
-        method: "POST",
-        body: formData,
-      });
-      if (response.status !== 200) {
-        alert("Something went wrong, please try again");
-        return;
-      }
-      const fileData = await response.json();
-      if (fileData.url) {
         const formResponse = await fetch("/api/admin/careers", {
           method: "POST",
-          body: JSON.stringify({ ...data, file: fileData.url }),
+          body: JSON.stringify({ ...data, file: file }),
         });
         if (formResponse.ok) {
           const formdata = await formResponse.json();
@@ -123,7 +110,6 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
           setValue("position", "");
           setFileName("");
         }
-      }
     }
   };
 
