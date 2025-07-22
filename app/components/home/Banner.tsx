@@ -32,7 +32,7 @@ const HeroSlider = ({data}:{data:home}) => {
                   }
               <div className="absolute inset-0 bg-secondary/75"/>
               <div className="relative z-10 h-full container mx-auto px-6 flex flex-col justify-end pb-20 sm:pb-25 2xl:pb-36 gap-8 text-white">
-                <motion.h1 className="text-[2.5rem] lg:text-96 font-bold leading-[1.15] uppercase" variants={letterContainer}
+                <motion.h1 className="text-[2.5rem] lg:text-[55px] 3xl:text-96 font-bold leading-[1.15] uppercase" variants={letterContainer}
                   initial="hidden"
                   animate="show">
                   {/* {slide.title} */}
