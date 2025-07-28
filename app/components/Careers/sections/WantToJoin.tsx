@@ -64,6 +64,7 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
   const { jobSelect } = useJobSelectContext();
   const [fileName, setFileName] = useState("");
   const [file, setFile] = useState<File | null>(null);
+  const [open, setOpen] = useState(false);
 
 
 
@@ -99,9 +100,23 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
 
   const onSubmit: SubmitHandler<CareerFormProps> = async (data) => {
     if (fileName) {
+        const formData = new FormData();
+        formData.append("file", file as File);
+        formData.append("fileType", "file");
+        formData.append("position", data.position);
+        formData.append("firstName", data.firstName);
+        formData.append("lastName", data.lastName);
+        formData.append("email", data.email);
+        formData.append("phone", data.phone as unknown as string);
+        formData.append("gender", data.gender);
+        formData.append("dob", data.dob);
+        formData.append("nationality", data.nationality);
+        formData.append("currentLocation", data.currentLocation);
+        formData.append("experience", data.experience as unknown as string);
+        formData.append("coverLetter", data.coverLetter);
         const formResponse = await fetch("/api/admin/careers", {
           method: "POST",
-          body: JSON.stringify({ ...data, file: file }),
+          body: formData,
         });
         if (formResponse.ok) {
           const formdata = await formResponse.json();
@@ -118,6 +133,12 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
       setValue("position", jobSelect, { shouldValidate: true });
     }
   }, [jobSelect]);
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "auto";
+    }
+  }, [open]);
 
 
   return (
@@ -228,6 +249,8 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
                       onValueChange={field.onChange}
                       value={field.value as string}
                       defaultValue=""
+                      open={open}
+                      onOpenChange={setOpen}
                     >
                       <SelectTrigger className="w-full border-0 border-b border-[#e4e5e4] outline-none focus:outline-none focus:ring-0 focus:border-b shadow-none rounded-none">
                         <SelectValue
@@ -317,7 +340,7 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
           </motion.div>
           <div className="w-full flex justify-end">
             <motion.button disabled={isSubmitting} type="submit" variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}
-              className="mt-8 flex w-[150px] cursor-pointer overflow-hidden group transition duration-300 ml-auto" >
+              className={`mt-8 flex w-[150px] ${isSubmitting ? "cursor-not-allowed" : "cursor-pointer"} overflow-hidden group transition duration-300 ml-auto`} >
               <div className="bg-primary text-white text-[16px] font-[400] px-5 py-4 transition duration-300  ">
                 SUBMIT
               </div>

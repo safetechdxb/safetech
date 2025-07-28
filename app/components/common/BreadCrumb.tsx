@@ -57,7 +57,7 @@ const Breadcrumb = () => {
             key={index}
             className="flex lfex- items-center gap-4  leading-[1.2] font-normal group "
           >
-            {!isLast ? (
+            {!isLast && label !== "products" ? (
               <Link href={href} className="text-15">
                 {label.split(" ")[0] in changeFormats
                   ? changeFormats[label.split(" ")[0] as keyof typeof changeFormats] + label.slice(3)

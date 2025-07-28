@@ -34,6 +34,9 @@ export default function WallPanelsSec({ data }: { data: PrecastConcreteElement }
       setShowAll(false);
       setInitialCount(6);
       setHasFinished(false);
+      if (firstBoxRef.current) {
+        firstBoxRef.current.scrollIntoView({ behavior: "smooth" });
+      }
     }
     else {
       setHasToggled(true); // only set after user action
@@ -131,7 +134,7 @@ export default function WallPanelsSec({ data }: { data: PrecastConcreteElement }
           </div>
           ) : (
 
-            <div className="text-center flex justify-center mt-20">
+            <div className="text-center flex justify-center mt-20" id="showMore">
             <motion.button
               onClick={handleToggle}
               className="flex bg-primary text-white hover:bg-opacity-80 transition h-[50px] overflow-hidden group" >
