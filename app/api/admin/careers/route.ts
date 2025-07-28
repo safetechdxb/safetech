@@ -59,15 +59,15 @@ export async function PATCH(request: NextRequest) {
 export async function POST(request: NextRequest) {
     try {
         await connectDB();
-        const formData = await request.formData();
-        const file = formData.get("file") as File;
-        const body = Object.fromEntries(formData.entries());
-        const uploadFileData = new FormData();
-        uploadFileData.append("file", file);
-        uploadFileData.append("fileType", "file");
+        const bodyFormData = await request.formData();
+        const file = bodyFormData.get("file") as File;
+        const body = Object.fromEntries(bodyFormData.entries());
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("fileType", "file");
         const response = await fetch(`${process.env.BASE_URL}/api/admin/upload`, {
           method: "POST",
-          body: uploadFileData,
+          body: formData,
         });
         if (response.status !== 200) {
           return NextResponse.json({ message: "Something went wrong, please try again" }, { status: 404 });
