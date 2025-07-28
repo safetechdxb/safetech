@@ -60,20 +60,8 @@ export async function POST(request: NextRequest) {
     try {
         await connectDB();
         const bodyFormData = await request.formData();
-        const file = bodyFormData.get("file") as File;
         const body = Object.fromEntries(bodyFormData.entries());
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("fileType", "file");
-        const response = await fetch(`${process.env.BASE_URL}/api/admin/upload`, {
-          method: "POST",
-          body: formData,
-        });
-        if (response.status !== 200) {
-          return NextResponse.json({ message: "Something went wrong, please try again" }, { status: 404 });
-        }
-        const fileData = await response.json();
-        const career = await CareerRequest.create({...body,file:fileData.url});
+        const career = await CareerRequest.create({...body});
         if(!career){
             return NextResponse.json({ message: "Something went wrong" }, { status: 404 });
         }
