@@ -21,12 +21,12 @@ const Facilities = ({ data }: { data: home }) => {
           <SubTitle titleText={data.facilities.title} color="text-white" />
         </div>
         <Tabs defaultValue="all" onValueChange={setActiveTab} value={activeTab}>
-          <TabsList className="relative flex flex-wrap gap-4 lg:gap-0 gap-y-5 lg:flex-row rounded-none mb-10 lg:mb-20 bg-transparent justify-start p-0 h-auto">
+          <TabsList className="relative flex flex-wrap gap-4 gap-y-5 lg:gap-y-10 lg:flex-row rounded-none mb-10 lg:mb-20 bg-transparent justify-start p-0 h-auto">
             {data.facilities.items.map((item, index) => (
               <TabsTrigger
                 key={index}
                 value={item.title}
-                className={`relative group cursor-pointer text-white hover:text-primary capitalize text-left w-fit lg:w-auto lg:text-center px-0 lg:px-8 py-0 
+                className={`relative group cursor-pointer text-white hover:text-primary capitalize text-left w-fit lg:w-auto lg:text-center px-0 lg:pr-8 py-0 
                 rounded-none data-[state=active]:text-primary first:pl-0 leading-[1] data-[state=active]:bg-transparent ${index !== facilitiesData.length - 2 ? 'lg:border-r lg:border-white/50' : ''}`}
               >
                 {item.title}
@@ -39,8 +39,8 @@ const Facilities = ({ data }: { data: home }) => {
           <TabsContent value={activeTab}>
             {filteredData.map((item, index) => (
               <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 lg:gap-15" key={index}>
-                <motion.div variants={moveUp(index * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
-                  <Image src={item.image} alt={item.title} width={600} height={600} className="w-full " />
+                <motion.div variants={moveUp(index * 0.2)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="h-full">
+                  <Image src={item.image} alt={item.title} width={600} height={600} className="w-full h-full " />
                 </motion.div>
                 <motion.div variants={moveUp(index * 0.3)} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }} className="text-white">
                   <h2 className="text-32 font-medium mb-6 lg:mb-10">{item.title}</h2>
