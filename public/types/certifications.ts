@@ -10,6 +10,7 @@ export type Certifications = {
       title: string;
       image: string;
       imageAlt: string;
+      file:string
     }
   ];
 };
