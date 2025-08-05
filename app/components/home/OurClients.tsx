@@ -16,14 +16,14 @@ const OurClients = ({data}:{data:home}) => {
           <SubTitle titleText={data.clients.title} color='text-secondary' />
       </div>
       <div className="hidden lg:block">
-        <div className="flex justify-center lg:justify-between gap-2 gap-y-6 md:gap-4 2xl:gap-6  items-center">
-          {data.clients.items.slice(0,6).map((client,index) => (
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5  items-center">
+          {data.clients.items.map((client,index) => (
             <motion.div variants={fadeIn(index * 0.1)} initial="hidden" whileInView="show" viewport={{once:true, amount:0.2}} key={index} className='flex justify-center items-center '>
-              <Image src={client.image} alt={client.imageAlt} className='object-contain w-20 h-5 lg:w-30 lg:h-10 2xl:h-auto 2xl:w-auto grayscale-100 hover:grayscale-0' height={30} width={30} />
+              <Image src={client.image} alt={client.imageAlt} className='object-contain h-auto w-full grayscale-100 hover:grayscale-0' height={30} width={30} />
             </motion.div>
           ))}
         </div>
-        <div className="flex justify-center lg:justify-around gap-2 gap-y-6 md:gap-4 2xl:gap-6 items-center mt-15">
+        {/* <div className="flex justify-center lg:justify-around gap-2 gap-y-6 md:gap-4 2xl:gap-6 items-center mt-15">
           {data.clients.items.slice(6, 11).map((client,index) => (
             <motion.div variants={fadeIn(index * 0.1)} initial="hidden" whileInView="show" viewport={{once:true, amount:0.2}} key={index} className='flex justify-center items-center '>
               <Image src={client.image} alt={client.imageAlt} className='object-contain w-20 h-5 lg:w-30 lg:h-10 2xl:h-auto 2xl:w-auto grayscale-100 hover:grayscale-0' height={30} width={30} />
@@ -36,7 +36,7 @@ const OurClients = ({data}:{data:home}) => {
               <Image src={client.image} alt={client.imageAlt} className='object-contain w-20 h-5 lg:w-30 lg:h-10 2xl:h-auto 2xl:w-auto grayscale-100 hover:grayscale-0' height={40} width={30} />
             </motion.div>
           ))}
-        </div>
+        </div> */}
         </div>
         <div className="block lg:hidden"> 
           <Swiper
@@ -58,7 +58,7 @@ const OurClients = ({data}:{data:home}) => {
                 <Image
                   src={client.image}
                   alt={client.imageAlt}
-                  className="object-contain w-20 h-5 lg:w-30 lg:h-10 2xl:h-auto 2xl:w-auto grayscale-100 hover:grayscale-0"
+                  className="object-contain h-auto w-full grayscale-100 hover:grayscale-0"
                   height={30}
                   width={30}
                 />
