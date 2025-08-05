@@ -26,7 +26,7 @@ const Certificates = ({ data }:{data:Certifications}) => {
                     <h4 className="text-24 font-semibold text-white leading-[1.2] transition-opacity duration-500">{item.title}</h4>
                     <div className="flex items-center">
                       <div className="w-[8px] h-[8px] bg-primary rounded-full transition-opacity duration-500 group-hover:hidden"></div>
-                      <Link href={item.image} download target="_blank">
+                      <Link href={item.file} download target="_blank">
                       <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg" className="hidden group-hover:block">
                         <path d="M1 14V16C1 16.5304 1.21071 17.0391 1.58579 17.4142C1.96086 17.7893 2.46957 18 3 18H15C15.5304 18 16.0391 17.7893 16.4142 17.4142C16.7893 17.0391 17 16.5304 17 16V14M4 8L9 13M9 13L14 8M9 13V1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
