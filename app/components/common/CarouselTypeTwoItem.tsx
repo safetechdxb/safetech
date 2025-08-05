@@ -89,7 +89,7 @@ const CarouselTypeTwoItem = ({
           }}
           className={`px-4 lg:px-30p relative z-30 text-white`}
         >
-          <p className={`text-20 font-[300] mb-5 md:pb-0 leading-[1.5] transition-opacity duration-400 line-clamp-5 ${shouldShow ? 'opacity-100' : 'opacity-0'}`}
+          <p className={`text-20 font-[300] mb-0 md:pb-0 leading-[1.5] transition-opacity duration-400 line-clamp-5 ${shouldShow ? 'opacity-100' : 'opacity-0'}`}
           >
             {description}
           </p>
