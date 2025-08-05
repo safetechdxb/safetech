@@ -33,6 +33,9 @@ const CertificationSchema = new mongoose.Schema({
             title: {
                 type: String,
                 required: true
+            },
+            file: {
+                type: String,
             }
         }
     ],
