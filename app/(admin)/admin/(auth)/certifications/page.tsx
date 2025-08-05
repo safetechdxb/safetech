@@ -8,6 +8,7 @@ import { RiDeleteBinLine } from 'react-icons/ri';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import AdminItemContainer from '@/app/components/AdminInnerContainer/AdminItemContainer';
+import { FileUploader } from '@/components/ui/file-uploader';
 
 interface Certifications {
     pageTitle: string;
@@ -19,6 +20,7 @@ interface Certifications {
         title: string;
         image: string;
         imageAlt: string;
+        file: string;
     }[];
 }
 
@@ -125,6 +127,24 @@ const AdminCertifications = () => {
                                     />
                                     {errors.certifications?.[index]?.image && <p className='text-red-500'>{errors.certifications?.[index]?.image.message}</p>}
                                 </div>
+
+                                <div className='flex flex-col gap-2'>
+                                    <Label className='pl-3 font-bold'>File</Label>
+                                    <Controller
+                                        name={`certifications.${index}.file`}
+                                        control={control}
+                                        rules={{ required: "File is required" }}
+                                        render={({ field }) => (
+                                            <FileUploader
+                                                value={field.value}
+                                                onChange={field.onChange}
+                                            />
+                                        )}
+                                    />
+                                    {errors.certifications?.[index]?.file && <p className='text-red-500'>{errors.certifications?.[index]?.file.message}</p>}
+                                </div>
+
+
                                 
                             </div>
                             <div className='flex flex-col gap-2'>
@@ -136,6 +156,7 @@ const AdminCertifications = () => {
                                     <Label className='pl-3 font-bold'>Title</Label>
                                     <Input type='text' placeholder='Title' {...register(`certifications.${index}.title`)} />
                                 </div>
+                                
                             </div>
 
                         </div>
@@ -145,7 +166,7 @@ const AdminCertifications = () => {
 
                 </div>
                 <div className='flex justify-end mb-5 mr-5'>
-                        <Button type='button' className="cursor-pointer" addItem onClick={() => append({ image: "", imageAlt: "", title: "" })}>Add Item</Button>
+                        <Button type='button' className="cursor-pointer" addItem onClick={() => append({ image: "", imageAlt: "", title: "", file: "" })}>Add Item</Button>
                     </div>
                 </AdminItemContainer>  
 
