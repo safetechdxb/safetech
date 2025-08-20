@@ -4,26 +4,26 @@ import Image from "next/image";
 import { assets } from "@/public/assets/assets";
 import Link from "next/link";
 import { ChevronRight, MoveRight } from 'lucide-react';
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 
-const Footer = () => {
+const Footer = ({products}:{products:{title:string,url:string}[]}) => {
   // const response = await fetch(`${process.env.BASE_URL}/api/admin/home`, { next: { revalidate: 60 } });
   // const data = await response.json();
 
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-    try {
-      const response = await fetch(`https://www.safetech-precast.com/api/admin/home`, { next: { revalidate: 60 } });
-      const data = await response.json();
-      setProducts(data.data.products.items);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  }
-  fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //   try {
+  //     const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/home`, { next: { revalidate: 60 } });
+  //     const data = await response.json();
+  //     setProducts(data.data.products.items);
+  //   } catch (error) {
+  //     console.error('Error fetching data:', error);
+  //   }
+  // }
+  // fetchData();
+  // }, []);
 
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
@@ -163,7 +163,7 @@ const Footer = () => {
       <div className="border-t border-white/10 mt-15 py-10">
         <div className="container">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-white/50">2025 Safetech. All Rights reserved</p>
+            <p className="text-white/50">2025 Safetech. All Rights reserved | By <a href="https://globalsurf.ae" target="_blank" className="text-white/50">GlobalSurf</a></p>
             <ul className="flex ">
               <li className="border-r border-white/50 pr-4 last:border-none"><Link href="#" className="text-white/50 block">Privacy policy</Link></li>
               <li className="border-r border-white/50 pl-4 last:border-none"><Link href="#" className="text-white/50 block">Terms of use</Link></li>
