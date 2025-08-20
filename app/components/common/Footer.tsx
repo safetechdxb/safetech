@@ -15,7 +15,7 @@ const Footer = () => {
   useEffect(() => {
     const fetchData = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/home`, { next: { revalidate: 60 } });
+      const response = await fetch(`https://www.safetech-precast.com/api/admin/home`, { next: { revalidate: 60 } });
       const data = await response.json();
       setProducts(data.data.products.items);
     } catch (error) {
