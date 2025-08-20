@@ -358,7 +358,7 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
 
           </motion.div>
 
-<div className="w-full flex justify-end">
+<div className="w-full flex">
           <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""} ref={recaptcha} className='mt-5'/>
     {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
 </div>
