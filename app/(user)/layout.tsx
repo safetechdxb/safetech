@@ -38,6 +38,9 @@ export default async function RootLayout({
   const tagResponse = await fetch(`${process.env.BASE_URL}/api/admin/tags`);
   const tagData = await tagResponse.json();
 
+  const productResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/home`, { next: { revalidate: 60 } });
+  const productData = await productResponse.json();
+
 
   return (
     <html lang="en">
@@ -47,7 +50,7 @@ export default async function RootLayout({
         <JobSelectContextProvider>
           <HeaderMenu />
           {children}
-          <Footer/>
+          <Footer products={productData.data.products.items}/>
         </JobSelectContextProvider>
       </body>
     </html>
