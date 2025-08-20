@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import { motion, easeOut } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { assets } from "@/public/assets/assets";
 import { useForm, SubmitHandler, Controller } from "react-hook-form"
 import { careerFormSchema } from "@/shemas/careerSchema";
@@ -24,6 +24,7 @@ import {
 import { useJobSelectContext } from "@/app/contexts/jobSelectContext";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
+import ReCAPTCHA from 'react-google-recaptcha';
 
 type CareerFormProps = z.infer<typeof careerFormSchema>
 
@@ -65,6 +66,8 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
   const [fileName, setFileName] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [open, setOpen] = useState(false);
+  const recaptcha = useRef<ReCAPTCHA>(null)
+  const [error, setError] = useState("")
 
 
 
@@ -99,6 +102,12 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
   };
 
   const onSubmit: SubmitHandler<CareerFormProps> = async (data) => {
+    const captchaValue = recaptcha?.current?.getValue()
+    if (!captchaValue) {
+      setError("Please verify yourself to continue")
+      return;
+    }
+    setError("")
     if (fileName) {
       const fileFormData = new FormData();
       fileFormData.append("file", file as File);
@@ -348,6 +357,12 @@ const WantToJoin: React.FC<PlatformsSectionProps> = ({
 
 
           </motion.div>
+
+<div className="w-full flex justify-end">
+          <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""} ref={recaptcha} className='mt-5'/>
+    {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
+</div>
+
           <div className="w-full flex justify-end">
             <motion.button disabled={isSubmitting} type="submit" variants={fadeIn} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}
               className={`mt-8 flex w-[150px] ${isSubmitting ? "cursor-not-allowed" : "cursor-pointer"} overflow-hidden group transition duration-300 ml-auto`} >
