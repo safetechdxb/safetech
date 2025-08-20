@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: "Safe tech",
   description: "Every construction is built to last and enhances the spaces where people live, work, and thrive.",
   icons: {
-    icon: "/assets/img/logo.svg",
+    icon: "/assets/img/logofav.png",
   },
 };
 

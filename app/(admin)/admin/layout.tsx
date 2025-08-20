@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Safe Tech | Backend Console",
   description: "Safe Tech",
   icons: {
-    icon: "/assets/img/logo.svg",
+    icon: "/assets/img/logofav.png",
   },
 };
 
