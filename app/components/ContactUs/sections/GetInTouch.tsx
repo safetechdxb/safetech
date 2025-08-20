@@ -16,6 +16,8 @@ import { contactFormSchema } from "@/shemas/contactSchema";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import { useState } from "react";
+import ReCAPTCHA from 'react-google-recaptcha';
+import { useRef } from "react";
 
 type ContactFormProps = z.infer<typeof contactFormSchema>
 
@@ -23,6 +25,8 @@ type ContactFormProps = z.infer<typeof contactFormSchema>
 const GetInTouch = ({ data }: { data: contactData }) => {
 
   const [phoneIsFocused, setPhoneIsFocused] = useState(false);
+  const recaptcha = useRef<ReCAPTCHA>(null)
+    const [error,setError] = useState("")
 
   const {
     register,
@@ -36,6 +40,12 @@ const GetInTouch = ({ data }: { data: contactData }) => {
 
   const onSubmit: SubmitHandler<ContactFormProps> = async (data) => {
     try {
+      const captchaValue = recaptcha?.current?.getValue()
+            if (!captchaValue) {
+              setError("Please verify yourself to continue")
+              return;
+      }
+      setError("")
       const response = await fetch("/api/admin/enquiry", {
         method: "POST",
         body: JSON.stringify(data),
@@ -139,6 +149,12 @@ const GetInTouch = ({ data }: { data: contactData }) => {
              py-[16px] pr-6 w-full resize-none"/>
               {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message?.message}</p>}
             </div>
+
+<div className="w-full flex justify-end mb-5">
+            <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""} ref={recaptcha} className='mt-5'/>
+            </div>
+            {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
+            
             <div className="w-full ">
               <button type="submit" disabled={isSubmitting} className="mt-2 flex w-[215px] cursor-pointer overflow-hidden group transition duration-300 ml-auto">
                 <div className="bg-primary text-white text-[16px] font-[400] px-2 py-4 transition duration-300 min-w-[165px]">

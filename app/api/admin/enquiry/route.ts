@@ -6,10 +6,6 @@ import { verifyAdmin } from "@/lib/verifyAdmin";
 export async function POST(request: NextRequest) {
     try {
         await connectDB();
-        const isAdmin = await verifyAdmin(request);
-        if (!isAdmin) {
-            return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
-        }
         const body = await request.json();
         const enquiry = await Enquiry.create(body);
         if(!enquiry){
