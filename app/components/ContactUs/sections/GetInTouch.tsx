@@ -150,7 +150,7 @@ const GetInTouch = ({ data }: { data: contactData }) => {
               {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message?.message}</p>}
             </div>
 
-<div className="w-full flex justify-end mb-5">
+<div className="w-full flex mb-5">
             <ReCAPTCHA sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""} ref={recaptcha} className='mt-5'/>
             </div>
             {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
