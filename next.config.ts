@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
       },
     ],
     unoptimized: true
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+    
   }
 };
 

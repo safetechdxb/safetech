@@ -5,6 +5,9 @@ import "../../../app/globals.css";
 export const metadata: Metadata = {
   title: "Safe Tech | Backend Console",
   description: "Safe Tech",
+  icons: {
+    icon: "/assets/img/logo.svg",
+  },
 };
 
 export default function RootLayout({
