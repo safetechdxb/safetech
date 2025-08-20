@@ -4,7 +4,7 @@ import Image from "next/image";
 import { assets } from "@/public/assets/assets";
 import Link from "next/link";
 import { ChevronRight, MoveRight } from 'lucide-react';
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 
 const Footer = ({products}:{products:{title:string,url:string}[]}) => {
   // const response = await fetch(`${process.env.BASE_URL}/api/admin/home`, { next: { revalidate: 60 } });
